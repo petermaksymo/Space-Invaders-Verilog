@@ -9,21 +9,21 @@ z2
 cModel Technology
 Z0 dC:/Users/Peter/OneDrive/1T8Semester1/ECE241/Lab projects/Space_invaders/output_files
 vuser_control
-Z1 !s110 1541976581
+Z1 !s110 1541977527
 !i10b 1
-!s100 [j=4ZS19BKYDMm?L>d^nE2
-I9L=WfVj0QTZk5Q]AGiLH>3
+!s100 elm]X7kV_5@gC?hnY_Wl73
+IdAGGb7Gb7m08g@fd`8T:`2
 Z2 VDg1SIo80bB@j0V0VzS_@n1
 R0
-Z3 w1541976579
+Z3 w1541977523
 Z4 8C:/Users/Peter/OneDrive/1T8Semester1/ECE241/Lab projects/Space_invaders/output_files/user_fsm.v
 Z5 FC:/Users/Peter/OneDrive/1T8Semester1/ECE241/Lab projects/Space_invaders/output_files/user_fsm.v
-L0 36
+L0 43
 Z6 OV;L;10.5b;63
 r1
 !s85 0
 31
-Z7 !s108 1541976581.000000
+Z7 !s108 1541977527.000000
 Z8 !s107 C:/Users/Peter/OneDrive/1T8Semester1/ECE241/Lab projects/Space_invaders/output_files/user_fsm.v|
 Z9 !s90 -reportprogress|300|-work|work|C:/Users/Peter/OneDrive/1T8Semester1/ECE241/Lab projects/Space_invaders/output_files/user_fsm.v|
 !i113 1
@@ -32,14 +32,14 @@ Z11 tCvgOpt 0
 vuser_datapath
 R1
 !i10b 1
-!s100 42iR_QTH=UaMFzLUY<]XT1
-II>cfm_lL=a3UCJ^hGdRi62
+!s100 7=CH[[RVo[X2STEhVc_UB1
+IiOKnUA_WJnWaT_nV9BcmF2
 R2
 R0
 R3
 R4
 R5
-L0 93
+L0 98
 R6
 r1
 !s85 0
@@ -53,8 +53,8 @@ R11
 vuser_fsm
 R1
 !i10b 1
-!s100 BncKVYkha^zm1Kc@V@UF01
-IO;aj`c3YdUzBEL]VZd>h21
+!s100 k2Bihe>[]zSzS`_DQW1_M0
+I8z8m[9V=1?OWUlHYn=TcQ0
 R2
 R0
 R3

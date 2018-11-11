@@ -4,7 +4,11 @@ module user_fsm (
   input resetn,
   input enable,
 
-  output [8:0] x_pos, y_pos,
+  input [8:0] x_pos_init,
+  input [7:0] y_pos_init,
+
+  output [8:0] x_pos_final,
+  output [7:0] y_pos_final,
   output [2:0] colour
   );
 
@@ -24,9 +28,12 @@ user_datapath d0_u(
     .resetn(resetn),
     .plot(plot),
 
+    .x_init(x_pos_init),
+    .y_init(y_pos_init),
+
     .counter(counter),
-    .x(x_pos),
-    .y(y.pos),
+    .x(x_pos_final),
+    .y(y_pos_final),
     .colour(colour)
   );
 
@@ -72,9 +79,7 @@ module user_control(
 
       case (current_state)
       S_WAIT_PLOT: plot = 1'b0;
-      S_PLOT: begin
-        plot = 1'b1;
-      end
+      S_PLOT: plot = 1'b1;
       S_FINISH_PLOT: plot = 1'b1;
       // default:    // don't need default since we already made sure all of our outputs were assigned a value at the start of the always block
       endcase
@@ -94,12 +99,20 @@ module user_datapath(
   input clk,
   input resetn, plot,
 
+  input [8:0] x_pos_init,
+  input [7:0] y_pos_init,
+
   output reg [9:0] counter,
-  output reg [4:0] x, y,
+  output [8:0] x,
+  output [7:0] y,
   output reg [2:0] colour
   );
+reg [4:0] x_sprite, y_sprite;
 
 wire [2:0] colour_ram;
+
+assign x = x_pos_init + x_sprite;
+assign y = y_pos_init + y_sprite;
 
 ram400x4 user_sprite(
   .address(counter),
@@ -111,8 +124,8 @@ ram400x4 user_sprite(
 
   always@(posedge clk) begin
     if(!resetn) begin
-       x <= 5'b0;
-    	 y <= 5'b0;
+       x_sprite <= 5'b0;
+    	 y_sprite <= 5'b0;
     	 counter <= 10'b0;
     	 colour <= 3'b0;
     end
@@ -120,8 +133,8 @@ ram400x4 user_sprite(
       if(plot) begin
          colour <= colour_ram;
          counter <= counter + 1;
-         x <= x == 5'd19 ? 5'b0 : x +1;
-         y <= x == 5'd19 ? y + 1: y;
+         x_sprite <= x_sprite == 5'd19 ? 5'b0 : x_sprite + 1;
+         y_sprite <= x_sprite == 5'd19 ? y_sprite + 1: y_sprite;
   		end
 
     end
