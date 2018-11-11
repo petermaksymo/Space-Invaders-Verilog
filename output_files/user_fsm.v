@@ -4,12 +4,12 @@ module user_fsm (
   input resetn,
   input enable,
 
-  input [8:0] x_pos_init,
-  input [7:0] y_pos_init,
+  input[8:0] x_pos_init, // Initial X position of the sprite, set by us
+  input[7:0] y_pos_init, // Initial Y position of the sprite, set by us
 
-  output [8:0] x_pos_final,
-  output [7:0] y_pos_final,
-  output [2:0] colour
+  output[8:0] x_pos_final, // Final x position, connect to VGA adapter
+  output[7:0] y_pos_final, // Final y position, connect to VGA adapter
+  output[2:0]  colour // Colour of pixel, connect to VGA adapter
   );
 
 wire plot;
@@ -114,7 +114,7 @@ wire [2:0] colour_ram;
 assign x = x_pos_init + x_sprite;
 assign y = y_pos_init + y_sprite;
 
-ram400x4 user_sprite(
+ram400x3_user user_sprite(
   .address(counter),
   .clock(clk),
   .data(9'b0),
