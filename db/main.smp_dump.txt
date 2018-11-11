@@ -1,0 +1,11 @@
+
+State Machine - |main|control:C0|current_state
+Name current_state.S_LOAD_X current_state.S_FINISH_PLOT current_state.S_PLOT_3 current_state.S_PLOT_2 current_state.S_PLOT_1 current_state.S_PLOT_0 current_state.S_WAIT_PLOT current_state.S_BLACK 
+current_state.S_BLACK 0 0 0 0 0 0 0 0 
+current_state.S_WAIT_PLOT 0 0 0 0 0 0 1 1 
+current_state.S_PLOT_0 0 0 0 0 0 1 0 1 
+current_state.S_PLOT_1 0 0 0 0 1 0 0 1 
+current_state.S_PLOT_2 0 0 0 1 0 0 0 1 
+current_state.S_PLOT_3 0 0 1 0 0 0 0 1 
+current_state.S_FINISH_PLOT 0 1 0 0 0 0 0 1 
+current_state.S_LOAD_X 1 0 0 0 0 0 0 1 
