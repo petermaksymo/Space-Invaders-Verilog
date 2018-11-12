@@ -72,8 +72,25 @@ module main
 
 
     // lots of wires to connect our datapath and control
-    main_control C0();
-		main_datapath D0();
+		main_control C0(.clk(),
+							 .resetn(),
+							 .X_pos(),
+							 .Y_pos(),
+							 .draw0(),
+							 .draw1(),
+							 .draw2(),
+							 .draw3()
+							 );
+							 
+		main_datapath D0(.clk(),
+   .resetn, draw0, draw1, draw2 
+	 input [9:0] X_pos_init, // Initial x Position of object
+	 input [8:0] Y_pos_init, // Initial y Position of object
+
+	 output reg [9:0] X,
+	 output reg [8:0] Y, 
+	 output reg [2:0] colour
+    ););
 
 
 endmodule
@@ -82,37 +99,33 @@ endmodule
 module main_control(
     input clk,
     input resetn,
-
-    input should_plot,
-	 input should_black,
-	 input should_ld_x,
-
-	 input [7:0] black_x,
-	 input [6:0] black_y,
-
-
-    output reg ld_x, plot, x_offset, y_offset, black
-
+	 input [9:0] X_pos,
+	 input [8:0] Y_pos,
+    output reg draw0, draw1, draw2, draw3;
     );
 
     reg [4:0] current_state, next_state;
-
+	 reg [8:0] counter = 9'd0;
+	 
     localparam  S_PLOT_USER    = 4'd0,
-				    		S_PLOT_ENEMY0   = 4'd1,
+				    S_PLOT_ENEMY0  = 4'd1,
                 S_PLOT_ENEMY1  = 4'd2,
-								S_PLOT_ENEMY2  = 4'd3,
-					 			//S_FINISH_PLO  = 4'd6, //not exatly sure why this is needed but FPGA wouldnt draw this one the first time around
-					 			//S_BLACK 	 	 = 4'd7;
+					 S_PLOT_ENEMY2  = 4'd3,
+					 S_PLOT_ENEMY3  = 4'd4;
+					 //S_FINISH_PLO  = 4'd6, //not exatly sure why this is needed but FPGA wouldnt draw this one the first time around
+					 //S_BLACK 	 	 = 4'd7;
 
     // Next state logic aka our state table
     always@(*)
     begin: state_table
             case (current_state)
-								S_PLOT_USER: next_state = S_PLOT_ENEMY0;
-								S_PLOT_ENEMY0: next_state = S_PLOT_ENEMY1;
-								S_PLOT_ENEMY1: next_state = S_PLOT_ENEMY2;
-								S_PLOT_ENEMY2: next_state = S_PLOT_ENEMY3;
-            default:     next_state = S_LOAD_USER;
+								S_PLOT_USER: next_state = counter == 9'd399 ? S_PLOT_ENEMY0 : S_PLOT_USER; // Repeat ploting user until all 400 pixels are exhausted
+								S_PLOT_ENEMY0: next_state = counter == 9'd399 ? S_PLOT_ENEMY1 : S_ENEMY0;
+								S_PLOT_ENEMY1: next_state = counter == 9'd399 ? S_PLOT_ENEMY2 : S_ENEMY1;
+								S_PLOT_ENEMY2: next_state = counter == 9'd399 ? S_PLOT_ENEMY3 : S_ENEMY2;
+								S_PLOT_ENEMY3: next_state = counter == 9'd399 ? S_PLOT_USER : S_ENEMY3;
+								
+            default:     next_state = S_PLOT_USER;
         endcase
     end // state_table
 
@@ -124,38 +137,17 @@ module main_control(
         // This is a different style from using a default statement.
         // It makes the code easier to read.  If you add other out
         // signals be sure to assign a default value for them here.
-      ld_x = 1'b0;
-		  plot = 1'b0;
-		  x_offset = 1'b0;
-		  y_offset = 1'b0;
-		  black = 1'b0;
-
-        case (current_state)
-            S_LOAD_X: ld_x = 1'b1;
-            S_PLOT_0: plot = 1'b1;
-				S_PLOT_1: begin
-					plot = 1'b1;
-					x_offset = 1'b1;
-				end
-				S_PLOT_2: begin
-					plot = 1'b1;
-					y_offset = 1'b1;
-				end
-				S_PLOT_3: begin
-					plot = 1'b1;
-					x_offset = 1'b1;
-					y_offset = 1'b1;
-				end
-				S_FINISH_PLOT: begin
-					plot = 1'b1;
-					x_offset = 1'b1;
-					y_offset = 1'b1;
-				end
-
-				S_BLACK: begin
-					black = 1'b1;
-					plot = 1'b1;
-				end
+        draw0 = 1'b0;
+		  draw1 = 1'b0;
+		  draw2 = 1'b0;
+		  draw3 = 1'b0;
+		  
+        case (current_state) begin
+            S_PLOT_USER: draw0 = 1'b1;
+				S_PLOT_ENEMY0: draw1 = 1'b1;
+				S_PLOT_ENEMY1: draw2 = 1'b1;
+				S_PLOT_ENEMY2: draw3 = 1'b1;
+			  end
         // default:    // don't need default since we already made sure all of our outputs were assigned a value at the start of the always block
         endcase
     end // enable_signals
@@ -164,23 +156,30 @@ module main_control(
     always@(posedge clk)
     begin: state_FFs
         if(!resetn)
-            current_state <= S_LOAD_X;
-		  if(should_black)
-				current_state <= S_BLACK;
+            current_state <= S_PLOT_USER;
+//		  if(should_black)
+//				current_state <= S_BLACK;
         else
+				if (current_state == next_state) begin
+					counter <= counter + 1;
+				end
+				else begin 
+					counter <= 9'b0;
+				end
             current_state <= next_state;
     end // state_FFS
 endmodule
 
+// Initial Position is the left-top corner of the sprite box
+// So we copy the entire ram over starting from initial position to the VGA adapter
 module main_datapath(
-   input clk,
-   input resetn, ld_X, black, x_offset, y_offset, plot,
-	 input [9:0] X_pos_init,
-	 input [8:0] Y_pos_init,
+    input clk,
+    input resetn, draw0, draw1, draw2 
+	 input [9:0] X_pos_init, // Initial x Position of object
+	 input [8:0] Y_pos_init, // Initial y Position of object
 
-
-	 output reg [9:0] X, black_x,
-	 output reg [8:0] Y, black_y,
+	 output reg [9:0] X,
+	 output reg [8:0] Y, 
 	 output reg [2:0] colour
     );
 
@@ -188,15 +187,26 @@ module main_datapath(
 	 wire [8:0] Y_pos0, Y_pos1, Y_pos2, Y_pos3;
 	 wire [2:0] colour0, colour1, colour2, colour3;
 
+	 // initialize user
+	  userFSM U0(.clk(clk),
+							.resetn(resetn),
+							.enable(enable),
+							.x_pos_init(9'd150), // Using magic number for now
+							.y_pos_init(8'b220), // Using magic number for now
+							.x_pos_final(X_pos0),
+							.y_pos_final(y_pos0),
+							.colour(colour0)
+		 );
+	 
 	 // Initialize first enemy
 	 enemyFSM E0(.clk(clk),
 							.resetn(resetn),
 							.enable(enable),
 							.x_pos_init(9'd20), // Using magic number for now
 							.y_pos_init(8'b40), // Using magic number for now
-							.x_pos_final(X_pos0),
-							.y_pos_final(y_pos0),
-							.colour(colour0)
+							.x_pos_final(X_pos1),
+							.y_pos_final(y_pos1),
+							.colour(colour1)
 		 );
 
 		// Initialize second enemy
@@ -205,9 +215,9 @@ module main_datapath(
 							 .enable(enable),
 							 .x_pos_init(9'60), // Using magic number for now
 							 .y_pos_init(8'b40), // Using magic number for now
-							 .x_pos_final(X_pos1),
- 							 .y_pos_final(y_pos1),
-							 .colour(colour1)
+							 .x_pos_final(X_pos2),
+ 							 .y_pos_final(y_pos2),
+							 .colour(colour2)
 		 );
 
 		 // Initialize third enemy
@@ -216,20 +226,11 @@ module main_datapath(
  							 .enable(enable),
  							 .x_pos_init(9'80), // Using magic number for now
  							 .y_pos_init(8'b40), // Using magic number for now
- 							 .x_pos_final(X_pos2),
-  						 .y_pos_final(y_pos2),
- 							 .colour(colour2)
+ 							 .x_pos_final(X_pos3),
+							 .y_pos_final(y_pos3),
+ 							 .colour(colour3)
  		 );
-		 // initialize user
-	  userFSM U0(.clk(clk),
-							.resetn(resetn),
-							.enable(enable),
-							.x_pos_init(9'd150), // Using magic number for now
-							.y_pos_init(8'b220), // Using magic number for now
-							.x_pos_final(X_pos3),
-							.y_pos_final(y_pos3),
-							.colour(colour3)
-		 );
+		 
     always@(posedge clk) begin
         if(!resetn) begin
 			 		X <= 9'b0;
@@ -238,38 +239,25 @@ module main_datapath(
         end
         else begin
 				 		if (draw0) begin
-								X <= X_pos_init + X_pos0;
-								Y <= Y_pos_init + Y_pos0;
+								X <= X_pos0;
+								Y <= Y_pos0;
 								colour <= colour0;
 						end
 						else if (draw1) begin
-								X <= X_pos_init + X_pos1;
-								Y <= Y_pos_init + Y_pos1;
+								X <= X_pos1;
+								Y <= Y_pos1;
 								colour <= colour1;
 						end
 						else if (draw2) begin
-								X <= X_pos_init + X_pos2;
-								Y <= Y_pos_init + Y_pos2;
+								X <= X_pos2;
+								Y <= Y_pos2;
 								colour <= colour2;
 						end
 						else if (draw3) begin
-								X <= X_pos_init + X_pos3;
-								Y <= Y_pos_init + Y_pos3;
+								X <= X_pos3;
+								Y <= Y_pos3;
 								colour <= colour3;
 						end
-
-				if(plot && !black) begin
-						X <= X_pos_init + x_pos;
-						Y <= Y_pos + y_offset;
-						colour <= colour_in;
-				end
-				if(black && plot) begin
-					X <= black_x;
-					Y <= black_y;
-					colour <= 3'b0;
-					black_x <= black_y == 119 ? black_x + 1 : black_x;
-					black_y <= black_y == 119 ? 0 : black_y + 1;
-				end
 
         end
     end
