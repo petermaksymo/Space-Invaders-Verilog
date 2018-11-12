@@ -9,15 +9,20 @@ module enemyFSM(
 
   output[8:0] x_pos_final, // Final x position, connect to VGA adapter
   output[7:0] y_pos_final, // Final y position, connect to VGA adapter
-  output[2:0]  colour // Colour of pixel, connect to VGA adapter
+  output[2:0]  colour, // Colour of pixel, connect to VGA adapter
+  output done
   );
 
+  wire plot;
+  wire [9:0] counter;
+  
   enemy_control c0_e(
       .clk(clk),
       .resetn(resetn),
       .should_plot(enable),
       .counter(counter),
-      .plot(plot)
+      .plot(plot),
+		.done(done)
     );
 
   enemy_datapath d0_e(
@@ -25,8 +30,8 @@ module enemyFSM(
       .resetn(resetn),
       .plot(plot),
 
-      .x_init(x_pos_init),
-      .y_init(y_pos_init),
+      .x_pos_init(x_pos_init),
+      .y_pos_init(y_pos_init),
 
       .counter(counter),
       .x(x_pos_final),
@@ -42,14 +47,15 @@ module enemy_control(
   input should_plot,
   input [9:0] counter,
 
-  output reg plot
+  output reg plot,
+  output reg done
   );
 
   reg [4:0] current_state, next_state;
 
   localparam
     S_WAIT_PLOT    = 4'd0,
-		S_PLOT         = 4'd1,
+	 S_PLOT         = 4'd1,
     S_FINISH_PLOT  = 4'd2;
 
   // Next state logic aka our state table
@@ -57,7 +63,7 @@ module enemy_control(
   begin: state_table
     case (current_state)
       S_WAIT_PLOT: next_state = should_plot ? S_PLOT : S_WAIT_PLOT;
-      S_PLOT: next_state = counter == 9'd559 ? S_FINISH_PLOT : S_PLOT;
+      S_PLOT: next_state = counter == 10'd559 ? S_FINISH_PLOT : S_PLOT;
       S_FINISH_PLOT: next_state = S_WAIT_PLOT;
 
       default: next_state = S_WAIT_PLOT;
@@ -72,11 +78,15 @@ module enemy_control(
       // It makes the code easier to read.  If you add other out
       // signals be sure to assign a default value for them here.
       plot = 1'b0;
+		done = 1'b0;
 
       case (current_state)
       S_WAIT_PLOT: plot = 1'b0;
       S_PLOT: plot = 1'b1;
-      S_FINISH_PLOT: plot = 1'b1;
+      S_FINISH_PLOT: begin
+			plot = 1'b1;
+			done = 1'b1;
+		end
       // default:    // don't need default since we already made sure all of our outputs were assigned a value at the start of the always block
       endcase
   end // enable_signals
@@ -103,37 +113,37 @@ module enemy_datapath(
   output [7:0] y,
   output reg [2:0] colour
   );
-reg [4:0] x_sprite, y_sprite;
+	reg [4:0] x_sprite, y_sprite;
 
-wire [2:0] colour_ram;
+	wire [2:0] colour_ram;
 
-assign x = x_pos_init + x_sprite;
-assign y = y_pos_init + y_sprite;
+	assign x = x_pos_init + x_sprite;
+	assign y = y_pos_init + y_sprite;
 
-ram560x3_enemy1 enemy1_sprite(
-  .address(counter),
-  .clock(clk),
-  .data(10'b0),
-  .wren(1'b0),
-  .q(colour_ram)
-  );
+	ram560x3_enemy1 enemy1_sprite(
+	  .address(counter),
+	  .clock(clk),
+	  .data(10'b0),
+	  .wren(1'b0),
+	  .q(colour_ram)
+	  );
 
-  always@(posedge clk) begin
-    if(!resetn) begin
-       x_sprite <= 5'b0;
-    	 y_sprite <= 5'b0;
-    	 counter <= 10'b0;
-    	 colour <= 3'b0;
-    end
-    else begin
-      if(plot) begin
-         colour <= colour_ram;
-         counter <= counter + 1;
-         x_sprite <= x_sprite == 5'd25 ? 5'b0 : x_sprite + 1;
-         y_sprite <= x_sprite == 5'd19 ? y_sprite + 1: y_sprite;
-  		end
+	  always@(posedge clk) begin
+		 if(!resetn) begin
+			 x_sprite <= 5'b0;
+			 y_sprite <= 5'b0;
+			 counter <= 10'b0;
+			 colour <= 3'b0;
+		 end
+		 else begin
+			if(plot) begin
+				colour <= colour_ram;
+				counter <= counter + 1;
+				x_sprite <= x_sprite == 5'd27 ? 5'b0 : x_sprite + 1;
+				y_sprite <= x_sprite == 5'd19 ? y_sprite + 1: y_sprite;
+			end
 
-    end
-  end
+		 end
+	  end
 
 endmodule
