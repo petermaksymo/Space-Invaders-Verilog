@@ -47,25 +47,40 @@ module user_control(
   input resetn,
   input should_plot,
   input [9:0] counter,
+  input should_move,
+  input move_direction, // Direction sprite should move; 0 to move left, 1 to move right
 
   output reg plot,
+  output reg move,
+  output reg direction,
   output reg done
   );
 
   reg [4:0] current_state, next_state;
 
   localparam
-    S_WAIT_PLOT    = 4'd0,
-	 S_PLOT         = 4'd1,
-    S_FINISH_PLOT  = 4'd2;
+    S_WAIT_MOVE    = 4'd0,
+    S_MOVE_LEFT    = 4'd1,
+    S_MOVE_RIGHT   = 4'd2,
+    S_WAIT_PLOT    = 4'd3,
+	  S_PLOT         = 4'd4,
+    S_FINISH_PLOT  = 4'd5;
+
 
   // Next state logic aka our state table
   always@(*)
   begin: state_table
     case (current_state)
-      S_WAIT_PLOT: next_state = should_plot ? S_PLOT : S_WAIT_PLOT;
-      S_PLOT: next_state = counter == 10'd559 ? S_FINISH_PLOT : S_PLOT;
-      S_FINISH_PLOT: next_state = S_WAIT_PLOT;
+      S_WAIT_MOVE:    if (should_move)
+                            next_state = move_direction ? S_MOVE_RIGHT : S_MOVE_LEFT; // 1 to move right, 0 to move left
+                      else
+                            next_state = S_WAIT_PLOT;
+      S_MOVE_LEFT:    next_state = S_WAIT_PLOT;
+      S_MOVE_RIGHT:   next_state = S_WAIT_PLOT;
+      S_WAIT_PLOT:    next_state = should_plot ? S_PLOT : S_WAIT_PLOT;
+      S_PLOT:         next_state = counter == 10'd559 ? S_FINISH_PLOT : S_PLOT;
+      S_FINISH_PLOT:  next_state = S_WAIT_MOVE;
+
 
       default: next_state = S_WAIT_PLOT;
     endcase
@@ -78,16 +93,27 @@ module user_control(
       // This is a different style from using a default statement.
       // It makes the code easier to read.  If you add other out
       // signals be sure to assign a default value for them here.
+      move = 1'b0;
+      direction = 1'b0;
       plot = 1'b0;
-		done = 1'b0;
+		  done = 1'b0;
 
       case (current_state)
+      S_WAIT_MOVE: move = 0;
+      S_MOVE_LEFT: begin
+            move = 1;
+            direction = 0;
+            end
+      S_MOVE_RIGHT: begin
+            move = 1;
+            direction = 1;
+            end
       S_WAIT_PLOT: plot = 1'b0;
       S_PLOT: plot = 1'b1;
       S_FINISH_PLOT: begin
-			plot = 1'b1;
-			done = 1'b1;
-		end
+			      plot = 1'b1;
+			      done = 1'b1;
+		        end
       // default:    // don't need default since we already made sure all of our outputs were assigned a value at the start of the always block
       endcase
   end // enable_signals
@@ -104,8 +130,7 @@ endmodule
 
 module user_datapath(
   input clk,
-  input resetn, plot,
-
+  input resetn, plot, done, move, direction,
   input [8:0] x_pos_init,
   input [7:0] y_pos_init,
 
@@ -141,8 +166,13 @@ module user_datapath(
 				x_sprite <= x_sprite == 5'd27 ? 5'b0 : x_sprite + 1;
 				y_sprite <= x_sprite == 5'd27 ? y_sprite + 1: y_sprite;
 			end
-
-		 end
+      if (move) begin
+          if (direction)
+              X <= X + 1;
+          else
+              X <= X - 1;
+          end
+		   end
 	  end
 
 endmodule
