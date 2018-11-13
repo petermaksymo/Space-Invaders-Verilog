@@ -3,7 +3,8 @@ module user_fsm (
   input clk,
   input resetn,
   input enable,
-
+  input should_move,
+  input move_direction,
   input[8:0] x_pos_init, // Initial X position of the sprite, set by us
   input[7:0] y_pos_init, // Initial Y position of the sprite, set by us
 
@@ -21,6 +22,10 @@ module user_fsm (
 		 .resetn(resetn),
 		 .should_plot(enable),
 		 .counter(counter),
+     .shoud_move(should_move),
+     .move_direction(direction),
+     .move(move),
+     .direction(direction),
 		 .plot(plot),
 		 .done(done)
 	  );
@@ -29,10 +34,10 @@ module user_fsm (
 		 .clk(clk),
 		 .resetn(resetn),
 		 .plot(plot),
-
+     .move(move),
+     .direction(direction),
 		 .x_pos_init(x_pos_init),
 		 .y_pos_init(y_pos_init),
-
 		 .counter(counter),
 		 .x(x_pos_final),
 		 .y(y_pos_final),

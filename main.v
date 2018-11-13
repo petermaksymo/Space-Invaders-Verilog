@@ -120,8 +120,8 @@ module main_control(
 
     localparam  S_WAIT_START   = 4'd0,
 					 S_PLOT_USER    = 4'd1,
-				    S_PLOT_ENEMY0  = 4'd2,
-                S_PLOT_ENEMY1  = 4'd3,
+				   S_PLOT_ENEMY0  = 4'd2,
+           S_PLOT_ENEMY1  = 4'd3,
 					 S_PLOT_ENEMY2  = 4'd4,
 					 S_PLOT_ENEMY3  = 4'd5,
 					 S_DONE			 = 4'd6;
@@ -157,7 +157,7 @@ module main_control(
 			  draw3 = 1'b0;
 
         case (current_state)
-            S_PLOT_USER: draw0 = 1'b1;
+          S_PLOT_USER: draw0 = 1'b1;
 					S_PLOT_ENEMY0: draw1 = 1'b1;
 					S_PLOT_ENEMY1: draw2 = 1'b1;
 					S_PLOT_ENEMY2: draw3 = 1'b1;
@@ -202,6 +202,8 @@ module main_datapath(
 							.enable(draw0),
 							.x_pos_init(9'd147), // Using magic number for now
 							.y_pos_init(8'd220), // Using magic number for now
+							.should_move(shoud_move),
+							.move_direction(move_direction),
 							.done(done[0]),
 							.x_pos_final(X_pos0),
 							.y_pos_final(Y_pos0),
