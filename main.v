@@ -71,7 +71,7 @@ module main
     // lots of wires to connect our datapath and control
 	 wire done_user;
 	 wire [3:0] done_enemy;
-	 
+
 		main_control C0(.clk(CLOCK_50),
 			 .resetn(resetn),
 			 .start(~KEY[1]),
@@ -108,7 +108,7 @@ endmodule
 module main_control(
     input clk,
     input resetn, start,
-	 input done_user, 
+	 input done_user,
 	 input [3:0] done_enemy,
 	 input [8:0] X_pos,
 	 input [7:0] Y_pos,
@@ -125,7 +125,7 @@ module main_control(
 					 S_PLOT_ENEMY2  = 4'd4,
 					 S_PLOT_ENEMY3  = 4'd5,
 					 S_DONE			 = 4'd6;
-					 
+
 
     // Next state logic aka our state table
     always@(*)
@@ -200,7 +200,7 @@ module main_datapath(
 	  user_fsm U0(.clk(clk),
 							.resetn(resetn),
 							.enable(draw0),
-							.x_pos_init(9'd150), // Using magic number for now
+							.x_pos_init(9'd147), // Using magic number for now
 							.y_pos_init(8'd220), // Using magic number for now
 							.done(done[0]),
 							.x_pos_final(X_pos0),

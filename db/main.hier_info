@@ -1845,11 +1845,11 @@ counter[1] => Equal0.IN4
 counter[2] => Equal0.IN3
 counter[3] => Equal0.IN2
 counter[4] => Equal0.IN9
-counter[5] => Equal0.IN8
-counter[6] => Equal0.IN7
-counter[7] => Equal0.IN1
-counter[8] => Equal0.IN0
-counter[9] => Equal0.IN6
+counter[5] => Equal0.IN1
+counter[6] => Equal0.IN8
+counter[7] => Equal0.IN7
+counter[8] => Equal0.IN6
+counter[9] => Equal0.IN0
 plot <= plot.DB_MAX_OUTPUT_PORT_TYPE
 done <= done.DB_MAX_OUTPUT_PORT_TYPE
 
@@ -1951,7 +1951,7 @@ colour[1] <= colour[1]~reg0.DB_MAX_OUTPUT_PORT_TYPE
 colour[2] <= colour[2]~reg0.DB_MAX_OUTPUT_PORT_TYPE
 
 
-|main|main_datapath:D0|user_fsm:U0|user_datapath:d0_u|ram400x3_user:user_sprite
+|main|main_datapath:D0|user_fsm:U0|user_datapath:d0_u|rom560x3_user:user_sprite
 address[0] => address[0].IN1
 address[1] => address[1].IN1
 address[2] => address[2].IN1
@@ -1961,38 +1961,36 @@ address[5] => address[5].IN1
 address[6] => address[6].IN1
 address[7] => address[7].IN1
 address[8] => address[8].IN1
+address[9] => address[9].IN1
 clock => clock.IN1
-data[0] => data[0].IN1
-data[1] => data[1].IN1
-data[2] => data[2].IN1
-wren => wren.IN1
 q[0] <= altsyncram:altsyncram_component.q_a
 q[1] <= altsyncram:altsyncram_component.q_a
 q[2] <= altsyncram:altsyncram_component.q_a
 
 
-|main|main_datapath:D0|user_fsm:U0|user_datapath:d0_u|ram400x3_user:user_sprite|altsyncram:altsyncram_component
-wren_a => altsyncram_h0q1:auto_generated.wren_a
+|main|main_datapath:D0|user_fsm:U0|user_datapath:d0_u|rom560x3_user:user_sprite|altsyncram:altsyncram_component
+wren_a => ~NO_FANOUT~
 rden_a => ~NO_FANOUT~
 wren_b => ~NO_FANOUT~
 rden_b => ~NO_FANOUT~
-data_a[0] => altsyncram_h0q1:auto_generated.data_a[0]
-data_a[1] => altsyncram_h0q1:auto_generated.data_a[1]
-data_a[2] => altsyncram_h0q1:auto_generated.data_a[2]
+data_a[0] => ~NO_FANOUT~
+data_a[1] => ~NO_FANOUT~
+data_a[2] => ~NO_FANOUT~
 data_b[0] => ~NO_FANOUT~
-address_a[0] => altsyncram_h0q1:auto_generated.address_a[0]
-address_a[1] => altsyncram_h0q1:auto_generated.address_a[1]
-address_a[2] => altsyncram_h0q1:auto_generated.address_a[2]
-address_a[3] => altsyncram_h0q1:auto_generated.address_a[3]
-address_a[4] => altsyncram_h0q1:auto_generated.address_a[4]
-address_a[5] => altsyncram_h0q1:auto_generated.address_a[5]
-address_a[6] => altsyncram_h0q1:auto_generated.address_a[6]
-address_a[7] => altsyncram_h0q1:auto_generated.address_a[7]
-address_a[8] => altsyncram_h0q1:auto_generated.address_a[8]
+address_a[0] => altsyncram_gph1:auto_generated.address_a[0]
+address_a[1] => altsyncram_gph1:auto_generated.address_a[1]
+address_a[2] => altsyncram_gph1:auto_generated.address_a[2]
+address_a[3] => altsyncram_gph1:auto_generated.address_a[3]
+address_a[4] => altsyncram_gph1:auto_generated.address_a[4]
+address_a[5] => altsyncram_gph1:auto_generated.address_a[5]
+address_a[6] => altsyncram_gph1:auto_generated.address_a[6]
+address_a[7] => altsyncram_gph1:auto_generated.address_a[7]
+address_a[8] => altsyncram_gph1:auto_generated.address_a[8]
+address_a[9] => altsyncram_gph1:auto_generated.address_a[9]
 address_b[0] => ~NO_FANOUT~
 addressstall_a => ~NO_FANOUT~
 addressstall_b => ~NO_FANOUT~
-clock0 => altsyncram_h0q1:auto_generated.clock0
+clock0 => altsyncram_gph1:auto_generated.clock0
 clock1 => ~NO_FANOUT~
 clocken0 => ~NO_FANOUT~
 clocken1 => ~NO_FANOUT~
@@ -2002,16 +2000,16 @@ aclr0 => ~NO_FANOUT~
 aclr1 => ~NO_FANOUT~
 byteena_a[0] => ~NO_FANOUT~
 byteena_b[0] => ~NO_FANOUT~
-q_a[0] <= altsyncram_h0q1:auto_generated.q_a[0]
-q_a[1] <= altsyncram_h0q1:auto_generated.q_a[1]
-q_a[2] <= altsyncram_h0q1:auto_generated.q_a[2]
+q_a[0] <= altsyncram_gph1:auto_generated.q_a[0]
+q_a[1] <= altsyncram_gph1:auto_generated.q_a[1]
+q_a[2] <= altsyncram_gph1:auto_generated.q_a[2]
 q_b[0] <= <GND>
 eccstatus[0] <= <GND>
 eccstatus[1] <= <GND>
 eccstatus[2] <= <GND>
 
 
-|main|main_datapath:D0|user_fsm:U0|user_datapath:d0_u|ram400x3_user:user_sprite|altsyncram:altsyncram_component|altsyncram_h0q1:auto_generated
+|main|main_datapath:D0|user_fsm:U0|user_datapath:d0_u|rom560x3_user:user_sprite|altsyncram:altsyncram_component|altsyncram_gph1:auto_generated
 address_a[0] => ram_block1a0.PORTAADDR
 address_a[0] => ram_block1a1.PORTAADDR
 address_a[0] => ram_block1a2.PORTAADDR
@@ -2039,18 +2037,15 @@ address_a[7] => ram_block1a2.PORTAADDR7
 address_a[8] => ram_block1a0.PORTAADDR8
 address_a[8] => ram_block1a1.PORTAADDR8
 address_a[8] => ram_block1a2.PORTAADDR8
+address_a[9] => ram_block1a0.PORTAADDR9
+address_a[9] => ram_block1a1.PORTAADDR9
+address_a[9] => ram_block1a2.PORTAADDR9
 clock0 => ram_block1a0.CLK0
 clock0 => ram_block1a1.CLK0
 clock0 => ram_block1a2.CLK0
-data_a[0] => ram_block1a0.PORTADATAIN
-data_a[1] => ram_block1a1.PORTADATAIN
-data_a[2] => ram_block1a2.PORTADATAIN
 q_a[0] <= ram_block1a0.PORTADATAOUT
 q_a[1] <= ram_block1a1.PORTADATAOUT
 q_a[2] <= ram_block1a2.PORTADATAOUT
-wren_a => ram_block1a0.PORTAWE
-wren_a => ram_block1a1.PORTAWE
-wren_a => ram_block1a2.PORTAWE
 
 
 |main|main_datapath:D0|enemyFSM:E0

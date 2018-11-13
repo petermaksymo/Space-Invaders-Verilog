@@ -15,7 +15,7 @@ module enemyFSM(
 
   wire plot;
   wire [9:0] counter;
-  
+
   enemy_control c0_e(
       .clk(clk),
       .resetn(resetn),
@@ -140,7 +140,7 @@ module enemy_datapath(
 				colour <= colour_ram;
 				counter <= counter + 1;
 				x_sprite <= x_sprite == 5'd27 ? 5'b0 : x_sprite + 1;
-				y_sprite <= x_sprite == 5'd19 ? y_sprite + 1: y_sprite;
+				y_sprite <= x_sprite == 5'd27 ? y_sprite + 1: y_sprite;
 			end
 
 		 end

@@ -13,31 +13,31 @@ module user_fsm (
   output done
   );
 
-wire plot;
-wire [9:0] counter;
+	wire plot;
+	wire [9:0] counter;
 
-user_control c0_u(
-    .clk(clk),
-    .resetn(resetn),
-    .should_plot(enable),
-    .counter(counter),
-    .plot(plot),
-	 .done(done)
-  );
+	user_control c0_u(
+		 .clk(clk),
+		 .resetn(resetn),
+		 .should_plot(enable),
+		 .counter(counter),
+		 .plot(plot),
+		 .done(done)
+	  );
 
-user_datapath d0_u(
-    .clk(clk),
-    .resetn(resetn),
-    .plot(plot),
+	user_datapath d0_u(
+		 .clk(clk),
+		 .resetn(resetn),
+		 .plot(plot),
 
-    .x_pos_init(x_pos_init),
-    .y_pos_init(y_pos_init),
+		 .x_pos_init(x_pos_init),
+		 .y_pos_init(y_pos_init),
 
-    .counter(counter),
-    .x(x_pos_final),
-    .y(y_pos_final),
-    .colour(colour)
-  );
+		 .counter(counter),
+		 .x(x_pos_final),
+		 .y(y_pos_final),
+		 .colour(colour)
+	  );
 
 endmodule
 
@@ -64,7 +64,7 @@ module user_control(
   begin: state_table
     case (current_state)
       S_WAIT_PLOT: next_state = should_plot ? S_PLOT : S_WAIT_PLOT;
-      S_PLOT: next_state = counter == 9'd399 ? S_FINISH_PLOT : S_PLOT;
+      S_PLOT: next_state = counter == 10'd559 ? S_FINISH_PLOT : S_PLOT;
       S_FINISH_PLOT: next_state = S_WAIT_PLOT;
 
       default: next_state = S_WAIT_PLOT;
@@ -84,8 +84,8 @@ module user_control(
       case (current_state)
       S_WAIT_PLOT: plot = 1'b0;
       S_PLOT: plot = 1'b1;
-      S_FINISH_PLOT: begin 
-			//plot = 1'b1;
+      S_FINISH_PLOT: begin
+			plot = 1'b1;
 			done = 1'b1;
 		end
       // default:    // don't need default since we already made sure all of our outputs were assigned a value at the start of the always block
@@ -121,11 +121,9 @@ module user_datapath(
 	assign x = x_pos_init + x_sprite;
 	assign y = y_pos_init + y_sprite;
 
-	ram400x3_user user_sprite(
+	rom560x3_user user_sprite(
 	  .address(counter),
 	  .clock(clk),
-	  .data(9'b0),
-	  .wren(1'b0),
 	  .q(colour_ram)
   );
 
@@ -140,8 +138,8 @@ module user_datapath(
 			if(plot) begin
 				colour <= colour_ram;
 				counter <= counter + 1;
-				x_sprite <= x_sprite == 5'd19 ? 5'b0 : x_sprite + 1;
-				y_sprite <= x_sprite == 5'd19 ? y_sprite + 1: y_sprite;
+				x_sprite <= x_sprite == 5'd27 ? 5'b0 : x_sprite + 1;
+				y_sprite <= x_sprite == 5'd27 ? y_sprite + 1: y_sprite;
 			end
 
 		 end
