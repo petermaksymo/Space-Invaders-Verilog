@@ -22,7 +22,7 @@ module user_fsm (
 		 .resetn(resetn),
 		 .should_plot(enable),
 		 .counter(counter),
-     .shoud_move(should_move),
+     .should_move(should_move),
      .move_direction(direction),
      .move(move),
      .direction(direction),
@@ -39,7 +39,7 @@ module user_fsm (
 		 .x_pos_init(x_pos_init),
 		 .y_pos_init(y_pos_init),
 		 .counter(counter),
-		 .x(x_pos_final),
+		 .X(x_pos_final),
 		 .y(y_pos_final),
 		 .colour(colour)
 	  );
@@ -140,7 +140,7 @@ module user_datapath(
   input [7:0] y_pos_init,
 
   output reg [9:0] counter,
-  output [8:0] x,
+  output [8:0] X,
   output [7:0] y,
   output reg [2:0] colour
   );
@@ -148,7 +148,7 @@ module user_datapath(
 
 	wire [2:0] colour_ram;
 
-	assign x = x_pos_init + x_sprite;
+	assign X = x_pos_init + x_sprite + x_move;
 	assign y = y_pos_init + y_sprite;
 
 	rom560x3_user user_sprite(
@@ -156,6 +156,9 @@ module user_datapath(
 	  .clock(clk),
 	  .q(colour_ram)
   );
+  
+  
+  reg x_move;
 
 	  always@(posedge clk) begin
 		 if(!resetn) begin
@@ -163,6 +166,7 @@ module user_datapath(
 			 y_sprite <= 5'b0;
 			 counter <= 10'b0;
 			 colour <= 3'b0;
+			 x_move <= 1'b0;
 		 end
 		 else begin
 			if(plot) begin
@@ -173,9 +177,9 @@ module user_datapath(
 			end
       if (move) begin
           if (direction)
-              X <= X + 1;
+              x_move <= x_move + 1;
           else
-              X <= X - 1;
+              x_move <= x_move - 1;
           end
 		   end
 	  end
