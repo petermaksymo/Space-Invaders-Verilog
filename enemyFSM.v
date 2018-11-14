@@ -127,9 +127,14 @@ module enemy_datapath(
 	  .wren(1'b0),
 	  .q(colour_ram)
 	  );
+	  
+	  wire done;
+	  assign done = (counter == 10'd559);
+	  
+	  
 
 	  always@(posedge clk) begin
-		 if(!resetn) begin
+		 if(!resetn || done) begin
 			 x_sprite <= 5'b0;
 			 y_sprite <= 5'b0;
 			 counter <= 10'b0;

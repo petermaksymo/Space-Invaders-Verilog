@@ -121,7 +121,7 @@ module main_control(
             case (current_state)
 								S_WAIT_START: next_state = start == 1'b1 ? S_PLOT_USER : S_WAIT_START;
 								S_PLOT_USER: next_state = done_user ? S_PLOT_ENEMIES : S_PLOT_USER; // Repeat ploting user until all 400 pixels are exhausted
-								S_PLOT_ENEMIES: next_state = done_enemies == 7'd19 ? S_PLOT_ENEMIES : S_DONE;
+								S_PLOT_ENEMIES: next_state = done_enemies == 7'd60 ? S_DONE : S_PLOT_ENEMIES;
 								S_DONE: next_state = S_DONE;
 								//S_PLOT_ENEMY3: next_state = done_enemy == 4'b1111 ? S_PLOT_USER : S_PLOT_ENEMY3;
 
@@ -175,7 +175,7 @@ module main_datapath(
 	 output reg [2:0] colour
     );
 
-		wire done_e;
+		wire done_e, done_u;
 
 	 wire [8:0] X_pos_u, X_pos_e;
 	 wire [7:0] Y_pos_u, Y_pos_e;
@@ -206,7 +206,7 @@ module main_datapath(
 							.enable(draw_u),
 							.x_pos_init(9'd147), //center screen
 							.y_pos_init(8'd220), //bottom row
-							.should_move(shoud_move),
+							.should_move(should_move),
 							.move_direction(move_direction),
 							.done(done_u),
 							.x_pos_final(X_pos_u),
@@ -218,7 +218,7 @@ module main_datapath(
 	 enemyFSM E0(.clk(clk),
 							.resetn(resetn),
 							.enable(draw_e),
-							.x_pos_init(anchor + (done_enemies*28)), // Using magic number for now
+							.x_pos_init(X_pos_init), // Using magic number for now
 							.y_pos_init(Y_pos_init), // Using magic number for now
 							.done(done_e),
 							.x_pos_final(X_pos_e),
