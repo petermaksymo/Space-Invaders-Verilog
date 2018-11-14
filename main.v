@@ -39,7 +39,7 @@ module main
 	wire [2:0] colour;
 	wire [8:0] x;
 	wire [7:0] y;
-	wire draw0, draw1, draw2, draw3;
+	wire draw_u, draw_e;
 
 	// Create an Instance of a VGA controller - there can be only one!
 	// Define the number of colours as well as the initial background
@@ -70,32 +70,25 @@ module main
 
     // lots of wires to connect our datapath and control
 	 wire done_user;
-	 wire [3:0] done_enemy;
+	 wire [6:0] done_enemies;
 
 		main_control C0(.clk(CLOCK_50),
 			 .resetn(resetn),
 			 .start(~KEY[1]),
-			 .X_pos(x),
-			 .Y_pos(y),
 			 .done_user(done_user),
-			 .done_enemy(done_enemy),
-			 .draw0(draw0),
-			 .draw1(draw1),
-			 .draw2(draw2),
-			 .draw3(draw3)
+			 .done_enemies(done_enemies),
+
+			 .draw_u(draw_u),
+			 .draw_e(draw_e)
 			 );
 
 		main_datapath D0(.clk(CLOCK_50),
 			.resetn(resetn),
-			.draw0(draw0),
-			.draw1(draw1),
-			.draw2(draw2),
-			.draw3(draw3),
-	 		.X_pos_init(9'd0),
-	 		.Y_pos_init(8'd0),
+			.draw_u(draw_u),
+			.draw_e(draw_e),
 
 			.done_user(done_user),
-			.done_enemy(done_enemy),
+			.done_enemies(done_enemies),
 	 		.X(x),
 	 	 	.Y(y),
 			.colour(colour)
@@ -108,23 +101,18 @@ endmodule
 module main_control(
     input clk,
     input resetn, start,
-	 input done_user,
-	 input [3:0] done_enemy,
-	 input [8:0] X_pos,
-	 input [7:0] Y_pos,
-    output reg draw0, draw1, draw2, draw3
+	  input done_user,
+	  input [6:0] done_enemies,
+
+    output reg draw_u, draw_e
     );
 
     reg [4:0] current_state, next_state;
-	 //reg [8:0] counter = 9'd0;
 
     localparam  S_WAIT_START   = 4'd0,
 					 S_PLOT_USER    = 4'd1,
-				   S_PLOT_ENEMY0  = 4'd2,
-           S_PLOT_ENEMY1  = 4'd3,
-					 S_PLOT_ENEMY2  = 4'd4,
-					 S_PLOT_ENEMY3  = 4'd5,
-					 S_DONE			 = 4'd6;
+				   S_PLOT_ENEMIES= 4'd2,
+					 S_DONE			    = 4'd3;
 
 
     // Next state logic aka our state table
@@ -132,10 +120,8 @@ module main_control(
     begin: state_table
             case (current_state)
 								S_WAIT_START: next_state = start == 1'b1 ? S_PLOT_USER : S_WAIT_START;
-								S_PLOT_USER: next_state = done_user ? S_PLOT_ENEMY0 : S_PLOT_USER; // Repeat ploting user until all 400 pixels are exhausted
-								S_PLOT_ENEMY0: next_state = done_enemy == 4'b0001 ? S_PLOT_ENEMY1 : S_PLOT_ENEMY0;
-								S_PLOT_ENEMY1: next_state = done_enemy == 4'b0010 ? S_PLOT_ENEMY2 : S_PLOT_ENEMY1;
-								S_PLOT_ENEMY2: next_state = done_enemy == 4'b0100 ? S_DONE : S_PLOT_ENEMY2;
+								S_PLOT_USER: next_state = done_user ? S_PLOT_ENEMIES : S_PLOT_USER; // Repeat ploting user until all 400 pixels are exhausted
+								S_PLOT_ENEMIES: next_state = done_enemies == 7'd19 ? S_PLOT_ENEMIES : S_DONE;
 								S_DONE: next_state = S_DONE;
 								//S_PLOT_ENEMY3: next_state = done_enemy == 4'b1111 ? S_PLOT_USER : S_PLOT_ENEMY3;
 
@@ -151,17 +137,16 @@ module main_control(
         // This is a different style from using a default statement.
         // It makes the code easier to read.  If you add other out
         // signals be sure to assign a default value for them here.
-        draw0 = 1'b0;
-			  draw1 = 1'b0;
-			  draw2 = 1'b0;
-			  draw3 = 1'b0;
+        draw_u = 1'b0;
+				draw_e = 1'b0;
 
         case (current_state)
-          S_PLOT_USER: draw0 = 1'b1;
-					S_PLOT_ENEMY0: draw1 = 1'b1;
-					S_PLOT_ENEMY1: draw2 = 1'b1;
-					S_PLOT_ENEMY2: draw3 = 1'b1;
-
+          S_PLOT_USER: begin
+						draw_u = 1'b1;
+					end
+					S_PLOT_ENEMIES: begin
+					  draw_e = 1'b1;
+				  end
         // default:    // don't need default since we already made sure all of our outputs were assigned a value at the start of the always block
         endcase
     end // enable_signals
@@ -180,71 +165,66 @@ endmodule
 // So we copy the entire ram over starting from initial position to the VGA adapter
 module main_datapath(
     input clk,
-    input resetn, draw0, draw1, draw2, draw3,
-	 input [8:0] X_pos_init, // Initial x Position of object
-	 input [7:0] Y_pos_init, // Initial y Position of object
+    input resetn,
+		input draw_u, draw_e,
 
 	 output reg done_user,
-	 output reg [3:0] done_enemy,
+	 output reg [6:0] done_enemies,
 	 output reg [8:0] X,
 	 output reg [7:0] Y,
 	 output reg [2:0] colour
     );
 
-	 wire [8:0] X_pos0, X_pos1, X_pos2, X_pos3;
-	 wire [7:0] Y_pos0, Y_pos1, Y_pos2, Y_pos3;
-	 wire [2:0] colour0, colour1, colour2, colour3;
-	 wire [4:0]done;
+		wire done_e;
+
+	 wire [8:0] X_pos_u, X_pos_e;
+	 wire [7:0] Y_pos_u, Y_pos_e;
+	 wire [2:0] colour_u, colour_e;
+
+	 reg [8:0] X_pos_init; // Initial x Position of object
+	 reg [7:0] Y_pos_init; // Initial y Position of object
+	 localparam anchor_x = 20;
+	 localparam anchor_y = 20;
+
+	 always@(*) begin
+	 		X_pos_init = 9'd0;
+			Y_pos_init = 8'd0;
+			if(draw_u) begin
+				X_pos_init = 9'd147;
+				Y_pos_init = 8'd200;
+			end
+			if(draw_e) begin
+				X_pos_init = anchor_x + ((done_enemies % 10) * 28);
+				Y_pos_init = anchor_y + ((done_enemies / 10) * 25);
+			end
+
+	 end
 
 	 // initialize user
 	  user_fsm U0(.clk(clk),
 							.resetn(resetn),
-							.enable(draw0),
-							.x_pos_init(9'd147), // Using magic number for now
-							.y_pos_init(8'd220), // Using magic number for now
+							.enable(draw_u),
+							.x_pos_init(9'd147), //center screen
+							.y_pos_init(8'd220), //bottom row
 							.should_move(shoud_move),
 							.move_direction(move_direction),
-							.done(done[0]),
-							.x_pos_final(X_pos0),
-							.y_pos_final(Y_pos0),
-							.colour(colour0)
+							.done(done_u),
+							.x_pos_final(X_pos_u),
+							.y_pos_final(Y_pos_u),
+							.colour(colour_u)
 		 );
 
 	 // Initialize first enemy
 	 enemyFSM E0(.clk(clk),
 							.resetn(resetn),
-							.enable(draw1),
-							.x_pos_init(9'd20), // Using magic number for now
-							.y_pos_init(8'd40), // Using magic number for now
-							.done(done[1]),
-							.x_pos_final(X_pos1),
-							.y_pos_final(Y_pos1),
-							.colour(colour1)
+							.enable(draw_e),
+							.x_pos_init(anchor + (done_enemies*28)), // Using magic number for now
+							.y_pos_init(Y_pos_init), // Using magic number for now
+							.done(done_e),
+							.x_pos_final(X_pos_e),
+							.y_pos_final(Y_pos_e),
+							.colour(colour_e)
 		 );
-
-		// Initialize second enemy
-	  enemyFSM E1(.clk(clk),
-							 .resetn(resetn),
-							 .enable(draw2),
-							 .x_pos_init(9'd60), // Using magic number for now
-							 .y_pos_init(8'd40), // Using magic number for now
-							 .done(done[2]),
-							 .x_pos_final(X_pos2),
- 							 .y_pos_final(Y_pos2),
-							 .colour(colour2)
-		 );
-
-		 // Initialize third enemy
-		 enemyFSM E2(.clk(clk),
- 							 .resetn(resetn),
- 							 .enable(draw3),
- 							 .x_pos_init(9'd100), // Using magic number for now
- 							 .y_pos_init(8'd40), // Using magic number for now
-							 .done(done[3]),
- 							 .x_pos_final(X_pos3),
-							 .y_pos_final(Y_pos3),
- 							 .colour(colour3)
- 		 );
 
     always@(posedge clk) begin
         if(!resetn) begin
@@ -252,32 +232,20 @@ module main_datapath(
 					Y <= 8'b0;
 			 		colour <= 3'b0;
 					done_user <= 1'b0;
-					done_enemy <= 4'b0;
+					done_enemies <= 7'b0;
         end
         else begin
-				 		if (draw0) begin
-								X <= X_pos0;
-								Y <= Y_pos0;
-								colour <= colour0;
-								done_user <= done[0];
+				 		if (draw_u) begin
+								X <= X_pos_u;
+								Y <= Y_pos_u;
+								colour <= colour_u;
+								done_user <= done_u;
 						end
-						else if (draw1) begin
-								X <= X_pos1;
-								Y <= Y_pos1;
-								colour <= colour1;
-								done_enemy[0] <= done[1];
-						end
-						else if (draw2) begin
-								X <= X_pos2;
-								Y <= Y_pos2;
-								colour <= colour2;
-								done_enemy[1] <= done[2];
-						end
-						else if (draw3) begin
-								X <= X_pos3;
-								Y <= Y_pos3;
-								colour <= colour3;
-								done_enemy[2] <= done[3];
+						else if (draw_e) begin
+								X <= X_pos_e;
+								Y <= Y_pos_e;
+								colour <= colour_e;
+								done_enemies <= done_e == 1'b1 ? done_enemies + 1 : done_enemies;
 						end
 
         end
