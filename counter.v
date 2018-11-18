@@ -1,0 +1,26 @@
+module counter (clk, pulse);
+	input clk;
+	output pulse;
+
+	wire [25:0] rate = 26'd4999999; //to go 10 times/second
+
+	reg [25:0]Q;
+	reg start = 0;
+
+	always @(posedge clk)
+	begin
+		if(start == 0)
+		begin
+			Q <= rate;
+			start <= 1;
+		end
+		else if(Q == 0)
+			Q <= rate;
+		else
+			Q <= Q-1;
+	end
+
+	assign pulse = (Q == 26'b0) ? 1 : 0;
+
+
+endmodule
