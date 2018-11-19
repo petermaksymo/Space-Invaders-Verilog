@@ -7,35 +7,35 @@ z2
 !i10e 25
 !i10f 100
 cModel Technology
-dC:/Users/pmaks/OneDrive/1T8Semester1/ECE241/Lab projects/Space_invaders
-vmain
-Z0 !s110 1542598482
+Z0 dC:/Users/pmaks/OneDrive/1T8Semester1/ECE241/Lab projects/Space_invaders
+venemy_control
+Z1 !s110 1542660353
 !i10b 1
-!s100 4UdKQk_73j2[YMDjS;af;1
-ImOh>X?m]?nP28Ln;Bne<?2
-Z1 VDg1SIo80bB@j0V0VzS_@n1
-Z2 dC:/Users/Peter/OneDrive/1T8Semester1/ECE241/Lab projects/Space_invaders
-Z3 w1542598481
-Z4 8C:/Users/Peter/OneDrive/1T8Semester1/ECE241/Lab projects/Space_invaders/main.v
-Z5 FC:/Users/Peter/OneDrive/1T8Semester1/ECE241/Lab projects/Space_invaders/main.v
-L0 3
+!s100 6hV:`Z<@<U=JLPU_Hn?gZ1
+I4j=2P70V8X^m]nYjDTT]Y0
+Z2 VDg1SIo80bB@j0V0VzS_@n1
+R0
+Z3 w1542660349
+Z4 8C:/Users/pmaks/OneDrive/1T8Semester1/ECE241/Lab projects/Space_invaders/enemyFSM.v
+Z5 FC:/Users/pmaks/OneDrive/1T8Semester1/ECE241/Lab projects/Space_invaders/enemyFSM.v
+L0 47
 Z6 OV;L;10.5b;63
 r1
 !s85 0
 31
-Z7 !s108 1542598482.000000
-Z8 !s107 C:/Users/Peter/OneDrive/1T8Semester1/ECE241/Lab projects/Space_invaders/main.v|
-Z9 !s90 -reportprogress|300|-work|work|C:/Users/Peter/OneDrive/1T8Semester1/ECE241/Lab projects/Space_invaders/main.v|
+Z7 !s108 1542660353.000000
+Z8 !s107 C:/Users/pmaks/OneDrive/1T8Semester1/ECE241/Lab projects/Space_invaders/enemyFSM.v|
+Z9 !s90 -reportprogress|300|-work|work|C:/Users/pmaks/OneDrive/1T8Semester1/ECE241/Lab projects/Space_invaders/enemyFSM.v|
 !i113 1
 Z10 o-work work
 Z11 tCvgOpt 0
-vmain_control
-R0
-!i10b 1
-!s100 MAKK??1kZ`CLL3AffE1G>3
-I6ES6Z_K`d7o?f8Ti1RzgY3
+venemy_datapath
 R1
+!i10b 1
+!s100 ?m=IcR;TFdM:JmV3`4lgJ1
+ICbk3g5W?M26cXL]7O>Eem2
 R2
+R0
 R3
 R4
 R5
@@ -50,17 +50,17 @@ R9
 !i113 1
 R10
 R11
-vmain_datapath
-R0
-!i10b 1
-!s100 YbWegOPE=O;hT5o^I]>I@2
-I0CbeCgR3BgCoICUEdFJVE1
+venemyFSM
 R1
+!i10b 1
+!s100 nZER?Tz0Gm]RbVn7Hb2m^1
+Ib_X0]jWSToPDj7dFQFX>o2
 R2
+R0
 R3
 R4
 R5
-L0 189
+L0 2
 R6
 r1
 !s85 0
@@ -68,6 +68,70 @@ r1
 R7
 R8
 R9
+!i113 1
+R10
+R11
+nenemy@f@s@m
+vmain
+Z12 !s110 1542660495
+!i10b 1
+!s100 eNi0B2L5?eKUffm6YZ=Jl3
+I?3O0:1]ZnONSWY2RQ8;A[2
+R2
+R0
+Z13 w1542660490
+Z14 8C:/Users/pmaks/OneDrive/1T8Semester1/ECE241/Lab projects/Space_invaders/main.v
+Z15 FC:/Users/pmaks/OneDrive/1T8Semester1/ECE241/Lab projects/Space_invaders/main.v
+L0 3
+R6
+r1
+!s85 0
+31
+Z16 !s108 1542660495.000000
+Z17 !s107 C:/Users/pmaks/OneDrive/1T8Semester1/ECE241/Lab projects/Space_invaders/main.v|
+Z18 !s90 -reportprogress|300|-work|work|C:/Users/pmaks/OneDrive/1T8Semester1/ECE241/Lab projects/Space_invaders/main.v|
+!i113 1
+R10
+R11
+vmain_control
+R12
+!i10b 1
+!s100 3:WeL]OjReA?2g7L<f;<I2
+I[?J?8>c6@7iF2`m^:7_7J3
+R2
+R0
+R13
+R14
+R15
+L0 109
+R6
+r1
+!s85 0
+31
+R16
+R17
+R18
+!i113 1
+R10
+R11
+vmain_datapath
+R12
+!i10b 1
+!s100 mh[_OI:K^=2gl]hc`oZi92
+I]B=k9I208YfYzV@codi?n0
+R2
+R0
+R13
+R14
+R15
+L0 201
+R6
+r1
+!s85 0
+31
+R16
+R17
+R18
 !i113 1
 R10
 R11

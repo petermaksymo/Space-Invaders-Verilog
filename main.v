@@ -116,7 +116,7 @@ module main_control(
     );
 
 		wire replot;
-		frames_p_pulse_counter u_counter_0(.clk(clk), .frames_pulse(6'd2), .pulse(replot));
+		frames_p_pulse_counter u_counter_0(.clk(clk), .frames_pulse(6'd1), .pulse(replot));
 
     reg [4:0] current_state, next_state;
 
@@ -126,9 +126,11 @@ module main_control(
 					 S_BLACKOUT_E_PREP  = 4'd2,
 					 S_BLACKOUT_ENEMIES = 4'd3,
 					 S_MOVE_ENEMIES     = 4'd4,
-				    S_PLOT_ENEMIES     = 4'd5,
-					 S_DONE			     = 4'd6;
+				   S_PLOT_ENEMIES     = 4'd5,
+					 S_DONE_PLOTS			  = 4'd6;
 
+	 	localparam enemy_speed = 4'd10; //inverse of enemy speed (higher = slower)
+		reg [3:0] speed_divider;
 
     // Next state logic aka our state table
     always@(*)
@@ -136,11 +138,12 @@ module main_control(
             case (current_state)
 								S_MOVE_USER: next_state = S_PLOT_USER;
 								S_PLOT_USER: next_state = done_user ? S_BLACKOUT_E_PREP : S_PLOT_USER; // Repeat ploting user until all 400 pixels are exhausted
-								S_BLACKOUT_E_PREP: next_state = S_BLACKOUT_ENEMIES;
+								S_BLACKOUT_E_PREP: next_state = speed_divider == enemy_speed ? S_BLACKOUT_ENEMIES : S_DONE_PLOTS;
 								S_BLACKOUT_ENEMIES: next_state = done_enemies == 1'b1 ? S_MOVE_ENEMIES : S_BLACKOUT_ENEMIES;
 								S_MOVE_ENEMIES: next_state =  S_PLOT_ENEMIES;
-								S_PLOT_ENEMIES: next_state = done_enemies == 1'b1 ? S_DONE : S_PLOT_ENEMIES;
-								S_DONE: next_state = replot == 1'b1 ? S_MOVE_USER : S_DONE;
+								S_PLOT_ENEMIES: next_state = done_enemies == 1'b1 ? S_DONE_PLOTS : S_PLOT_ENEMIES;
+								S_DONE_PLOTS: next_state = replot == 1'b1 ? S_MOVE_USER : S_DONE_PLOTS;
+
 
             default:     next_state = S_MOVE_USER;
         endcase
@@ -168,14 +171,16 @@ module main_control(
 					end
 					S_BLACKOUT_E_PREP:
 						blackout_e_prep = 1'b1;
-					S_BLACKOUT_ENEMIES: begin 
+					S_BLACKOUT_ENEMIES: begin
 						blackout_e = 1'b1;
 						draw_e = 1'b1;
-					end	
+					end
 					S_MOVE_ENEMIES: move_e = 1'b1;
 					S_PLOT_ENEMIES: begin
 					  draw_e = 1'b1;
 				  end
+					S_DONE_PLOTS:
+						speed_divider = speed_divider == enemy_speed ? 0 : speed_divider + 1;
 
         // default:    // don't need default since we already made sure all of our outputs were assigned a value at the start of the always block
         endcase
@@ -207,6 +212,7 @@ module main_datapath(
     );
 
 	 wire done_e, done_u;
+	 reg enable_draw_e;
 
 	 wire [8:0] X_pos_u, X_pos_e;
 	 wire [7:0] Y_pos_u, Y_pos_e;
@@ -219,8 +225,11 @@ module main_datapath(
 	 reg [8:0]anchor_x = 8;
 	 reg [6:0]anchor_y = 10;
 
+	 reg direction_e = 1'b1; //1 for right, 0 for left
 	 reg done_looking;
 	 reg enemies[0:8][0:2];
+
+	 localparam y_e_cutoff = 175; //max y enemies can be drawn
 
 	 integer i, j;
 	 reg[5:0] e_i, e_j;
@@ -230,6 +239,7 @@ module main_datapath(
 			done_looking = 0;
 			e_i = 0;
 			e_j = 0;
+			enable_draw_e = 0;
 
 			if(draw_u) begin
 				X_pos_init = user_x_coord;
@@ -245,6 +255,7 @@ module main_datapath(
 								e_i = i;
 								e_j = j;
 								done_looking = 1;
+								enable_draw_e = X_pos_init <= y_e_cutoff ? 1 : 0;
 						end
 					end
 				end
@@ -267,7 +278,7 @@ module main_datapath(
 	 // Initialize first enemy
 	 enemyFSM E0(.clk(clk),
 		.resetn(resetn),
-		.enable(draw_e),
+		.enable(enable_draw_e),
 		.x_pos_init(X_pos_init), // Using magic number for now
 		.y_pos_init(Y_pos_init), // Using magic number for now
 		.done(done_e),
@@ -281,6 +292,7 @@ module main_datapath(
 				Y <= 8'b0;
 				colour <= 3'b0;
 				done_user <= 1'b0;
+				direction_e <= 1'b1;
 				for(i = 0; i < 9; i = i + 1) begin
 					for(j = 0; j < 2; j = j + 1) begin
 						enemies[i][j] <= 0;
@@ -297,7 +309,9 @@ module main_datapath(
 					endcase
 				end
 				if (move_e) begin
-						anchor_x <= anchor_x == 48 ? 8 : anchor_x + 1;
+						if(direction_e) anchor_x <= anchor_x == 48 ? 8 :  anchor_x + 1;
+						else if(!direction_e) anchor_x <= anchor_x == 8 ? 48 : anchor_x - 1;
+
 						anchor_y <= anchor_x == 48 ? anchor_y + 25 : anchor_y;
 						for(i = 0; i < 9; i = i + 1) begin
 							for(j = 0; j < 2; j = j + 1) begin
@@ -317,7 +331,7 @@ module main_datapath(
 						colour <= blackout_e == 1 ? 3'b000 : colour_e;
 						enemies[e_i][e_j] <= done_e == 1? 1 : 0;
 				end
-				if(blackout_e_prep) begin 
+				if(blackout_e_prep) begin
 					for(i = 0; i < 9; i = i + 1) begin
 						for(j = 0; j < 2; j = j + 1) begin
 							enemies[i][j] <= 0;
