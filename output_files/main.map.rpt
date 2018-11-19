@@ -1,5 +1,5 @@
 Analysis & Synthesis report for main
-Sun Nov 18 20:02:11 2018
+Sun Nov 18 23:11:10 2018
 Quartus Prime Version 18.0.0 Build 614 04/24/2018 SJ Lite Edition
 
 
@@ -14,37 +14,34 @@ Quartus Prime Version 18.0.0 Build 614 04/24/2018 SJ Lite Edition
   6. Analysis & Synthesis Resource Usage Summary
   7. Analysis & Synthesis Resource Utilization by Entity
   8. Analysis & Synthesis RAM Summary
-  9. Analysis & Synthesis DSP Block Usage Summary
- 10. Analysis & Synthesis IP Cores Summary
- 11. State Machine - |main|main_datapath:D0|enemyFSM:E0|enemy_control:c0_e|current_state
- 12. State Machine - |main|main_datapath:D0|user_fsm:U0|user_control:c0_u|current_state
- 13. State Machine - |main|main_control:C0|current_state
- 14. Registers Removed During Synthesis
- 15. General Register Statistics
- 16. Inverted Register Statistics
- 17. Multiplexer Restructuring Statistics (Restructuring Performed)
- 18. Source assignments for vga_adapter:VGA|altsyncram:VideoMemory|altsyncram_c3n1:auto_generated
- 19. Source assignments for main_datapath:D0|user_fsm:U0|user_datapath:d0_u|rom560x3_user:user_sprite|altsyncram:altsyncram_component|altsyncram_gph1:auto_generated
- 20. Source assignments for main_datapath:D0|enemyFSM:E0|enemy_datapath:d0_e|ram560x3_enemy1:enemy1_sprite|altsyncram:altsyncram_component|altsyncram_doo1:auto_generated
- 21. Parameter Settings for User Entity Instance: vga_adapter:VGA
- 22. Parameter Settings for User Entity Instance: vga_adapter:VGA|vga_address_translator:user_input_translator
- 23. Parameter Settings for User Entity Instance: vga_adapter:VGA|altsyncram:VideoMemory
- 24. Parameter Settings for User Entity Instance: vga_adapter:VGA|vga_pll:mypll|altpll:altpll_component
- 25. Parameter Settings for User Entity Instance: vga_adapter:VGA|vga_controller:controller
- 26. Parameter Settings for User Entity Instance: vga_adapter:VGA|vga_controller:controller|vga_address_translator:controller_translator
- 27. Parameter Settings for User Entity Instance: main_datapath:D0|user_fsm:U0|user_datapath:d0_u|rom560x3_user:user_sprite|altsyncram:altsyncram_component
- 28. Parameter Settings for User Entity Instance: main_datapath:D0|enemyFSM:E0|enemy_datapath:d0_e|ram560x3_enemy1:enemy1_sprite|altsyncram:altsyncram_component
- 29. Parameter Settings for Inferred Entity Instance: main_datapath:D0|lpm_divide:Mod0
- 30. Parameter Settings for Inferred Entity Instance: main_datapath:D0|lpm_divide:Div0
- 31. altsyncram Parameter Settings by Entity Instance
- 32. altpll Parameter Settings by Entity Instance
- 33. Port Connectivity Checks: "main_datapath:D0|enemyFSM:E0|enemy_datapath:d0_e|ram560x3_enemy1:enemy1_sprite"
- 34. Port Connectivity Checks: "main_control:C0|frames_p_pulse_counter:u_counter_0"
- 35. Port Connectivity Checks: "vga_adapter:VGA|vga_controller:controller"
- 36. Port Connectivity Checks: "vga_adapter:VGA"
- 37. Post-Synthesis Netlist Statistics for Top Partition
- 38. Elapsed Time Per Partition
- 39. Analysis & Synthesis Messages
+  9. Analysis & Synthesis IP Cores Summary
+ 10. State Machine - |main|main_datapath:D0|enemyFSM:E0|enemy_control:c0_e|current_state
+ 11. State Machine - |main|main_datapath:D0|user_fsm:U0|user_control:c0_u|current_state
+ 12. State Machine - |main|main_control:C0|current_state
+ 13. Registers Removed During Synthesis
+ 14. General Register Statistics
+ 15. Inverted Register Statistics
+ 16. Multiplexer Restructuring Statistics (Restructuring Performed)
+ 17. Source assignments for vga_adapter:VGA|altsyncram:VideoMemory|altsyncram_c3n1:auto_generated
+ 18. Source assignments for main_datapath:D0|user_fsm:U0|user_datapath:d0_u|rom560x3_user:user_sprite|altsyncram:altsyncram_component|altsyncram_gph1:auto_generated
+ 19. Source assignments for main_datapath:D0|enemyFSM:E0|enemy_datapath:d0_e|ram560x3_enemy1:enemy1_sprite|altsyncram:altsyncram_component|altsyncram_doo1:auto_generated
+ 20. Parameter Settings for User Entity Instance: vga_adapter:VGA
+ 21. Parameter Settings for User Entity Instance: vga_adapter:VGA|vga_address_translator:user_input_translator
+ 22. Parameter Settings for User Entity Instance: vga_adapter:VGA|altsyncram:VideoMemory
+ 23. Parameter Settings for User Entity Instance: vga_adapter:VGA|vga_pll:mypll|altpll:altpll_component
+ 24. Parameter Settings for User Entity Instance: vga_adapter:VGA|vga_controller:controller
+ 25. Parameter Settings for User Entity Instance: vga_adapter:VGA|vga_controller:controller|vga_address_translator:controller_translator
+ 26. Parameter Settings for User Entity Instance: main_datapath:D0|user_fsm:U0|user_datapath:d0_u|rom560x3_user:user_sprite|altsyncram:altsyncram_component
+ 27. Parameter Settings for User Entity Instance: main_datapath:D0|enemyFSM:E0|enemy_datapath:d0_e|ram560x3_enemy1:enemy1_sprite|altsyncram:altsyncram_component
+ 28. altsyncram Parameter Settings by Entity Instance
+ 29. altpll Parameter Settings by Entity Instance
+ 30. Port Connectivity Checks: "main_datapath:D0|enemyFSM:E0|enemy_datapath:d0_e|ram560x3_enemy1:enemy1_sprite"
+ 31. Port Connectivity Checks: "main_control:C0|frames_p_pulse_counter:u_counter_0"
+ 32. Port Connectivity Checks: "vga_adapter:VGA|vga_controller:controller"
+ 33. Port Connectivity Checks: "vga_adapter:VGA"
+ 34. Post-Synthesis Netlist Statistics for Top Partition
+ 35. Elapsed Time Per Partition
+ 36. Analysis & Synthesis Messages
 
 
 
@@ -70,17 +67,17 @@ refer to the applicable agreement for further details.
 +-------------------------------------------------------------------------------+
 ; Analysis & Synthesis Summary                                                  ;
 +---------------------------------+---------------------------------------------+
-; Analysis & Synthesis Status     ; Successful - Sun Nov 18 20:02:11 2018       ;
+; Analysis & Synthesis Status     ; Successful - Sun Nov 18 23:11:10 2018       ;
 ; Quartus Prime Version           ; 18.0.0 Build 614 04/24/2018 SJ Lite Edition ;
 ; Revision Name                   ; main                                        ;
 ; Top-level Entity Name           ; main                                        ;
 ; Family                          ; Cyclone V                                   ;
 ; Logic utilization (in ALMs)     ; N/A                                         ;
-; Total registers                 ; 161                                         ;
+; Total registers                 ; 225                                         ;
 ; Total pins                      ; 44                                          ;
 ; Total virtual pins              ; 0                                           ;
 ; Total block memory bits         ; 233,760                                     ;
-; Total DSP Blocks                ; 1                                           ;
+; Total DSP Blocks                ; 0                                           ;
 ; Total HSSI RX PCSs              ; 0                                           ;
 ; Total HSSI PMA RX Deserializers ; 0                                           ;
 ; Total HSSI TX PCSs              ; 0                                           ;
@@ -190,7 +187,14 @@ refer to the applicable agreement for further details.
 ;                            ;             ;
 ; Usage by Processor         ; % Time Used ;
 ;     Processor 1            ; 100.0%      ;
-;     Processors 2-16        ;   0.0%      ;
+;     Processor 2            ;   0.0%      ;
+;     Processor 3            ;   0.0%      ;
+;     Processor 4            ;   0.0%      ;
+;     Processor 5            ;   0.0%      ;
+;     Processor 6            ;   0.0%      ;
+;     Processor 7            ;   0.0%      ;
+;     Processor 8            ;   0.0%      ;
+;     Processors 9-16        ;   0.0%      ;
 +----------------------------+-------------+
 
 
@@ -232,13 +236,6 @@ refer to the applicable agreement for further details.
 ; graphics/spaceinvader_player.mif     ; yes             ; Auto-Found Memory Initialization File  ; C:/Users/Peter/OneDrive/1T8Semester1/ECE241/Lab projects/Space_invaders/graphics/spaceinvader_player.mif     ;         ;
 ; db/altsyncram_doo1.tdf               ; yes             ; Auto-Generated Megafunction            ; C:/Users/Peter/OneDrive/1T8Semester1/ECE241/Lab projects/Space_invaders/db/altsyncram_doo1.tdf               ;         ;
 ; graphics/enemy_1.mif                 ; yes             ; Auto-Found Memory Initialization File  ; C:/Users/Peter/OneDrive/1T8Semester1/ECE241/Lab projects/Space_invaders/graphics/enemy_1.mif                 ;         ;
-; lpm_divide.tdf                       ; yes             ; Megafunction                           ; d:/intelfpga/quartus/libraries/megafunctions/lpm_divide.tdf                                                  ;         ;
-; abs_divider.inc                      ; yes             ; Megafunction                           ; d:/intelfpga/quartus/libraries/megafunctions/abs_divider.inc                                                 ;         ;
-; sign_div_unsign.inc                  ; yes             ; Megafunction                           ; d:/intelfpga/quartus/libraries/megafunctions/sign_div_unsign.inc                                             ;         ;
-; db/lpm_divide_72m.tdf                ; yes             ; Auto-Generated Megafunction            ; C:/Users/Peter/OneDrive/1T8Semester1/ECE241/Lab projects/Space_invaders/db/lpm_divide_72m.tdf                ;         ;
-; db/sign_div_unsign_akh.tdf           ; yes             ; Auto-Generated Megafunction            ; C:/Users/Peter/OneDrive/1T8Semester1/ECE241/Lab projects/Space_invaders/db/sign_div_unsign_akh.tdf           ;         ;
-; db/alt_u_div_qse.tdf                 ; yes             ; Auto-Generated Megafunction            ; C:/Users/Peter/OneDrive/1T8Semester1/ECE241/Lab projects/Space_invaders/db/alt_u_div_qse.tdf                 ;         ;
-; db/lpm_divide_4am.tdf                ; yes             ; Auto-Generated Megafunction            ; C:/Users/Peter/OneDrive/1T8Semester1/ECE241/Lab projects/Space_invaders/db/lpm_divide_4am.tdf                ;         ;
 +--------------------------------------+-----------------+----------------------------------------+--------------------------------------------------------------------------------------------------------------+---------+
 
 
@@ -247,30 +244,30 @@ refer to the applicable agreement for further details.
 +---------------------------------------------+----------------+
 ; Resource                                    ; Usage          ;
 +---------------------------------------------+----------------+
-; Estimate of Logic utilization (ALMs needed) ; 199            ;
+; Estimate of Logic utilization (ALMs needed) ; 494            ;
 ;                                             ;                ;
-; Combinational ALUT usage for logic          ; 364            ;
-;     -- 7 input functions                    ; 0              ;
-;     -- 6 input functions                    ; 31             ;
-;     -- 5 input functions                    ; 42             ;
-;     -- 4 input functions                    ; 49             ;
-;     -- <=3 input functions                  ; 242            ;
+; Combinational ALUT usage for logic          ; 831            ;
+;     -- 7 input functions                    ; 7              ;
+;     -- 6 input functions                    ; 148            ;
+;     -- 5 input functions                    ; 193            ;
+;     -- 4 input functions                    ; 148            ;
+;     -- <=3 input functions                  ; 335            ;
 ;                                             ;                ;
-; Dedicated logic registers                   ; 161            ;
+; Dedicated logic registers                   ; 225            ;
 ;                                             ;                ;
 ; I/O pins                                    ; 44             ;
 ; Total MLAB memory bits                      ; 0              ;
 ; Total block memory bits                     ; 233760         ;
 ;                                             ;                ;
-; Total DSP Blocks                            ; 1              ;
+; Total DSP Blocks                            ; 0              ;
 ;                                             ;                ;
 ; Total PLLs                                  ; 1              ;
 ;     -- PLLs                                 ; 1              ;
 ;                                             ;                ;
 ; Maximum fan-out node                        ; CLOCK_50~input ;
-; Maximum fan-out                             ; 164            ;
-; Total fan-out                               ; 2781           ;
-; Average fan-out                             ; 4.27           ;
+; Maximum fan-out                             ; 228            ;
+; Total fan-out                               ; 5061           ;
+; Average fan-out                             ; 4.29           ;
 +---------------------------------------------+----------------+
 
 
@@ -279,36 +276,28 @@ refer to the applicable agreement for further details.
 +---------------------------------------------------------+---------------------+---------------------------+-------------------+------------+------+--------------+-----------------------------------------------------------------------------------------------------------------------------------------------------+------------------------+--------------+
 ; Compilation Hierarchy Node                              ; Combinational ALUTs ; Dedicated Logic Registers ; Block Memory Bits ; DSP Blocks ; Pins ; Virtual Pins ; Full Hierarchy Name                                                                                                                                 ; Entity Name            ; Library Name ;
 +---------------------------------------------------------+---------------------+---------------------------+-------------------+------------+------+--------------+-----------------------------------------------------------------------------------------------------------------------------------------------------+------------------------+--------------+
-; |main                                                   ; 364 (1)             ; 161 (0)                   ; 233760            ; 1          ; 44   ; 0            ; |main                                                                                                                                               ; main                   ; work         ;
-;    |main_control:C0|                                    ; 61 (6)              ; 38 (5)                    ; 0                 ; 0          ; 0    ; 0            ; |main|main_control:C0                                                                                                                               ; main_control           ; work         ;
+; |main                                                   ; 831 (1)             ; 225 (0)                   ; 233760            ; 0          ; 44   ; 0            ; |main                                                                                                                                               ; main                   ; work         ;
+;    |main_control:C0|                                    ; 60 (5)              ; 38 (5)                    ; 0                 ; 0          ; 0    ; 0            ; |main|main_control:C0                                                                                                                               ; main_control           ; work         ;
 ;       |frames_p_pulse_counter:u_counter_0|              ; 55 (9)              ; 33 (7)                    ; 0                 ; 0          ; 0    ; 0            ; |main|main_control:C0|frames_p_pulse_counter:u_counter_0                                                                                            ; frames_p_pulse_counter ; work         ;
 ;          |frame_counter:f0|                             ; 46 (46)             ; 26 (26)                   ; 0                 ; 0          ; 0    ; 0            ; |main|main_control:C0|frames_p_pulse_counter:u_counter_0|frame_counter:f0                                                                           ; frame_counter          ; work         ;
-;    |main_datapath:D0|                                   ; 211 (42)            ; 89 (37)                   ; 3360              ; 1          ; 0    ; 0            ; |main|main_datapath:D0                                                                                                                              ; main_datapath          ; work         ;
-;       |enemyFSM:E0|                                     ; 54 (0)              ; 26 (0)                    ; 1680              ; 0          ; 0    ; 0            ; |main|main_datapath:D0|enemyFSM:E0                                                                                                                  ; enemyFSM               ; work         ;
+;    |main_datapath:D0|                                   ; 682 (595)           ; 153 (101)                 ; 3360              ; 0          ; 0    ; 0            ; |main|main_datapath:D0                                                                                                                              ; main_datapath          ; work         ;
+;       |enemyFSM:E0|                                     ; 53 (0)              ; 26 (0)                    ; 1680              ; 0          ; 0    ; 0            ; |main|main_datapath:D0|enemyFSM:E0                                                                                                                  ; enemyFSM               ; work         ;
 ;          |enemy_control:c0_e|                           ; 5 (5)               ; 3 (3)                     ; 0                 ; 0          ; 0    ; 0            ; |main|main_datapath:D0|enemyFSM:E0|enemy_control:c0_e                                                                                               ; enemy_control          ; work         ;
-;          |enemy_datapath:d0_e|                          ; 49 (49)             ; 23 (23)                   ; 1680              ; 0          ; 0    ; 0            ; |main|main_datapath:D0|enemyFSM:E0|enemy_datapath:d0_e                                                                                              ; enemy_datapath         ; work         ;
+;          |enemy_datapath:d0_e|                          ; 48 (48)             ; 23 (23)                   ; 1680              ; 0          ; 0    ; 0            ; |main|main_datapath:D0|enemyFSM:E0|enemy_datapath:d0_e                                                                                              ; enemy_datapath         ; work         ;
 ;             |ram560x3_enemy1:enemy1_sprite|             ; 0 (0)               ; 0 (0)                     ; 1680              ; 0          ; 0    ; 0            ; |main|main_datapath:D0|enemyFSM:E0|enemy_datapath:d0_e|ram560x3_enemy1:enemy1_sprite                                                                ; ram560x3_enemy1        ; work         ;
 ;                |altsyncram:altsyncram_component|        ; 0 (0)               ; 0 (0)                     ; 1680              ; 0          ; 0    ; 0            ; |main|main_datapath:D0|enemyFSM:E0|enemy_datapath:d0_e|ram560x3_enemy1:enemy1_sprite|altsyncram:altsyncram_component                                ; altsyncram             ; work         ;
 ;                   |altsyncram_doo1:auto_generated|      ; 0 (0)               ; 0 (0)                     ; 1680              ; 0          ; 0    ; 0            ; |main|main_datapath:D0|enemyFSM:E0|enemy_datapath:d0_e|ram560x3_enemy1:enemy1_sprite|altsyncram:altsyncram_component|altsyncram_doo1:auto_generated ; altsyncram_doo1        ; work         ;
-;       |lpm_divide:Div0|                                 ; 38 (0)              ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |main|main_datapath:D0|lpm_divide:Div0                                                                                                              ; lpm_divide             ; work         ;
-;          |lpm_divide_4am:auto_generated|                ; 38 (0)              ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |main|main_datapath:D0|lpm_divide:Div0|lpm_divide_4am:auto_generated                                                                                ; lpm_divide_4am         ; work         ;
-;             |sign_div_unsign_akh:divider|               ; 38 (0)              ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |main|main_datapath:D0|lpm_divide:Div0|lpm_divide_4am:auto_generated|sign_div_unsign_akh:divider                                                    ; sign_div_unsign_akh    ; work         ;
-;                |alt_u_div_qse:divider|                  ; 38 (38)             ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |main|main_datapath:D0|lpm_divide:Div0|lpm_divide_4am:auto_generated|sign_div_unsign_akh:divider|alt_u_div_qse:divider                              ; alt_u_div_qse          ; work         ;
-;       |lpm_divide:Mod0|                                 ; 43 (0)              ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |main|main_datapath:D0|lpm_divide:Mod0                                                                                                              ; lpm_divide             ; work         ;
-;          |lpm_divide_72m:auto_generated|                ; 43 (0)              ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |main|main_datapath:D0|lpm_divide:Mod0|lpm_divide_72m:auto_generated                                                                                ; lpm_divide_72m         ; work         ;
-;             |sign_div_unsign_akh:divider|               ; 43 (0)              ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |main|main_datapath:D0|lpm_divide:Mod0|lpm_divide_72m:auto_generated|sign_div_unsign_akh:divider                                                    ; sign_div_unsign_akh    ; work         ;
-;                |alt_u_div_qse:divider|                  ; 43 (43)             ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |main|main_datapath:D0|lpm_divide:Mod0|lpm_divide_72m:auto_generated|sign_div_unsign_akh:divider|alt_u_div_qse:divider                              ; alt_u_div_qse          ; work         ;
 ;       |user_fsm:U0|                                     ; 34 (0)              ; 26 (0)                    ; 1680              ; 0          ; 0    ; 0            ; |main|main_datapath:D0|user_fsm:U0                                                                                                                  ; user_fsm               ; work         ;
 ;          |user_control:c0_u|                            ; 5 (5)               ; 3 (3)                     ; 0                 ; 0          ; 0    ; 0            ; |main|main_datapath:D0|user_fsm:U0|user_control:c0_u                                                                                                ; user_control           ; work         ;
 ;          |user_datapath:d0_u|                           ; 29 (29)             ; 23 (23)                   ; 1680              ; 0          ; 0    ; 0            ; |main|main_datapath:D0|user_fsm:U0|user_datapath:d0_u                                                                                               ; user_datapath          ; work         ;
 ;             |rom560x3_user:user_sprite|                 ; 0 (0)               ; 0 (0)                     ; 1680              ; 0          ; 0    ; 0            ; |main|main_datapath:D0|user_fsm:U0|user_datapath:d0_u|rom560x3_user:user_sprite                                                                     ; rom560x3_user          ; work         ;
 ;                |altsyncram:altsyncram_component|        ; 0 (0)               ; 0 (0)                     ; 1680              ; 0          ; 0    ; 0            ; |main|main_datapath:D0|user_fsm:U0|user_datapath:d0_u|rom560x3_user:user_sprite|altsyncram:altsyncram_component                                     ; altsyncram             ; work         ;
 ;                   |altsyncram_gph1:auto_generated|      ; 0 (0)               ; 0 (0)                     ; 1680              ; 0          ; 0    ; 0            ; |main|main_datapath:D0|user_fsm:U0|user_datapath:d0_u|rom560x3_user:user_sprite|altsyncram:altsyncram_component|altsyncram_gph1:auto_generated      ; altsyncram_gph1        ; work         ;
-;    |vga_adapter:VGA|                                    ; 91 (1)              ; 34 (0)                    ; 230400            ; 0          ; 0    ; 0            ; |main|vga_adapter:VGA                                                                                                                               ; vga_adapter            ; work         ;
-;       |altsyncram:VideoMemory|                          ; 36 (0)              ; 8 (0)                     ; 230400            ; 0          ; 0    ; 0            ; |main|vga_adapter:VGA|altsyncram:VideoMemory                                                                                                        ; altsyncram             ; work         ;
-;          |altsyncram_c3n1:auto_generated|               ; 36 (0)              ; 8 (8)                     ; 230400            ; 0          ; 0    ; 0            ; |main|vga_adapter:VGA|altsyncram:VideoMemory|altsyncram_c3n1:auto_generated                                                                         ; altsyncram_c3n1        ; work         ;
+;    |vga_adapter:VGA|                                    ; 88 (1)              ; 34 (0)                    ; 230400            ; 0          ; 0    ; 0            ; |main|vga_adapter:VGA                                                                                                                               ; vga_adapter            ; work         ;
+;       |altsyncram:VideoMemory|                          ; 33 (0)              ; 8 (0)                     ; 230400            ; 0          ; 0    ; 0            ; |main|vga_adapter:VGA|altsyncram:VideoMemory                                                                                                        ; altsyncram             ; work         ;
+;          |altsyncram_c3n1:auto_generated|               ; 33 (0)              ; 8 (8)                     ; 230400            ; 0          ; 0    ; 0            ; |main|vga_adapter:VGA|altsyncram:VideoMemory|altsyncram_c3n1:auto_generated                                                                         ; altsyncram_c3n1        ; work         ;
 ;             |decode_g2a:rden_decode_b|                  ; 10 (10)             ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |main|vga_adapter:VGA|altsyncram:VideoMemory|altsyncram_c3n1:auto_generated|decode_g2a:rden_decode_b                                                ; decode_g2a             ; work         ;
-;             |decode_nma:decode2|                        ; 14 (14)             ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |main|vga_adapter:VGA|altsyncram:VideoMemory|altsyncram_c3n1:auto_generated|decode_nma:decode2                                                      ; decode_nma             ; work         ;
+;             |decode_nma:decode2|                        ; 11 (11)             ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |main|vga_adapter:VGA|altsyncram:VideoMemory|altsyncram_c3n1:auto_generated|decode_nma:decode2                                                      ; decode_nma             ; work         ;
 ;             |mux_2hb:mux3|                              ; 12 (12)             ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |main|vga_adapter:VGA|altsyncram:VideoMemory|altsyncram_c3n1:auto_generated|mux_2hb:mux3                                                            ; mux_2hb                ; work         ;
 ;       |vga_address_translator:user_input_translator|    ; 11 (11)             ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |main|vga_adapter:VGA|vga_address_translator:user_input_translator                                                                                  ; vga_address_translator ; work         ;
 ;       |vga_controller:controller|                       ; 43 (32)             ; 26 (26)                   ; 0                 ; 0          ; 0    ; 0            ; |main|vga_adapter:VGA|vga_controller:controller                                                                                                     ; vga_controller         ; work         ;
@@ -329,18 +318,6 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 ; main_datapath:D0|user_fsm:U0|user_datapath:d0_u|rom560x3_user:user_sprite|altsyncram:altsyncram_component|altsyncram_gph1:auto_generated|ALTSYNCRAM      ; AUTO ; ROM              ; 560          ; 3            ; --           ; --           ; 1680   ; ./graphics/spaceInvader_player.mif ;
 ; vga_adapter:VGA|altsyncram:VideoMemory|altsyncram_c3n1:auto_generated|ALTSYNCRAM                                                                         ; AUTO ; Simple Dual Port ; 76800        ; 3            ; 76800        ; 3            ; 230400 ; graphics/black.mif                 ;
 +----------------------------------------------------------------------------------------------------------------------------------------------------------+------+------------------+--------------+--------------+--------------+--------------+--------+------------------------------------+
-
-
-+-----------------------------------------------+
-; Analysis & Synthesis DSP Block Usage Summary  ;
-+---------------------------------+-------------+
-; Statistic                       ; Number Used ;
-+---------------------------------+-------------+
-; Independent 9x9                 ; 1           ;
-; Total number of DSP blocks      ; 1           ;
-;                                 ;             ;
-; Fixed Point Unsigned Multiplier ; 1           ;
-+---------------------------------+-------------+
 
 
 +--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
@@ -378,17 +355,18 @@ Encoding Type:  One-Hot
 
 
 Encoding Type:  One-Hot
-+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-; State Machine - |main|main_control:C0|current_state                                                                                                                       ;
-+------------------------------+------------------------------+------------------------------+---------------------------+---------------------------+----------------------+
-; Name                         ; current_state.S_PLOT_ENEMIES ; current_state.S_MOVE_ENEMIES ; current_state.S_PLOT_USER ; current_state.S_MOVE_USER ; current_state.S_DONE ;
-+------------------------------+------------------------------+------------------------------+---------------------------+---------------------------+----------------------+
-; current_state.S_MOVE_USER    ; 0                            ; 0                            ; 0                         ; 0                         ; 0                    ;
-; current_state.S_PLOT_USER    ; 0                            ; 0                            ; 1                         ; 1                         ; 0                    ;
-; current_state.S_MOVE_ENEMIES ; 0                            ; 1                            ; 0                         ; 1                         ; 0                    ;
-; current_state.S_PLOT_ENEMIES ; 1                            ; 0                            ; 0                         ; 1                         ; 0                    ;
-; current_state.S_DONE         ; 0                            ; 0                            ; 0                         ; 1                         ; 1                    ;
-+------------------------------+------------------------------+------------------------------+---------------------------+---------------------------+----------------------+
++------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; State Machine - |main|main_control:C0|current_state                                                                                                                                                              ;
++----------------------------------+----------------------+------------------------------+------------------------------+----------------------------------+---------------------------+---------------------------+
+; Name                             ; current_state.S_DONE ; current_state.S_PLOT_ENEMIES ; current_state.S_MOVE_ENEMIES ; current_state.S_BLACKOUT_ENEMIES ; current_state.S_PLOT_USER ; current_state.S_MOVE_USER ;
++----------------------------------+----------------------+------------------------------+------------------------------+----------------------------------+---------------------------+---------------------------+
+; current_state.S_MOVE_USER        ; 0                    ; 0                            ; 0                            ; 0                                ; 0                         ; 0                         ;
+; current_state.S_PLOT_USER        ; 0                    ; 0                            ; 0                            ; 0                                ; 1                         ; 1                         ;
+; current_state.S_BLACKOUT_ENEMIES ; 0                    ; 0                            ; 0                            ; 1                                ; 0                         ; 1                         ;
+; current_state.S_MOVE_ENEMIES     ; 0                    ; 0                            ; 1                            ; 0                                ; 0                         ; 1                         ;
+; current_state.S_PLOT_ENEMIES     ; 0                    ; 1                            ; 0                            ; 0                                ; 0                         ; 1                         ;
+; current_state.S_DONE             ; 1                    ; 0                            ; 0                            ; 0                                ; 0                         ; 1                         ;
++----------------------------------+----------------------+------------------------------+------------------------------+----------------------------------+---------------------------+---------------------------+
 
 
 +--------------------------------------------------------------------------------------------------------------------------------------------------+
@@ -405,9 +383,11 @@ Encoding Type:  One-Hot
 ; main_datapath:D0|user_fsm:U0|user_control:c0_u|current_state~6            ; Lost fanout                                                          ;
 ; main_control:C0|current_state~2                                           ; Lost fanout                                                          ;
 ; main_control:C0|current_state~3                                           ; Lost fanout                                                          ;
+; main_control:C0|current_state~4                                           ; Lost fanout                                                          ;
 ; main_control:C0|current_state~5                                           ; Lost fanout                                                          ;
 ; main_control:C0|current_state~6                                           ; Lost fanout                                                          ;
-; Total Number of Removed Registers = 11                                    ;                                                                      ;
+; main_control:C0|current_state.S_BLACKOUT_ENEMIES                          ; Stuck at GND due to stuck port data_in                               ;
+; Total Number of Removed Registers = 13                                    ;                                                                      ;
 +---------------------------------------------------------------------------+----------------------------------------------------------------------+
 
 
@@ -416,12 +396,12 @@ Encoding Type:  One-Hot
 +----------------------------------------------+-------+
 ; Statistic                                    ; Value ;
 +----------------------------------------------+-------+
-; Total registers                              ; 161   ;
-; Number of registers using Synchronous Clear  ; 100   ;
+; Total registers                              ; 225   ;
+; Number of registers using Synchronous Clear  ; 150   ;
 ; Number of registers using Synchronous Load   ; 0     ;
 ; Number of registers using Asynchronous Clear ; 20    ;
 ; Number of registers using Asynchronous Load  ; 0     ;
-; Number of registers using Clock Enable       ; 92    ;
+; Number of registers using Clock Enable       ; 101   ;
 ; Number of registers using Preset             ; 0     ;
 +----------------------------------------------+-------+
 
@@ -431,10 +411,13 @@ Encoding Type:  One-Hot
 +----------------------------------------+---------+
 ; Inverted Register                      ; Fan out ;
 +----------------------------------------+---------+
+; main_datapath:D0|anchor_x[3]           ; 20      ;
 ; main_datapath:D0|user_x_coord[7]       ; 2       ;
+; main_datapath:D0|anchor_y[3]           ; 12      ;
 ; main_datapath:D0|user_x_coord[1]       ; 2       ;
-; main_datapath:D0|user_x_coord[4]       ; 2       ;
-; Total number of inverted registers = 3 ;         ;
+; main_datapath:D0|user_x_coord[4]       ; 3       ;
+; main_datapath:D0|anchor_y[1]           ; 15      ;
+; Total number of inverted registers = 6 ;         ;
 +----------------------------------------+---------+
 
 
@@ -443,22 +426,22 @@ Encoding Type:  One-Hot
 +--------------------+-----------+---------------+----------------------+------------------------+------------+---------------------------------------------------------------------------------------------------------------+
 ; Multiplexer Inputs ; Bus Width ; Baseline Area ; Area if Restructured ; Saving if Restructured ; Registered ; Example Multiplexer Output                                                                                    ;
 +--------------------+-----------+---------------+----------------------+------------------------+------------+---------------------------------------------------------------------------------------------------------------+
-; 3:1                ; 15 bits   ; 30 LEs        ; 0 LEs                ; 30 LEs                 ; Yes        ; |main|main_control:C0|frames_p_pulse_counter:u_counter_0|frame_counter:f0|Q[19]                               ;
-; 3:1                ; 11 bits   ; 22 LEs        ; 22 LEs               ; 0 LEs                  ; Yes        ; |main|main_control:C0|frames_p_pulse_counter:u_counter_0|frame_counter:f0|Q[4]                                ;
-; 3:1                ; 7 bits    ; 14 LEs        ; 7 LEs                ; 7 LEs                  ; Yes        ; |main|main_datapath:D0|done_enemies[6]                                                                        ;
-; 3:1                ; 17 bits   ; 34 LEs        ; 0 LEs                ; 34 LEs                 ; Yes        ; |main|main_datapath:D0|Y[4]                                                                                   ;
-; 3:1                ; 10 bits   ; 20 LEs        ; 0 LEs                ; 20 LEs                 ; Yes        ; |main|vga_adapter:VGA|vga_controller:controller|yCounter[2]                                                   ;
+; 3:1                ; 15 bits   ; 30 LEs        ; 0 LEs                ; 30 LEs                 ; Yes        ; |main|main_control:C0|frames_p_pulse_counter:u_counter_0|frame_counter:f0|Q[0]                                ;
+; 3:1                ; 11 bits   ; 22 LEs        ; 22 LEs               ; 0 LEs                  ; Yes        ; |main|main_control:C0|frames_p_pulse_counter:u_counter_0|frame_counter:f0|Q[7]                                ;
+; 3:1                ; 17 bits   ; 34 LEs        ; 0 LEs                ; 34 LEs                 ; Yes        ; |main|main_datapath:D0|Y[1]                                                                                   ;
+; 3:1                ; 10 bits   ; 20 LEs        ; 0 LEs                ; 20 LEs                 ; Yes        ; |main|vga_adapter:VGA|vga_controller:controller|yCounter[5]                                                   ;
+; 3:1                ; 5 bits    ; 10 LEs        ; 5 LEs                ; 5 LEs                  ; Yes        ; |main|main_datapath:D0|user_fsm:U0|user_datapath:d0_u|y_sprite[0]                                             ;
 ; 3:1                ; 5 bits    ; 10 LEs        ; 5 LEs                ; 5 LEs                  ; Yes        ; |main|main_datapath:D0|enemyFSM:E0|enemy_datapath:d0_e|y_sprite[4]                                            ;
-; 3:1                ; 5 bits    ; 10 LEs        ; 5 LEs                ; 5 LEs                  ; Yes        ; |main|main_datapath:D0|user_fsm:U0|user_datapath:d0_u|y_sprite[4]                                             ;
-; 3:1                ; 13 bits   ; 26 LEs        ; 0 LEs                ; 26 LEs                 ; Yes        ; |main|main_datapath:D0|enemyFSM:E0|enemy_datapath:d0_e|counter[9]                                             ;
-; 3:1                ; 13 bits   ; 26 LEs        ; 0 LEs                ; 26 LEs                 ; Yes        ; |main|main_datapath:D0|user_fsm:U0|user_datapath:d0_u|counter[1]                                              ;
-; 4:1                ; 3 bits    ; 6 LEs         ; 6 LEs                ; 0 LEs                  ; Yes        ; |main|main_datapath:D0|colour[0]                                                                              ;
-; 4:1                ; 6 bits    ; 12 LEs        ; 12 LEs               ; 0 LEs                  ; Yes        ; |main|main_control:C0|frames_p_pulse_counter:u_counter_0|current_frame[5]                                     ;
+; 3:1                ; 13 bits   ; 26 LEs        ; 0 LEs                ; 26 LEs                 ; Yes        ; |main|main_datapath:D0|enemyFSM:E0|enemy_datapath:d0_e|counter[2]                                             ;
+; 3:1                ; 13 bits   ; 26 LEs        ; 0 LEs                ; 26 LEs                 ; Yes        ; |main|main_datapath:D0|user_fsm:U0|user_datapath:d0_u|counter[3]                                              ;
+; 4:1                ; 6 bits    ; 12 LEs        ; 12 LEs               ; 0 LEs                  ; Yes        ; |main|main_control:C0|frames_p_pulse_counter:u_counter_0|current_frame[0]                                     ;
+; 4:1                ; 5 bits    ; 10 LEs        ; 10 LEs               ; 0 LEs                  ; Yes        ; |main|main_datapath:D0|user_fsm:U0|user_datapath:d0_u|x_sprite[0]                                             ;
 ; 4:1                ; 5 bits    ; 10 LEs        ; 10 LEs               ; 0 LEs                  ; Yes        ; |main|main_datapath:D0|enemyFSM:E0|enemy_datapath:d0_e|x_sprite[1]                                            ;
-; 4:1                ; 5 bits    ; 10 LEs        ; 10 LEs               ; 0 LEs                  ; Yes        ; |main|main_datapath:D0|user_fsm:U0|user_datapath:d0_u|x_sprite[1]                                             ;
+; 5:1                ; 3 bits    ; 9 LEs         ; 6 LEs                ; 3 LEs                  ; Yes        ; |main|main_datapath:D0|colour[0]                                                                              ;
 ; 3:1                ; 2 bits    ; 4 LEs         ; 4 LEs                ; 0 LEs                  ; No         ; |main|main_datapath:D0|X_pos_init[1]                                                                          ;
-; 3:1                ; 7 bits    ; 14 LEs        ; 14 LEs               ; 0 LEs                  ; No         ; |main|main_datapath:D0|X_pos_init[5]                                                                          ;
-; 9:1                ; 3 bits    ; 18 LEs        ; 18 LEs               ; 0 LEs                  ; No         ; |main|vga_adapter:VGA|altsyncram:VideoMemory|altsyncram_c3n1:auto_generated|mux_2hb:mux3|l4_w0_n0_mux_dataout ;
+; 9:1                ; 3 bits    ; 18 LEs        ; 18 LEs               ; 0 LEs                  ; No         ; |main|vga_adapter:VGA|altsyncram:VideoMemory|altsyncram_c3n1:auto_generated|mux_2hb:mux3|l4_w2_n0_mux_dataout ;
+; 51:1               ; 3 bits    ; 102 LEs       ; 21 LEs               ; 81 LEs                 ; No         ; |main|main_datapath:D0|X_pos_init[7]                                                                          ;
+; 56:1               ; 5 bits    ; 185 LEs       ; 20 LEs               ; 165 LEs                ; No         ; |main|main_datapath:D0|Y_pos_init[6]                                                                          ;
 +--------------------+-----------+---------------+----------------------+------------------------+------------+---------------------------------------------------------------------------------------------------------------+
 
 
@@ -1099,52 +1082,6 @@ Note: In order to hide this table in the UI and the text report file, please set
 Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
 
 
-+-----------------------------------------------------------------------------------+
-; Parameter Settings for Inferred Entity Instance: main_datapath:D0|lpm_divide:Mod0 ;
-+------------------------+----------------+-----------------------------------------+
-; Parameter Name         ; Value          ; Type                                    ;
-+------------------------+----------------+-----------------------------------------+
-; LPM_WIDTHN             ; 7              ; Untyped                                 ;
-; LPM_WIDTHD             ; 4              ; Untyped                                 ;
-; LPM_NREPRESENTATION    ; UNSIGNED       ; Untyped                                 ;
-; LPM_DREPRESENTATION    ; UNSIGNED       ; Untyped                                 ;
-; LPM_PIPELINE           ; 0              ; Untyped                                 ;
-; LPM_REMAINDERPOSITIVE  ; TRUE           ; Untyped                                 ;
-; MAXIMIZE_SPEED         ; 5              ; Untyped                                 ;
-; CBXI_PARAMETER         ; lpm_divide_72m ; Untyped                                 ;
-; CARRY_CHAIN            ; MANUAL         ; Untyped                                 ;
-; OPTIMIZE_FOR_SPEED     ; 5              ; Untyped                                 ;
-; AUTO_CARRY_CHAINS      ; ON             ; AUTO_CARRY                              ;
-; IGNORE_CARRY_BUFFERS   ; OFF            ; IGNORE_CARRY                            ;
-; AUTO_CASCADE_CHAINS    ; ON             ; AUTO_CASCADE                            ;
-; IGNORE_CASCADE_BUFFERS ; OFF            ; IGNORE_CASCADE                          ;
-+------------------------+----------------+-----------------------------------------+
-Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
-
-
-+-----------------------------------------------------------------------------------+
-; Parameter Settings for Inferred Entity Instance: main_datapath:D0|lpm_divide:Div0 ;
-+------------------------+----------------+-----------------------------------------+
-; Parameter Name         ; Value          ; Type                                    ;
-+------------------------+----------------+-----------------------------------------+
-; LPM_WIDTHN             ; 7              ; Untyped                                 ;
-; LPM_WIDTHD             ; 4              ; Untyped                                 ;
-; LPM_NREPRESENTATION    ; UNSIGNED       ; Untyped                                 ;
-; LPM_DREPRESENTATION    ; UNSIGNED       ; Untyped                                 ;
-; LPM_PIPELINE           ; 0              ; Untyped                                 ;
-; LPM_REMAINDERPOSITIVE  ; TRUE           ; Untyped                                 ;
-; MAXIMIZE_SPEED         ; 5              ; Untyped                                 ;
-; CBXI_PARAMETER         ; lpm_divide_4am ; Untyped                                 ;
-; CARRY_CHAIN            ; MANUAL         ; Untyped                                 ;
-; OPTIMIZE_FOR_SPEED     ; 5              ; Untyped                                 ;
-; AUTO_CARRY_CHAINS      ; ON             ; AUTO_CARRY                              ;
-; IGNORE_CARRY_BUFFERS   ; OFF            ; IGNORE_CARRY                            ;
-; AUTO_CASCADE_CHAINS    ; ON             ; AUTO_CASCADE                            ;
-; IGNORE_CASCADE_BUFFERS ; OFF            ; IGNORE_CASCADE                          ;
-+------------------------+----------------+-----------------------------------------+
-Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
-
-
 +------------------------------------------------------------------------------------------------------------------------------------------------------------+
 ; altsyncram Parameter Settings by Entity Instance                                                                                                           ;
 +-------------------------------------------+----------------------------------------------------------------------------------------------------------------+
@@ -1250,41 +1187,41 @@ Note: In order to hide this table in the UI and the text report file, please set
 +-----------------------+-----------------------------+
 ; Type                  ; Count                       ;
 +-----------------------+-----------------------------+
-; arriav_ff             ; 161                         ;
+; arriav_ff             ; 225                         ;
 ;     CLR SCLR          ; 10                          ;
-;     ENA               ; 29                          ;
+;     ENA               ; 37                          ;
 ;     ENA CLR SCLR      ; 10                          ;
-;     ENA SCLR          ; 53                          ;
-;     SCLR              ; 27                          ;
-;     plain             ; 32                          ;
-; arriav_lcell_comb     ; 365                         ;
-;     arith             ; 152                         ;
-;         0 data inputs ; 12                          ;
-;         1 data inputs ; 87                          ;
-;         2 data inputs ; 8                           ;
-;         3 data inputs ; 27                          ;
-;         4 data inputs ; 9                           ;
-;         5 data inputs ; 9                           ;
-;     normal            ; 181                         ;
+;     ENA SCLR          ; 54                          ;
+;     SCLR              ; 76                          ;
+;     plain             ; 38                          ;
+; arriav_lcell_comb     ; 832                         ;
+;     arith             ; 167                         ;
+;         1 data inputs ; 143                         ;
+;         2 data inputs ; 2                           ;
+;         3 data inputs ; 12                          ;
+;         4 data inputs ; 8                           ;
+;         5 data inputs ; 2                           ;
+;     extend            ; 7                           ;
+;         7 data inputs ; 7                           ;
+;     normal            ; 636                         ;
 ;         0 data inputs ; 2                           ;
-;         1 data inputs ; 3                           ;
-;         2 data inputs ; 27                          ;
-;         3 data inputs ; 45                          ;
-;         4 data inputs ; 40                          ;
-;         5 data inputs ; 33                          ;
-;         6 data inputs ; 31                          ;
-;     shared            ; 32                          ;
-;         0 data inputs ; 4                           ;
-;         1 data inputs ; 12                          ;
+;         1 data inputs ; 6                           ;
+;         2 data inputs ; 63                          ;
+;         3 data inputs ; 86                          ;
+;         4 data inputs ; 140                         ;
+;         5 data inputs ; 191                         ;
+;         6 data inputs ; 148                         ;
+;     shared            ; 22                          ;
+;         0 data inputs ; 2                           ;
+;         1 data inputs ; 4                           ;
 ;         2 data inputs ; 14                          ;
 ;         3 data inputs ; 2                           ;
-; arriav_mac            ; 1                           ;
 ; boundary_port         ; 44                          ;
 ; generic_pll           ; 1                           ;
 ; stratixv_ram_block    ; 36                          ;
 ;                       ;                             ;
-; Max LUT depth         ; 10.80                       ;
-; Average LUT depth     ; 3.47                        ;
+; Max LUT depth         ; 16.60                       ;
+; Average LUT depth     ; 8.38                        ;
 +-----------------------+-----------------------------+
 
 
@@ -1293,7 +1230,7 @@ Note: In order to hide this table in the UI and the text report file, please set
 +----------------+--------------+
 ; Partition Name ; Elapsed Time ;
 +----------------+--------------+
-; Top            ; 00:00:01     ;
+; Top            ; 00:03:27     ;
 +----------------+--------------+
 
 
@@ -1303,7 +1240,7 @@ Note: In order to hide this table in the UI and the text report file, please set
 Info: *******************************************************************
 Info: Running Quartus Prime Analysis & Synthesis
     Info: Version 18.0.0 Build 614 04/24/2018 SJ Lite Edition
-    Info: Processing started: Sun Nov 18 20:01:57 2018
+    Info: Processing started: Sun Nov 18 23:07:30 2018
 Info: Command: quartus_map --read_settings_files=on --write_settings_files=off main -c main
 Warning (18236): Number of processors has not been specified which may cause overloading on shared machines.  Set the global assignment NUM_PARALLEL_PROCESSORS in your QSF to an appropriate value for best performance.
 Info (20030): Parallel compilation is enabled and will use 16 of the 16 processors detected
@@ -1324,8 +1261,8 @@ Info (12021): Found 1 design units, including 1 entities, in source file vga_ada
     Info (12023): Found entity 1: vga_adapter File: C:/Users/Peter/OneDrive/1T8Semester1/ECE241/Lab projects/Space_invaders/vga_adapter/vga_adapter.v Line: 78
 Info (12021): Found 3 design units, including 3 entities, in source file main.v
     Info (12023): Found entity 1: main File: C:/Users/Peter/OneDrive/1T8Semester1/ECE241/Lab projects/Space_invaders/main.v Line: 3
-    Info (12023): Found entity 2: main_control File: C:/Users/Peter/OneDrive/1T8Semester1/ECE241/Lab projects/Space_invaders/main.v Line: 105
-    Info (12023): Found entity 3: main_datapath File: C:/Users/Peter/OneDrive/1T8Semester1/ECE241/Lab projects/Space_invaders/main.v Line: 180
+    Info (12023): Found entity 2: main_control File: C:/Users/Peter/OneDrive/1T8Semester1/ECE241/Lab projects/Space_invaders/main.v Line: 107
+    Info (12023): Found entity 3: main_datapath File: C:/Users/Peter/OneDrive/1T8Semester1/ECE241/Lab projects/Space_invaders/main.v Line: 189
 Info (12021): Found 3 design units, including 3 entities, in source file output_files/user_fsm.v
     Info (12023): Found entity 1: user_fsm File: C:/Users/Peter/OneDrive/1T8Semester1/ECE241/Lab projects/Space_invaders/output_files/user_fsm.v Line: 2
     Info (12023): Found entity 2: user_control File: C:/Users/Peter/OneDrive/1T8Semester1/ECE241/Lab projects/Space_invaders/output_files/user_fsm.v Line: 42
@@ -1388,22 +1325,29 @@ Info (12021): Found 1 design units, including 1 entities, in source file db/altp
     Info (12023): Found entity 1: altpll_80u File: C:/Users/Peter/OneDrive/1T8Semester1/ECE241/Lab projects/Space_invaders/db/altpll_80u.tdf Line: 25
 Info (12128): Elaborating entity "altpll_80u" for hierarchy "vga_adapter:VGA|vga_pll:mypll|altpll:altpll_component|altpll_80u:auto_generated" File: d:/intelfpga/quartus/libraries/megafunctions/altpll.tdf Line: 897
 Info (12128): Elaborating entity "vga_controller" for hierarchy "vga_adapter:VGA|vga_controller:controller" File: C:/Users/Peter/OneDrive/1T8Semester1/ECE241/Lab projects/Space_invaders/vga_adapter/vga_adapter.v Line: 262
-Info (12128): Elaborating entity "main_control" for hierarchy "main_control:C0" File: C:/Users/Peter/OneDrive/1T8Semester1/ECE241/Lab projects/Space_invaders/main.v Line: 84
-Warning (10270): Verilog HDL Case Statement warning at main.v(154): incomplete case statement has no default case item File: C:/Users/Peter/OneDrive/1T8Semester1/ECE241/Lab projects/Space_invaders/main.v Line: 154
-Info (10264): Verilog HDL Case Statement information at main.v(154): all case item expressions in this case statement are onehot File: C:/Users/Peter/OneDrive/1T8Semester1/ECE241/Lab projects/Space_invaders/main.v Line: 154
-Info (12128): Elaborating entity "frames_p_pulse_counter" for hierarchy "main_control:C0|frames_p_pulse_counter:u_counter_0" File: C:/Users/Peter/OneDrive/1T8Semester1/ECE241/Lab projects/Space_invaders/main.v Line: 114
+Info (12128): Elaborating entity "main_control" for hierarchy "main_control:C0" File: C:/Users/Peter/OneDrive/1T8Semester1/ECE241/Lab projects/Space_invaders/main.v Line: 85
+Warning (10270): Verilog HDL Case Statement warning at main.v(159): incomplete case statement has no default case item File: C:/Users/Peter/OneDrive/1T8Semester1/ECE241/Lab projects/Space_invaders/main.v Line: 159
+Info (10264): Verilog HDL Case Statement information at main.v(159): all case item expressions in this case statement are onehot File: C:/Users/Peter/OneDrive/1T8Semester1/ECE241/Lab projects/Space_invaders/main.v Line: 159
+Info (12128): Elaborating entity "frames_p_pulse_counter" for hierarchy "main_control:C0|frames_p_pulse_counter:u_counter_0" File: C:/Users/Peter/OneDrive/1T8Semester1/ECE241/Lab projects/Space_invaders/main.v Line: 117
 Warning (10230): Verilog HDL assignment warning at frame_counter.v(21): truncated value with size 32 to match size of target (6) File: C:/Users/Peter/OneDrive/1T8Semester1/ECE241/Lab projects/Space_invaders/frame_counter.v Line: 21
 Info (12128): Elaborating entity "frame_counter" for hierarchy "main_control:C0|frames_p_pulse_counter:u_counter_0|frame_counter:f0" File: C:/Users/Peter/OneDrive/1T8Semester1/ECE241/Lab projects/Space_invaders/frame_counter.v Line: 10
 Warning (10230): Verilog HDL assignment warning at frame_counter.v(48): truncated value with size 32 to match size of target (26) File: C:/Users/Peter/OneDrive/1T8Semester1/ECE241/Lab projects/Space_invaders/frame_counter.v Line: 48
 Warning (10230): Verilog HDL assignment warning at frame_counter.v(51): truncated value with size 32 to match size of target (1) File: C:/Users/Peter/OneDrive/1T8Semester1/ECE241/Lab projects/Space_invaders/frame_counter.v Line: 51
-Info (12128): Elaborating entity "main_datapath" for hierarchy "main_datapath:D0" File: C:/Users/Peter/OneDrive/1T8Semester1/ECE241/Lab projects/Space_invaders/main.v Line: 99
-Warning (10230): Verilog HDL assignment warning at main.v(214): truncated value with size 32 to match size of target (9) File: C:/Users/Peter/OneDrive/1T8Semester1/ECE241/Lab projects/Space_invaders/main.v Line: 214
-Warning (10230): Verilog HDL assignment warning at main.v(215): truncated value with size 32 to match size of target (8) File: C:/Users/Peter/OneDrive/1T8Semester1/ECE241/Lab projects/Space_invaders/main.v Line: 215
-Warning (10230): Verilog HDL assignment warning at main.v(255): truncated value with size 32 to match size of target (9) File: C:/Users/Peter/OneDrive/1T8Semester1/ECE241/Lab projects/Space_invaders/main.v Line: 255
-Warning (10230): Verilog HDL assignment warning at main.v(256): truncated value with size 32 to match size of target (9) File: C:/Users/Peter/OneDrive/1T8Semester1/ECE241/Lab projects/Space_invaders/main.v Line: 256
-Info (10264): Verilog HDL Case Statement information at main.v(254): all case item expressions in this case statement are onehot File: C:/Users/Peter/OneDrive/1T8Semester1/ECE241/Lab projects/Space_invaders/main.v Line: 254
-Warning (10230): Verilog HDL assignment warning at main.v(270): truncated value with size 32 to match size of target (7) File: C:/Users/Peter/OneDrive/1T8Semester1/ECE241/Lab projects/Space_invaders/main.v Line: 270
-Info (12128): Elaborating entity "user_fsm" for hierarchy "main_datapath:D0|user_fsm:U0" File: C:/Users/Peter/OneDrive/1T8Semester1/ECE241/Lab projects/Space_invaders/main.v Line: 230
+Info (12128): Elaborating entity "main_datapath" for hierarchy "main_datapath:D0" File: C:/Users/Peter/OneDrive/1T8Semester1/ECE241/Lab projects/Space_invaders/main.v Line: 101
+Warning (10230): Verilog HDL assignment warning at main.v(236): truncated value with size 32 to match size of target (9) File: C:/Users/Peter/OneDrive/1T8Semester1/ECE241/Lab projects/Space_invaders/main.v Line: 236
+Warning (10230): Verilog HDL assignment warning at main.v(237): truncated value with size 32 to match size of target (8) File: C:/Users/Peter/OneDrive/1T8Semester1/ECE241/Lab projects/Space_invaders/main.v Line: 237
+Warning (10230): Verilog HDL assignment warning at main.v(238): truncated value with size 32 to match size of target (6) File: C:/Users/Peter/OneDrive/1T8Semester1/ECE241/Lab projects/Space_invaders/main.v Line: 238
+Warning (10230): Verilog HDL assignment warning at main.v(239): truncated value with size 32 to match size of target (6) File: C:/Users/Peter/OneDrive/1T8Semester1/ECE241/Lab projects/Space_invaders/main.v Line: 239
+Warning (10240): Verilog HDL Always Construct warning at main.v(221): inferring latch(es) for variable "i", which holds its previous value in one or more paths through the always construct File: C:/Users/Peter/OneDrive/1T8Semester1/ECE241/Lab projects/Space_invaders/main.v Line: 221
+Warning (10240): Verilog HDL Always Construct warning at main.v(221): inferring latch(es) for variable "j", which holds its previous value in one or more paths through the always construct File: C:/Users/Peter/OneDrive/1T8Semester1/ECE241/Lab projects/Space_invaders/main.v Line: 221
+Warning (10230): Verilog HDL assignment warning at main.v(287): truncated value with size 32 to match size of target (9) File: C:/Users/Peter/OneDrive/1T8Semester1/ECE241/Lab projects/Space_invaders/main.v Line: 287
+Warning (10230): Verilog HDL assignment warning at main.v(288): truncated value with size 32 to match size of target (9) File: C:/Users/Peter/OneDrive/1T8Semester1/ECE241/Lab projects/Space_invaders/main.v Line: 288
+Info (10264): Verilog HDL Case Statement information at main.v(286): all case item expressions in this case statement are onehot File: C:/Users/Peter/OneDrive/1T8Semester1/ECE241/Lab projects/Space_invaders/main.v Line: 286
+Warning (10230): Verilog HDL assignment warning at main.v(293): truncated value with size 32 to match size of target (9) File: C:/Users/Peter/OneDrive/1T8Semester1/ECE241/Lab projects/Space_invaders/main.v Line: 293
+Warning (10230): Verilog HDL assignment warning at main.v(294): truncated value with size 32 to match size of target (8) File: C:/Users/Peter/OneDrive/1T8Semester1/ECE241/Lab projects/Space_invaders/main.v Line: 294
+Warning (10230): Verilog HDL assignment warning at main.v(311): truncated value with size 32 to match size of target (1) File: C:/Users/Peter/OneDrive/1T8Semester1/ECE241/Lab projects/Space_invaders/main.v Line: 311
+Warning (10230): Verilog HDL assignment warning at main.v(324): truncated value with size 32 to match size of target (1) File: C:/Users/Peter/OneDrive/1T8Semester1/ECE241/Lab projects/Space_invaders/main.v Line: 324
+Info (12128): Elaborating entity "user_fsm" for hierarchy "main_datapath:D0|user_fsm:U0" File: C:/Users/Peter/OneDrive/1T8Semester1/ECE241/Lab projects/Space_invaders/main.v Line: 258
 Info (12128): Elaborating entity "user_control" for hierarchy "main_datapath:D0|user_fsm:U0|user_control:c0_u" File: C:/Users/Peter/OneDrive/1T8Semester1/ECE241/Lab projects/Space_invaders/output_files/user_fsm.v Line: 25
 Info (12128): Elaborating entity "user_datapath" for hierarchy "main_datapath:D0|user_fsm:U0|user_datapath:d0_u" File: C:/Users/Peter/OneDrive/1T8Semester1/ECE241/Lab projects/Space_invaders/output_files/user_fsm.v Line: 37
 Warning (10230): Verilog HDL assignment warning at user_fsm.v(141): truncated value with size 32 to match size of target (10) File: C:/Users/Peter/OneDrive/1T8Semester1/ECE241/Lab projects/Space_invaders/output_files/user_fsm.v Line: 141
@@ -1430,7 +1374,7 @@ Info (12133): Instantiated megafunction "main_datapath:D0|user_fsm:U0|user_datap
 Info (12021): Found 1 design units, including 1 entities, in source file db/altsyncram_gph1.tdf
     Info (12023): Found entity 1: altsyncram_gph1 File: C:/Users/Peter/OneDrive/1T8Semester1/ECE241/Lab projects/Space_invaders/db/altsyncram_gph1.tdf Line: 27
 Info (12128): Elaborating entity "altsyncram_gph1" for hierarchy "main_datapath:D0|user_fsm:U0|user_datapath:d0_u|rom560x3_user:user_sprite|altsyncram:altsyncram_component|altsyncram_gph1:auto_generated" File: d:/intelfpga/quartus/libraries/megafunctions/altsyncram.tdf Line: 791
-Info (12128): Elaborating entity "enemyFSM" for hierarchy "main_datapath:D0|enemyFSM:E0" File: C:/Users/Peter/OneDrive/1T8Semester1/ECE241/Lab projects/Space_invaders/main.v Line: 242
+Info (12128): Elaborating entity "enemyFSM" for hierarchy "main_datapath:D0|enemyFSM:E0" File: C:/Users/Peter/OneDrive/1T8Semester1/ECE241/Lab projects/Space_invaders/main.v Line: 270
 Info (12128): Elaborating entity "enemy_control" for hierarchy "main_datapath:D0|enemyFSM:E0|enemy_control:c0_e" File: C:/Users/Peter/OneDrive/1T8Semester1/ECE241/Lab projects/Space_invaders/enemyFSM.v Line: 26
 Info (12128): Elaborating entity "enemy_datapath" for hierarchy "main_datapath:D0|enemyFSM:E0|enemy_datapath:d0_e" File: C:/Users/Peter/OneDrive/1T8Semester1/ECE241/Lab projects/Space_invaders/enemyFSM.v Line: 40
 Warning (10230): Verilog HDL assignment warning at enemyFSM.v(146): truncated value with size 32 to match size of target (10) File: C:/Users/Peter/OneDrive/1T8Semester1/ECE241/Lab projects/Space_invaders/enemyFSM.v Line: 146
@@ -1458,34 +1402,11 @@ Info (12133): Instantiated megafunction "main_datapath:D0|enemyFSM:E0|enemy_data
 Info (12021): Found 1 design units, including 1 entities, in source file db/altsyncram_doo1.tdf
     Info (12023): Found entity 1: altsyncram_doo1 File: C:/Users/Peter/OneDrive/1T8Semester1/ECE241/Lab projects/Space_invaders/db/altsyncram_doo1.tdf Line: 27
 Info (12128): Elaborating entity "altsyncram_doo1" for hierarchy "main_datapath:D0|enemyFSM:E0|enemy_datapath:d0_e|ram560x3_enemy1:enemy1_sprite|altsyncram:altsyncram_component|altsyncram_doo1:auto_generated" File: d:/intelfpga/quartus/libraries/megafunctions/altsyncram.tdf Line: 791
-Info (278001): Inferred 2 megafunctions from design logic
-    Info (278004): Inferred divider/modulo megafunction ("lpm_divide") from the following logic: "main_datapath:D0|Mod0" File: C:/Users/Peter/OneDrive/1T8Semester1/ECE241/Lab projects/Space_invaders/main.v Line: 214
-    Info (278004): Inferred divider/modulo megafunction ("lpm_divide") from the following logic: "main_datapath:D0|Div0" File: C:/Users/Peter/OneDrive/1T8Semester1/ECE241/Lab projects/Space_invaders/main.v Line: 215
-Info (12130): Elaborated megafunction instantiation "main_datapath:D0|lpm_divide:Mod0" File: C:/Users/Peter/OneDrive/1T8Semester1/ECE241/Lab projects/Space_invaders/main.v Line: 214
-Info (12133): Instantiated megafunction "main_datapath:D0|lpm_divide:Mod0" with the following parameter: File: C:/Users/Peter/OneDrive/1T8Semester1/ECE241/Lab projects/Space_invaders/main.v Line: 214
-    Info (12134): Parameter "LPM_WIDTHN" = "7"
-    Info (12134): Parameter "LPM_WIDTHD" = "4"
-    Info (12134): Parameter "LPM_NREPRESENTATION" = "UNSIGNED"
-    Info (12134): Parameter "LPM_DREPRESENTATION" = "UNSIGNED"
-Info (12021): Found 1 design units, including 1 entities, in source file db/lpm_divide_72m.tdf
-    Info (12023): Found entity 1: lpm_divide_72m File: C:/Users/Peter/OneDrive/1T8Semester1/ECE241/Lab projects/Space_invaders/db/lpm_divide_72m.tdf Line: 24
-Info (12021): Found 1 design units, including 1 entities, in source file db/sign_div_unsign_akh.tdf
-    Info (12023): Found entity 1: sign_div_unsign_akh File: C:/Users/Peter/OneDrive/1T8Semester1/ECE241/Lab projects/Space_invaders/db/sign_div_unsign_akh.tdf Line: 24
-Info (12021): Found 1 design units, including 1 entities, in source file db/alt_u_div_qse.tdf
-    Info (12023): Found entity 1: alt_u_div_qse File: C:/Users/Peter/OneDrive/1T8Semester1/ECE241/Lab projects/Space_invaders/db/alt_u_div_qse.tdf Line: 22
-Info (12130): Elaborated megafunction instantiation "main_datapath:D0|lpm_divide:Div0" File: C:/Users/Peter/OneDrive/1T8Semester1/ECE241/Lab projects/Space_invaders/main.v Line: 215
-Info (12133): Instantiated megafunction "main_datapath:D0|lpm_divide:Div0" with the following parameter: File: C:/Users/Peter/OneDrive/1T8Semester1/ECE241/Lab projects/Space_invaders/main.v Line: 215
-    Info (12134): Parameter "LPM_WIDTHN" = "7"
-    Info (12134): Parameter "LPM_WIDTHD" = "4"
-    Info (12134): Parameter "LPM_NREPRESENTATION" = "UNSIGNED"
-    Info (12134): Parameter "LPM_DREPRESENTATION" = "UNSIGNED"
-Info (12021): Found 1 design units, including 1 entities, in source file db/lpm_divide_4am.tdf
-    Info (12023): Found entity 1: lpm_divide_4am File: C:/Users/Peter/OneDrive/1T8Semester1/ECE241/Lab projects/Space_invaders/db/lpm_divide_4am.tdf Line: 24
 Warning (12241): 1 hierarchies have connectivity warnings - see the Connectivity Checks report folder
 Warning (13024): Output pins are stuck at VCC or GND
     Warning (13410): Pin "VGA_SYNC_N" is stuck at VCC File: C:/Users/Peter/OneDrive/1T8Semester1/ECE241/Lab projects/Space_invaders/main.v Line: 29
 Info (286030): Timing-Driven Synthesis is running
-Info (17049): 10 registers lost all their fanouts during netlist optimizations.
+Info (17049): 11 registers lost all their fanouts during netlist optimizations.
 Warning (20013): Ignored 385 assignments for entity "DE1_SoC" -- entity does not exist in design
     Warning (20014): Assignment for entity set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to ADC_CS_N -entity DE1_SoC was ignored
     Warning (20014): Assignment for entity set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to ADC_DIN -entity DE1_SoC was ignored
@@ -1888,17 +1809,16 @@ Warning (21074): Design contains 11 input pin(s) that do not drive logic
     Warning (15610): No output dependent on input pin "SW[8]" File: C:/Users/Peter/OneDrive/1T8Semester1/ECE241/Lab projects/Space_invaders/main.v Line: 22
     Warning (15610): No output dependent on input pin "SW[9]" File: C:/Users/Peter/OneDrive/1T8Semester1/ECE241/Lab projects/Space_invaders/main.v Line: 22
     Warning (15610): No output dependent on input pin "KEY[2]" File: C:/Users/Peter/OneDrive/1T8Semester1/ECE241/Lab projects/Space_invaders/main.v Line: 21
-Info (21057): Implemented 464 device resources after synthesis - the final resource count might be different
+Info (21057): Implemented 930 device resources after synthesis - the final resource count might be different
     Info (21058): Implemented 15 input pins
     Info (21059): Implemented 29 output pins
-    Info (21061): Implemented 382 logic cells
+    Info (21061): Implemented 849 logic cells
     Info (21064): Implemented 36 RAM segments
     Info (21065): Implemented 1 PLLs
-    Info (21062): Implemented 1 DSP elements
-Info: Quartus Prime Analysis & Synthesis was successful. 0 errors, 418 warnings
-    Info: Peak virtual memory: 4943 megabytes
-    Info: Processing ended: Sun Nov 18 20:02:11 2018
-    Info: Elapsed time: 00:00:14
-    Info: Total CPU time (on all processors): 00:00:31
+Info: Quartus Prime Analysis & Synthesis was successful. 0 errors, 425 warnings
+    Info: Peak virtual memory: 4935 megabytes
+    Info: Processing ended: Sun Nov 18 23:11:10 2018
+    Info: Elapsed time: 00:03:40
+    Info: Total CPU time (on all processors): 00:03:57
 
 

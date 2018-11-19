@@ -127,11 +127,11 @@ module enemy_datapath(
 	  .wren(1'b0),
 	  .q(colour_ram)
 	  );
-	  
+
 	  wire done;
 	  assign done = (counter == 10'd559);
-	  
-	  
+
+
 
 	  always@(posedge clk) begin
 		 if(!resetn || done) begin
