@@ -39,7 +39,7 @@ module main
 	wire [2:0] colour;
 	wire [8:0] x;
 	wire [7:0] y;
-	wire move_e, move_u, draw_u, draw_e;
+	wire blackout_u, move_e, move_u, draw_u, draw_e;
 
 	// Create an Instance of a VGA controller - there can be only one!
 	// Define the number of colours as well as the initial background
@@ -77,6 +77,7 @@ module main
 			 .done_user(done_user),
 			 .done_enemies(done_enemies),
 
+			 .blackout_u(blackout_u),
 			 .move_u(move_u),
 			 .move_e(move_e),
 			 .draw_u(draw_u),
@@ -86,6 +87,7 @@ module main
 		main_datapath D0(.clk(CLOCK_50),
 			.resetn(resetn),
 			.move_e(move_e),
+			.blackout_u(blackout_u),
 			.move_u(move_u),
 			.draw_u(draw_u),
 			.draw_e(draw_e),
@@ -108,7 +110,7 @@ module main_control(
 	  input done_user,
 	  input [6:0] done_enemies,
 
-    output reg move_e, move_u, draw_u, draw_e
+    output reg blackout_u, move_e, move_u, draw_u, draw_e
     );
 
 		frames_p_pulse_counter u_counter_0(.clk(clk), .frames_pulse(6'd1), .pulse(replot));
@@ -117,24 +119,26 @@ module main_control(
     reg [4:0] current_state, next_state;
 
     localparam
-					 S_MOVE_USER    = 4'd0,
-					 S_PLOT_USER    = 4'd1,
-					 S_MOVE_ENEMIES = 4'd2,
-				   S_PLOT_ENEMIES = 4'd3,
-					 S_DONE			    = 4'd4;
+					 S_BLACKOUT_USER= 4'd0,
+					 S_MOVE_USER    = 4'd1,
+					 S_PLOT_USER    = 4'd2,
+					 S_MOVE_ENEMIES = 4'd3,
+				   S_PLOT_ENEMIES = 4'd4,
+					 S_DONE			    = 4'd5;
 
 
     // Next state logic aka our state table
     always@(*)
     begin: state_table
             case (current_state)
+								S_BLACKOUT_USER: next_state = done_user ? S_MOVE_USER : S_BLACKOUT_USER;
 								S_MOVE_USER: next_state = S_PLOT_USER;
 								S_PLOT_USER: next_state = done_user ? S_MOVE_ENEMIES : S_PLOT_USER; // Repeat ploting user until all 400 pixels are exhausted
 								S_MOVE_ENEMIES: next_state =  S_PLOT_ENEMIES;
 								S_PLOT_ENEMIES: next_state = done_enemies == 7'd60 ? S_DONE : S_PLOT_ENEMIES;
 								S_DONE: next_state = replot == 1'b1 ? S_MOVE_USER : S_DONE;
 
-            default:     next_state = S_MOVE_USER;
+            default:     next_state = S_BLACKOUT_USER;
         endcase
     end // state_table
 
@@ -146,12 +150,17 @@ module main_control(
         // This is a different style from using a default statement.
         // It makes the code easier to read.  If you add other out
         // signals be sure to assign a default value for them here.
+				blackout_u = 1'b0;
 				move_e = 1'b0;
 				move_u = 1'b0;
 				draw_u = 1'b0;
 				draw_e = 1'b0;
 
         case (current_state)
+				  S_BLACKOUT_USER: begin
+						blackout_u = 1'b1;
+						draw_u = 1'b1;
+					end
 				  S_MOVE_USER: move_u = 1'b1;
 					S_PLOT_USER: begin
 						draw_u = 1'b1;
@@ -169,7 +178,7 @@ module main_control(
     always@(posedge clk)
     begin: state_FFs
         if(!resetn)
-            current_state <= S_MOVE_USER;
+            current_state <= S_BLACKOUT_USER;
         else
             current_state <= next_state;
     end // state_FFS
@@ -180,7 +189,7 @@ endmodule
 module main_datapath(
     input clk,
     input resetn,
-		input move_e, move_u, draw_u, draw_e,
+		input blackout_u, move_e, move_u, draw_u, draw_e,
 		input [1:0] user_move,
 
 	 output reg done_user,
@@ -252,15 +261,15 @@ module main_datapath(
         else begin
 					  if(move_u) begin //no reset for user_x_coord because we want a latch
 							case(user_move)
-								2'b01: user_x_coord <= user_x_coord + 1;
-								2'b10: user_x_coord <= user_x_coord - 1;
+								2'b01: user_x_coord <= user_x_coord == 292 ? 0 : user_x_coord + 1;
+								2'b10: user_x_coord <= user_x_coord == 0 ? 292 : user_x_coord - 1;
 								default: user_x_coord <= user_x_coord;
 							endcase
 						end
 				 		if (draw_u) begin
 								X <= X_pos_u;
 								Y <= Y_pos_u;
-								colour <= colour_u;
+								colour <= blackout_u ? 3'b000 : colour_u;
 								done_user <= done_u;
 						end
 						else if (draw_e) begin
