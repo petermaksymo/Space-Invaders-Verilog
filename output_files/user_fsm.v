@@ -130,7 +130,7 @@ module user_datapath(
 
 	  always@(posedge clk) begin
 		 if(!resetn || done) begin
-			 x_sprite <= 5'b0;
+			 x_sprite <= 5'b11101;
 			 y_sprite <= 5'b0;
 			 counter <= 10'b0;
 			 colour <= 3'b0;
