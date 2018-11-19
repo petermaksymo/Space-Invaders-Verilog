@@ -13,8 +13,11 @@ module enemyFSM(
   output done
   );
 
+  wire done_plot;
   wire plot;
   wire [9:0] counter;
+
+  assign done = !enable ? 1 : done_plot;
 
   enemy_control c0_e(
       .clk(clk),
@@ -22,7 +25,7 @@ module enemyFSM(
       .should_plot(enable),
       .counter(counter),
       .plot(plot),
-		.done(done)
+		  .done(done_plot)
     );
 
   enemy_datapath d0_e(
