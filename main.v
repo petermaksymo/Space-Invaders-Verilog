@@ -111,17 +111,17 @@ module main_control(
     output reg move_e, move_u, draw_u, draw_e
     );
 
-		counter c_0(.clk(clk), .pulse(replot));
+		frames_p_pulse_counter u_counter_0(.clk(clk), .frames_pulse(6'd1), .pulse(replot));
 
 		wire replot;
     reg [4:0] current_state, next_state;
 
     localparam
-					 S_MOVE_USER    = 4'd1,
-					 S_PLOT_USER    = 4'd2,
-					 S_MOVE_ENEMIES = 4'd3,
-				   S_PLOT_ENEMIES = 4'd4,
-					 S_DONE			    = 4'd5;
+					 S_MOVE_USER    = 4'd0,
+					 S_PLOT_USER    = 4'd1,
+					 S_MOVE_ENEMIES = 4'd2,
+				   S_PLOT_ENEMIES = 4'd3,
+					 S_DONE			    = 4'd4;
 
 
     // Next state logic aka our state table
@@ -198,14 +198,14 @@ module main_datapath(
 
 	 reg [8:0] X_pos_init; // Initial x Position of object
 	 reg [7:0] Y_pos_init; // Initial y Position of object
-	 reg [7:0] user_x_coord = 9'd146; //offset from start position
+	 reg [8:0] user_x_coord = 9'd146; //offset from start position
 	 localparam anchor_x = 18;
 	 localparam anchor_y = 20;
 
 	 always@(*) begin
 	 		X_pos_init = 9'd0;
 			Y_pos_init = 8'd0;
-			
+
 			if(draw_u) begin
 				X_pos_init = user_x_coord;
 				Y_pos_init = 8'd220;
@@ -250,7 +250,7 @@ module main_datapath(
 					done_enemies <= 7'b0;
         end
         else begin
-					  if(move_u) begin
+					  if(move_u) begin //no reset for user_x_coord because we want a latch
 							case(user_move)
 								2'b01: user_x_coord <= user_x_coord + 1;
 								2'b10: user_x_coord <= user_x_coord - 1;

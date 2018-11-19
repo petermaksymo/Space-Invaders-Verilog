@@ -14,35 +14,35 @@ KEY[0] => resetn.IN3
 KEY[1] => _.IN1
 KEY[2] => ~NO_FANOUT~
 KEY[3] => _.IN1
-VGA_CLK << vga_adapter:VGA.VGA_CLK
-VGA_HS << vga_adapter:VGA.VGA_HS
-VGA_VS << vga_adapter:VGA.VGA_VS
-VGA_BLANK_N << vga_adapter:VGA.VGA_BLANK
-VGA_SYNC_N << vga_adapter:VGA.VGA_SYNC
-VGA_R[0] << vga_adapter:VGA.VGA_R
-VGA_R[1] << vga_adapter:VGA.VGA_R
-VGA_R[2] << vga_adapter:VGA.VGA_R
-VGA_R[3] << vga_adapter:VGA.VGA_R
-VGA_R[4] << vga_adapter:VGA.VGA_R
-VGA_R[5] << vga_adapter:VGA.VGA_R
-VGA_R[6] << vga_adapter:VGA.VGA_R
-VGA_R[7] << vga_adapter:VGA.VGA_R
-VGA_G[0] << vga_adapter:VGA.VGA_G
-VGA_G[1] << vga_adapter:VGA.VGA_G
-VGA_G[2] << vga_adapter:VGA.VGA_G
-VGA_G[3] << vga_adapter:VGA.VGA_G
-VGA_G[4] << vga_adapter:VGA.VGA_G
-VGA_G[5] << vga_adapter:VGA.VGA_G
-VGA_G[6] << vga_adapter:VGA.VGA_G
-VGA_G[7] << vga_adapter:VGA.VGA_G
-VGA_B[0] << vga_adapter:VGA.VGA_B
-VGA_B[1] << vga_adapter:VGA.VGA_B
-VGA_B[2] << vga_adapter:VGA.VGA_B
-VGA_B[3] << vga_adapter:VGA.VGA_B
-VGA_B[4] << vga_adapter:VGA.VGA_B
-VGA_B[5] << vga_adapter:VGA.VGA_B
-VGA_B[6] << vga_adapter:VGA.VGA_B
-VGA_B[7] << vga_adapter:VGA.VGA_B
+VGA_CLK <= vga_adapter:VGA.VGA_CLK
+VGA_HS <= vga_adapter:VGA.VGA_HS
+VGA_VS <= vga_adapter:VGA.VGA_VS
+VGA_BLANK_N <= vga_adapter:VGA.VGA_BLANK
+VGA_SYNC_N <= vga_adapter:VGA.VGA_SYNC
+VGA_R[0] <= vga_adapter:VGA.VGA_R
+VGA_R[1] <= vga_adapter:VGA.VGA_R
+VGA_R[2] <= vga_adapter:VGA.VGA_R
+VGA_R[3] <= vga_adapter:VGA.VGA_R
+VGA_R[4] <= vga_adapter:VGA.VGA_R
+VGA_R[5] <= vga_adapter:VGA.VGA_R
+VGA_R[6] <= vga_adapter:VGA.VGA_R
+VGA_R[7] <= vga_adapter:VGA.VGA_R
+VGA_G[0] <= vga_adapter:VGA.VGA_G
+VGA_G[1] <= vga_adapter:VGA.VGA_G
+VGA_G[2] <= vga_adapter:VGA.VGA_G
+VGA_G[3] <= vga_adapter:VGA.VGA_G
+VGA_G[4] <= vga_adapter:VGA.VGA_G
+VGA_G[5] <= vga_adapter:VGA.VGA_G
+VGA_G[6] <= vga_adapter:VGA.VGA_G
+VGA_G[7] <= vga_adapter:VGA.VGA_G
+VGA_B[0] <= vga_adapter:VGA.VGA_B
+VGA_B[1] <= vga_adapter:VGA.VGA_B
+VGA_B[2] <= vga_adapter:VGA.VGA_B
+VGA_B[3] <= vga_adapter:VGA.VGA_B
+VGA_B[4] <= vga_adapter:VGA.VGA_B
+VGA_B[5] <= vga_adapter:VGA.VGA_B
+VGA_B[6] <= vga_adapter:VGA.VGA_B
+VGA_B[7] <= vga_adapter:VGA.VGA_B
 
 
 |main|vga_adapter:VGA
@@ -1713,7 +1713,18 @@ draw_u <= draw_u.DB_MAX_OUTPUT_PORT_TYPE
 draw_e <= draw_e.DB_MAX_OUTPUT_PORT_TYPE
 
 
-|main|main_control:C0|counter:c_0
+|main|main_control:C0|frames_p_pulse_counter:u_counter_0
+clk => clk.IN1
+frames_pulse[0] => Equal0.IN5
+frames_pulse[1] => Equal0.IN4
+frames_pulse[2] => Equal0.IN3
+frames_pulse[3] => Equal0.IN2
+frames_pulse[4] => Equal0.IN1
+frames_pulse[5] => Equal0.IN0
+pulse <= Equal0.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|main|main_control:C0|frames_p_pulse_counter:u_counter_0|frame_counter:f0
 clk => start.CLK
 clk => Q[0].CLK
 clk => Q[1].CLK
@@ -1741,13 +1752,14 @@ clk => Q[22].CLK
 clk => Q[23].CLK
 clk => Q[24].CLK
 clk => Q[25].CLK
-pulse <= Equal1.DB_MAX_OUTPUT_PORT_TYPE
+pulse <= Equal0.DB_MAX_OUTPUT_PORT_TYPE
 
 
 |main|main_datapath:D0
 clk => clk.IN2
 resetn => resetn.IN2
 move_e => ~NO_FANOUT~
+move_u => user_x_coord.OUTPUTSELECT
 move_u => user_x_coord.OUTPUTSELECT
 move_u => user_x_coord.OUTPUTSELECT
 move_u => user_x_coord.OUTPUTSELECT
