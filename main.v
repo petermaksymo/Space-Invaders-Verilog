@@ -136,7 +136,7 @@ module main_control(
 								S_PLOT_USER: next_state = done_user ? S_MOVE_ENEMIES : S_PLOT_USER; // Repeat ploting user until all 400 pixels are exhausted
 								S_MOVE_ENEMIES: next_state =  S_PLOT_ENEMIES;
 								S_PLOT_ENEMIES: next_state = done_enemies == 7'd60 ? S_DONE : S_PLOT_ENEMIES;
-								S_DONE: next_state = replot == 1'b1 ? S_MOVE_USER : S_DONE;
+								S_DONE: next_state = replot == 1'b1 ? S_BLACKOUT_USER : S_DONE;
 
             default:     next_state = S_BLACKOUT_USER;
         endcase
@@ -269,7 +269,7 @@ module main_datapath(
 				 		if (draw_u) begin
 								X <= X_pos_u;
 								Y <= Y_pos_u;
-								colour <= blackout_u ? 3'b000 : colour_u;
+								colour <= blackout_u == 1'b1 ? 3'b0 : colour_u;
 								done_user <= done_u;
 						end
 						else if (draw_e) begin
