@@ -129,7 +129,7 @@ module main_control(
 				   S_PLOT_ENEMIES     = 4'd5,
 					 S_DONE_PLOTS			  = 4'd6;
 
-	 	localparam enemy_speed = 4'd10; //inverse of enemy speed (higher = slower)
+	 	localparam enemy_speed = 4'd5; //inverse of enemy speed (higher = slower) 15 was good for final
 		reg [3:0] speed_divider;
 
     // Next state logic aka our state table
@@ -223,13 +223,13 @@ module main_datapath(
 	 reg [8:0] user_x_coord = 9'd146; //offset from start position
 
 	 reg [8:0]anchor_x = 8;
-	 reg [6:0]anchor_y = 10;
+	 reg [7:0]anchor_y = 10;
 
 	 reg direction_e = 1'b1; //1 for right, 0 for left
 	 reg done_looking;
 	 reg enemies[0:8][0:2];
 
-	 localparam y_e_cutoff = 175; //max y enemies can be drawn
+	 localparam y_e_cutoff = 200; //max y enemies can be drawn
 
 	 integer i, j;
 	 reg[5:0] e_i, e_j;
@@ -255,7 +255,7 @@ module main_datapath(
 								e_i = i;
 								e_j = j;
 								done_looking = 1;
-								enable_draw_e = X_pos_init <= y_e_cutoff ? 1 : 0;
+								enable_draw_e = (Y_pos_init < y_e_cutoff) ? 1 : 0;
 						end
 					end
 				end
@@ -309,10 +309,13 @@ module main_datapath(
 					endcase
 				end
 				if (move_e) begin
-						if(direction_e) anchor_x <= anchor_x == 48 ? 8 :  anchor_x + 1;
-						else if(!direction_e) anchor_x <= anchor_x == 8 ? 48 : anchor_x - 1;
+						if(anchor_x == 49) direction_e <= 0;
+						if(anchor_x == 9 ) direction_e <= 1;
+						
+						if(direction_e) anchor_x <= anchor_x + 1;
+						else if(!direction_e) anchor_x <= anchor_x - 1;
 
-						anchor_y <= anchor_x == 48 ? anchor_y + 25 : anchor_y;
+						anchor_y <= (anchor_x == 50 || anchor_x == 8) ? anchor_y + 20 : anchor_y;
 						for(i = 0; i < 9; i = i + 1) begin
 							for(j = 0; j < 2; j = j + 1) begin
 								enemies[i][j] <= 0;
@@ -328,7 +331,7 @@ module main_datapath(
 				if (draw_e) begin
 						X <= X_pos_e;
 						Y <= Y_pos_e;
-						colour <= blackout_e == 1 ? 3'b000 : colour_e;
+						colour <= blackout_e ? 3'b000 : colour_e;
 						enemies[e_i][e_j] <= done_e == 1? 1 : 0;
 				end
 				if(blackout_e_prep) begin
