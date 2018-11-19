@@ -70,7 +70,7 @@ module main
 
     // lots of wires to connect our datapath and control
 	 wire done_user;
-	 wire done_enemies, blackout_e;
+	 wire done_enemies, blackout_e, blackout_e_prep;
 
 		main_control C0(.clk(CLOCK_50),
 			 .resetn(resetn),
@@ -81,6 +81,7 @@ module main
 			 .move_e(move_e),
 			 .draw_u(draw_u),
 			 .draw_e(draw_e),
+			 .blackout_e_prep(blackout_e_prep),
 			 .blackout_e(blackout_e)
 			 );
 
@@ -90,6 +91,7 @@ module main
 			.move_u(move_u),
 			.draw_u(draw_u),
 			.draw_e(draw_e),
+			.blackout_e_prep(blackout_e_prep),
 			.blackout_e(blackout_e),
 			.user_move( {~KEY[3] , ~ KEY[1]} ),
 
@@ -110,21 +112,22 @@ module main_control(
 	  input done_user,
 	  input done_enemies,
 
-    output reg move_e, move_u, draw_u, draw_e, blackout_e
+    output reg move_e, move_u, draw_u, draw_e, blackout_e_prep, blackout_e
     );
 
 		wire replot;
-		frames_p_pulse_counter u_counter_0(.clk(clk), .frames_pulse(6'd1), .pulse(replot));
+		frames_p_pulse_counter u_counter_0(.clk(clk), .frames_pulse(6'd2), .pulse(replot));
 
     reg [4:0] current_state, next_state;
 
     localparam
 					 S_MOVE_USER        = 4'd0,
 					 S_PLOT_USER        = 4'd1,
-					 S_BLACKOUT_ENEMIES = 4'd2,
-					 S_MOVE_ENEMIES     = 4'd3,
-				    S_PLOT_ENEMIES     = 4'd4,
-					 S_DONE			     = 4'd5;
+					 S_BLACKOUT_E_PREP  = 4'd2,
+					 S_BLACKOUT_ENEMIES = 4'd3,
+					 S_MOVE_ENEMIES     = 4'd4,
+				    S_PLOT_ENEMIES     = 4'd5,
+					 S_DONE			     = 4'd6;
 
 
     // Next state logic aka our state table
@@ -132,7 +135,8 @@ module main_control(
     begin: state_table
             case (current_state)
 								S_MOVE_USER: next_state = S_PLOT_USER;
-								S_PLOT_USER: next_state = done_user ? S_MOVE_ENEMIES : S_PLOT_USER; // Repeat ploting user until all 400 pixels are exhausted
+								S_PLOT_USER: next_state = done_user ? S_BLACKOUT_E_PREP : S_PLOT_USER; // Repeat ploting user until all 400 pixels are exhausted
+								S_BLACKOUT_E_PREP: next_state = S_BLACKOUT_ENEMIES;
 								S_BLACKOUT_ENEMIES: next_state = done_enemies == 1'b1 ? S_MOVE_ENEMIES : S_BLACKOUT_ENEMIES;
 								S_MOVE_ENEMIES: next_state =  S_PLOT_ENEMIES;
 								S_PLOT_ENEMIES: next_state = done_enemies == 1'b1 ? S_DONE : S_PLOT_ENEMIES;
@@ -154,6 +158,7 @@ module main_control(
 				move_u = 1'b0;
 				draw_u = 1'b0;
 				draw_e = 1'b0;
+				blackout_e_prep = 1'b0;
 				blackout_e = 1'b0;
 
         case (current_state)
@@ -161,6 +166,8 @@ module main_control(
 					S_PLOT_USER: begin
 						draw_u = 1'b1;
 					end
+					S_BLACKOUT_E_PREP:
+						blackout_e_prep = 1'b1;
 					S_BLACKOUT_ENEMIES: begin 
 						blackout_e = 1'b1;
 						draw_e = 1'b1;
@@ -189,7 +196,7 @@ endmodule
 module main_datapath(
     input clk,
     input resetn,
-		input move_e, move_u, draw_u, draw_e, blackout_e,
+		input move_e, move_u, draw_u, draw_e, blackout_e_prep, blackout_e,
 		input [1:0] user_move,
 
 	 output reg done_user,
@@ -210,10 +217,10 @@ module main_datapath(
 	 reg [8:0] user_x_coord = 9'd146; //offset from start position
 
 	 reg [8:0]anchor_x = 8;
-	 reg [7:0]anchor_y = 10;
+	 reg [6:0]anchor_y = 10;
 
 	 reg done_looking;
-	 reg enemies[0:9][0:6];
+	 reg enemies[0:8][0:2];
 
 	 integer i, j;
 	 reg[5:0] e_i, e_j;
@@ -231,7 +238,7 @@ module main_datapath(
 			//get the coordinates of the enemy from array by finding first not drawn
 			if(draw_e) begin
 				for(i = 0; i < 9; i = i + 1) begin
-					for(j = 0; j < 6 ; j = j + 1) begin
+					for(j = 0; j < 2 ; j = j + 1) begin
 						if (!done_looking && enemies[i][j] == 0) begin
 								X_pos_init = anchor_x + (i * 28);
 								Y_pos_init = anchor_y + (j * 25);
@@ -274,8 +281,8 @@ module main_datapath(
 				Y <= 8'b0;
 				colour <= 3'b0;
 				done_user <= 1'b0;
-				for(i = 0; i < 10; i = i + 1) begin
-					for(j = 0; j < 7; j = j + 1) begin
+				for(i = 0; i < 9; i = i + 1) begin
+					for(j = 0; j < 2; j = j + 1) begin
 						enemies[i][j] <= 0;
 					end
 				end
@@ -292,8 +299,8 @@ module main_datapath(
 				if (move_e) begin
 						anchor_x <= anchor_x == 48 ? 8 : anchor_x + 1;
 						anchor_y <= anchor_x == 48 ? anchor_y + 25 : anchor_y;
-						for(i = 0; i < 10; i = i + 1) begin
-							for(j = 0; j < 7; j = j + 1) begin
+						for(i = 0; i < 9; i = i + 1) begin
+							for(j = 0; j < 2; j = j + 1) begin
 								enemies[i][j] <= 0;
 							end
 						end
@@ -310,9 +317,9 @@ module main_datapath(
 						colour <= blackout_e == 1 ? 3'b000 : colour_e;
 						enemies[e_i][e_j] <= done_e == 1? 1 : 0;
 				end
-				if(blackout_e) begin 
-					for(i = 0; i < 10; i = i + 1) begin
-						for(j = 0; j < 7; j = j + 1) begin
+				if(blackout_e_prep) begin 
+					for(i = 0; i < 9; i = i + 1) begin
+						for(j = 0; j < 2; j = j + 1) begin
 							enemies[i][j] <= 0;
 						end
 					end
@@ -321,6 +328,6 @@ module main_datapath(
         end
     end
 
-	 assign done_enemies = enemies[8][5] == 1 ? 1 : 0;
+	 assign done_enemies = enemies[8][1] == 1 ? 1 : 0;
 
 endmodule
