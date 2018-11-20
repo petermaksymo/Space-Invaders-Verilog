@@ -132,8 +132,8 @@ module main_control(
 				   S_PLOT_ENEMIES     = 4'd6,
 					 S_DONE_PLOTS			  = 4'd7;
 
-	 	localparam enemy_speed = 4'd5; //inverse of enemy speed (higher = slower) 15 was good for final
-		reg [3:0] speed_divider;
+	 	localparam enemy_speed = 4'd2; //inverse of enemy speed (higher = slower) 15 was good for final
+		reg [3:0] speed_divider = 4'b0;
 
     // Next state logic aka our state table
     always@(*)
@@ -324,6 +324,7 @@ module main_datapath(
 						else if(!direction_e) anchor_x <= anchor_x - 1;
 
 						anchor_y <= (anchor_x == 50 || anchor_x == 8) ? anchor_y + 20 : anchor_y;
+						
 						for(i = 0; i < 9; i = i + 1) begin
 							for(j = 0; j < 2; j = j + 1) begin
 								enemies[i][j] <= 0;
@@ -339,7 +340,7 @@ module main_datapath(
 				if (draw_e) begin
 						X <= X_pos_e;
 						Y <= Y_pos_e;
-						colour <= blackout_e ? 3'b000 : colour_e;
+						colour <= blackout_e == 1'b1 ? 3'b0 : colour_e;
 						enemies[e_i][e_j] <= done_e == 1? 1 : 0;
 				end
 				if(blackout_e_prep) begin
