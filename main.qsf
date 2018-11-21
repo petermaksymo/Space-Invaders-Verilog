@@ -41,7 +41,7 @@ set_global_assignment -name DEVICE 5CSEMA5F31C6
 set_global_assignment -name TOP_LEVEL_ENTITY main
 set_global_assignment -name ORIGINAL_QUARTUS_VERSION 18.0.0
 set_global_assignment -name PROJECT_CREATION_TIME_DATE "14:25:21  NOVEMBER 11, 2018"
-set_global_assignment -name LAST_QUARTUS_VERSION "18.0.0 Lite Edition"
+set_global_assignment -name LAST_QUARTUS_VERSION "18.0.0 Standard Edition"
 set_global_assignment -name PROJECT_OUTPUT_DIRECTORY output_files
 set_global_assignment -name MIN_CORE_JUNCTION_TEMP 0
 set_global_assignment -name MAX_CORE_JUNCTION_TEMP 85
@@ -694,6 +694,8 @@ set_global_assignment -name PARTITION_FITTER_PRESERVATION_LEVEL PLACEMENT_AND_RO
 set_global_assignment -name PARTITION_COLOR 16764057 -section_id Top
 set_global_assignment -name POWER_PRESET_COOLING_SOLUTION "23 MM HEAT SINK WITH 200 LFPM AIRFLOW"
 set_global_assignment -name POWER_BOARD_THERMAL_MODEL "NONE (CONSERVATIVE)"
+set_global_assignment -name VERILOG_FILE on_chip_ram/rom374x3_enemy1.v
+set_global_assignment -name VERILOG_FILE on_chip_ram/rom256x3_user.v
 set_global_assignment -name VERILOG_FILE frame_counter.v
 set_global_assignment -name VERILOG_FILE enemyFSM.v
 set_global_assignment -name VERILOG_FILE vga_adapter/vga_pll.v
@@ -702,7 +704,4 @@ set_global_assignment -name VERILOG_FILE vga_adapter/vga_address_translator.v
 set_global_assignment -name VERILOG_FILE vga_adapter/vga_adapter.v
 set_global_assignment -name VERILOG_FILE main.v
 set_global_assignment -name VERILOG_FILE output_files/user_fsm.v
-set_global_assignment -name QIP_FILE on_chip_ram/ram400x3_user.qip
-set_global_assignment -name QIP_FILE on_chip_ram/ram560x3_enemy1.qip
-set_global_assignment -name QIP_FILE on_chip_ram/rom560x3_user.qip
 set_instance_assignment -name PARTITION_HIERARCHY root_partition -to | -section_id Top

@@ -62,7 +62,7 @@ module user_control(
   begin: state_table
     case (current_state)
       S_WAIT_PLOT:    next_state = should_plot ? S_PLOT : S_WAIT_PLOT;
-      S_PLOT:         next_state = counter == 10'd559 ? S_FINISH_PLOT : S_PLOT;
+      S_PLOT:         next_state = counter == 10'd255 ? S_FINISH_PLOT : S_PLOT;
       S_FINISH_PLOT:  next_state = S_WAIT_PLOT;
 
 
@@ -119,14 +119,14 @@ module user_datapath(
 	assign X = x_pos_init + x_sprite;
 	assign y = y_pos_init + y_sprite;
 
-	rom560x3_user user_sprite(
+	rom256x3_user user_sprite(
 	  .address(counter),
 	  .clock(clk),
 	  .q(colour_ram)
   );
 
   wire done;
-  assign done = (counter == 10'd559);
+  assign done = (counter == 10'd255);
 
 	  always@(posedge clk) begin
 		 if(!resetn || done) begin
@@ -139,8 +139,8 @@ module user_datapath(
 			if(plot) begin
 				colour <= colour_ram;
 				counter <= counter + 1;
-				x_sprite <= x_sprite == 5'd27 ? 5'b0 : x_sprite + 1;
-				y_sprite <= x_sprite == 5'd27 ? y_sprite + 1: y_sprite;
+				x_sprite <= x_sprite == 5'd15 ? 5'b0 : x_sprite + 1;
+				y_sprite <= x_sprite == 5'd15 ? y_sprite + 1: y_sprite;
 			end
 		end
 	end
