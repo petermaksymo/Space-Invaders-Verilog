@@ -367,7 +367,7 @@ module main_datapath(
 	 enemyFSM E0(.clk(clk),
 		.resetn(resetn),
 		.enable(enable_draw_e),
-		.x_pos_init(X_pos_init), // Using magic number for now
+		.x_pos_init(X_pos_init), // Using magic number for now-
 		.y_pos_init(Y_pos_init), // Using magic number for now
 		.done(done_e),
 		.x_pos_final(X_pos_e),
