@@ -1,4 +1,10 @@
 
+State Machine - |main|main_datapath:D0|bulletFSM:B1|bullet_control:c1|current_state
+Name current_state.S_WAIT_PLOT current_state.S_FINISH_PLOT current_state.S_PLOT 
+current_state.S_WAIT_PLOT 0 0 0 
+current_state.S_PLOT 1 0 1 
+current_state.S_FINISH_PLOT 1 1 0 
+
 State Machine - |main|main_datapath:D0|enemyFSM:E0|enemy_control:c0_e|current_state
 Name current_state.S_WAIT_PLOT current_state.S_FINISH_PLOT current_state.S_PLOT 
 current_state.S_WAIT_PLOT 0 0 0 
@@ -12,10 +18,17 @@ current_state.S_PLOT 1 0 1
 current_state.S_FINISH_PLOT 1 1 0 
 
 State Machine - |main|main_control:C0|current_state
-Name current_state.S_DONE current_state.S_PLOT_ENEMIES current_state.S_MOVE_ENEMIES current_state.S_BLACKOUT_ENEMIES current_state.S_PLOT_USER current_state.S_MOVE_USER 
-current_state.S_MOVE_USER 0 0 0 0 0 0 
-current_state.S_PLOT_USER 0 0 0 0 1 1 
-current_state.S_BLACKOUT_ENEMIES 0 0 0 1 0 1 
-current_state.S_MOVE_ENEMIES 0 0 1 0 0 1 
-current_state.S_PLOT_ENEMIES 0 1 0 0 0 1 
-current_state.S_DONE 1 0 0 0 0 1 
+Name current_state.S_DONE_PLOTS current_state.S_PLOT_ENEMIES current_state.S_MOVE_ENEMIES current_state.S_BLACKOUT_ENEMIES current_state.S_BLACKOUT_E_PREP current_state.S_CHECK_COLLISION current_state.S_PLOT_BULLET current_state.S_MOVE_BULLET current_state.S_BLACKOUT_BULLET current_state.S_PREP_SHOOTING current_state.S_PLOT_USER current_state.S_MOVE_USER current_state.S_BLACKOUT_USER 
+current_state.S_BLACKOUT_USER 0 0 0 0 0 0 0 0 0 0 0 0 0 
+current_state.S_MOVE_USER 0 0 0 0 0 0 0 0 0 0 0 1 1 
+current_state.S_PLOT_USER 0 0 0 0 0 0 0 0 0 0 1 0 1 
+current_state.S_PREP_SHOOTING 0 0 0 0 0 0 0 0 0 1 0 0 1 
+current_state.S_BLACKOUT_BULLET 0 0 0 0 0 0 0 0 1 0 0 0 1 
+current_state.S_MOVE_BULLET 0 0 0 0 0 0 0 1 0 0 0 0 1 
+current_state.S_PLOT_BULLET 0 0 0 0 0 0 1 0 0 0 0 0 1 
+current_state.S_CHECK_COLLISION 0 0 0 0 0 1 0 0 0 0 0 0 1 
+current_state.S_BLACKOUT_E_PREP 0 0 0 0 1 0 0 0 0 0 0 0 1 
+current_state.S_BLACKOUT_ENEMIES 0 0 0 1 0 0 0 0 0 0 0 0 1 
+current_state.S_MOVE_ENEMIES 0 0 1 0 0 0 0 0 0 0 0 0 1 
+current_state.S_PLOT_ENEMIES 0 1 0 0 0 0 0 0 0 0 0 0 1 
+current_state.S_DONE_PLOTS 1 0 0 0 0 0 0 0 0 0 0 0 1 

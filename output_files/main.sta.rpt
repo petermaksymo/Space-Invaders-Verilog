@@ -1,5 +1,5 @@
 Timing Analyzer report for main
-Sun Nov 18 23:13:06 2018
+Sat Nov 24 15:12:59 2018
 Quartus Prime Version 18.0.0 Build 614 04/24/2018 SJ Lite Edition
 
 
@@ -96,41 +96,30 @@ refer to the applicable agreement for further details.
 +----------------------------+-------------+
 ; Processors                 ; Number      ;
 +----------------------------+-------------+
-; Number detected on machine ; 16          ;
-; Maximum allowed            ; 16          ;
+; Number detected on machine ; 8           ;
+; Maximum allowed            ; 4           ;
 ;                            ;             ;
-; Average used               ; 2.00        ;
-; Maximum used               ; 16          ;
+; Average used               ; 1.34        ;
+; Maximum used               ; 4           ;
 ;                            ;             ;
 ; Usage by Processor         ; % Time Used ;
 ;     Processor 1            ; 100.0%      ;
-;     Processor 2            ;   7.4%      ;
-;     Processor 3            ;   7.2%      ;
-;     Processor 4            ;   7.1%      ;
-;     Processor 5            ;   6.6%      ;
-;     Processor 6            ;   6.6%      ;
-;     Processor 7            ;   6.6%      ;
-;     Processor 8            ;   6.5%      ;
-;     Processor 9            ;   6.5%      ;
-;     Processor 10           ;   6.5%      ;
-;     Processor 11           ;   6.5%      ;
-;     Processor 12           ;   6.5%      ;
-;     Processor 13           ;   6.5%      ;
-;     Processor 14           ;   6.5%      ;
-;     Processor 15           ;   6.5%      ;
-;     Processor 16           ;   6.5%      ;
+;     Processor 2            ;  11.3%      ;
+;     Processor 3            ;  11.2%      ;
+;     Processor 4            ;  11.1%      ;
 +----------------------------+-------------+
 
 
-+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-; Clocks                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       ;
-+----------------------------------------------------------------------------------+-----------+--------+-----------+-------+--------+------------+-----------+-------------+-------+--------+-----------+------------+----------+--------------------------------------------------------------------------------+-------------------------------------------------------------------------------------+--------------------------------------------------------------------------------------+
-; Clock Name                                                                       ; Type      ; Period ; Frequency ; Rise  ; Fall   ; Duty Cycle ; Divide by ; Multiply by ; Phase ; Offset ; Edge List ; Edge Shift ; Inverted ; Master                                                                         ; Source                                                                              ; Targets                                                                              ;
-+----------------------------------------------------------------------------------+-----------+--------+-----------+-------+--------+------------+-----------+-------------+-------+--------+-----------+------------+----------+--------------------------------------------------------------------------------+-------------------------------------------------------------------------------------+--------------------------------------------------------------------------------------+
-; CLOCK_50                                                                         ; Base      ; 20.000 ; 50.0 MHz  ; 0.000 ; 10.000 ;            ;           ;             ;       ;        ;           ;            ;          ;                                                                                ;                                                                                     ; { CLOCK_50 }                                                                         ;
-; VGA|mypll|altpll_component|auto_generated|generic_pll1~FRACTIONAL_PLL|vcoph[0]   ; Generated ; 3.333  ; 300.0 MHz ; 0.000 ; 1.666  ; 50.00      ; 2         ; 12          ;       ;        ;           ;            ; false    ; CLOCK_50                                                                       ; VGA|mypll|altpll_component|auto_generated|generic_pll1~FRACTIONAL_PLL|refclkin      ; { VGA|mypll|altpll_component|auto_generated|generic_pll1~FRACTIONAL_PLL|vcoph[0] }   ;
-; VGA|mypll|altpll_component|auto_generated|generic_pll1~PLL_OUTPUT_COUNTER|divclk ; Generated ; 40.000 ; 25.0 MHz  ; 0.000 ; 20.000 ; 50.00      ; 12        ; 1           ;       ;        ;           ;            ; false    ; VGA|mypll|altpll_component|auto_generated|generic_pll1~FRACTIONAL_PLL|vcoph[0] ; VGA|mypll|altpll_component|auto_generated|generic_pll1~PLL_OUTPUT_COUNTER|vco0ph[0] ; { VGA|mypll|altpll_component|auto_generated|generic_pll1~PLL_OUTPUT_COUNTER|divclk } ;
-+----------------------------------------------------------------------------------+-----------+--------+-----------+-------+--------+------------+-----------+-------------+-------+--------+-----------+------------+----------+--------------------------------------------------------------------------------+-------------------------------------------------------------------------------------+--------------------------------------------------------------------------------------+
++-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Clocks                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        ;
++----------------------------------------------------------------------------------+-----------+--------+------------+-------+--------+------------+-----------+-------------+-------+--------+-----------+------------+----------+--------------------------------------------------------------------------------+-------------------------------------------------------------------------------------+--------------------------------------------------------------------------------------+
+; Clock Name                                                                       ; Type      ; Period ; Frequency  ; Rise  ; Fall   ; Duty Cycle ; Divide by ; Multiply by ; Phase ; Offset ; Edge List ; Edge Shift ; Inverted ; Master                                                                         ; Source                                                                              ; Targets                                                                              ;
++----------------------------------------------------------------------------------+-----------+--------+------------+-------+--------+------------+-----------+-------------+-------+--------+-----------+------------+----------+--------------------------------------------------------------------------------+-------------------------------------------------------------------------------------+--------------------------------------------------------------------------------------+
+; CLOCK_50                                                                         ; Base      ; 20.000 ; 50.0 MHz   ; 0.000 ; 10.000 ;            ;           ;             ;       ;        ;           ;            ;          ;                                                                                ;                                                                                     ; { CLOCK_50 }                                                                         ;
+; main_control:C0|current_state.S_DONE_PLOTS                                       ; Base      ; 1.000  ; 1000.0 MHz ; 0.000 ; 0.500  ;            ;           ;             ;       ;        ;           ;            ;          ;                                                                                ;                                                                                     ; { main_control:C0|current_state.S_DONE_PLOTS }                                       ;
+; VGA|mypll|altpll_component|auto_generated|generic_pll1~FRACTIONAL_PLL|vcoph[0]   ; Generated ; 3.333  ; 300.0 MHz  ; 0.000 ; 1.666  ; 50.00      ; 2         ; 12          ;       ;        ;           ;            ; false    ; CLOCK_50                                                                       ; VGA|mypll|altpll_component|auto_generated|generic_pll1~FRACTIONAL_PLL|refclkin      ; { VGA|mypll|altpll_component|auto_generated|generic_pll1~FRACTIONAL_PLL|vcoph[0] }   ;
+; VGA|mypll|altpll_component|auto_generated|generic_pll1~PLL_OUTPUT_COUNTER|divclk ; Generated ; 40.000 ; 25.0 MHz   ; 0.000 ; 20.000 ; 50.00      ; 12        ; 1           ;       ;        ;           ;            ; false    ; VGA|mypll|altpll_component|auto_generated|generic_pll1~FRACTIONAL_PLL|vcoph[0] ; VGA|mypll|altpll_component|auto_generated|generic_pll1~PLL_OUTPUT_COUNTER|vco0ph[0] ; { VGA|mypll|altpll_component|auto_generated|generic_pll1~PLL_OUTPUT_COUNTER|divclk } ;
++----------------------------------------------------------------------------------+-----------+--------+------------+-------+--------+------------+-----------+-------------+-------+--------+-----------+------------+----------+--------------------------------------------------------------------------------+-------------------------------------------------------------------------------------+--------------------------------------------------------------------------------------+
 
 
 +------------------------------------------------------------------------------------------------------------------------+
@@ -138,8 +127,9 @@ refer to the applicable agreement for further details.
 +------------+-----------------+----------------------------------------------------------------------------------+------+
 ; Fmax       ; Restricted Fmax ; Clock Name                                                                       ; Note ;
 +------------+-----------------+----------------------------------------------------------------------------------+------+
-; 64.15 MHz  ; 64.15 MHz       ; CLOCK_50                                                                         ;      ;
-; 163.99 MHz ; 163.99 MHz      ; VGA|mypll|altpll_component|auto_generated|generic_pll1~PLL_OUTPUT_COUNTER|divclk ;      ;
+; 92.1 MHz   ; 92.1 MHz        ; CLOCK_50                                                                         ;      ;
+; 168.46 MHz ; 168.46 MHz      ; VGA|mypll|altpll_component|auto_generated|generic_pll1~PLL_OUTPUT_COUNTER|divclk ;      ;
+; 390.78 MHz ; 390.78 MHz      ; main_control:C0|current_state.S_DONE_PLOTS                                       ;      ;
 +------------+-----------------+----------------------------------------------------------------------------------+------+
 This panel reports FMAX for every clock in the design, regardless of the user-specified clock periods.  FMAX is only computed for paths where the source and destination registers or ports are driven by the same clock.  Paths of different clocks, including generated clocks, are ignored.  For paths between a clock and its inversion, FMAX is computed as if the rising and falling edges are scaled along with FMAX, such that the duty cycle (in terms of a percentage) is maintained. Altera recommends that you always use clock constraints and other slack reports for sign-off analysis.
 
@@ -155,8 +145,9 @@ HTML report is unavailable in plain text report export.
 +----------------------------------------------------------------------------------+--------+---------------+
 ; Clock                                                                            ; Slack  ; End Point TNS ;
 +----------------------------------------------------------------------------------+--------+---------------+
-; CLOCK_50                                                                         ; 4.411  ; 0.000         ;
-; VGA|mypll|altpll_component|auto_generated|generic_pll1~PLL_OUTPUT_COUNTER|divclk ; 33.902 ; 0.000         ;
+; CLOCK_50                                                                         ; -3.282 ; -8.313        ;
+; main_control:C0|current_state.S_DONE_PLOTS                                       ; -1.559 ; -5.579        ;
+; VGA|mypll|altpll_component|auto_generated|generic_pll1~PLL_OUTPUT_COUNTER|divclk ; 34.064 ; 0.000         ;
 +----------------------------------------------------------------------------------+--------+---------------+
 
 
@@ -165,8 +156,9 @@ HTML report is unavailable in plain text report export.
 +----------------------------------------------------------------------------------+-------+---------------+
 ; Clock                                                                            ; Slack ; End Point TNS ;
 +----------------------------------------------------------------------------------+-------+---------------+
-; CLOCK_50                                                                         ; 0.328 ; 0.000         ;
-; VGA|mypll|altpll_component|auto_generated|generic_pll1~PLL_OUTPUT_COUNTER|divclk ; 0.354 ; 0.000         ;
+; CLOCK_50                                                                         ; 0.358 ; 0.000         ;
+; VGA|mypll|altpll_component|auto_generated|generic_pll1~PLL_OUTPUT_COUNTER|divclk ; 0.419 ; 0.000         ;
+; main_control:C0|current_state.S_DONE_PLOTS                                       ; 0.793 ; 0.000         ;
 +----------------------------------------------------------------------------------+-------+---------------+
 
 
@@ -187,8 +179,9 @@ No paths to report.
 +----------------------------------------------------------------------------------+--------+---------------+
 ; Clock                                                                            ; Slack  ; End Point TNS ;
 +----------------------------------------------------------------------------------+--------+---------------+
+; main_control:C0|current_state.S_DONE_PLOTS                                       ; 0.405  ; 0.000         ;
 ; VGA|mypll|altpll_component|auto_generated|generic_pll1~FRACTIONAL_PLL|vcoph[0]   ; 1.666  ; 0.000         ;
-; CLOCK_50                                                                         ; 8.856  ; 0.000         ;
+; CLOCK_50                                                                         ; 8.852  ; 0.000         ;
 ; VGA|mypll|altpll_component|auto_generated|generic_pll1~PLL_OUTPUT_COUNTER|divclk ; 18.758 ; 0.000         ;
 +----------------------------------------------------------------------------------+--------+---------------+
 
@@ -204,8 +197,9 @@ No synchronizer chains to report.
 +------------+-----------------+----------------------------------------------------------------------------------+------+
 ; Fmax       ; Restricted Fmax ; Clock Name                                                                       ; Note ;
 +------------+-----------------+----------------------------------------------------------------------------------+------+
-; 64.29 MHz  ; 64.29 MHz       ; CLOCK_50                                                                         ;      ;
-; 167.56 MHz ; 167.56 MHz      ; VGA|mypll|altpll_component|auto_generated|generic_pll1~PLL_OUTPUT_COUNTER|divclk ;      ;
+; 90.68 MHz  ; 90.68 MHz       ; CLOCK_50                                                                         ;      ;
+; 172.5 MHz  ; 172.5 MHz       ; VGA|mypll|altpll_component|auto_generated|generic_pll1~PLL_OUTPUT_COUNTER|divclk ;      ;
+; 391.54 MHz ; 391.54 MHz      ; main_control:C0|current_state.S_DONE_PLOTS                                       ;      ;
 +------------+-----------------+----------------------------------------------------------------------------------+------+
 This panel reports FMAX for every clock in the design, regardless of the user-specified clock periods.  FMAX is only computed for paths where the source and destination registers or ports are driven by the same clock.  Paths of different clocks, including generated clocks, are ignored.  For paths between a clock and its inversion, FMAX is computed as if the rising and falling edges are scaled along with FMAX, such that the duty cycle (in terms of a percentage) is maintained. Altera recommends that you always use clock constraints and other slack reports for sign-off analysis.
 
@@ -215,8 +209,9 @@ This panel reports FMAX for every clock in the design, regardless of the user-sp
 +----------------------------------------------------------------------------------+--------+---------------+
 ; Clock                                                                            ; Slack  ; End Point TNS ;
 +----------------------------------------------------------------------------------+--------+---------------+
-; CLOCK_50                                                                         ; 4.446  ; 0.000         ;
-; VGA|mypll|altpll_component|auto_generated|generic_pll1~PLL_OUTPUT_COUNTER|divclk ; 34.032 ; 0.000         ;
+; CLOCK_50                                                                         ; -2.929 ; -7.320        ;
+; main_control:C0|current_state.S_DONE_PLOTS                                       ; -1.554 ; -5.670        ;
+; VGA|mypll|altpll_component|auto_generated|generic_pll1~PLL_OUTPUT_COUNTER|divclk ; 34.203 ; 0.000         ;
 +----------------------------------------------------------------------------------+--------+---------------+
 
 
@@ -225,8 +220,9 @@ This panel reports FMAX for every clock in the design, regardless of the user-sp
 +----------------------------------------------------------------------------------+-------+---------------+
 ; Clock                                                                            ; Slack ; End Point TNS ;
 +----------------------------------------------------------------------------------+-------+---------------+
-; CLOCK_50                                                                         ; 0.306 ; 0.000         ;
-; VGA|mypll|altpll_component|auto_generated|generic_pll1~PLL_OUTPUT_COUNTER|divclk ; 0.330 ; 0.000         ;
+; CLOCK_50                                                                         ; 0.124 ; 0.000         ;
+; VGA|mypll|altpll_component|auto_generated|generic_pll1~PLL_OUTPUT_COUNTER|divclk ; 0.394 ; 0.000         ;
+; main_control:C0|current_state.S_DONE_PLOTS                                       ; 0.741 ; 0.000         ;
 +----------------------------------------------------------------------------------+-------+---------------+
 
 
@@ -247,8 +243,9 @@ No paths to report.
 +----------------------------------------------------------------------------------+--------+---------------+
 ; Clock                                                                            ; Slack  ; End Point TNS ;
 +----------------------------------------------------------------------------------+--------+---------------+
+; main_control:C0|current_state.S_DONE_PLOTS                                       ; 0.449  ; 0.000         ;
 ; VGA|mypll|altpll_component|auto_generated|generic_pll1~FRACTIONAL_PLL|vcoph[0]   ; 1.666  ; 0.000         ;
-; CLOCK_50                                                                         ; 8.810  ; 0.000         ;
+; CLOCK_50                                                                         ; 8.809  ; 0.000         ;
 ; VGA|mypll|altpll_component|auto_generated|generic_pll1~PLL_OUTPUT_COUNTER|divclk ; 18.738 ; 0.000         ;
 +----------------------------------------------------------------------------------+--------+---------------+
 
@@ -264,8 +261,9 @@ No synchronizer chains to report.
 +----------------------------------------------------------------------------------+--------+---------------+
 ; Clock                                                                            ; Slack  ; End Point TNS ;
 +----------------------------------------------------------------------------------+--------+---------------+
-; CLOCK_50                                                                         ; 11.033 ; 0.000         ;
-; VGA|mypll|altpll_component|auto_generated|generic_pll1~PLL_OUTPUT_COUNTER|divclk ; 36.150 ; 0.000         ;
+; CLOCK_50                                                                         ; -2.673 ; -6.630        ;
+; main_control:C0|current_state.S_DONE_PLOTS                                       ; -0.415 ; -1.102        ;
+; VGA|mypll|altpll_component|auto_generated|generic_pll1~PLL_OUTPUT_COUNTER|divclk ; 36.118 ; 0.000         ;
 +----------------------------------------------------------------------------------+--------+---------------+
 
 
@@ -274,8 +272,9 @@ No synchronizer chains to report.
 +----------------------------------------------------------------------------------+-------+---------------+
 ; Clock                                                                            ; Slack ; End Point TNS ;
 +----------------------------------------------------------------------------------+-------+---------------+
-; CLOCK_50                                                                         ; 0.177 ; 0.000         ;
-; VGA|mypll|altpll_component|auto_generated|generic_pll1~PLL_OUTPUT_COUNTER|divclk ; 0.202 ; 0.000         ;
+; CLOCK_50                                                                         ; 0.176 ; 0.000         ;
+; VGA|mypll|altpll_component|auto_generated|generic_pll1~PLL_OUTPUT_COUNTER|divclk ; 0.244 ; 0.000         ;
+; main_control:C0|current_state.S_DONE_PLOTS                                       ; 0.449 ; 0.000         ;
 +----------------------------------------------------------------------------------+-------+---------------+
 
 
@@ -296,8 +295,9 @@ No paths to report.
 +----------------------------------------------------------------------------------+--------+---------------+
 ; Clock                                                                            ; Slack  ; End Point TNS ;
 +----------------------------------------------------------------------------------+--------+---------------+
+; main_control:C0|current_state.S_DONE_PLOTS                                       ; 0.457  ; 0.000         ;
 ; VGA|mypll|altpll_component|auto_generated|generic_pll1~FRACTIONAL_PLL|vcoph[0]   ; 1.666  ; 0.000         ;
-; CLOCK_50                                                                         ; 8.817  ; 0.000         ;
+; CLOCK_50                                                                         ; 8.814  ; 0.000         ;
 ; VGA|mypll|altpll_component|auto_generated|generic_pll1~PLL_OUTPUT_COUNTER|divclk ; 18.879 ; 0.000         ;
 +----------------------------------------------------------------------------------+--------+---------------+
 
@@ -313,8 +313,9 @@ No synchronizer chains to report.
 +----------------------------------------------------------------------------------+--------+---------------+
 ; Clock                                                                            ; Slack  ; End Point TNS ;
 +----------------------------------------------------------------------------------+--------+---------------+
-; CLOCK_50                                                                         ; 11.832 ; 0.000         ;
-; VGA|mypll|altpll_component|auto_generated|generic_pll1~PLL_OUTPUT_COUNTER|divclk ; 36.546 ; 0.000         ;
+; CLOCK_50                                                                         ; -2.087 ; -5.073        ;
+; main_control:C0|current_state.S_DONE_PLOTS                                       ; -0.297 ; -0.725        ;
+; VGA|mypll|altpll_component|auto_generated|generic_pll1~PLL_OUTPUT_COUNTER|divclk ; 36.630 ; 0.000         ;
 +----------------------------------------------------------------------------------+--------+---------------+
 
 
@@ -323,8 +324,9 @@ No synchronizer chains to report.
 +----------------------------------------------------------------------------------+-------+---------------+
 ; Clock                                                                            ; Slack ; End Point TNS ;
 +----------------------------------------------------------------------------------+-------+---------------+
-; CLOCK_50                                                                         ; 0.167 ; 0.000         ;
-; VGA|mypll|altpll_component|auto_generated|generic_pll1~PLL_OUTPUT_COUNTER|divclk ; 0.183 ; 0.000         ;
+; CLOCK_50                                                                         ; 0.166 ; 0.000         ;
+; VGA|mypll|altpll_component|auto_generated|generic_pll1~PLL_OUTPUT_COUNTER|divclk ; 0.219 ; 0.000         ;
+; main_control:C0|current_state.S_DONE_PLOTS                                       ; 0.396 ; 0.000         ;
 +----------------------------------------------------------------------------------+-------+---------------+
 
 
@@ -345,8 +347,9 @@ No paths to report.
 +----------------------------------------------------------------------------------+--------+---------------+
 ; Clock                                                                            ; Slack  ; End Point TNS ;
 +----------------------------------------------------------------------------------+--------+---------------+
+; main_control:C0|current_state.S_DONE_PLOTS                                       ; 0.472  ; 0.000         ;
 ; VGA|mypll|altpll_component|auto_generated|generic_pll1~FRACTIONAL_PLL|vcoph[0]   ; 1.666  ; 0.000         ;
-; CLOCK_50                                                                         ; 8.807  ; 0.000         ;
+; CLOCK_50                                                                         ; 8.805  ; 0.000         ;
 ; VGA|mypll|altpll_component|auto_generated|generic_pll1~PLL_OUTPUT_COUNTER|divclk ; 18.881 ; 0.000         ;
 +----------------------------------------------------------------------------------+--------+---------------+
 
@@ -357,20 +360,22 @@ No paths to report.
 No synchronizer chains to report.
 
 
-+-----------------------------------------------------------------------------------------------------------------------------------------------+
-; Multicorner Timing Analysis Summary                                                                                                           ;
-+-----------------------------------------------------------------------------------+--------+-------+----------+---------+---------------------+
-; Clock                                                                             ; Setup  ; Hold  ; Recovery ; Removal ; Minimum Pulse Width ;
-+-----------------------------------------------------------------------------------+--------+-------+----------+---------+---------------------+
-; Worst-case Slack                                                                  ; 4.411  ; 0.167 ; N/A      ; N/A     ; 1.666               ;
-;  CLOCK_50                                                                         ; 4.411  ; 0.167 ; N/A      ; N/A     ; 8.807               ;
-;  VGA|mypll|altpll_component|auto_generated|generic_pll1~FRACTIONAL_PLL|vcoph[0]   ; N/A    ; N/A   ; N/A      ; N/A     ; 1.666               ;
-;  VGA|mypll|altpll_component|auto_generated|generic_pll1~PLL_OUTPUT_COUNTER|divclk ; 33.902 ; 0.183 ; N/A      ; N/A     ; 18.738              ;
-; Design-wide TNS                                                                   ; 0.0    ; 0.0   ; 0.0      ; 0.0     ; 0.0                 ;
-;  CLOCK_50                                                                         ; 0.000  ; 0.000 ; N/A      ; N/A     ; 0.000               ;
-;  VGA|mypll|altpll_component|auto_generated|generic_pll1~FRACTIONAL_PLL|vcoph[0]   ; N/A    ; N/A   ; N/A      ; N/A     ; 0.000               ;
-;  VGA|mypll|altpll_component|auto_generated|generic_pll1~PLL_OUTPUT_COUNTER|divclk ; 0.000  ; 0.000 ; N/A      ; N/A     ; 0.000               ;
-+-----------------------------------------------------------------------------------+--------+-------+----------+---------+---------------------+
++------------------------------------------------------------------------------------------------------------------------------------------------+
+; Multicorner Timing Analysis Summary                                                                                                            ;
++-----------------------------------------------------------------------------------+---------+-------+----------+---------+---------------------+
+; Clock                                                                             ; Setup   ; Hold  ; Recovery ; Removal ; Minimum Pulse Width ;
++-----------------------------------------------------------------------------------+---------+-------+----------+---------+---------------------+
+; Worst-case Slack                                                                  ; -3.282  ; 0.124 ; N/A      ; N/A     ; 0.405               ;
+;  CLOCK_50                                                                         ; -3.282  ; 0.124 ; N/A      ; N/A     ; 8.805               ;
+;  VGA|mypll|altpll_component|auto_generated|generic_pll1~FRACTIONAL_PLL|vcoph[0]   ; N/A     ; N/A   ; N/A      ; N/A     ; 1.666               ;
+;  VGA|mypll|altpll_component|auto_generated|generic_pll1~PLL_OUTPUT_COUNTER|divclk ; 34.064  ; 0.219 ; N/A      ; N/A     ; 18.738              ;
+;  main_control:C0|current_state.S_DONE_PLOTS                                       ; -1.559  ; 0.396 ; N/A      ; N/A     ; 0.405               ;
+; Design-wide TNS                                                                   ; -13.892 ; 0.0   ; 0.0      ; 0.0     ; 0.0                 ;
+;  CLOCK_50                                                                         ; -8.313  ; 0.000 ; N/A      ; N/A     ; 0.000               ;
+;  VGA|mypll|altpll_component|auto_generated|generic_pll1~FRACTIONAL_PLL|vcoph[0]   ; N/A     ; N/A   ; N/A      ; N/A     ; 0.000               ;
+;  VGA|mypll|altpll_component|auto_generated|generic_pll1~PLL_OUTPUT_COUNTER|divclk ; 0.000   ; 0.000 ; N/A      ; N/A     ; 0.000               ;
+;  main_control:C0|current_state.S_DONE_PLOTS                                       ; -5.670  ; 0.000 ; N/A      ; N/A     ; 0.000               ;
++-----------------------------------------------------------------------------------+---------+-------+----------+---------+---------------------+
 
 
 +----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
@@ -425,9 +430,9 @@ No synchronizer chains to report.
 ; SW[7]    ; 2.5 V        ; 2000 ps         ; 2000 ps         ;
 ; SW[8]    ; 2.5 V        ; 2000 ps         ; 2000 ps         ;
 ; SW[9]    ; 2.5 V        ; 2000 ps         ; 2000 ps         ;
-; KEY[2]   ; 2.5 V        ; 2000 ps         ; 2000 ps         ;
 ; CLOCK_50 ; 2.5 V        ; 2000 ps         ; 2000 ps         ;
 ; KEY[0]   ; 2.5 V        ; 2000 ps         ; 2000 ps         ;
+; KEY[2]   ; 2.5 V        ; 2000 ps         ; 2000 ps         ;
 ; KEY[3]   ; 2.5 V        ; 2000 ps         ; 2000 ps         ;
 ; KEY[1]   ; 2.5 V        ; 2000 ps         ; 2000 ps         ;
 +----------+--------------+-----------------+-----------------+
@@ -586,8 +591,10 @@ No synchronizer chains to report.
 +----------------------------------------------------------------------------------+----------------------------------------------------------------------------------+----------+----------+----------+----------+
 ; From Clock                                                                       ; To Clock                                                                         ; RR Paths ; FR Paths ; RF Paths ; FF Paths ;
 +----------------------------------------------------------------------------------+----------------------------------------------------------------------------------+----------+----------+----------+----------+
-; CLOCK_50                                                                         ; CLOCK_50                                                                         ; 771121   ; 0        ; 0        ; 0        ;
-; VGA|mypll|altpll_component|auto_generated|generic_pll1~PLL_OUTPUT_COUNTER|divclk ; VGA|mypll|altpll_component|auto_generated|generic_pll1~PLL_OUTPUT_COUNTER|divclk ; 7596     ; 0        ; 0        ; 0        ;
+; CLOCK_50                                                                         ; CLOCK_50                                                                         ; 103130   ; 0        ; 0        ; 0        ;
+; main_control:C0|current_state.S_DONE_PLOTS                                       ; CLOCK_50                                                                         ; 2        ; 10       ; 0        ; 0        ;
+; main_control:C0|current_state.S_DONE_PLOTS                                       ; main_control:C0|current_state.S_DONE_PLOTS                                       ; 0        ; 0        ; 0        ; 15       ;
+; VGA|mypll|altpll_component|auto_generated|generic_pll1~PLL_OUTPUT_COUNTER|divclk ; VGA|mypll|altpll_component|auto_generated|generic_pll1~PLL_OUTPUT_COUNTER|divclk ; 7487     ; 0        ; 0        ; 0        ;
 +----------------------------------------------------------------------------------+----------------------------------------------------------------------------------+----------+----------+----------+----------+
 Entries labeled "false path" only account for clock-to-clock false paths and not path-based false paths. As a result, actual path counts may be lower than reported.
 
@@ -597,8 +604,10 @@ Entries labeled "false path" only account for clock-to-clock false paths and not
 +----------------------------------------------------------------------------------+----------------------------------------------------------------------------------+----------+----------+----------+----------+
 ; From Clock                                                                       ; To Clock                                                                         ; RR Paths ; FR Paths ; RF Paths ; FF Paths ;
 +----------------------------------------------------------------------------------+----------------------------------------------------------------------------------+----------+----------+----------+----------+
-; CLOCK_50                                                                         ; CLOCK_50                                                                         ; 771121   ; 0        ; 0        ; 0        ;
-; VGA|mypll|altpll_component|auto_generated|generic_pll1~PLL_OUTPUT_COUNTER|divclk ; VGA|mypll|altpll_component|auto_generated|generic_pll1~PLL_OUTPUT_COUNTER|divclk ; 7596     ; 0        ; 0        ; 0        ;
+; CLOCK_50                                                                         ; CLOCK_50                                                                         ; 103130   ; 0        ; 0        ; 0        ;
+; main_control:C0|current_state.S_DONE_PLOTS                                       ; CLOCK_50                                                                         ; 2        ; 10       ; 0        ; 0        ;
+; main_control:C0|current_state.S_DONE_PLOTS                                       ; main_control:C0|current_state.S_DONE_PLOTS                                       ; 0        ; 0        ; 0        ; 15       ;
+; VGA|mypll|altpll_component|auto_generated|generic_pll1~PLL_OUTPUT_COUNTER|divclk ; VGA|mypll|altpll_component|auto_generated|generic_pll1~PLL_OUTPUT_COUNTER|divclk ; 7487     ; 0        ; 0        ; 0        ;
 +----------------------------------------------------------------------------------+----------------------------------------------------------------------------------+----------+----------+----------+----------+
 Entries labeled "false path" only account for clock-to-clock false paths and not path-based false paths. As a result, actual path counts may be lower than reported.
 
@@ -622,10 +631,10 @@ No non-DPA dedicated SERDES Receiver circuitry present in device or used in desi
 +---------------------------------+-------+------+
 ; Illegal Clocks                  ; 0     ; 0    ;
 ; Unconstrained Clocks            ; 0     ; 0    ;
-; Unconstrained Input Ports       ; 3     ; 3    ;
-; Unconstrained Input Port Paths  ; 205   ; 205  ;
+; Unconstrained Input Ports       ; 4     ; 4    ;
+; Unconstrained Input Port Paths  ; 207   ; 207  ;
 ; Unconstrained Output Ports      ; 28    ; 28   ;
-; Unconstrained Output Port Paths ; 348   ; 348  ;
+; Unconstrained Output Port Paths ; 340   ; 340  ;
 +---------------------------------+-------+------+
 
 
@@ -637,6 +646,7 @@ No non-DPA dedicated SERDES Receiver circuitry present in device or used in desi
 ; CLOCK_50                                                                         ; CLOCK_50                                                                         ; Base      ; Constrained ;
 ; VGA|mypll|altpll_component|auto_generated|generic_pll1~FRACTIONAL_PLL|vcoph[0]   ; VGA|mypll|altpll_component|auto_generated|generic_pll1~FRACTIONAL_PLL|vcoph[0]   ; Generated ; Constrained ;
 ; VGA|mypll|altpll_component|auto_generated|generic_pll1~PLL_OUTPUT_COUNTER|divclk ; VGA|mypll|altpll_component|auto_generated|generic_pll1~PLL_OUTPUT_COUNTER|divclk ; Generated ; Constrained ;
+; main_control:C0|current_state.S_DONE_PLOTS                                       ; main_control:C0|current_state.S_DONE_PLOTS                                       ; Base      ; Constrained ;
 +----------------------------------------------------------------------------------+----------------------------------------------------------------------------------+-----------+-------------+
 
 
@@ -647,6 +657,7 @@ No non-DPA dedicated SERDES Receiver circuitry present in device or used in desi
 +------------+--------------------------------------------------------------------------------------+
 ; KEY[0]     ; No input delay, min/max delays, false-path exceptions, or max skew assignments found ;
 ; KEY[1]     ; No input delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; KEY[2]     ; No input delay, min/max delays, false-path exceptions, or max skew assignments found ;
 ; KEY[3]     ; No input delay, min/max delays, false-path exceptions, or max skew assignments found ;
 +------------+--------------------------------------------------------------------------------------+
 
@@ -694,6 +705,7 @@ No non-DPA dedicated SERDES Receiver circuitry present in device or used in desi
 +------------+--------------------------------------------------------------------------------------+
 ; KEY[0]     ; No input delay, min/max delays, false-path exceptions, or max skew assignments found ;
 ; KEY[1]     ; No input delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; KEY[2]     ; No input delay, min/max delays, false-path exceptions, or max skew assignments found ;
 ; KEY[3]     ; No input delay, min/max delays, false-path exceptions, or max skew assignments found ;
 +------------+--------------------------------------------------------------------------------------+
 
@@ -740,7 +752,7 @@ No non-DPA dedicated SERDES Receiver circuitry present in device or used in desi
 Info: *******************************************************************
 Info: Running Quartus Prime Timing Analyzer
     Info: Version 18.0.0 Build 614 04/24/2018 SJ Lite Edition
-    Info: Processing started: Sun Nov 18 23:12:59 2018
+    Info: Processing started: Sat Nov 24 15:12:48 2018
 Info: Command: quartus_sta main -c main
 Info: qsta_default_script.tcl version: #2
 Warning (20013): Ignored 385 assignments for entity "DE1_SoC" -- entity does not exist in design
@@ -1130,9 +1142,10 @@ Warning (20013): Ignored 385 assignments for entity "DE1_SoC" -- entity does not
     Warning (20014): Assignment for entity set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to VGA_SYNC_N -entity DE1_SoC was ignored
     Warning (20014): Assignment for entity set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to VGA_VS -entity DE1_SoC was ignored
 Warning (18236): Number of processors has not been specified which may cause overloading on shared machines.  Set the global assignment NUM_PARALLEL_PROCESSORS in your QSF to an appropriate value for best performance.
-Info (20030): Parallel compilation is enabled and will use 16 of the 16 processors detected
+Info (20030): Parallel compilation is enabled and will use 4 of the 4 processors detected
 Info (21077): Low junction temperature is 0 degrees C
 Info (21077): High junction temperature is 85 degrees C
+Warning (335093): The Timing Analyzer is analyzing 4 combinational loops as latches. For more details, run the Check Timing command in the Timing Analyzer or view the "User-Specified and Inferred Latches" table in the Analysis & Synthesis report.
 Critical Warning (332012): Synopsys Design Constraints File file not found: 'main.sdc'. A Synopsys Design Constraints File is required by the Timing Analyzer to get proper timing constraints. Without it, the Compiler will not properly optimize the design.
 Info (332142): No user constrained generated clocks found in the design. Calling "derive_pll_clocks -create_base_clocks"
 Info (332110): Deriving PLL clocks
@@ -1140,7 +1153,8 @@ Info (332110): Deriving PLL clocks
     Info (332110): create_generated_clock -source {VGA|mypll|altpll_component|auto_generated|generic_pll1~FRACTIONAL_PLL|refclkin} -divide_by 2 -multiply_by 12 -duty_cycle 50.00 -name {VGA|mypll|altpll_component|auto_generated|generic_pll1~FRACTIONAL_PLL|vcoph[0]} {VGA|mypll|altpll_component|auto_generated|generic_pll1~FRACTIONAL_PLL|vcoph[0]}
     Info (332110): create_generated_clock -source {VGA|mypll|altpll_component|auto_generated|generic_pll1~PLL_OUTPUT_COUNTER|vco0ph[0]} -divide_by 12 -duty_cycle 50.00 -name {VGA|mypll|altpll_component|auto_generated|generic_pll1~PLL_OUTPUT_COUNTER|divclk} {VGA|mypll|altpll_component|auto_generated|generic_pll1~PLL_OUTPUT_COUNTER|divclk}
 Info (332142): No user constrained base clocks found in the design. Calling "derive_clocks -period 1.0"
-Info (332096): The command derive_clocks did not find any clocks to derive.  No clocks were created or changed.
+Info (332105): Deriving Clocks
+    Info (332105): create_clock -period 1.000 -name main_control:C0|current_state.S_DONE_PLOTS main_control:C0|current_state.S_DONE_PLOTS
 Info (332097): The following timing edges are non-unate.  The Timing Analyzer will assume pos-unate behavior for these edges in the clock network.
     Info (332098): Cell: VGA|mypll|altpll_component|auto_generated|generic_pll1~FRACTIONAL_PLL  from: refclkin  to: fbclk
     Info (332098): Cell: VGA|mypll|altpll_component|auto_generated|generic_pll1~PLL_OUTPUT_COUNTER  from: vco0ph[0]  to: divclk
@@ -1149,23 +1163,28 @@ Info (332143): No user constrained clock uncertainty found in the design. Callin
 Info (332123): Deriving Clock Uncertainty. Please refer to report_sdc in the Timing Analyzer to see clock uncertainties.
 Info: Found TIMING_ANALYZER_REPORT_SCRIPT_INCLUDE_DEFAULT_ANALYSIS = ON
 Info: Analyzing Slow 1100mV 85C Model
-Info (332146): Worst-case setup slack is 4.411
+Critical Warning (332148): Timing requirements not met
+    Info (11105): For recommendations on closing timing, run Report Timing Closure Recommendations in the Timing Analyzer.
+Info (332146): Worst-case setup slack is -3.282
     Info (332119):     Slack       End Point TNS Clock 
     Info (332119): ========= =================== =====================
-    Info (332119):     4.411               0.000 CLOCK_50 
-    Info (332119):    33.902               0.000 VGA|mypll|altpll_component|auto_generated|generic_pll1~PLL_OUTPUT_COUNTER|divclk 
-Info (332146): Worst-case hold slack is 0.328
+    Info (332119):    -3.282              -8.313 CLOCK_50 
+    Info (332119):    -1.559              -5.579 main_control:C0|current_state.S_DONE_PLOTS 
+    Info (332119):    34.064               0.000 VGA|mypll|altpll_component|auto_generated|generic_pll1~PLL_OUTPUT_COUNTER|divclk 
+Info (332146): Worst-case hold slack is 0.358
     Info (332119):     Slack       End Point TNS Clock 
     Info (332119): ========= =================== =====================
-    Info (332119):     0.328               0.000 CLOCK_50 
-    Info (332119):     0.354               0.000 VGA|mypll|altpll_component|auto_generated|generic_pll1~PLL_OUTPUT_COUNTER|divclk 
+    Info (332119):     0.358               0.000 CLOCK_50 
+    Info (332119):     0.419               0.000 VGA|mypll|altpll_component|auto_generated|generic_pll1~PLL_OUTPUT_COUNTER|divclk 
+    Info (332119):     0.793               0.000 main_control:C0|current_state.S_DONE_PLOTS 
 Info (332140): No Recovery paths to report
 Info (332140): No Removal paths to report
-Info (332146): Worst-case minimum pulse width slack is 1.666
+Info (332146): Worst-case minimum pulse width slack is 0.405
     Info (332119):     Slack       End Point TNS Clock 
     Info (332119): ========= =================== =====================
+    Info (332119):     0.405               0.000 main_control:C0|current_state.S_DONE_PLOTS 
     Info (332119):     1.666               0.000 VGA|mypll|altpll_component|auto_generated|generic_pll1~FRACTIONAL_PLL|vcoph[0] 
-    Info (332119):     8.856               0.000 CLOCK_50 
+    Info (332119):     8.852               0.000 CLOCK_50 
     Info (332119):    18.758               0.000 VGA|mypll|altpll_component|auto_generated|generic_pll1~PLL_OUTPUT_COUNTER|divclk 
 Info: Analyzing Slow 1100mV 0C Model
 Info (334003): Started post-fitting delay annotation
@@ -1175,23 +1194,28 @@ Info (332097): The following timing edges are non-unate.  The Timing Analyzer wi
     Info (332098): Cell: VGA|mypll|altpll_component|auto_generated|generic_pll1~PLL_OUTPUT_COUNTER  from: vco0ph[0]  to: divclk
     Info (332098): Cell: VGA|mypll|altpll_component|auto_generated|generic_pll1~PLL_REFCLK_SELECT  from: clkin[0]  to: clkout
 Info (332123): Deriving Clock Uncertainty. Please refer to report_sdc in the Timing Analyzer to see clock uncertainties.
-Info (332146): Worst-case setup slack is 4.446
+Critical Warning (332148): Timing requirements not met
+    Info (11105): For recommendations on closing timing, run Report Timing Closure Recommendations in the Timing Analyzer.
+Info (332146): Worst-case setup slack is -2.929
     Info (332119):     Slack       End Point TNS Clock 
     Info (332119): ========= =================== =====================
-    Info (332119):     4.446               0.000 CLOCK_50 
-    Info (332119):    34.032               0.000 VGA|mypll|altpll_component|auto_generated|generic_pll1~PLL_OUTPUT_COUNTER|divclk 
-Info (332146): Worst-case hold slack is 0.306
+    Info (332119):    -2.929              -7.320 CLOCK_50 
+    Info (332119):    -1.554              -5.670 main_control:C0|current_state.S_DONE_PLOTS 
+    Info (332119):    34.203               0.000 VGA|mypll|altpll_component|auto_generated|generic_pll1~PLL_OUTPUT_COUNTER|divclk 
+Info (332146): Worst-case hold slack is 0.124
     Info (332119):     Slack       End Point TNS Clock 
     Info (332119): ========= =================== =====================
-    Info (332119):     0.306               0.000 CLOCK_50 
-    Info (332119):     0.330               0.000 VGA|mypll|altpll_component|auto_generated|generic_pll1~PLL_OUTPUT_COUNTER|divclk 
+    Info (332119):     0.124               0.000 CLOCK_50 
+    Info (332119):     0.394               0.000 VGA|mypll|altpll_component|auto_generated|generic_pll1~PLL_OUTPUT_COUNTER|divclk 
+    Info (332119):     0.741               0.000 main_control:C0|current_state.S_DONE_PLOTS 
 Info (332140): No Recovery paths to report
 Info (332140): No Removal paths to report
-Info (332146): Worst-case minimum pulse width slack is 1.666
+Info (332146): Worst-case minimum pulse width slack is 0.449
     Info (332119):     Slack       End Point TNS Clock 
     Info (332119): ========= =================== =====================
+    Info (332119):     0.449               0.000 main_control:C0|current_state.S_DONE_PLOTS 
     Info (332119):     1.666               0.000 VGA|mypll|altpll_component|auto_generated|generic_pll1~FRACTIONAL_PLL|vcoph[0] 
-    Info (332119):     8.810               0.000 CLOCK_50 
+    Info (332119):     8.809               0.000 CLOCK_50 
     Info (332119):    18.738               0.000 VGA|mypll|altpll_component|auto_generated|generic_pll1~PLL_OUTPUT_COUNTER|divclk 
 Info: Analyzing Fast 1100mV 85C Model
 Info (334003): Started post-fitting delay annotation
@@ -1201,23 +1225,28 @@ Info (332097): The following timing edges are non-unate.  The Timing Analyzer wi
     Info (332098): Cell: VGA|mypll|altpll_component|auto_generated|generic_pll1~PLL_OUTPUT_COUNTER  from: vco0ph[0]  to: divclk
     Info (332098): Cell: VGA|mypll|altpll_component|auto_generated|generic_pll1~PLL_REFCLK_SELECT  from: clkin[0]  to: clkout
 Info (332123): Deriving Clock Uncertainty. Please refer to report_sdc in the Timing Analyzer to see clock uncertainties.
-Info (332146): Worst-case setup slack is 11.033
+Critical Warning (332148): Timing requirements not met
+    Info (11105): For recommendations on closing timing, run Report Timing Closure Recommendations in the Timing Analyzer.
+Info (332146): Worst-case setup slack is -2.673
     Info (332119):     Slack       End Point TNS Clock 
     Info (332119): ========= =================== =====================
-    Info (332119):    11.033               0.000 CLOCK_50 
-    Info (332119):    36.150               0.000 VGA|mypll|altpll_component|auto_generated|generic_pll1~PLL_OUTPUT_COUNTER|divclk 
-Info (332146): Worst-case hold slack is 0.177
+    Info (332119):    -2.673              -6.630 CLOCK_50 
+    Info (332119):    -0.415              -1.102 main_control:C0|current_state.S_DONE_PLOTS 
+    Info (332119):    36.118               0.000 VGA|mypll|altpll_component|auto_generated|generic_pll1~PLL_OUTPUT_COUNTER|divclk 
+Info (332146): Worst-case hold slack is 0.176
     Info (332119):     Slack       End Point TNS Clock 
     Info (332119): ========= =================== =====================
-    Info (332119):     0.177               0.000 CLOCK_50 
-    Info (332119):     0.202               0.000 VGA|mypll|altpll_component|auto_generated|generic_pll1~PLL_OUTPUT_COUNTER|divclk 
+    Info (332119):     0.176               0.000 CLOCK_50 
+    Info (332119):     0.244               0.000 VGA|mypll|altpll_component|auto_generated|generic_pll1~PLL_OUTPUT_COUNTER|divclk 
+    Info (332119):     0.449               0.000 main_control:C0|current_state.S_DONE_PLOTS 
 Info (332140): No Recovery paths to report
 Info (332140): No Removal paths to report
-Info (332146): Worst-case minimum pulse width slack is 1.666
+Info (332146): Worst-case minimum pulse width slack is 0.457
     Info (332119):     Slack       End Point TNS Clock 
     Info (332119): ========= =================== =====================
+    Info (332119):     0.457               0.000 main_control:C0|current_state.S_DONE_PLOTS 
     Info (332119):     1.666               0.000 VGA|mypll|altpll_component|auto_generated|generic_pll1~FRACTIONAL_PLL|vcoph[0] 
-    Info (332119):     8.817               0.000 CLOCK_50 
+    Info (332119):     8.814               0.000 CLOCK_50 
     Info (332119):    18.879               0.000 VGA|mypll|altpll_component|auto_generated|generic_pll1~PLL_OUTPUT_COUNTER|divclk 
 Info: Analyzing Fast 1100mV 0C Model
 Info (332097): The following timing edges are non-unate.  The Timing Analyzer will assume pos-unate behavior for these edges in the clock network.
@@ -1225,30 +1254,35 @@ Info (332097): The following timing edges are non-unate.  The Timing Analyzer wi
     Info (332098): Cell: VGA|mypll|altpll_component|auto_generated|generic_pll1~PLL_OUTPUT_COUNTER  from: vco0ph[0]  to: divclk
     Info (332098): Cell: VGA|mypll|altpll_component|auto_generated|generic_pll1~PLL_REFCLK_SELECT  from: clkin[0]  to: clkout
 Info (332123): Deriving Clock Uncertainty. Please refer to report_sdc in the Timing Analyzer to see clock uncertainties.
-Info (332146): Worst-case setup slack is 11.832
+Critical Warning (332148): Timing requirements not met
+    Info (11105): For recommendations on closing timing, run Report Timing Closure Recommendations in the Timing Analyzer.
+Info (332146): Worst-case setup slack is -2.087
     Info (332119):     Slack       End Point TNS Clock 
     Info (332119): ========= =================== =====================
-    Info (332119):    11.832               0.000 CLOCK_50 
-    Info (332119):    36.546               0.000 VGA|mypll|altpll_component|auto_generated|generic_pll1~PLL_OUTPUT_COUNTER|divclk 
-Info (332146): Worst-case hold slack is 0.167
+    Info (332119):    -2.087              -5.073 CLOCK_50 
+    Info (332119):    -0.297              -0.725 main_control:C0|current_state.S_DONE_PLOTS 
+    Info (332119):    36.630               0.000 VGA|mypll|altpll_component|auto_generated|generic_pll1~PLL_OUTPUT_COUNTER|divclk 
+Info (332146): Worst-case hold slack is 0.166
     Info (332119):     Slack       End Point TNS Clock 
     Info (332119): ========= =================== =====================
-    Info (332119):     0.167               0.000 CLOCK_50 
-    Info (332119):     0.183               0.000 VGA|mypll|altpll_component|auto_generated|generic_pll1~PLL_OUTPUT_COUNTER|divclk 
+    Info (332119):     0.166               0.000 CLOCK_50 
+    Info (332119):     0.219               0.000 VGA|mypll|altpll_component|auto_generated|generic_pll1~PLL_OUTPUT_COUNTER|divclk 
+    Info (332119):     0.396               0.000 main_control:C0|current_state.S_DONE_PLOTS 
 Info (332140): No Recovery paths to report
 Info (332140): No Removal paths to report
-Info (332146): Worst-case minimum pulse width slack is 1.666
+Info (332146): Worst-case minimum pulse width slack is 0.472
     Info (332119):     Slack       End Point TNS Clock 
     Info (332119): ========= =================== =====================
+    Info (332119):     0.472               0.000 main_control:C0|current_state.S_DONE_PLOTS 
     Info (332119):     1.666               0.000 VGA|mypll|altpll_component|auto_generated|generic_pll1~FRACTIONAL_PLL|vcoph[0] 
-    Info (332119):     8.807               0.000 CLOCK_50 
+    Info (332119):     8.805               0.000 CLOCK_50 
     Info (332119):    18.881               0.000 VGA|mypll|altpll_component|auto_generated|generic_pll1~PLL_OUTPUT_COUNTER|divclk 
 Info (332102): Design is not fully constrained for setup requirements
 Info (332102): Design is not fully constrained for hold requirements
-Info: Quartus Prime Timing Analyzer was successful. 0 errors, 388 warnings
-    Info: Peak virtual memory: 5366 megabytes
-    Info: Processing ended: Sun Nov 18 23:13:06 2018
-    Info: Elapsed time: 00:00:07
-    Info: Total CPU time (on all processors): 00:00:12
+Info: Quartus Prime Timing Analyzer was successful. 0 errors, 393 warnings
+    Info: Peak virtual memory: 5221 megabytes
+    Info: Processing ended: Sat Nov 24 15:12:59 2018
+    Info: Elapsed time: 00:00:11
+    Info: Total CPU time (on all processors): 00:00:13
 
 
