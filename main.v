@@ -33,6 +33,7 @@ module main
 
 	wire resetn;
 	assign resetn = KEY[0];
+	assign shoot = ~KEY[2];
 
 	// Create the colour, x, y and writeEn wires that are inputs to the controller.
 
@@ -68,20 +69,29 @@ module main
     // lots of wires to connect our datapath and control
 	 wire done_user;
 	 wire done_enemies;
+	 wire done_bullet;
 	 
 	 wire blackout_u, move_u, draw_u;
 	 wire blackout_e_prep, blackout_e, move_e, draw_e; 
+	 wire blackout_b, move_b, draw_b;
+	 wire reach_bullet;
 
 		main_control C0(.clk(CLOCK_50),
 			 .resetn(resetn),
 			 .done_user(done_user),
 			 .done_enemies(done_enemies),
+			 .done_bullet(done_bullet),
+			 .shoot(~KEY[2]),
+			 .reach_bullet(reach_bullet),
 
 			 .blackout_u(blackout_u),
+			 .blackout_b(blackout_b),
 			 .move_u(move_u),
 			 .move_e(move_e),
+			 .move_b(move_b),
 			 .draw_u(draw_u),
 			 .draw_e(draw_e),
+			 .draw_b(draw_b),
 			 .blackout_e_prep(blackout_e_prep),
 			 .blackout_e(blackout_e)
 			 );
@@ -90,15 +100,21 @@ module main
 			.resetn(resetn),
 			.move_e(move_e),
 			.blackout_u(blackout_u),
+			.blackout_b(blackout_b),
 			.move_u(move_u),
+			.move_b(move_b),
 			.draw_u(draw_u),
 			.draw_e(draw_e),
+			.draw_b(draw_b),
 			.blackout_e_prep(blackout_e_prep),
 			.blackout_e(blackout_e),
 			.user_move( {~KEY[3] , ~ KEY[1]} ),
+			.shoot(~KEY[2]),
 
 			.done_user(done_user),
 			.done_enemies(done_enemies),
+			.done_bullet(done_bullet),
+			.reach_bullet(reach_bullet),
 	 		.X(x),
 	 	 	.Y(y),
 			.colour(colour)
@@ -113,9 +129,13 @@ module main_control(
    input resetn,
 	input done_user,
 	input done_enemies,
+	input done_bullet,
+	input shoot,
+	input reach_bullet,
 
    output reg blackout_u, move_u, draw_u,
-	output reg blackout_e_prep, blackout_e, move_e, draw_e
+	output reg blackout_e_prep, blackout_e, move_e, draw_e,
+	output reg blackout_b, move_b, draw_b
    );
 
 	wire replot;
@@ -127,11 +147,18 @@ module main_control(
 			 S_BLACKOUT_USER    = 5'd0,
 			 S_MOVE_USER        = 5'd1,
 			 S_PLOT_USER        = 5'd2,
-			 S_BLACKOUT_E_PREP  = 5'd3,
-			 S_BLACKOUT_ENEMIES = 5'd4,
-			 S_MOVE_ENEMIES     = 5'd5,
-			 S_PLOT_ENEMIES     = 5'd6,
-			 S_DONE_PLOTS		  = 5'd7;
+			 
+			 S_PREP_SHOOTING    = 5'd3,
+			 S_SLOW_DOWN_BULLET = 5'd4,
+			 S_BLACKOUT_BULLET  = 5'd5,
+			 S_MOVE_BULLET      = 5'd6,
+			 S_PLOT_BULLET      = 5'd7,
+			 
+			 S_BLACKOUT_E_PREP  = 5'd8,
+			 S_BLACKOUT_ENEMIES = 5'd9,
+			 S_MOVE_ENEMIES     = 5'd10,
+			 S_PLOT_ENEMIES     = 5'd11,
+			 S_DONE_PLOTS		  = 5'd12;
 
 	localparam enemy_speed = 4'd2; //inverse of enemy speed (higher = slower) 15 was good for final
 	reg [3:0] speed_divider = 4'b0;
@@ -142,7 +169,13 @@ module main_control(
 		case (current_state)
 			S_BLACKOUT_USER: next_state = done_user ? S_MOVE_USER : S_BLACKOUT_USER;
 			S_MOVE_USER: next_state = S_PLOT_USER;
-			S_PLOT_USER: next_state = done_user ? S_BLACKOUT_E_PREP : S_PLOT_USER; // Repeat ploting user until all 400 pixels are exhausted
+			S_PLOT_USER: next_state = done_user ? S_PREP_SHOOTING : S_PLOT_USER; // Repeat ploting user until all 400 pixels are exhausted
+			
+			S_PREP_SHOOTING: next_state = (shoot || !reach_bullet) ? S_BLACKOUT_BULLET : S_BLACKOUT_E_PREP;
+			S_BLACKOUT_BULLET: next_state = done_bullet ? S_MOVE_BULLET : S_BLACKOUT_BULLET;
+			S_MOVE_BULLET: next_state = S_PLOT_BULLET;
+			S_PLOT_BULLET: next_state = done_bullet ? S_BLACKOUT_E_PREP : S_PLOT_BULLET;
+
 			S_BLACKOUT_E_PREP: next_state = speed_divider == enemy_speed ? S_BLACKOUT_ENEMIES : S_DONE_PLOTS;
 			S_BLACKOUT_ENEMIES: next_state = done_enemies == 1'b1 ? S_MOVE_ENEMIES : S_BLACKOUT_ENEMIES;
 			S_MOVE_ENEMIES: next_state =  S_PLOT_ENEMIES;
@@ -161,13 +194,17 @@ module main_control(
       // This is a different style from using a default statement.
       // It makes the code easier to read.  If you add other out
       // signals be sure to assign a default value for them here.
-		blackout_u = 1'b0;
+		
 		move_e = 1'b0;
 		move_u = 1'b0;
+		move_b = 1'b0;
 		draw_u = 1'b0;
 		draw_e = 1'b0;
+		draw_b = 1'b0;
 		blackout_e_prep = 1'b0;
 		blackout_e = 1'b0;
+		blackout_u = 1'b0;
+		blackout_b = 1'b0;
 
 	   case (current_state)
 		  S_BLACKOUT_USER: begin
@@ -180,7 +217,16 @@ module main_control(
 		  S_PLOT_USER: begin
 			 draw_u = 1'b1;
 		  end
-			
+		  
+		  S_BLACKOUT_BULLET: begin
+				blackout_b = 1'b1;
+				draw_b = 1'b1;
+		  end
+		  
+		  S_MOVE_BULLET: move_b = 1; //(done_bullet == 1) ? 1 : 0;
+		  
+		  S_PLOT_BULLET: draw_b = 1'b1;
+		  
 		  S_BLACKOUT_E_PREP:
 			  blackout_e_prep = 1'b1;
 			  
@@ -223,24 +269,41 @@ module main_datapath(
     input resetn,
 	 input blackout_u, move_u, draw_u,
 	 input blackout_e_prep, blackout_e, move_e, draw_e,
+	 input blackout_b, move_b, draw_b,
 	 input [1:0] user_move,
+	 input shoot,
 
 	 output reg done_user,
 	 output done_enemies,
+	 output reg done_bullet,
+	 output reach_bullet,
 	 output reg [8:0] X,
 	 output reg [7:0] Y,
 	 output reg [2:0] colour
     );
 
-	 wire done_e, done_u;
+	 localparam 
+				e_in_row  = 9,   
+				e_in_col  = 2,
+				u_x_min   = 0,   //min/max for user to contain in fov   
+				u_x_max   = 292,
+				e_x_min   = 8,   //min/max for enemy's anchor for movement
+				e_x_max   = 60,
+				e_y_jump  = 20,  //when jumpin a row
+				e_y_max   = 200; //max y enemies can be drawn
 	 
-	 wire [8:0] X_pos_u, X_pos_e; //final positions/colours
-	 wire [7:0] Y_pos_u, Y_pos_e;
+	 
+	 wire done_e, done_u, done_b;
+	 
+	 wire [8:0] X_pos_u, X_pos_e, X_pos_b; //final positions/colours
+	 wire [7:0] Y_pos_u, Y_pos_e, Y_pos_b;
 	 wire [2:0] colour_u, colour_e;
 
 	 reg [8:0] X_pos_init; // Initial x Position of object
 	 reg [7:0] Y_pos_init; // Initial y Position of object
 	 reg [8:0] user_x_coord = 9'd146; //offset from start position
+	 reg [8:0] X_pos_bullet;
+	 reg [7:0] Y_pos_bullet;
 
 	 reg [8:0]anchor_x = 8; //anchor point where enemies are based off of
 	 reg [7:0]anchor_y = 10;
@@ -252,15 +315,6 @@ module main_datapath(
 
 	 reg enable_draw_e;
 	 
-	 localparam 
-				e_in_row  = 9,   
-				e_in_col  = 2,
-				u_x_min   = 0,   //min/max for user to contain in fov   
-				u_x_max   = 292,
-				e_x_min   = 8,   //min/max for enemy's anchor for movement
-				e_x_max   = 60,
-				e_y_jump  = 20,  //when jumpin a row
-				e_y_max   = 200; //max y enemies can be drawn
 				
 
 	 integer i, j;
@@ -321,7 +375,16 @@ module main_datapath(
 		.colour(colour_e)
 	);
 	
-	
+	  bulletFSM B1(.clk(clk),
+		.resetn(resetn),
+		.enable(draw_b),
+		.x_pos_init(X_pos_bullet), // Using magic number for now
+		.y_pos_init(Y_pos_bullet), // Using magic number for now
+		.done_b(done_b),
+		.x_pos_final(X_pos_b),
+		.y_pos_final(Y_pos_b)
+	);
+	  
 	always@(posedge clk) begin
 	  if(!resetn) begin
 			X <= 9'b0;
@@ -337,13 +400,22 @@ module main_datapath(
 	  end
 
 	  else begin
-			if(move_u) begin //no reset for user_x_coord because we want a latch
+			if (move_u) begin //no reset for user_x_coord because we want a latch
 				case(user_move)
 					2'b01: user_x_coord <= user_x_coord == u_x_max ? u_x_min : user_x_coord + 1;
 					2'b10: user_x_coord <= user_x_coord == u_x_min ? u_x_max : user_x_coord - 1;
 					default: user_x_coord <= user_x_coord;
 				endcase
 			end
+			
+			if (move_b) begin
+				Y_pos_bullet <= Y_pos_bullet - 1;
+			end
+			
+			if (shoot) begin
+				X_pos_bullet <= (reach_bullet == 1) ? user_x_coord : X_pos_bullet;
+			end
+			
 			
 			if (move_e) begin
 				if(anchor_x == e_x_max - 1) direction_e <= 0;
@@ -366,6 +438,13 @@ module main_datapath(
 				done_user <= done_u;
 			end
 			
+			if (draw_b) begin
+				X <= X_pos_b;
+				Y <= Y_pos_b;
+				colour <= blackout_b == 1'b1 ? 3'b000 : 3'b101;
+				done_bullet <= done_b;
+			end
+			
 			if (draw_e) begin
 				X <= X_pos_e;
 				Y <= Y_pos_e;
@@ -385,5 +464,6 @@ module main_datapath(
     end
 
 	 assign done_enemies = enemies[e_in_row - 1][e_in_col - 1] == 1 ? 1 : 0;
+	 assign reach_bullet = Y_pos_bullet == 0 ? 1 : 0;
 
 endmodule
