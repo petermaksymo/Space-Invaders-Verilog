@@ -14,7 +14,8 @@ module main
 		VGA_SYNC_N,						//	VGA SYNC
 		VGA_R,   						//	VGA Red[9:0]
 		VGA_G,	 						//	VGA Green[9:0]
-		VGA_B   						   //	VGA Blue[9:0]
+		VGA_B,   						   //	VGA Blue[9:0]
+		Score
 	);
 
 	input	CLOCK_50;				//	50 MHz
@@ -30,6 +31,7 @@ module main
 	output	[7:0]	VGA_R;   				//	VGA Red[7:0] Changed from 10 to 8-bit DAC
 	output	[7:0]	VGA_G;	 				//	VGA Green[7:0]
 	output	[7:0]	VGA_B;   				//	VGA Blue[7:0]
+	output 			Score;
 
 	wire resetn;
 	assign resetn = KEY[0];
@@ -129,7 +131,8 @@ module main
 			.reach_bullet(reach_bullet),
 	 		.X(x),
 	 	 	.Y(y),
-			.colour(colour)
+			.colour(colour),
+			.score(Score)
     );
 
 
@@ -323,7 +326,8 @@ module main_datapath(
 	 output reg done_screen,
 	 output reg [8:0] X,
 	 output reg [7:0] Y,
-	 output reg [2:0] colour
+	 output reg [2:0] colour,
+	 output reg [4:0] score
     );
 
 	 localparam 
@@ -448,6 +452,7 @@ module main_datapath(
 			colour <= 3'b0;
 			done_user <= 1'b0;
 			direction_e <= 1'b1;
+			score <= 1'b0;
 
 			for(i = 0; i < e_in_row; i = i + 1) begin
 				for(j = 0; j < e_in_col; j = j + 1) begin
@@ -521,6 +526,7 @@ module main_datapath(
 					for(j = 0; j < e_in_col; j = j + 1) begin
 						if ((X_pos_bullet <= (anchor_x + (e_i * 28) + 20)) && X_pos_bullet >= (anchor_x + (e_i * 28)) && Y_pos_bullet <= anchor_y + (j * 25 + 20) && Y_pos_bullet >= anchor_y + (j * 25)) begin
 						enemies_alive[i][j] <= 0;
+						score <= score + 1;
 						end
 					end
 				end	

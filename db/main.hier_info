@@ -44,6 +44,7 @@ VGA_B[4] <= vga_adapter:VGA.VGA_B
 VGA_B[5] <= vga_adapter:VGA.VGA_B
 VGA_B[6] <= vga_adapter:VGA.VGA_B
 VGA_B[7] <= vga_adapter:VGA.VGA_B
+Score <= main_datapath:D0.score
 
 
 |main|vga_adapter:VGA
@@ -1955,6 +1956,11 @@ check_collision => enemies_alive.OUTPUTSELECT
 check_collision => enemies_alive.OUTPUTSELECT
 check_collision => enemies_alive.OUTPUTSELECT
 check_collision => enemies_alive.OUTPUTSELECT
+check_collision => score.OUTPUTSELECT
+check_collision => score.OUTPUTSELECT
+check_collision => score.OUTPUTSELECT
+check_collision => score.OUTPUTSELECT
+check_collision => score.OUTPUTSELECT
 display_title => display_title.IN1
 display_end => display_end.IN1
 draw_screen => draw_screen.IN1
@@ -1983,6 +1989,11 @@ Y[7] <= Y[7]~reg0.DB_MAX_OUTPUT_PORT_TYPE
 colour[0] <= colour[0]~reg0.DB_MAX_OUTPUT_PORT_TYPE
 colour[1] <= colour[1]~reg0.DB_MAX_OUTPUT_PORT_TYPE
 colour[2] <= colour[2]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+score[0] <= score[0]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+score[1] <= score[1]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+score[2] <= score[2]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+score[3] <= score[3]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+score[4] <= score[4]~reg0.DB_MAX_OUTPUT_PORT_TYPE
 
 
 |main|main_datapath:D0|user_fsm:U0
