@@ -1,15 +1,25 @@
+<<<<<<< HEAD
 Fitter Status : Successful - Sat Nov 24 23:34:16 2018
 Quartus Prime Version : 18.0.0 Build 614 04/24/2018 SJ Lite Edition
+=======
+Fitter Status : Successful - Wed Nov 21 11:43:10 2018
+Quartus Prime Version : 18.0.0 Build 614 04/24/2018 SJ Standard Edition
+>>>>>>> graphics_fixes
 Revision Name : main
 Top-level Entity Name : main
 Family : Cyclone V
 Device : 5CSEMA5F31C6
 Timing Models : Final
+<<<<<<< HEAD
 Logic utilization (in ALMs) : 463 / 32,070 ( 1 % )
 Total registers : 248
+=======
+Logic utilization (in ALMs) : 298 / 32,070 ( < 1 % )
+Total registers : 198
+>>>>>>> graphics_fixes
 Total pins : 44 / 457 ( 10 % )
 Total virtual pins : 0
-Total block memory bits : 233,760 / 4,065,280 ( 6 % )
+Total block memory bits : 232,290 / 4,065,280 ( 6 % )
 Total RAM Blocks : 31 / 397 ( 8 % )
 Total DSP Blocks : 0 / 87 ( 0 % )
 Total HSSI RX PCSs : 0

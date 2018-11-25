@@ -66,7 +66,7 @@ module enemy_control(
   begin: state_table
     case (current_state)
       S_WAIT_PLOT: next_state = should_plot ? S_PLOT : S_WAIT_PLOT;
-      S_PLOT: next_state = counter == 10'd559 ? S_FINISH_PLOT : S_PLOT;
+      S_PLOT: next_state = counter == 10'd373 ? S_FINISH_PLOT : S_PLOT;
       S_FINISH_PLOT: next_state = S_WAIT_PLOT;
 
       default: next_state = S_WAIT_PLOT;
@@ -123,16 +123,14 @@ module enemy_datapath(
 	assign x = x_pos_init + x_sprite;
 	assign y = y_pos_init + y_sprite;
 
-	ram560x3_enemy1 enemy1_sprite(
+	rom374x3_enemy1 enemy1_sprite(
 	  .address(counter),
 	  .clock(clk),
-	  .data(10'b0),
-	  .wren(1'b0),
 	  .q(colour_ram)
 	  );
 
 	  wire done;
-	  assign done = (counter == 10'd559);
+	  assign done = (counter == 10'd373);
 
 
 
@@ -147,8 +145,8 @@ module enemy_datapath(
 			if(plot) begin
 				colour <= colour_ram;
 				counter <= counter + 1;
-				x_sprite <= x_sprite == 5'd27 ? 5'b0 : x_sprite + 1;
-				y_sprite <= x_sprite == 5'd27 ? y_sprite + 1: y_sprite;
+				x_sprite <= x_sprite == 5'd21 ? 5'b0 : x_sprite + 1;
+				y_sprite <= x_sprite == 5'd21 ? y_sprite + 1: y_sprite;
 			end
 
 		 end
