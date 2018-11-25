@@ -74,7 +74,7 @@ module main
 	 wire blackout_u, move_u, draw_u;
 	 wire blackout_e_prep, blackout_e, move_e, draw_e; 
 	 wire blackout_b, move_b, draw_b;
-	 wire reach_bullet;
+	 wire reach_bullet, check_collision;
 
 		main_control C0(.clk(CLOCK_50),
 			 .resetn(resetn),
@@ -93,7 +93,8 @@ module main
 			 .draw_e(draw_e),
 			 .draw_b(draw_b),
 			 .blackout_e_prep(blackout_e_prep),
-			 .blackout_e(blackout_e)
+			 .blackout_e(blackout_e),
+			 .check_collision(check_collison)
 			 );
 
 		main_datapath D0(.clk(CLOCK_50),
@@ -110,6 +111,7 @@ module main
 			.blackout_e(blackout_e),
 			.user_move( {~KEY[3] , ~ KEY[1]} ),
 			.shoot(~KEY[2]),
+			.check_collision(check_collison),
 
 			.done_user(done_user),
 			.done_enemies(done_enemies),
@@ -135,7 +137,8 @@ module main_control(
 
    output reg blackout_u, move_u, draw_u,
 	output reg blackout_e_prep, blackout_e, move_e, draw_e,
-	output reg blackout_b, move_b, draw_b
+	output reg blackout_b, move_b, draw_b,
+	output reg check_collision
    );
 
 	wire replot;
@@ -149,10 +152,12 @@ module main_control(
 			 S_PLOT_USER        = 5'd2,
 			 
 			 S_PREP_SHOOTING    = 5'd3,
-			 S_SLOW_DOWN_BULLET = 5'd4,
+			 S_CHECK_COLLISION  = 5'd4,
 			 S_BLACKOUT_BULLET  = 5'd5,
 			 S_MOVE_BULLET      = 5'd6,
 			 S_PLOT_BULLET      = 5'd7,
+			 
+			 
 			 
 			 S_BLACKOUT_E_PREP  = 5'd8,
 			 S_BLACKOUT_ENEMIES = 5'd9,
@@ -160,7 +165,7 @@ module main_control(
 			 S_PLOT_ENEMIES     = 5'd11,
 			 S_DONE_PLOTS		  = 5'd12;
 
-	localparam enemy_speed = 4'd2; //inverse of enemy speed (higher = slower) 15 was good for final
+	localparam enemy_speed = 4'd4; //inverse of enemy speed (higher = slower) 15 was good for final
 	reg [3:0] speed_divider = 4'b0;
 
    // Next state logic aka our state table
@@ -171,10 +176,13 @@ module main_control(
 			S_MOVE_USER: next_state = S_PLOT_USER;
 			S_PLOT_USER: next_state = done_user ? S_PREP_SHOOTING : S_PLOT_USER; // Repeat ploting user until all 400 pixels are exhausted
 			
-			S_PREP_SHOOTING: next_state = (shoot || !reach_bullet) ? S_BLACKOUT_BULLET : S_BLACKOUT_E_PREP;
+			S_PREP_SHOOTING: next_state = (shoot || !reach_bullet) ? S_CHECK_COLLISION : S_BLACKOUT_E_PREP;	
+			S_CHECK_COLLISION: next_state = S_BLACKOUT_BULLET;	
 			S_BLACKOUT_BULLET: next_state = done_bullet ? S_MOVE_BULLET : S_BLACKOUT_BULLET;
 			S_MOVE_BULLET: next_state = S_PLOT_BULLET;
 			S_PLOT_BULLET: next_state = done_bullet ? S_BLACKOUT_E_PREP : S_PLOT_BULLET;
+			
+
 
 			S_BLACKOUT_E_PREP: next_state = speed_divider == enemy_speed ? S_BLACKOUT_ENEMIES : S_DONE_PLOTS;
 			S_BLACKOUT_ENEMIES: next_state = done_enemies == 1'b1 ? S_MOVE_ENEMIES : S_BLACKOUT_ENEMIES;
@@ -205,6 +213,7 @@ module main_control(
 		blackout_e = 1'b0;
 		blackout_u = 1'b0;
 		blackout_b = 1'b0;
+		check_collision = 1'b0;
 
 	   case (current_state)
 		  S_BLACKOUT_USER: begin
@@ -226,6 +235,8 @@ module main_control(
 		  S_MOVE_BULLET: move_b = 1; //(done_bullet == 1) ? 1 : 0;
 		  
 		  S_PLOT_BULLET: draw_b = 1'b1;
+		  
+		  S_CHECK_COLLISION: check_collision = 1'b1;
 		  
 		  S_BLACKOUT_E_PREP:
 			  blackout_e_prep = 1'b1;
@@ -271,7 +282,7 @@ module main_datapath(
 	 input blackout_e_prep, blackout_e, move_e, draw_e,
 	 input blackout_b, move_b, draw_b,
 	 input [1:0] user_move,
-	 input shoot,
+	 input shoot, check_collision,
 
 	 output reg done_user,
 	 output done_enemies,
@@ -312,6 +323,8 @@ module main_datapath(
 	 
 	 reg done_looking;
 	 reg enemies[0:e_in_row-1][0:e_in_col-1];
+	 reg enemies_alive[0:e_in_row-1][0:e_in_col-1];
+	 reg enemy_killed;
 
 	 reg enable_draw_e;
 	 
@@ -395,6 +408,7 @@ module main_datapath(
 			for(i = 0; i < e_in_row; i = i + 1) begin
 				for(j = 0; j < e_in_col; j = j + 1) begin
 					enemies[i][j] <= 0;
+					enemies_alive[i][j] <= 1;
 				end
 			end
 	  end
@@ -414,6 +428,11 @@ module main_datapath(
 			
 			if (shoot) begin
 				X_pos_bullet <= (reach_bullet == 1) ? user_x_coord : X_pos_bullet;
+			end
+			
+			if(enemy_killed) begin
+				X_pos_bullet <= (reach_bullet == 1) ? user_x_coord : X_pos_bullet;
+				Y_pos_bullet <= 1; //1 seemed to work from testing
 			end
 			
 			
@@ -443,13 +462,25 @@ module main_datapath(
 				Y <= Y_pos_b;
 				colour <= blackout_b == 1'b1 ? 3'b000 : 3'b101;
 				done_bullet <= done_b;
+				enemy_killed <= 0;
 			end
 			
 			if (draw_e) begin
 				X <= X_pos_e;
 				Y <= Y_pos_e;
-				colour <= blackout_e == 1'b1 ? 3'b0 : colour_e;
+				colour <= (blackout_e || !enemies_alive[e_i][e_j]) ? 3'b0 : colour_e;
 				enemies[e_i][e_j] <= done_e == 1? 1 : 0;
+			end
+			
+			if (check_collision) begin
+				for(i = 0; i < e_in_row; i = i + 1) begin
+					for(j = 0; j < e_in_col; j = j + 1) begin
+						if ((X_pos_bullet <= (anchor_x + (i * 28) + 20)) && X_pos_bullet >= (anchor_x + (i * 28)) && Y_pos_bullet <= anchor_y + (j * 25 + 19) && Y_pos_bullet >= anchor_y + (j * 25) && enemies_alive[i][j] == 1) begin
+						enemies_alive[i][j] <= 0;
+						enemy_killed <= 1;
+						end
+					end
+				end	
 			end
 			
 			if(blackout_e_prep) begin
@@ -464,6 +495,6 @@ module main_datapath(
     end
 
 	 assign done_enemies = enemies[e_in_row - 1][e_in_col - 1] == 1 ? 1 : 0;
-	 assign reach_bullet = Y_pos_bullet == 0 ? 1 : 0;
+	 assign reach_bullet = (Y_pos_bullet == 0 || enemy_killed) ? 1 : 0;
 
 endmodule
