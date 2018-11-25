@@ -1,11 +1,6 @@
 Flow report for main
-<<<<<<< HEAD
-Sat Nov 24 23:34:37 2018
+Sat Nov 24 23:48:59 2018
 Quartus Prime Version 18.0.0 Build 614 04/24/2018 SJ Lite Edition
-=======
-Wed Nov 21 11:43:47 2018
-Quartus Prime Version 18.0.0 Build 614 04/24/2018 SJ Standard Edition
->>>>>>> graphics_fixes
 
 
 ---------------------
@@ -42,22 +37,21 @@ refer to the applicable agreement for further details.
 
 
 
-<<<<<<< HEAD
 +-------------------------------------------------------------------------------+
 ; Flow Summary                                                                  ;
 +---------------------------------+---------------------------------------------+
-; Flow Status                     ; Successful - Sat Nov 24 23:34:26 2018       ;
+; Flow Status                     ; Successful - Sat Nov 24 23:48:51 2018       ;
 ; Quartus Prime Version           ; 18.0.0 Build 614 04/24/2018 SJ Lite Edition ;
 ; Revision Name                   ; main                                        ;
 ; Top-level Entity Name           ; main                                        ;
 ; Family                          ; Cyclone V                                   ;
 ; Device                          ; 5CSEMA5F31C6                                ;
 ; Timing Models                   ; Final                                       ;
-; Logic utilization (in ALMs)     ; 463 / 32,070 ( 1 % )                        ;
-; Total registers                 ; 248                                         ;
+; Logic utilization (in ALMs)     ; 467 / 32,070 ( 1 % )                        ;
+; Total registers                 ; 243                                         ;
 ; Total pins                      ; 44 / 457 ( 10 % )                           ;
 ; Total virtual pins              ; 0                                           ;
-; Total block memory bits         ; 233,760 / 4,065,280 ( 6 % )                 ;
+; Total block memory bits         ; 232,290 / 4,065,280 ( 6 % )                 ;
 ; Total DSP Blocks                ; 0 / 87 ( 0 % )                              ;
 ; Total HSSI RX PCSs              ; 0                                           ;
 ; Total HSSI PMA RX Deserializers ; 0                                           ;
@@ -66,31 +60,6 @@ refer to the applicable agreement for further details.
 ; Total PLLs                      ; 1 / 6 ( 17 % )                              ;
 ; Total DLLs                      ; 0 / 4 ( 0 % )                               ;
 +---------------------------------+---------------------------------------------+
-=======
-+-----------------------------------------------------------------------------------+
-; Flow Summary                                                                      ;
-+---------------------------------+-------------------------------------------------+
-; Flow Status                     ; Successful - Wed Nov 21 11:43:29 2018           ;
-; Quartus Prime Version           ; 18.0.0 Build 614 04/24/2018 SJ Standard Edition ;
-; Revision Name                   ; main                                            ;
-; Top-level Entity Name           ; main                                            ;
-; Family                          ; Cyclone V                                       ;
-; Device                          ; 5CSEMA5F31C6                                    ;
-; Timing Models                   ; Final                                           ;
-; Logic utilization (in ALMs)     ; 298 / 32,070 ( < 1 % )                          ;
-; Total registers                 ; 198                                             ;
-; Total pins                      ; 44 / 457 ( 10 % )                               ;
-; Total virtual pins              ; 0                                               ;
-; Total block memory bits         ; 232,290 / 4,065,280 ( 6 % )                     ;
-; Total DSP Blocks                ; 0 / 87 ( 0 % )                                  ;
-; Total HSSI RX PCSs              ; 0                                               ;
-; Total HSSI PMA RX Deserializers ; 0                                               ;
-; Total HSSI TX PCSs              ; 0                                               ;
-; Total HSSI PMA TX Serializers   ; 0                                               ;
-; Total PLLs                      ; 1 / 6 ( 17 % )                                  ;
-; Total DLLs                      ; 0 / 4 ( 0 % )                                   ;
-+---------------------------------+-------------------------------------------------+
->>>>>>> graphics_fixes
 
 
 +-----------------------------------------+
@@ -98,11 +67,7 @@ refer to the applicable agreement for further details.
 +-------------------+---------------------+
 ; Option            ; Setting             ;
 +-------------------+---------------------+
-<<<<<<< HEAD
-; Start date & time ; 11/24/2018 23:32:20 ;
-=======
-; Start date & time ; 11/21/2018 11:41:45 ;
->>>>>>> graphics_fixes
+; Start date & time ; 11/24/2018 23:46:39 ;
 ; Main task         ; Compilation         ;
 ; Revision Name     ; main                ;
 +-------------------+---------------------+
@@ -113,13 +78,12 @@ refer to the applicable agreement for further details.
 +-------------------------------------+----------------------------------------+---------------+-------------+------------+
 ; Assignment Name                     ; Value                                  ; Default Value ; Entity Name ; Section Id ;
 +-------------------------------------+----------------------------------------+---------------+-------------+------------+
-<<<<<<< HEAD
-; COMPILER_SIGNATURE_ID               ; 123719792385544.154312034028992        ; --            ; --          ; --         ;
-=======
-; COMPILER_SIGNATURE_ID               ; 167746773771437.154281850404768        ; --            ; --          ; --         ;
->>>>>>> graphics_fixes
+; COMPILER_SIGNATURE_ID               ; 123719792385544.154312119834624        ; --            ; --          ; --         ;
 ; MAX_CORE_JUNCTION_TEMP              ; 85                                     ; --            ; --          ; --         ;
 ; MIN_CORE_JUNCTION_TEMP              ; 0                                      ; --            ; --          ; --         ;
+; MISC_FILE                           ; on_chip_ram/ram400x3_user_bb.v         ; --            ; --          ; --         ;
+; MISC_FILE                           ; on_chip_ram/ram560x3_enemy1_bb.v       ; --            ; --          ; --         ;
+; MISC_FILE                           ; on_chip_ram/rom560x3_user_bb.v         ; --            ; --          ; --         ;
 ; PARTITION_COLOR                     ; -- (Not supported for targeted family) ; --            ; --          ; Top        ;
 ; PARTITION_FITTER_PRESERVATION_LEVEL ; -- (Not supported for targeted family) ; --            ; --          ; Top        ;
 ; PARTITION_NETLIST_TYPE              ; -- (Not supported for targeted family) ; --            ; --          ; Top        ;
@@ -134,19 +98,11 @@ refer to the applicable agreement for further details.
 +----------------------+--------------+-------------------------+---------------------+------------------------------------+
 ; Module Name          ; Elapsed Time ; Average Processors Used ; Peak Virtual Memory ; Total CPU Time (on all processors) ;
 +----------------------+--------------+-------------------------+---------------------+------------------------------------+
-<<<<<<< HEAD
-; Analysis & Synthesis ; 00:00:21     ; 1.0                     ; 4945 MB             ; 00:00:37                           ;
-; Fitter               ; 00:01:35     ; 1.1                     ; 7922 MB             ; 00:09:07                           ;
-; Assembler            ; 00:00:07     ; 1.0                     ; 4868 MB             ; 00:00:07                           ;
-; Timing Analyzer      ; 00:00:10     ; 1.7                     ; 5364 MB             ; 00:00:12                           ;
-; Total                ; 00:02:13     ; --                      ; --                  ; 00:10:03                           ;
-=======
-; Analysis & Synthesis ; 00:00:34     ; 1.0                     ; 759 MB              ; 00:00:35                           ;
-; Fitter               ; 00:00:47     ; 1.1                     ; 2663 MB             ; 00:01:27                           ;
-; Assembler            ; 00:00:10     ; 1.0                     ; 744 MB              ; 00:00:07                           ;
-; Timing Analyzer      ; 00:00:15     ; 1.1                     ; 1090 MB             ; 00:00:10                           ;
-; Total                ; 00:01:46     ; --                      ; --                  ; 00:02:19                           ;
->>>>>>> graphics_fixes
+; Analysis & Synthesis ; 00:00:20     ; 1.0                     ; 4940 MB             ; 00:00:36                           ;
+; Fitter               ; 00:01:41     ; 1.1                     ; 7937 MB             ; 00:09:50                           ;
+; Assembler            ; 00:00:08     ; 1.0                     ; 4872 MB             ; 00:00:07                           ;
+; Timing Analyzer      ; 00:00:07     ; 1.9                     ; 5362 MB             ; 00:00:11                           ;
+; Total                ; 00:02:16     ; --                      ; --                  ; 00:10:44                           ;
 +----------------------+--------------+-------------------------+---------------------+------------------------------------+
 
 
@@ -155,10 +111,10 @@ refer to the applicable agreement for further details.
 +----------------------+------------------+------------+------------+----------------+
 ; Module Name          ; Machine Hostname ; OS Name    ; OS Version ; Processor type ;
 +----------------------+------------------+------------+------------+----------------+
-; Analysis & Synthesis ; SFB520WS21       ; Windows 10 ; 10.0       ; x86_64         ;
-; Fitter               ; SFB520WS21       ; Windows 10 ; 10.0       ; x86_64         ;
-; Assembler            ; SFB520WS21       ; Windows 10 ; 10.0       ; x86_64         ;
-; Timing Analyzer      ; SFB520WS21       ; Windows 10 ; 10.0       ; x86_64         ;
+; Analysis & Synthesis ; DESKTOP-80I4L9Q  ; Windows 10 ; 10.0       ; x86_64         ;
+; Fitter               ; DESKTOP-80I4L9Q  ; Windows 10 ; 10.0       ; x86_64         ;
+; Assembler            ; DESKTOP-80I4L9Q  ; Windows 10 ; 10.0       ; x86_64         ;
+; Timing Analyzer      ; DESKTOP-80I4L9Q  ; Windows 10 ; 10.0       ; x86_64         ;
 +----------------------+------------------+------------+------------+----------------+
 
 

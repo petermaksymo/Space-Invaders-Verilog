@@ -427,11 +427,11 @@ module main_datapath(
 			end
 			
 			if (shoot) begin
-				X_pos_bullet <= (reach_bullet == 1) ? user_x_coord : X_pos_bullet;
+				X_pos_bullet <= (reach_bullet == 1) ? user_x_coord + 8 : X_pos_bullet;
 			end
 			
 			if(enemy_killed) begin
-				X_pos_bullet <= (reach_bullet == 1) ? user_x_coord : X_pos_bullet;
+				X_pos_bullet <= (reach_bullet == 1) ? user_x_coord + 8 : X_pos_bullet;
 				Y_pos_bullet <= 1; //1 seemed to work from testing
 			end
 			
@@ -475,7 +475,7 @@ module main_datapath(
 			if (check_collision) begin
 				for(i = 0; i < e_in_row; i = i + 1) begin
 					for(j = 0; j < e_in_col; j = j + 1) begin
-						if ((X_pos_bullet <= (anchor_x + (i * 28) + 20)) && X_pos_bullet >= (anchor_x + (i * 28)) && Y_pos_bullet <= anchor_y + (j * 25 + 19) && Y_pos_bullet >= anchor_y + (j * 25) && enemies_alive[i][j] == 1) begin
+						if ((X_pos_bullet <= (anchor_x + (i * 28) + 20)) && X_pos_bullet >= (anchor_x + (i * 28)) && Y_pos_bullet <= anchor_y + (j * 25 + 16) && Y_pos_bullet >= anchor_y + (j * 25) && enemies_alive[i][j] == 1) begin
 						enemies_alive[i][j] <= 0;
 						enemy_killed <= 1;
 						end

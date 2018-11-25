@@ -1,11 +1,6 @@
 Analysis & Synthesis report for main
-<<<<<<< HEAD
-Sat Nov 24 23:32:40 2018
+Sat Nov 24 23:46:59 2018
 Quartus Prime Version 18.0.0 Build 614 04/24/2018 SJ Lite Edition
-=======
-Wed Nov 21 11:42:19 2018
-Quartus Prime Version 18.0.0 Build 614 04/24/2018 SJ Standard Edition
->>>>>>> graphics_fixes
 
 
 ---------------------
@@ -19,68 +14,36 @@ Quartus Prime Version 18.0.0 Build 614 04/24/2018 SJ Standard Edition
   6. Analysis & Synthesis Resource Usage Summary
   7. Analysis & Synthesis Resource Utilization by Entity
   8. Analysis & Synthesis RAM Summary
-<<<<<<< HEAD
-  9. Analysis & Synthesis IP Cores Summary
- 10. State Machine - |main|main_datapath:D0|bulletFSM:B1|bullet_control:c1|current_state
- 11. State Machine - |main|main_datapath:D0|enemyFSM:E0|enemy_control:c0_e|current_state
- 12. State Machine - |main|main_datapath:D0|user_fsm:U0|user_control:c0_u|current_state
- 13. State Machine - |main|main_control:C0|current_state
- 14. User-Specified and Inferred Latches
- 15. Registers Removed During Synthesis
- 16. General Register Statistics
- 17. Inverted Register Statistics
- 18. Multiplexer Restructuring Statistics (Restructuring Performed)
- 19. Source assignments for vga_adapter:VGA|altsyncram:VideoMemory|altsyncram_c3n1:auto_generated
- 20. Source assignments for main_datapath:D0|user_fsm:U0|user_datapath:d0_u|rom560x3_user:user_sprite|altsyncram:altsyncram_component|altsyncram_gph1:auto_generated
- 21. Source assignments for main_datapath:D0|enemyFSM:E0|enemy_datapath:d0_e|ram560x3_enemy1:enemy1_sprite|altsyncram:altsyncram_component|altsyncram_doo1:auto_generated
- 22. Parameter Settings for User Entity Instance: vga_adapter:VGA
- 23. Parameter Settings for User Entity Instance: vga_adapter:VGA|vga_address_translator:user_input_translator
- 24. Parameter Settings for User Entity Instance: vga_adapter:VGA|altsyncram:VideoMemory
- 25. Parameter Settings for User Entity Instance: vga_adapter:VGA|vga_pll:mypll|altpll:altpll_component
- 26. Parameter Settings for User Entity Instance: vga_adapter:VGA|vga_controller:controller
- 27. Parameter Settings for User Entity Instance: vga_adapter:VGA|vga_controller:controller|vga_address_translator:controller_translator
- 28. Parameter Settings for User Entity Instance: main_datapath:D0|user_fsm:U0|user_datapath:d0_u|rom560x3_user:user_sprite|altsyncram:altsyncram_component
- 29. Parameter Settings for User Entity Instance: main_datapath:D0|enemyFSM:E0|enemy_datapath:d0_e|ram560x3_enemy1:enemy1_sprite|altsyncram:altsyncram_component
- 30. altsyncram Parameter Settings by Entity Instance
- 31. altpll Parameter Settings by Entity Instance
- 32. Port Connectivity Checks: "main_datapath:D0|enemyFSM:E0|enemy_datapath:d0_e|ram560x3_enemy1:enemy1_sprite"
+  9. State Machine - |main|main_datapath:D0|bulletFSM:B1|bullet_control:c1|current_state
+ 10. State Machine - |main|main_datapath:D0|enemyFSM:E0|enemy_control:c0_e|current_state
+ 11. State Machine - |main|main_datapath:D0|user_fsm:U0|user_control:c0_u|current_state
+ 12. State Machine - |main|main_control:C0|current_state
+ 13. User-Specified and Inferred Latches
+ 14. Registers Removed During Synthesis
+ 15. General Register Statistics
+ 16. Inverted Register Statistics
+ 17. Multiplexer Restructuring Statistics (Restructuring Performed)
+ 18. Source assignments for vga_adapter:VGA|altsyncram:VideoMemory|altsyncram_c3n1:auto_generated
+ 19. Source assignments for main_datapath:D0|user_fsm:U0|user_datapath:d0_u|rom256x3_user:user_sprite|altsyncram:altsyncram_component|altsyncram_9oh1:auto_generated
+ 20. Source assignments for main_datapath:D0|enemyFSM:E0|enemy_datapath:d0_e|rom374x3_enemy1:enemy1_sprite|altsyncram:altsyncram_component|altsyncram_oeg1:auto_generated
+ 21. Parameter Settings for User Entity Instance: vga_adapter:VGA
+ 22. Parameter Settings for User Entity Instance: vga_adapter:VGA|vga_address_translator:user_input_translator
+ 23. Parameter Settings for User Entity Instance: vga_adapter:VGA|altsyncram:VideoMemory
+ 24. Parameter Settings for User Entity Instance: vga_adapter:VGA|vga_pll:mypll|altpll:altpll_component
+ 25. Parameter Settings for User Entity Instance: vga_adapter:VGA|vga_controller:controller
+ 26. Parameter Settings for User Entity Instance: vga_adapter:VGA|vga_controller:controller|vga_address_translator:controller_translator
+ 27. Parameter Settings for User Entity Instance: main_datapath:D0|user_fsm:U0|user_datapath:d0_u|rom256x3_user:user_sprite|altsyncram:altsyncram_component
+ 28. Parameter Settings for User Entity Instance: main_datapath:D0|enemyFSM:E0|enemy_datapath:d0_e|rom374x3_enemy1:enemy1_sprite|altsyncram:altsyncram_component
+ 29. altsyncram Parameter Settings by Entity Instance
+ 30. altpll Parameter Settings by Entity Instance
+ 31. Port Connectivity Checks: "main_datapath:D0|enemyFSM:E0|enemy_datapath:d0_e|rom374x3_enemy1:enemy1_sprite"
+ 32. Port Connectivity Checks: "main_datapath:D0|user_fsm:U0|user_datapath:d0_u|rom256x3_user:user_sprite"
  33. Port Connectivity Checks: "main_control:C0|frames_p_pulse_counter:u_counter_0"
  34. Port Connectivity Checks: "vga_adapter:VGA|vga_controller:controller"
  35. Port Connectivity Checks: "vga_adapter:VGA"
  36. Post-Synthesis Netlist Statistics for Top Partition
  37. Elapsed Time Per Partition
  38. Analysis & Synthesis Messages
-=======
-  9. State Machine - |main|main_datapath:D0|enemyFSM:E0|enemy_control:c0_e|current_state
- 10. State Machine - |main|main_datapath:D0|user_fsm:U0|user_control:c0_u|current_state
- 11. State Machine - |main|main_control:C0|current_state
- 12. User-Specified and Inferred Latches
- 13. Registers Removed During Synthesis
- 14. General Register Statistics
- 15. Inverted Register Statistics
- 16. Multiplexer Restructuring Statistics (Restructuring Performed)
- 17. Source assignments for vga_adapter:VGA|altsyncram:VideoMemory|altsyncram_c3n1:auto_generated
- 18. Source assignments for main_datapath:D0|user_fsm:U0|user_datapath:d0_u|rom256x3_user:user_sprite|altsyncram:altsyncram_component|altsyncram_9oh1:auto_generated
- 19. Source assignments for main_datapath:D0|enemyFSM:E0|enemy_datapath:d0_e|rom374x3_enemy1:enemy1_sprite|altsyncram:altsyncram_component|altsyncram_oeg1:auto_generated
- 20. Parameter Settings for User Entity Instance: vga_adapter:VGA
- 21. Parameter Settings for User Entity Instance: vga_adapter:VGA|vga_address_translator:user_input_translator
- 22. Parameter Settings for User Entity Instance: vga_adapter:VGA|altsyncram:VideoMemory
- 23. Parameter Settings for User Entity Instance: vga_adapter:VGA|vga_pll:mypll|altpll:altpll_component
- 24. Parameter Settings for User Entity Instance: vga_adapter:VGA|vga_controller:controller
- 25. Parameter Settings for User Entity Instance: vga_adapter:VGA|vga_controller:controller|vga_address_translator:controller_translator
- 26. Parameter Settings for User Entity Instance: main_datapath:D0|user_fsm:U0|user_datapath:d0_u|rom256x3_user:user_sprite|altsyncram:altsyncram_component
- 27. Parameter Settings for User Entity Instance: main_datapath:D0|enemyFSM:E0|enemy_datapath:d0_e|rom374x3_enemy1:enemy1_sprite|altsyncram:altsyncram_component
- 28. altsyncram Parameter Settings by Entity Instance
- 29. altpll Parameter Settings by Entity Instance
- 30. Port Connectivity Checks: "main_datapath:D0|enemyFSM:E0|enemy_datapath:d0_e|rom374x3_enemy1:enemy1_sprite"
- 31. Port Connectivity Checks: "main_datapath:D0|user_fsm:U0|user_datapath:d0_u|rom256x3_user:user_sprite"
- 32. Port Connectivity Checks: "main_control:C0|frames_p_pulse_counter:u_counter_0"
- 33. Port Connectivity Checks: "vga_adapter:VGA|vga_controller:controller"
- 34. Port Connectivity Checks: "vga_adapter:VGA"
- 35. Post-Synthesis Netlist Statistics for Top Partition
- 36. Elapsed Time Per Partition
- 37. Analysis & Synthesis Messages
->>>>>>> graphics_fixes
 
 
 
@@ -103,11 +66,10 @@ refer to the applicable agreement for further details.
 
 
 
-<<<<<<< HEAD
 +-------------------------------------------------------------------------------+
 ; Analysis & Synthesis Summary                                                  ;
 +---------------------------------+---------------------------------------------+
-; Analysis & Synthesis Status     ; Successful - Sat Nov 24 23:32:40 2018       ;
+; Analysis & Synthesis Status     ; Successful - Sat Nov 24 23:46:59 2018       ;
 ; Quartus Prime Version           ; 18.0.0 Build 614 04/24/2018 SJ Lite Edition ;
 ; Revision Name                   ; main                                        ;
 ; Top-level Entity Name           ; main                                        ;
@@ -116,7 +78,7 @@ refer to the applicable agreement for further details.
 ; Total registers                 ; 238                                         ;
 ; Total pins                      ; 44                                          ;
 ; Total virtual pins              ; 0                                           ;
-; Total block memory bits         ; 233,760                                     ;
+; Total block memory bits         ; 232,290                                     ;
 ; Total DSP Blocks                ; 0                                           ;
 ; Total HSSI RX PCSs              ; 0                                           ;
 ; Total HSSI PMA RX Deserializers ; 0                                           ;
@@ -125,29 +87,6 @@ refer to the applicable agreement for further details.
 ; Total PLLs                      ; 1                                           ;
 ; Total DLLs                      ; 0                                           ;
 +---------------------------------+---------------------------------------------+
-=======
-+-----------------------------------------------------------------------------------+
-; Analysis & Synthesis Summary                                                      ;
-+---------------------------------+-------------------------------------------------+
-; Analysis & Synthesis Status     ; Successful - Wed Nov 21 11:42:19 2018           ;
-; Quartus Prime Version           ; 18.0.0 Build 614 04/24/2018 SJ Standard Edition ;
-; Revision Name                   ; main                                            ;
-; Top-level Entity Name           ; main                                            ;
-; Family                          ; Cyclone V                                       ;
-; Logic utilization (in ALMs)     ; N/A                                             ;
-; Total registers                 ; 191                                             ;
-; Total pins                      ; 44                                              ;
-; Total virtual pins              ; 0                                               ;
-; Total block memory bits         ; 232,290                                         ;
-; Total DSP Blocks                ; 0                                               ;
-; Total HSSI RX PCSs              ; 0                                               ;
-; Total HSSI PMA RX Deserializers ; 0                                               ;
-; Total HSSI TX PCSs              ; 0                                               ;
-; Total HSSI PMA TX Serializers   ; 0                                               ;
-; Total PLLs                      ; 1                                               ;
-; Total DLLs                      ; 0                                               ;
-+---------------------------------+-------------------------------------------------+
->>>>>>> graphics_fixes
 
 
 +---------------------------------------------------------------------------------------------------------------------------+
@@ -242,25 +181,32 @@ refer to the applicable agreement for further details.
 +----------------------------+-------------+
 ; Processors                 ; Number      ;
 +----------------------------+-------------+
-; Number detected on machine ; 8           ;
-; Maximum allowed            ; 4           ;
+; Number detected on machine ; 16          ;
+; Maximum allowed            ; 16          ;
 ;                            ;             ;
 ; Average used               ; 1.00        ;
-; Maximum used               ; 4           ;
+; Maximum used               ; 16          ;
 ;                            ;             ;
 ; Usage by Processor         ; % Time Used ;
 ;     Processor 1            ; 100.0%      ;
 ;     Processor 2            ;   0.0%      ;
-;     Processors 3-4         ;   0.0%      ;
+;     Processor 3            ;   0.0%      ;
+;     Processor 4            ;   0.0%      ;
+;     Processor 5            ;   0.0%      ;
+;     Processor 6            ;   0.0%      ;
+;     Processor 7            ;   0.0%      ;
+;     Processor 8            ;   0.0%      ;
+;     Processors 9-16        ;   0.0%      ;
 +----------------------------+-------------+
 
 
-<<<<<<< HEAD
 +--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
 ; Analysis & Synthesis Source Files Read                                                                                                                                                                                   ;
 +--------------------------------------+-----------------+----------------------------------------+--------------------------------------------------------------------------------------------------------------+---------+
 ; File Name with User-Entered Path     ; Used in Netlist ; File Type                              ; File Name with Absolute Path                                                                                 ; Library ;
 +--------------------------------------+-----------------+----------------------------------------+--------------------------------------------------------------------------------------------------------------+---------+
+; on_chip_ram/rom374x3_enemy1.v        ; yes             ; User Wizard-Generated File             ; C:/Users/Peter/OneDrive/1T8Semester1/ECE241/Lab projects/Space_invaders/on_chip_ram/rom374x3_enemy1.v        ;         ;
+; on_chip_ram/rom256x3_user.v          ; yes             ; User Wizard-Generated File             ; C:/Users/Peter/OneDrive/1T8Semester1/ECE241/Lab projects/Space_invaders/on_chip_ram/rom256x3_user.v          ;         ;
 ; frame_counter.v                      ; yes             ; User Verilog HDL File                  ; C:/Users/Peter/OneDrive/1T8Semester1/ECE241/Lab projects/Space_invaders/frame_counter.v                      ;         ;
 ; enemyFSM.v                           ; yes             ; User Verilog HDL File                  ; C:/Users/Peter/OneDrive/1T8Semester1/ECE241/Lab projects/Space_invaders/enemyFSM.v                           ;         ;
 ; vga_adapter/vga_pll.v                ; yes             ; User Wizard-Generated File             ; C:/Users/Peter/OneDrive/1T8Semester1/ECE241/Lab projects/Space_invaders/vga_adapter/vga_pll.v                ;         ;
@@ -269,8 +215,6 @@ refer to the applicable agreement for further details.
 ; vga_adapter/vga_adapter.v            ; yes             ; User Verilog HDL File                  ; C:/Users/Peter/OneDrive/1T8Semester1/ECE241/Lab projects/Space_invaders/vga_adapter/vga_adapter.v            ;         ;
 ; main.v                               ; yes             ; User Verilog HDL File                  ; C:/Users/Peter/OneDrive/1T8Semester1/ECE241/Lab projects/Space_invaders/main.v                               ;         ;
 ; output_files/user_fsm.v              ; yes             ; User Verilog HDL File                  ; C:/Users/Peter/OneDrive/1T8Semester1/ECE241/Lab projects/Space_invaders/output_files/user_fsm.v              ;         ;
-; on_chip_ram/ram560x3_enemy1.v        ; yes             ; User Wizard-Generated File             ; C:/Users/Peter/OneDrive/1T8Semester1/ECE241/Lab projects/Space_invaders/on_chip_ram/ram560x3_enemy1.v        ;         ;
-; on_chip_ram/rom560x3_user.v          ; yes             ; User Wizard-Generated File             ; C:/Users/Peter/OneDrive/1T8Semester1/ECE241/Lab projects/Space_invaders/on_chip_ram/rom560x3_user.v          ;         ;
 ; bullet.v                             ; yes             ; User Verilog HDL File                  ; C:/Users/Peter/OneDrive/1T8Semester1/ECE241/Lab projects/Space_invaders/bullet.v                             ;         ;
 ; altsyncram.tdf                       ; yes             ; Megafunction                           ; d:/intelfpga/quartus/libraries/megafunctions/altsyncram.tdf                                                  ;         ;
 ; stratix_ram_block.inc                ; yes             ; Megafunction                           ; d:/intelfpga/quartus/libraries/megafunctions/stratix_ram_block.inc                                           ;         ;
@@ -291,52 +235,11 @@ refer to the applicable agreement for further details.
 ; stratixii_pll.inc                    ; yes             ; Megafunction                           ; d:/intelfpga/quartus/libraries/megafunctions/stratixii_pll.inc                                               ;         ;
 ; cycloneii_pll.inc                    ; yes             ; Megafunction                           ; d:/intelfpga/quartus/libraries/megafunctions/cycloneii_pll.inc                                               ;         ;
 ; db/altpll_80u.tdf                    ; yes             ; Auto-Generated Megafunction            ; C:/Users/Peter/OneDrive/1T8Semester1/ECE241/Lab projects/Space_invaders/db/altpll_80u.tdf                    ;         ;
-; db/altsyncram_gph1.tdf               ; yes             ; Auto-Generated Megafunction            ; C:/Users/Peter/OneDrive/1T8Semester1/ECE241/Lab projects/Space_invaders/db/altsyncram_gph1.tdf               ;         ;
+; db/altsyncram_9oh1.tdf               ; yes             ; Auto-Generated Megafunction            ; C:/Users/Peter/OneDrive/1T8Semester1/ECE241/Lab projects/Space_invaders/db/altsyncram_9oh1.tdf               ;         ;
 ; graphics/spaceinvader_player.mif     ; yes             ; Auto-Found Memory Initialization File  ; C:/Users/Peter/OneDrive/1T8Semester1/ECE241/Lab projects/Space_invaders/graphics/spaceinvader_player.mif     ;         ;
-; db/altsyncram_doo1.tdf               ; yes             ; Auto-Generated Megafunction            ; C:/Users/Peter/OneDrive/1T8Semester1/ECE241/Lab projects/Space_invaders/db/altsyncram_doo1.tdf               ;         ;
+; db/altsyncram_oeg1.tdf               ; yes             ; Auto-Generated Megafunction            ; C:/Users/Peter/OneDrive/1T8Semester1/ECE241/Lab projects/Space_invaders/db/altsyncram_oeg1.tdf               ;         ;
 ; graphics/enemy_1.mif                 ; yes             ; Auto-Found Memory Initialization File  ; C:/Users/Peter/OneDrive/1T8Semester1/ECE241/Lab projects/Space_invaders/graphics/enemy_1.mif                 ;         ;
 +--------------------------------------+-----------------+----------------------------------------+--------------------------------------------------------------------------------------------------------------+---------+
-=======
-+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-; Analysis & Synthesis Source Files Read                                                                                                                                                                                                                 ;
-+-----------------------------------------------------------------------------------------+-----------------+----------------------------------------+-----------------------------------------------------------------------------------------+---------+
-; File Name with User-Entered Path                                                        ; Used in Netlist ; File Type                              ; File Name with Absolute Path                                                            ; Library ;
-+-----------------------------------------------------------------------------------------+-----------------+----------------------------------------+-----------------------------------------------------------------------------------------+---------+
-; //SRVD/Homes$/maksymo4/Desktop/temp/Space_invaders/on_chip_ram/rom374x3_enemy1.v        ; yes             ; User Wizard-Generated File             ; //SRVD/Homes$/maksymo4/Desktop/temp/Space_invaders/on_chip_ram/rom374x3_enemy1.v        ;         ;
-; //SRVD/Homes$/maksymo4/Desktop/temp/Space_invaders/on_chip_ram/rom256x3_user.v          ; yes             ; User Wizard-Generated File             ; //SRVD/Homes$/maksymo4/Desktop/temp/Space_invaders/on_chip_ram/rom256x3_user.v          ;         ;
-; //SRVD/Homes$/maksymo4/Desktop/temp/Space_invaders/frame_counter.v                      ; yes             ; User Verilog HDL File                  ; //SRVD/Homes$/maksymo4/Desktop/temp/Space_invaders/frame_counter.v                      ;         ;
-; //SRVD/Homes$/maksymo4/Desktop/temp/Space_invaders/enemyFSM.v                           ; yes             ; User Verilog HDL File                  ; //SRVD/Homes$/maksymo4/Desktop/temp/Space_invaders/enemyFSM.v                           ;         ;
-; //SRVD/Homes$/maksymo4/Desktop/temp/Space_invaders/vga_adapter/vga_pll.v                ; yes             ; User Wizard-Generated File             ; //SRVD/Homes$/maksymo4/Desktop/temp/Space_invaders/vga_adapter/vga_pll.v                ;         ;
-; //SRVD/Homes$/maksymo4/Desktop/temp/Space_invaders/vga_adapter/vga_controller.v         ; yes             ; User Verilog HDL File                  ; //SRVD/Homes$/maksymo4/Desktop/temp/Space_invaders/vga_adapter/vga_controller.v         ;         ;
-; //SRVD/Homes$/maksymo4/Desktop/temp/Space_invaders/vga_adapter/vga_address_translator.v ; yes             ; User Verilog HDL File                  ; //SRVD/Homes$/maksymo4/Desktop/temp/Space_invaders/vga_adapter/vga_address_translator.v ;         ;
-; //SRVD/Homes$/maksymo4/Desktop/temp/Space_invaders/vga_adapter/vga_adapter.v            ; yes             ; User Verilog HDL File                  ; //SRVD/Homes$/maksymo4/Desktop/temp/Space_invaders/vga_adapter/vga_adapter.v            ;         ;
-; //SRVD/Homes$/maksymo4/Desktop/temp/Space_invaders/main.v                               ; yes             ; User Verilog HDL File                  ; //SRVD/Homes$/maksymo4/Desktop/temp/Space_invaders/main.v                               ;         ;
-; //SRVD/Homes$/maksymo4/Desktop/temp/Space_invaders/output_files/user_fsm.v              ; yes             ; User Verilog HDL File                  ; //SRVD/Homes$/maksymo4/Desktop/temp/Space_invaders/output_files/user_fsm.v              ;         ;
-; altsyncram.tdf                                                                          ; yes             ; Megafunction                           ; c:/desl/quartus18/quartus/libraries/megafunctions/altsyncram.tdf                        ;         ;
-; stratix_ram_block.inc                                                                   ; yes             ; Megafunction                           ; c:/desl/quartus18/quartus/libraries/megafunctions/stratix_ram_block.inc                 ;         ;
-; lpm_mux.inc                                                                             ; yes             ; Megafunction                           ; c:/desl/quartus18/quartus/libraries/megafunctions/lpm_mux.inc                           ;         ;
-; lpm_decode.inc                                                                          ; yes             ; Megafunction                           ; c:/desl/quartus18/quartus/libraries/megafunctions/lpm_decode.inc                        ;         ;
-; aglobal180.inc                                                                          ; yes             ; Megafunction                           ; c:/desl/quartus18/quartus/libraries/megafunctions/aglobal180.inc                        ;         ;
-; a_rdenreg.inc                                                                           ; yes             ; Megafunction                           ; c:/desl/quartus18/quartus/libraries/megafunctions/a_rdenreg.inc                         ;         ;
-; altrom.inc                                                                              ; yes             ; Megafunction                           ; c:/desl/quartus18/quartus/libraries/megafunctions/altrom.inc                            ;         ;
-; altram.inc                                                                              ; yes             ; Megafunction                           ; c:/desl/quartus18/quartus/libraries/megafunctions/altram.inc                            ;         ;
-; altdpram.inc                                                                            ; yes             ; Megafunction                           ; c:/desl/quartus18/quartus/libraries/megafunctions/altdpram.inc                          ;         ;
-; altsyncram_c3n1.tdf                                                                     ; yes             ; Auto-Found AHDL File                   ; //SRVD/Homes$/maksymo4/Desktop/temp/Space_invaders/db/altsyncram_c3n1.tdf               ;         ;
-; graphics/black.mif                                                                      ; yes             ; Auto-Found Memory Initialization File  ; //SRVD/Homes$/maksymo4/Desktop/temp/Space_invaders/graphics/black.mif                   ;         ;
-; decode_nma.tdf                                                                          ; yes             ; Auto-Found AHDL File                   ; //SRVD/Homes$/maksymo4/Desktop/temp/Space_invaders/db/decode_nma.tdf                    ;         ;
-; decode_g2a.tdf                                                                          ; yes             ; Auto-Found AHDL File                   ; //SRVD/Homes$/maksymo4/Desktop/temp/Space_invaders/db/decode_g2a.tdf                    ;         ;
-; mux_2hb.tdf                                                                             ; yes             ; Auto-Found AHDL File                   ; //SRVD/Homes$/maksymo4/Desktop/temp/Space_invaders/db/mux_2hb.tdf                       ;         ;
-; altpll.tdf                                                                              ; yes             ; Megafunction                           ; c:/desl/quartus18/quartus/libraries/megafunctions/altpll.tdf                            ;         ;
-; stratix_pll.inc                                                                         ; yes             ; Megafunction                           ; c:/desl/quartus18/quartus/libraries/megafunctions/stratix_pll.inc                       ;         ;
-; stratixii_pll.inc                                                                       ; yes             ; Megafunction                           ; c:/desl/quartus18/quartus/libraries/megafunctions/stratixii_pll.inc                     ;         ;
-; cycloneii_pll.inc                                                                       ; yes             ; Megafunction                           ; c:/desl/quartus18/quartus/libraries/megafunctions/cycloneii_pll.inc                     ;         ;
-; altpll_80u.tdf                                                                          ; yes             ; Auto-Found AHDL File                   ; //SRVD/Homes$/maksymo4/Desktop/temp/Space_invaders/db/altpll_80u.tdf                    ;         ;
-; altsyncram_9oh1.tdf                                                                     ; yes             ; Auto-Found AHDL File                   ; //SRVD/Homes$/maksymo4/Desktop/temp/Space_invaders/db/altsyncram_9oh1.tdf               ;         ;
-; ./graphics/spaceInvader_player.mif                                                      ; yes             ; Auto-Found Memory Initialization File  ; //SRVD/Homes$/maksymo4/Desktop/temp/Space_invaders/graphics/spaceInvader_player.mif     ;         ;
-; altsyncram_oeg1.tdf                                                                     ; yes             ; Auto-Found AHDL File                   ; //SRVD/Homes$/maksymo4/Desktop/temp/Space_invaders/db/altsyncram_oeg1.tdf               ;         ;
-; graphics/enemy_1.mif                                                                    ; yes             ; Auto-Found Memory Initialization File  ; //SRVD/Homes$/maksymo4/Desktop/temp/Space_invaders/graphics/enemy_1.mif                 ;         ;
-+-----------------------------------------------------------------------------------------+-----------------+----------------------------------------+-----------------------------------------------------------------------------------------+---------+
->>>>>>> graphics_fixes
 
 
 +--------------------------------------------------------------+
@@ -344,29 +247,16 @@ refer to the applicable agreement for further details.
 +---------------------------------------------+----------------+
 ; Resource                                    ; Usage          ;
 +---------------------------------------------+----------------+
-<<<<<<< HEAD
-; Estimate of Logic utilization (ALMs needed) ; 476            ;
+; Estimate of Logic utilization (ALMs needed) ; 479            ;
 ;                                             ;                ;
-; Combinational ALUT usage for logic          ; 805            ;
+; Combinational ALUT usage for logic          ; 808            ;
 ;     -- 7 input functions                    ; 4              ;
-;     -- 6 input functions                    ; 140            ;
-;     -- 5 input functions                    ; 157            ;
-;     -- 4 input functions                    ; 104            ;
-;     -- <=3 input functions                  ; 400            ;
+;     -- 6 input functions                    ; 144            ;
+;     -- 5 input functions                    ; 156            ;
+;     -- 4 input functions                    ; 105            ;
+;     -- <=3 input functions                  ; 399            ;
 ;                                             ;                ;
 ; Dedicated logic registers                   ; 238            ;
-=======
-; Estimate of Logic utilization (ALMs needed) ; 306            ;
-;                                             ;                ;
-; Combinational ALUT usage for logic          ; 496            ;
-;     -- 7 input functions                    ; 0              ;
-;     -- 6 input functions                    ; 113            ;
-;     -- 5 input functions                    ; 94             ;
-;     -- 4 input functions                    ; 63             ;
-;     -- <=3 input functions                  ; 226            ;
-;                                             ;                ;
-; Dedicated logic registers                   ; 191            ;
->>>>>>> graphics_fixes
 ;                                             ;                ;
 ; I/O pins                                    ; 44             ;
 ; Total MLAB memory bits                      ; 0              ;
@@ -378,15 +268,9 @@ refer to the applicable agreement for further details.
 ;     -- PLLs                                 ; 1              ;
 ;                                             ;                ;
 ; Maximum fan-out node                        ; CLOCK_50~input ;
-<<<<<<< HEAD
 ; Maximum fan-out                             ; 241            ;
-; Total fan-out                               ; 4894           ;
+; Total fan-out                               ; 4902           ;
 ; Average fan-out                             ; 4.19           ;
-=======
-; Maximum fan-out                             ; 194            ;
-; Total fan-out                               ; 3633           ;
-; Average fan-out                             ; 4.47           ;
->>>>>>> graphics_fixes
 +---------------------------------------------+----------------+
 
 
@@ -395,36 +279,17 @@ refer to the applicable agreement for further details.
 +---------------------------------------------------------+---------------------+---------------------------+-------------------+------------+------+--------------+-----------------------------------------------------------------------------------------------------------------------------------------------------+------------------------+--------------+
 ; Compilation Hierarchy Node                              ; Combinational ALUTs ; Dedicated Logic Registers ; Block Memory Bits ; DSP Blocks ; Pins ; Virtual Pins ; Full Hierarchy Name                                                                                                                                 ; Entity Name            ; Library Name ;
 +---------------------------------------------------------+---------------------+---------------------------+-------------------+------------+------+--------------+-----------------------------------------------------------------------------------------------------------------------------------------------------+------------------------+--------------+
-<<<<<<< HEAD
-; |main                                                   ; 805 (1)             ; 238 (0)                   ; 233760            ; 0          ; 44   ; 0            ; |main                                                                                                                                               ; main                   ; work         ;
+; |main                                                   ; 808 (1)             ; 238 (0)                   ; 232290            ; 0          ; 44   ; 0            ; |main                                                                                                                                               ; main                   ; work         ;
 ;    |main_control:C0|                                    ; 80 (27)             ; 46 (13)                   ; 0                 ; 0          ; 0    ; 0            ; |main|main_control:C0                                                                                                                               ; main_control           ; work         ;
 ;       |frames_p_pulse_counter:u_counter_0|              ; 53 (9)              ; 33 (7)                    ; 0                 ; 0          ; 0    ; 0            ; |main|main_control:C0|frames_p_pulse_counter:u_counter_0                                                                                            ; frames_p_pulse_counter ; work         ;
 ;          |frame_counter:f0|                             ; 44 (44)             ; 26 (26)                   ; 0                 ; 0          ; 0    ; 0            ; |main|main_control:C0|frames_p_pulse_counter:u_counter_0|frame_counter:f0                                                                           ; frame_counter          ; work         ;
-;    |main_datapath:D0|                                   ; 636 (520)           ; 158 (101)                 ; 3360              ; 0          ; 0    ; 0            ; |main|main_datapath:D0                                                                                                                              ; main_datapath          ; work         ;
+;    |main_datapath:D0|                                   ; 639 (525)           ; 158 (101)                 ; 1890              ; 0          ; 0    ; 0            ; |main|main_datapath:D0                                                                                                                              ; main_datapath          ; work         ;
 ;       |bulletFSM:B1|                                    ; 38 (0)              ; 5 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |main|main_datapath:D0|bulletFSM:B1                                                                                                                 ; bulletFSM              ; work         ;
 ;          |bullet_control:c1|                            ; 3 (3)               ; 3 (3)                     ; 0                 ; 0          ; 0    ; 0            ; |main|main_datapath:D0|bulletFSM:B1|bullet_control:c1                                                                                               ; bullet_control         ; work         ;
 ;          |bullet_datapath:d1|                           ; 35 (35)             ; 2 (2)                     ; 0                 ; 0          ; 0    ; 0            ; |main|main_datapath:D0|bulletFSM:B1|bullet_datapath:d1                                                                                              ; bullet_datapath        ; work         ;
-;       |enemyFSM:E0|                                     ; 45 (1)              ; 26 (0)                    ; 1680              ; 0          ; 0    ; 0            ; |main|main_datapath:D0|enemyFSM:E0                                                                                                                  ; enemyFSM               ; work         ;
+;       |enemyFSM:E0|                                     ; 44 (1)              ; 26 (0)                    ; 1122              ; 0          ; 0    ; 0            ; |main|main_datapath:D0|enemyFSM:E0                                                                                                                  ; enemyFSM               ; work         ;
 ;          |enemy_control:c0_e|                           ; 6 (6)               ; 3 (3)                     ; 0                 ; 0          ; 0    ; 0            ; |main|main_datapath:D0|enemyFSM:E0|enemy_control:c0_e                                                                                               ; enemy_control          ; work         ;
-;          |enemy_datapath:d0_e|                          ; 38 (38)             ; 23 (23)                   ; 1680              ; 0          ; 0    ; 0            ; |main|main_datapath:D0|enemyFSM:E0|enemy_datapath:d0_e                                                                                              ; enemy_datapath         ; work         ;
-;             |ram560x3_enemy1:enemy1_sprite|             ; 0 (0)               ; 0 (0)                     ; 1680              ; 0          ; 0    ; 0            ; |main|main_datapath:D0|enemyFSM:E0|enemy_datapath:d0_e|ram560x3_enemy1:enemy1_sprite                                                                ; ram560x3_enemy1        ; work         ;
-;                |altsyncram:altsyncram_component|        ; 0 (0)               ; 0 (0)                     ; 1680              ; 0          ; 0    ; 0            ; |main|main_datapath:D0|enemyFSM:E0|enemy_datapath:d0_e|ram560x3_enemy1:enemy1_sprite|altsyncram:altsyncram_component                                ; altsyncram             ; work         ;
-;                   |altsyncram_doo1:auto_generated|      ; 0 (0)               ; 0 (0)                     ; 1680              ; 0          ; 0    ; 0            ; |main|main_datapath:D0|enemyFSM:E0|enemy_datapath:d0_e|ram560x3_enemy1:enemy1_sprite|altsyncram:altsyncram_component|altsyncram_doo1:auto_generated ; altsyncram_doo1        ; work         ;
-;       |user_fsm:U0|                                     ; 33 (0)              ; 26 (0)                    ; 1680              ; 0          ; 0    ; 0            ; |main|main_datapath:D0|user_fsm:U0                                                                                                                  ; user_fsm               ; work         ;
-;          |user_control:c0_u|                            ; 6 (6)               ; 3 (3)                     ; 0                 ; 0          ; 0    ; 0            ; |main|main_datapath:D0|user_fsm:U0|user_control:c0_u                                                                                                ; user_control           ; work         ;
-;          |user_datapath:d0_u|                           ; 27 (27)             ; 23 (23)                   ; 1680              ; 0          ; 0    ; 0            ; |main|main_datapath:D0|user_fsm:U0|user_datapath:d0_u                                                                                               ; user_datapath          ; work         ;
-;             |rom560x3_user:user_sprite|                 ; 0 (0)               ; 0 (0)                     ; 1680              ; 0          ; 0    ; 0            ; |main|main_datapath:D0|user_fsm:U0|user_datapath:d0_u|rom560x3_user:user_sprite                                                                     ; rom560x3_user          ; work         ;
-;                |altsyncram:altsyncram_component|        ; 0 (0)               ; 0 (0)                     ; 1680              ; 0          ; 0    ; 0            ; |main|main_datapath:D0|user_fsm:U0|user_datapath:d0_u|rom560x3_user:user_sprite|altsyncram:altsyncram_component                                     ; altsyncram             ; work         ;
-;                   |altsyncram_gph1:auto_generated|      ; 0 (0)               ; 0 (0)                     ; 1680              ; 0          ; 0    ; 0            ; |main|main_datapath:D0|user_fsm:U0|user_datapath:d0_u|rom560x3_user:user_sprite|altsyncram:altsyncram_component|altsyncram_gph1:auto_generated      ; altsyncram_gph1        ; work         ;
-=======
-; |main                                                   ; 496 (1)             ; 191 (0)                   ; 232290            ; 0          ; 44   ; 0            ; |main                                                                                                                                               ; main                   ; work         ;
-;    |main_control:C0|                                    ; 75 (20)             ; 41 (8)                    ; 0                 ; 0          ; 0    ; 0            ; |main|main_control:C0                                                                                                                               ; main_control           ; work         ;
-;       |frames_p_pulse_counter:u_counter_0|              ; 55 (9)              ; 33 (7)                    ; 0                 ; 0          ; 0    ; 0            ; |main|main_control:C0|frames_p_pulse_counter:u_counter_0                                                                                            ; frames_p_pulse_counter ; work         ;
-;          |frame_counter:f0|                             ; 46 (46)             ; 26 (26)                   ; 0                 ; 0          ; 0    ; 0            ; |main|main_control:C0|frames_p_pulse_counter:u_counter_0|frame_counter:f0                                                                           ; frame_counter          ; work         ;
-;    |main_datapath:D0|                                   ; 332 (245)           ; 116 (64)                  ; 1890              ; 0          ; 0    ; 0            ; |main|main_datapath:D0                                                                                                                              ; main_datapath          ; work         ;
-;       |enemyFSM:E0|                                     ; 55 (0)              ; 26 (0)                    ; 1122              ; 0          ; 0    ; 0            ; |main|main_datapath:D0|enemyFSM:E0                                                                                                                  ; enemyFSM               ; work         ;
-;          |enemy_control:c0_e|                           ; 9 (9)               ; 3 (3)                     ; 0                 ; 0          ; 0    ; 0            ; |main|main_datapath:D0|enemyFSM:E0|enemy_control:c0_e                                                                                               ; enemy_control          ; work         ;
-;          |enemy_datapath:d0_e|                          ; 46 (46)             ; 23 (23)                   ; 1122              ; 0          ; 0    ; 0            ; |main|main_datapath:D0|enemyFSM:E0|enemy_datapath:d0_e                                                                                              ; enemy_datapath         ; work         ;
+;          |enemy_datapath:d0_e|                          ; 37 (37)             ; 23 (23)                   ; 1122              ; 0          ; 0    ; 0            ; |main|main_datapath:D0|enemyFSM:E0|enemy_datapath:d0_e                                                                                              ; enemy_datapath         ; work         ;
 ;             |rom374x3_enemy1:enemy1_sprite|             ; 0 (0)               ; 0 (0)                     ; 1122              ; 0          ; 0    ; 0            ; |main|main_datapath:D0|enemyFSM:E0|enemy_datapath:d0_e|rom374x3_enemy1:enemy1_sprite                                                                ; rom374x3_enemy1        ; work         ;
 ;                |altsyncram:altsyncram_component|        ; 0 (0)               ; 0 (0)                     ; 1122              ; 0          ; 0    ; 0            ; |main|main_datapath:D0|enemyFSM:E0|enemy_datapath:d0_e|rom374x3_enemy1:enemy1_sprite|altsyncram:altsyncram_component                                ; altsyncram             ; work         ;
 ;                   |altsyncram_oeg1:auto_generated|      ; 0 (0)               ; 0 (0)                     ; 1122              ; 0          ; 0    ; 0            ; |main|main_datapath:D0|enemyFSM:E0|enemy_datapath:d0_e|rom374x3_enemy1:enemy1_sprite|altsyncram:altsyncram_component|altsyncram_oeg1:auto_generated ; altsyncram_oeg1        ; work         ;
@@ -434,7 +299,6 @@ refer to the applicable agreement for further details.
 ;             |rom256x3_user:user_sprite|                 ; 0 (0)               ; 0 (0)                     ; 768               ; 0          ; 0    ; 0            ; |main|main_datapath:D0|user_fsm:U0|user_datapath:d0_u|rom256x3_user:user_sprite                                                                     ; rom256x3_user          ; work         ;
 ;                |altsyncram:altsyncram_component|        ; 0 (0)               ; 0 (0)                     ; 768               ; 0          ; 0    ; 0            ; |main|main_datapath:D0|user_fsm:U0|user_datapath:d0_u|rom256x3_user:user_sprite|altsyncram:altsyncram_component                                     ; altsyncram             ; work         ;
 ;                   |altsyncram_9oh1:auto_generated|      ; 0 (0)               ; 0 (0)                     ; 768               ; 0          ; 0    ; 0            ; |main|main_datapath:D0|user_fsm:U0|user_datapath:d0_u|rom256x3_user:user_sprite|altsyncram:altsyncram_component|altsyncram_9oh1:auto_generated      ; altsyncram_9oh1        ; work         ;
->>>>>>> graphics_fixes
 ;    |vga_adapter:VGA|                                    ; 88 (1)              ; 34 (0)                    ; 230400            ; 0          ; 0    ; 0            ; |main|vga_adapter:VGA                                                                                                                               ; vga_adapter            ; work         ;
 ;       |altsyncram:VideoMemory|                          ; 33 (0)              ; 8 (0)                     ; 230400            ; 0          ; 0    ; 0            ; |main|vga_adapter:VGA|altsyncram:VideoMemory                                                                                                        ; altsyncram             ; work         ;
 ;          |altsyncram_c3n1:auto_generated|               ; 33 (0)              ; 8 (8)                     ; 230400            ; 0          ; 0    ; 0            ; |main|vga_adapter:VGA|altsyncram:VideoMemory|altsyncram_c3n1:auto_generated                                                                         ; altsyncram_c3n1        ; work         ;
@@ -499,7 +363,6 @@ Encoding Type:  One-Hot
 
 
 Encoding Type:  One-Hot
-<<<<<<< HEAD
 +----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
 ; State Machine - |main|main_control:C0|current_state                                                                                                                                                                                                                                                                                                                                                                                                      ;
 +----------------------------------+----------------------------+------------------------------+------------------------------+----------------------------------+---------------------------------+-----------------------------+-----------------------------+---------------------------------+---------------------------------+-------------------------------+---------------------------+---------------------------+-------------------------------+
@@ -519,22 +382,6 @@ Encoding Type:  One-Hot
 ; current_state.S_PLOT_ENEMIES     ; 0                          ; 1                            ; 0                            ; 0                                ; 0                               ; 0                           ; 0                           ; 0                               ; 0                               ; 0                             ; 0                         ; 0                         ; 1                             ;
 ; current_state.S_DONE_PLOTS       ; 1                          ; 0                            ; 0                            ; 0                                ; 0                               ; 0                           ; 0                           ; 0                               ; 0                               ; 0                             ; 0                         ; 0                         ; 1                             ;
 +----------------------------------+----------------------------+------------------------------+------------------------------+----------------------------------+---------------------------------+-----------------------------+-----------------------------+---------------------------------+---------------------------------+-------------------------------+---------------------------+---------------------------+-------------------------------+
-=======
-+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-; State Machine - |main|main_control:C0|current_state                                                                                                                                                                                                                                      ;
-+----------------------------------+----------------------------+------------------------------+------------------------------+----------------------------------+---------------------------------+---------------------------+---------------------------+-------------------------------+
-; Name                             ; current_state.S_DONE_PLOTS ; current_state.S_PLOT_ENEMIES ; current_state.S_MOVE_ENEMIES ; current_state.S_BLACKOUT_ENEMIES ; current_state.S_BLACKOUT_E_PREP ; current_state.S_PLOT_USER ; current_state.S_MOVE_USER ; current_state.S_BLACKOUT_USER ;
-+----------------------------------+----------------------------+------------------------------+------------------------------+----------------------------------+---------------------------------+---------------------------+---------------------------+-------------------------------+
-; current_state.S_BLACKOUT_USER    ; 0                          ; 0                            ; 0                            ; 0                                ; 0                               ; 0                         ; 0                         ; 0                             ;
-; current_state.S_MOVE_USER        ; 0                          ; 0                            ; 0                            ; 0                                ; 0                               ; 0                         ; 1                         ; 1                             ;
-; current_state.S_PLOT_USER        ; 0                          ; 0                            ; 0                            ; 0                                ; 0                               ; 1                         ; 0                         ; 1                             ;
-; current_state.S_BLACKOUT_E_PREP  ; 0                          ; 0                            ; 0                            ; 0                                ; 1                               ; 0                         ; 0                         ; 1                             ;
-; current_state.S_BLACKOUT_ENEMIES ; 0                          ; 0                            ; 0                            ; 1                                ; 0                               ; 0                         ; 0                         ; 1                             ;
-; current_state.S_MOVE_ENEMIES     ; 0                          ; 0                            ; 1                            ; 0                                ; 0                               ; 0                         ; 0                         ; 1                             ;
-; current_state.S_PLOT_ENEMIES     ; 0                          ; 1                            ; 0                            ; 0                                ; 0                               ; 0                         ; 0                         ; 1                             ;
-; current_state.S_DONE_PLOTS       ; 1                          ; 0                            ; 0                            ; 0                                ; 0                               ; 0                         ; 0                         ; 1                             ;
-+----------------------------------+----------------------------+------------------------------+------------------------------+----------------------------------+---------------------------------+---------------------------+---------------------------+-------------------------------+
->>>>>>> graphics_fixes
 
 
 +--------------------------------------------------------------------------------------------------------------------------+
@@ -570,11 +417,7 @@ Note: All latches listed above may not be present at the end of synthesis due to
 ; main_control:C0|current_state~4                                           ; Lost fanout                                                          ;
 ; main_control:C0|current_state~5                                           ; Lost fanout                                                          ;
 ; main_control:C0|current_state~6                                           ; Lost fanout                                                          ;
-<<<<<<< HEAD
 ; Total Number of Removed Registers = 14                                    ;                                                                      ;
-=======
-; Total Number of Removed Registers = 12                                    ;                                                                      ;
->>>>>>> graphics_fixes
 +---------------------------------------------------------------------------+----------------------------------------------------------------------+
 
 
@@ -583,21 +426,12 @@ Note: All latches listed above may not be present at the end of synthesis due to
 +----------------------------------------------+-------+
 ; Statistic                                    ; Value ;
 +----------------------------------------------+-------+
-<<<<<<< HEAD
 ; Total registers                              ; 238   ;
 ; Number of registers using Synchronous Clear  ; 110   ;
 ; Number of registers using Synchronous Load   ; 53    ;
 ; Number of registers using Asynchronous Clear ; 20    ;
 ; Number of registers using Asynchronous Load  ; 0     ;
-; Number of registers using Clock Enable       ; 115   ;
-=======
-; Total registers                              ; 191   ;
-; Number of registers using Synchronous Clear  ; 103   ;
-; Number of registers using Synchronous Load   ; 18    ;
-; Number of registers using Asynchronous Clear ; 20    ;
-; Number of registers using Asynchronous Load  ; 0     ;
-; Number of registers using Clock Enable       ; 94    ;
->>>>>>> graphics_fixes
+; Number of registers using Clock Enable       ; 111   ;
 ; Number of registers using Preset             ; 0     ;
 +----------------------------------------------+-------+
 
@@ -607,19 +441,11 @@ Note: All latches listed above may not be present at the end of synthesis due to
 +----------------------------------------+---------+
 ; Inverted Register                      ; Fan out ;
 +----------------------------------------+---------+
-<<<<<<< HEAD
 ; main_datapath:D0|anchor_x[3]           ; 38      ;
-; main_datapath:D0|user_x_coord[7]       ; 4       ;
-; main_datapath:D0|anchor_y[3]           ; 17      ;
+; main_datapath:D0|user_x_coord[7]       ; 5       ;
+; main_datapath:D0|user_x_coord[4]       ; 9       ;
+; main_datapath:D0|anchor_y[3]           ; 16      ;
 ; main_datapath:D0|user_x_coord[1]       ; 12      ;
-; main_datapath:D0|user_x_coord[4]       ; 5       ;
-=======
-; main_datapath:D0|anchor_x[3]           ; 20      ;
-; main_datapath:D0|user_x_coord[7]       ; 3       ;
-; main_datapath:D0|anchor_y[3]           ; 10      ;
-; main_datapath:D0|user_x_coord[1]       ; 3       ;
-; main_datapath:D0|user_x_coord[4]       ; 4       ;
->>>>>>> graphics_fixes
 ; main_datapath:D0|direction_e           ; 9       ;
 ; Total number of inverted registers = 6 ;         ;
 +----------------------------------------+---------+
@@ -630,7 +456,6 @@ Note: All latches listed above may not be present at the end of synthesis due to
 +--------------------+-----------+---------------+----------------------+------------------------+------------+---------------------------------------------------------------------------------------------------------------+
 ; Multiplexer Inputs ; Bus Width ; Baseline Area ; Area if Restructured ; Saving if Restructured ; Registered ; Example Multiplexer Output                                                                                    ;
 +--------------------+-----------+---------------+----------------------+------------------------+------------+---------------------------------------------------------------------------------------------------------------+
-<<<<<<< HEAD
 ; 3:1                ; 7 bits    ; 14 LEs        ; 7 LEs                ; 7 LEs                  ; Yes        ; |main|main_datapath:D0|Y_pos_bullet[3]                                                                        ;
 ; 3:1                ; 9 bits    ; 18 LEs        ; 0 LEs                ; 18 LEs                 ; Yes        ; |main|main_datapath:D0|X_pos_bullet[7]                                                                        ;
 ; 3:1                ; 15 bits   ; 30 LEs        ; 0 LEs                ; 30 LEs                 ; Yes        ; |main|main_control:C0|frames_p_pulse_counter:u_counter_0|frame_counter:f0|Q[16]                               ;
@@ -655,28 +480,6 @@ Note: All latches listed above may not be present at the end of synthesis due to
 ; 19:1               ; 3 bits    ; 36 LEs        ; 21 LEs               ; 15 LEs                 ; No         ; |main|main_datapath:D0|X_pos_init[8]                                                                          ;
 ; 21:1               ; 2 bits    ; 28 LEs        ; 4 LEs                ; 24 LEs                 ; No         ; |main|main_datapath:D0|bulletFSM:B1|bullet_datapath:d1|Add0                                                   ;
 ; 21:1               ; 2 bits    ; 28 LEs        ; 4 LEs                ; 24 LEs                 ; No         ; |main|main_datapath:D0|bulletFSM:B1|bullet_datapath:d1|Add0                                                   ;
-=======
-; 3:1                ; 15 bits   ; 30 LEs        ; 0 LEs                ; 30 LEs                 ; Yes        ; |main|main_control:C0|frames_p_pulse_counter:u_counter_0|frame_counter:f0|Q[15]                               ;
-; 3:1                ; 11 bits   ; 22 LEs        ; 22 LEs               ; 0 LEs                  ; Yes        ; |main|main_control:C0|frames_p_pulse_counter:u_counter_0|frame_counter:f0|Q[8]                                ;
-; 3:1                ; 17 bits   ; 34 LEs        ; 0 LEs                ; 34 LEs                 ; Yes        ; |main|main_datapath:D0|Y[4]                                                                                   ;
-; 3:1                ; 10 bits   ; 20 LEs        ; 0 LEs                ; 20 LEs                 ; Yes        ; |main|vga_adapter:VGA|vga_controller:controller|yCounter[0]                                                   ;
-; 3:1                ; 5 bits    ; 10 LEs        ; 5 LEs                ; 5 LEs                  ; Yes        ; |main|main_datapath:D0|user_fsm:U0|user_datapath:d0_u|y_sprite[0]                                             ;
-; 3:1                ; 5 bits    ; 10 LEs        ; 5 LEs                ; 5 LEs                  ; Yes        ; |main|main_datapath:D0|enemyFSM:E0|enemy_datapath:d0_e|y_sprite[0]                                            ;
-; 3:1                ; 13 bits   ; 26 LEs        ; 0 LEs                ; 26 LEs                 ; Yes        ; |main|main_datapath:D0|enemyFSM:E0|enemy_datapath:d0_e|colour[1]                                              ;
-; 3:1                ; 13 bits   ; 26 LEs        ; 0 LEs                ; 26 LEs                 ; Yes        ; |main|main_datapath:D0|user_fsm:U0|user_datapath:d0_u|counter[9]                                              ;
-; 4:1                ; 6 bits    ; 12 LEs        ; 12 LEs               ; 0 LEs                  ; Yes        ; |main|main_control:C0|frames_p_pulse_counter:u_counter_0|current_frame[1]                                     ;
-; 4:1                ; 4 bits    ; 8 LEs         ; 8 LEs                ; 0 LEs                  ; Yes        ; |main|main_datapath:D0|user_fsm:U0|user_datapath:d0_u|x_sprite[2]                                             ;
-; 4:1                ; 4 bits    ; 8 LEs         ; 8 LEs                ; 0 LEs                  ; Yes        ; |main|main_datapath:D0|enemyFSM:E0|enemy_datapath:d0_e|x_sprite[0]                                            ;
-; 6:1                ; 3 bits    ; 12 LEs        ; 9 LEs                ; 3 LEs                  ; Yes        ; |main|main_datapath:D0|colour[2]                                                                              ;
-; 5:1                ; 6 bits    ; 18 LEs        ; 12 LEs               ; 6 LEs                  ; Yes        ; |main|main_datapath:D0|user_x_coord[0]                                                                        ;
-; 5:1                ; 3 bits    ; 9 LEs         ; 6 LEs                ; 3 LEs                  ; Yes        ; |main|main_datapath:D0|user_x_coord[1]                                                                        ;
-; 3:1                ; 2 bits    ; 4 LEs         ; 4 LEs                ; 0 LEs                  ; No         ; |main|main_datapath:D0|X_pos_init[1]                                                                          ;
-; 3:1                ; 2 bits    ; 4 LEs         ; 4 LEs                ; 0 LEs                  ; No         ; |main|main_datapath:D0|e_i[3]                                                                                 ;
-; 9:1                ; 3 bits    ; 18 LEs        ; 18 LEs               ; 0 LEs                  ; No         ; |main|vga_adapter:VGA|altsyncram:VideoMemory|altsyncram_c3n1:auto_generated|mux_2hb:mux3|l4_w0_n0_mux_dataout ;
-; 19:1               ; 3 bits    ; 36 LEs        ; 21 LEs               ; 15 LEs                 ; No         ; |main|main_datapath:D0|X_pos_init[8]                                                                          ;
-; 20:1               ; 2 bits    ; 26 LEs        ; 4 LEs                ; 22 LEs                 ; No         ; |main|main_datapath:D0|Y_pos_init[5]                                                                          ;
-; 20:1               ; 4 bits    ; 52 LEs        ; 8 LEs                ; 44 LEs                 ; No         ; |main|main_datapath:D0|Y_pos_init[4]                                                                          ;
->>>>>>> graphics_fixes
 +--------------------+-----------+---------------+----------------------+------------------------+------------+---------------------------------------------------------------------------------------------------------------+
 
 
@@ -1429,10 +1232,9 @@ Note: In order to hide this table in the UI and the text report file, please set
 +-----------------------+-----------------------------+
 ; Type                  ; Count                       ;
 +-----------------------+-----------------------------+
-<<<<<<< HEAD
 ; arriav_ff             ; 238                         ;
 ;     CLR SCLR          ; 10                          ;
-;     ENA               ; 54                          ;
+;     ENA               ; 50                          ;
 ;     ENA CLR SCLR      ; 10                          ;
 ;     ENA SCLR          ; 34                          ;
 ;     ENA SCLR SLD      ; 9                           ;
@@ -1440,8 +1242,8 @@ Note: In order to hide this table in the UI and the text report file, please set
 ;     SCLR              ; 29                          ;
 ;     SCLR SLD          ; 18                          ;
 ;     SLD               ; 18                          ;
-;     plain             ; 48                          ;
-; arriav_lcell_comb     ; 806                         ;
+;     plain             ; 52                          ;
+; arriav_lcell_comb     ; 809                         ;
 ;     arith             ; 233                         ;
 ;         0 data inputs ; 5                           ;
 ;         1 data inputs ; 164                         ;
@@ -1451,39 +1253,14 @@ Note: In order to hide this table in the UI and the text report file, please set
 ;         5 data inputs ; 13                          ;
 ;     extend            ; 4                           ;
 ;         7 data inputs ; 4                           ;
-;     normal            ; 547                         ;
+;     normal            ; 550                         ;
 ;         0 data inputs ; 2                           ;
-;         1 data inputs ; 6                           ;
-;         2 data inputs ; 58                          ;
-;         3 data inputs ; 100                         ;
-;         4 data inputs ; 97                          ;
-;         5 data inputs ; 144                         ;
-;         6 data inputs ; 140                         ;
-=======
-; arriav_ff             ; 191                         ;
-;     CLR SCLR          ; 10                          ;
-;     ENA               ; 41                          ;
-;     ENA CLR SCLR      ; 10                          ;
-;     ENA SCLR          ; 43                          ;
-;     SCLR              ; 22                          ;
-;     SCLR SLD          ; 18                          ;
-;     plain             ; 47                          ;
-; arriav_lcell_comb     ; 497                         ;
-;     arith             ; 129                         ;
-;         1 data inputs ; 96                          ;
-;         2 data inputs ; 8                           ;
-;         3 data inputs ; 8                           ;
-;         4 data inputs ; 7                           ;
-;         5 data inputs ; 10                          ;
-;     normal            ; 346                         ;
-;         0 data inputs ; 2                           ;
-;         1 data inputs ; 3                           ;
-;         2 data inputs ; 33                          ;
-;         3 data inputs ; 55                          ;
-;         4 data inputs ; 56                          ;
-;         5 data inputs ; 84                          ;
-;         6 data inputs ; 113                         ;
->>>>>>> graphics_fixes
+;         1 data inputs ; 5                           ;
+;         2 data inputs ; 56                          ;
+;         3 data inputs ; 102                         ;
+;         4 data inputs ; 98                          ;
+;         5 data inputs ; 143                         ;
+;         6 data inputs ; 144                         ;
 ;     shared            ; 22                          ;
 ;         0 data inputs ; 2                           ;
 ;         1 data inputs ; 4                           ;
@@ -1493,13 +1270,8 @@ Note: In order to hide this table in the UI and the text report file, please set
 ; generic_pll           ; 1                           ;
 ; stratixv_ram_block    ; 36                          ;
 ;                       ;                             ;
-<<<<<<< HEAD
 ; Max LUT depth         ; 8.40                        ;
-; Average LUT depth     ; 4.60                        ;
-=======
-; Max LUT depth         ; 7.30                        ;
-; Average LUT depth     ; 3.35                        ;
->>>>>>> graphics_fixes
+; Average LUT depth     ; 4.58                        ;
 +-----------------------+-----------------------------+
 
 
@@ -1508,11 +1280,7 @@ Note: In order to hide this table in the UI and the text report file, please set
 +----------------+--------------+
 ; Partition Name ; Elapsed Time ;
 +----------------+--------------+
-<<<<<<< HEAD
 ; Top            ; 00:00:08     ;
-=======
-; Top            ; 00:00:10     ;
->>>>>>> graphics_fixes
 +----------------+--------------+
 
 
@@ -1521,43 +1289,31 @@ Note: In order to hide this table in the UI and the text report file, please set
 +-------------------------------+
 Info: *******************************************************************
 Info: Running Quartus Prime Analysis & Synthesis
-<<<<<<< HEAD
     Info: Version 18.0.0 Build 614 04/24/2018 SJ Lite Edition
-    Info: Processing started: Sat Nov 24 23:32:19 2018
-=======
-    Info: Version 18.0.0 Build 614 04/24/2018 SJ Standard Edition
-    Info: Processing started: Wed Nov 21 11:41:42 2018
->>>>>>> graphics_fixes
+    Info: Processing started: Sat Nov 24 23:46:38 2018
 Info: Command: quartus_map --read_settings_files=on --write_settings_files=off main -c main
 Warning (18236): Number of processors has not been specified which may cause overloading on shared machines.  Set the global assignment NUM_PARALLEL_PROCESSORS in your QSF to an appropriate value for best performance.
-Info (20030): Parallel compilation is enabled and will use 4 of the 4 processors detected
+Info (20030): Parallel compilation is enabled and will use 16 of the 16 processors detected
 Info (12021): Found 1 design units, including 1 entities, in source file on_chip_ram/rom374x3_enemy1.v
-    Info (12023): Found entity 1: rom374x3_enemy1 File: //SRVD/Homes$/maksymo4/Desktop/temp/Space_invaders/on_chip_ram/rom374x3_enemy1.v Line: 39
+    Info (12023): Found entity 1: rom374x3_enemy1 File: C:/Users/Peter/OneDrive/1T8Semester1/ECE241/Lab projects/Space_invaders/on_chip_ram/rom374x3_enemy1.v Line: 39
 Info (12021): Found 1 design units, including 1 entities, in source file on_chip_ram/rom256x3_user.v
-    Info (12023): Found entity 1: rom256x3_user File: //SRVD/Homes$/maksymo4/Desktop/temp/Space_invaders/on_chip_ram/rom256x3_user.v Line: 39
+    Info (12023): Found entity 1: rom256x3_user File: C:/Users/Peter/OneDrive/1T8Semester1/ECE241/Lab projects/Space_invaders/on_chip_ram/rom256x3_user.v Line: 39
 Info (12021): Found 2 design units, including 2 entities, in source file frame_counter.v
-    Info (12023): Found entity 1: frames_p_pulse_counter File: //SRVD/Homes$/maksymo4/Desktop/temp/Space_invaders/frame_counter.v Line: 1
-    Info (12023): Found entity 2: frame_counter File: //SRVD/Homes$/maksymo4/Desktop/temp/Space_invaders/frame_counter.v Line: 29
+    Info (12023): Found entity 1: frames_p_pulse_counter File: C:/Users/Peter/OneDrive/1T8Semester1/ECE241/Lab projects/Space_invaders/frame_counter.v Line: 1
+    Info (12023): Found entity 2: frame_counter File: C:/Users/Peter/OneDrive/1T8Semester1/ECE241/Lab projects/Space_invaders/frame_counter.v Line: 29
 Info (12021): Found 3 design units, including 3 entities, in source file enemyfsm.v
-<<<<<<< HEAD
     Info (12023): Found entity 1: enemyFSM File: C:/Users/Peter/OneDrive/1T8Semester1/ECE241/Lab projects/Space_invaders/enemyFSM.v Line: 2
     Info (12023): Found entity 2: enemy_control File: C:/Users/Peter/OneDrive/1T8Semester1/ECE241/Lab projects/Space_invaders/enemyFSM.v Line: 47
     Info (12023): Found entity 3: enemy_datapath File: C:/Users/Peter/OneDrive/1T8Semester1/ECE241/Lab projects/Space_invaders/enemyFSM.v Line: 107
-=======
-    Info (12023): Found entity 1: enemyFSM File: //SRVD/Homes$/maksymo4/Desktop/temp/Space_invaders/enemyFSM.v Line: 2
-    Info (12023): Found entity 2: enemy_control File: //SRVD/Homes$/maksymo4/Desktop/temp/Space_invaders/enemyFSM.v Line: 47
-    Info (12023): Found entity 3: enemy_datapath File: //SRVD/Homes$/maksymo4/Desktop/temp/Space_invaders/enemyFSM.v Line: 107
->>>>>>> graphics_fixes
 Info (12021): Found 1 design units, including 1 entities, in source file vga_adapter/vga_pll.v
-    Info (12023): Found entity 1: vga_pll File: //SRVD/Homes$/maksymo4/Desktop/temp/Space_invaders/vga_adapter/vga_pll.v Line: 36
+    Info (12023): Found entity 1: vga_pll File: C:/Users/Peter/OneDrive/1T8Semester1/ECE241/Lab projects/Space_invaders/vga_adapter/vga_pll.v Line: 36
 Info (12021): Found 1 design units, including 1 entities, in source file vga_adapter/vga_controller.v
-    Info (12023): Found entity 1: vga_controller File: //SRVD/Homes$/maksymo4/Desktop/temp/Space_invaders/vga_adapter/vga_controller.v Line: 9
+    Info (12023): Found entity 1: vga_controller File: C:/Users/Peter/OneDrive/1T8Semester1/ECE241/Lab projects/Space_invaders/vga_adapter/vga_controller.v Line: 9
 Info (12021): Found 1 design units, including 1 entities, in source file vga_adapter/vga_address_translator.v
-    Info (12023): Found entity 1: vga_address_translator File: //SRVD/Homes$/maksymo4/Desktop/temp/Space_invaders/vga_adapter/vga_address_translator.v Line: 4
+    Info (12023): Found entity 1: vga_address_translator File: C:/Users/Peter/OneDrive/1T8Semester1/ECE241/Lab projects/Space_invaders/vga_adapter/vga_address_translator.v Line: 4
 Info (12021): Found 1 design units, including 1 entities, in source file vga_adapter/vga_adapter.v
-    Info (12023): Found entity 1: vga_adapter File: //SRVD/Homes$/maksymo4/Desktop/temp/Space_invaders/vga_adapter/vga_adapter.v Line: 78
+    Info (12023): Found entity 1: vga_adapter File: C:/Users/Peter/OneDrive/1T8Semester1/ECE241/Lab projects/Space_invaders/vga_adapter/vga_adapter.v Line: 78
 Info (12021): Found 3 design units, including 3 entities, in source file main.v
-<<<<<<< HEAD
     Info (12023): Found entity 1: main File: C:/Users/Peter/OneDrive/1T8Semester1/ECE241/Lab projects/Space_invaders/main.v Line: 3
     Info (12023): Found entity 2: main_control File: C:/Users/Peter/OneDrive/1T8Semester1/ECE241/Lab projects/Space_invaders/main.v Line: 129
     Info (12023): Found entity 3: main_datapath File: C:/Users/Peter/OneDrive/1T8Semester1/ECE241/Lab projects/Space_invaders/main.v Line: 278
@@ -1584,21 +1340,6 @@ Info (12128): Elaborating entity "vga_address_translator" for hierarchy "vga_ada
 Info (12128): Elaborating entity "altsyncram" for hierarchy "vga_adapter:VGA|altsyncram:VideoMemory" File: C:/Users/Peter/OneDrive/1T8Semester1/ECE241/Lab projects/Space_invaders/vga_adapter/vga_adapter.v Line: 213
 Info (12130): Elaborated megafunction instantiation "vga_adapter:VGA|altsyncram:VideoMemory" File: C:/Users/Peter/OneDrive/1T8Semester1/ECE241/Lab projects/Space_invaders/vga_adapter/vga_adapter.v Line: 213
 Info (12133): Instantiated megafunction "vga_adapter:VGA|altsyncram:VideoMemory" with the following parameter: File: C:/Users/Peter/OneDrive/1T8Semester1/ECE241/Lab projects/Space_invaders/vga_adapter/vga_adapter.v Line: 213
-=======
-    Info (12023): Found entity 1: main File: //SRVD/Homes$/maksymo4/Desktop/temp/Space_invaders/main.v Line: 3
-    Info (12023): Found entity 2: main_control File: //SRVD/Homes$/maksymo4/Desktop/temp/Space_invaders/main.v Line: 111
-    Info (12023): Found entity 3: main_datapath File: //SRVD/Homes$/maksymo4/Desktop/temp/Space_invaders/main.v Line: 221
-Info (12021): Found 3 design units, including 3 entities, in source file output_files/user_fsm.v
-    Info (12023): Found entity 1: user_fsm File: //SRVD/Homes$/maksymo4/Desktop/temp/Space_invaders/output_files/user_fsm.v Line: 2
-    Info (12023): Found entity 2: user_control File: //SRVD/Homes$/maksymo4/Desktop/temp/Space_invaders/output_files/user_fsm.v Line: 42
-    Info (12023): Found entity 3: user_datapath File: //SRVD/Homes$/maksymo4/Desktop/temp/Space_invaders/output_files/user_fsm.v Line: 104
-Info (12127): Elaborating entity "main" for the top level hierarchy
-Info (12128): Elaborating entity "vga_adapter" for hierarchy "vga_adapter:VGA" File: //SRVD/Homes$/maksymo4/Desktop/temp/Space_invaders/main.v Line: 61
-Info (12128): Elaborating entity "vga_address_translator" for hierarchy "vga_adapter:VGA|vga_address_translator:user_input_translator" File: //SRVD/Homes$/maksymo4/Desktop/temp/Space_invaders/vga_adapter/vga_adapter.v Line: 192
-Info (12128): Elaborating entity "altsyncram" for hierarchy "vga_adapter:VGA|altsyncram:VideoMemory" File: //SRVD/Homes$/maksymo4/Desktop/temp/Space_invaders/vga_adapter/vga_adapter.v Line: 213
-Info (12130): Elaborated megafunction instantiation "vga_adapter:VGA|altsyncram:VideoMemory" File: //SRVD/Homes$/maksymo4/Desktop/temp/Space_invaders/vga_adapter/vga_adapter.v Line: 213
-Info (12133): Instantiated megafunction "vga_adapter:VGA|altsyncram:VideoMemory" with the following parameter: File: //SRVD/Homes$/maksymo4/Desktop/temp/Space_invaders/vga_adapter/vga_adapter.v Line: 213
->>>>>>> graphics_fixes
     Info (12134): Parameter "WIDTH_A" = "3"
     Info (12134): Parameter "WIDTH_B" = "3"
     Info (12134): Parameter "INTENDED_DEVICE_FAMILY" = "Cyclone II"
@@ -1614,22 +1355,22 @@ Info (12133): Instantiated megafunction "vga_adapter:VGA|altsyncram:VideoMemory"
     Info (12134): Parameter "CLOCK_ENABLE_OUTPUT_B" = "BYPASS"
     Info (12134): Parameter "POWER_UP_UNINITIALIZED" = "FALSE"
     Info (12134): Parameter "INIT_FILE" = "graphics/black.mif"
-Warning (12125): Using design file db/altsyncram_c3n1.tdf, which is not specified as a design file for the current project, but contains definitions for 1 design units and 1 entities in project
-    Info (12023): Found entity 1: altsyncram_c3n1 File: //SRVD/Homes$/maksymo4/Desktop/temp/Space_invaders/db/altsyncram_c3n1.tdf Line: 33
-Info (12128): Elaborating entity "altsyncram_c3n1" for hierarchy "vga_adapter:VGA|altsyncram:VideoMemory|altsyncram_c3n1:auto_generated" File: c:/desl/quartus18/quartus/libraries/megafunctions/altsyncram.tdf Line: 791
-Warning (12125): Using design file db/decode_nma.tdf, which is not specified as a design file for the current project, but contains definitions for 1 design units and 1 entities in project
-    Info (12023): Found entity 1: decode_nma File: //SRVD/Homes$/maksymo4/Desktop/temp/Space_invaders/db/decode_nma.tdf Line: 22
-Info (12128): Elaborating entity "decode_nma" for hierarchy "vga_adapter:VGA|altsyncram:VideoMemory|altsyncram_c3n1:auto_generated|decode_nma:decode2" File: //SRVD/Homes$/maksymo4/Desktop/temp/Space_invaders/db/altsyncram_c3n1.tdf Line: 46
-Warning (12125): Using design file db/decode_g2a.tdf, which is not specified as a design file for the current project, but contains definitions for 1 design units and 1 entities in project
-    Info (12023): Found entity 1: decode_g2a File: //SRVD/Homes$/maksymo4/Desktop/temp/Space_invaders/db/decode_g2a.tdf Line: 22
-Info (12128): Elaborating entity "decode_g2a" for hierarchy "vga_adapter:VGA|altsyncram:VideoMemory|altsyncram_c3n1:auto_generated|decode_g2a:rden_decode_b" File: //SRVD/Homes$/maksymo4/Desktop/temp/Space_invaders/db/altsyncram_c3n1.tdf Line: 47
-Warning (12125): Using design file db/mux_2hb.tdf, which is not specified as a design file for the current project, but contains definitions for 1 design units and 1 entities in project
-    Info (12023): Found entity 1: mux_2hb File: //SRVD/Homes$/maksymo4/Desktop/temp/Space_invaders/db/mux_2hb.tdf Line: 22
-Info (12128): Elaborating entity "mux_2hb" for hierarchy "vga_adapter:VGA|altsyncram:VideoMemory|altsyncram_c3n1:auto_generated|mux_2hb:mux3" File: //SRVD/Homes$/maksymo4/Desktop/temp/Space_invaders/db/altsyncram_c3n1.tdf Line: 49
-Info (12128): Elaborating entity "vga_pll" for hierarchy "vga_adapter:VGA|vga_pll:mypll" File: //SRVD/Homes$/maksymo4/Desktop/temp/Space_invaders/vga_adapter/vga_adapter.v Line: 231
-Info (12128): Elaborating entity "altpll" for hierarchy "vga_adapter:VGA|vga_pll:mypll|altpll:altpll_component" File: //SRVD/Homes$/maksymo4/Desktop/temp/Space_invaders/vga_adapter/vga_pll.v Line: 53
-Info (12130): Elaborated megafunction instantiation "vga_adapter:VGA|vga_pll:mypll|altpll:altpll_component" File: //SRVD/Homes$/maksymo4/Desktop/temp/Space_invaders/vga_adapter/vga_pll.v Line: 53
-Info (12133): Instantiated megafunction "vga_adapter:VGA|vga_pll:mypll|altpll:altpll_component" with the following parameter: File: //SRVD/Homes$/maksymo4/Desktop/temp/Space_invaders/vga_adapter/vga_pll.v Line: 53
+Info (12021): Found 1 design units, including 1 entities, in source file db/altsyncram_c3n1.tdf
+    Info (12023): Found entity 1: altsyncram_c3n1 File: C:/Users/Peter/OneDrive/1T8Semester1/ECE241/Lab projects/Space_invaders/db/altsyncram_c3n1.tdf Line: 33
+Info (12128): Elaborating entity "altsyncram_c3n1" for hierarchy "vga_adapter:VGA|altsyncram:VideoMemory|altsyncram_c3n1:auto_generated" File: d:/intelfpga/quartus/libraries/megafunctions/altsyncram.tdf Line: 791
+Info (12021): Found 1 design units, including 1 entities, in source file db/decode_nma.tdf
+    Info (12023): Found entity 1: decode_nma File: C:/Users/Peter/OneDrive/1T8Semester1/ECE241/Lab projects/Space_invaders/db/decode_nma.tdf Line: 22
+Info (12128): Elaborating entity "decode_nma" for hierarchy "vga_adapter:VGA|altsyncram:VideoMemory|altsyncram_c3n1:auto_generated|decode_nma:decode2" File: C:/Users/Peter/OneDrive/1T8Semester1/ECE241/Lab projects/Space_invaders/db/altsyncram_c3n1.tdf Line: 46
+Info (12021): Found 1 design units, including 1 entities, in source file db/decode_g2a.tdf
+    Info (12023): Found entity 1: decode_g2a File: C:/Users/Peter/OneDrive/1T8Semester1/ECE241/Lab projects/Space_invaders/db/decode_g2a.tdf Line: 22
+Info (12128): Elaborating entity "decode_g2a" for hierarchy "vga_adapter:VGA|altsyncram:VideoMemory|altsyncram_c3n1:auto_generated|decode_g2a:rden_decode_b" File: C:/Users/Peter/OneDrive/1T8Semester1/ECE241/Lab projects/Space_invaders/db/altsyncram_c3n1.tdf Line: 47
+Info (12021): Found 1 design units, including 1 entities, in source file db/mux_2hb.tdf
+    Info (12023): Found entity 1: mux_2hb File: C:/Users/Peter/OneDrive/1T8Semester1/ECE241/Lab projects/Space_invaders/db/mux_2hb.tdf Line: 22
+Info (12128): Elaborating entity "mux_2hb" for hierarchy "vga_adapter:VGA|altsyncram:VideoMemory|altsyncram_c3n1:auto_generated|mux_2hb:mux3" File: C:/Users/Peter/OneDrive/1T8Semester1/ECE241/Lab projects/Space_invaders/db/altsyncram_c3n1.tdf Line: 49
+Info (12128): Elaborating entity "vga_pll" for hierarchy "vga_adapter:VGA|vga_pll:mypll" File: C:/Users/Peter/OneDrive/1T8Semester1/ECE241/Lab projects/Space_invaders/vga_adapter/vga_adapter.v Line: 231
+Info (12128): Elaborating entity "altpll" for hierarchy "vga_adapter:VGA|vga_pll:mypll|altpll:altpll_component" File: C:/Users/Peter/OneDrive/1T8Semester1/ECE241/Lab projects/Space_invaders/vga_adapter/vga_pll.v Line: 53
+Info (12130): Elaborated megafunction instantiation "vga_adapter:VGA|vga_pll:mypll|altpll:altpll_component" File: C:/Users/Peter/OneDrive/1T8Semester1/ECE241/Lab projects/Space_invaders/vga_adapter/vga_pll.v Line: 53
+Info (12133): Instantiated megafunction "vga_adapter:VGA|vga_pll:mypll|altpll:altpll_component" with the following parameter: File: C:/Users/Peter/OneDrive/1T8Semester1/ECE241/Lab projects/Space_invaders/vga_adapter/vga_pll.v Line: 53
     Info (12134): Parameter "operation_mode" = "NORMAL"
     Info (12134): Parameter "intended_device_family" = "Cyclone II"
     Info (12134): Parameter "lpm_type" = "altpll"
@@ -1641,7 +1382,6 @@ Info (12133): Instantiated megafunction "vga_adapter:VGA|vga_pll:mypll|altpll:al
     Info (12134): Parameter "clk0_divide_by" = "2"
     Info (12134): Parameter "clk0_multiply_by" = "1"
     Info (12134): Parameter "clk0_duty_cycle" = "50"
-<<<<<<< HEAD
 Info (12021): Found 1 design units, including 1 entities, in source file db/altpll_80u.tdf
     Info (12023): Found entity 1: altpll_80u File: C:/Users/Peter/OneDrive/1T8Semester1/ECE241/Lab projects/Space_invaders/db/altpll_80u.tdf Line: 25
 Info (12128): Elaborating entity "altpll_80u" for hierarchy "vga_adapter:VGA|vga_pll:mypll|altpll:altpll_component|altpll_80u:auto_generated" File: d:/intelfpga/quartus/libraries/megafunctions/altpll.tdf Line: 897
@@ -1672,6 +1412,8 @@ Warning (10230): Verilog HDL assignment warning at main.v(419): truncated value 
 Warning (10230): Verilog HDL assignment warning at main.v(420): truncated value with size 32 to match size of target (9) File: C:/Users/Peter/OneDrive/1T8Semester1/ECE241/Lab projects/Space_invaders/main.v Line: 420
 Info (10264): Verilog HDL Case Statement information at main.v(418): all case item expressions in this case statement are onehot File: C:/Users/Peter/OneDrive/1T8Semester1/ECE241/Lab projects/Space_invaders/main.v Line: 418
 Warning (10230): Verilog HDL assignment warning at main.v(426): truncated value with size 32 to match size of target (8) File: C:/Users/Peter/OneDrive/1T8Semester1/ECE241/Lab projects/Space_invaders/main.v Line: 426
+Warning (10230): Verilog HDL assignment warning at main.v(430): truncated value with size 32 to match size of target (9) File: C:/Users/Peter/OneDrive/1T8Semester1/ECE241/Lab projects/Space_invaders/main.v Line: 430
+Warning (10230): Verilog HDL assignment warning at main.v(434): truncated value with size 32 to match size of target (9) File: C:/Users/Peter/OneDrive/1T8Semester1/ECE241/Lab projects/Space_invaders/main.v Line: 434
 Warning (10230): Verilog HDL assignment warning at main.v(443): truncated value with size 32 to match size of target (9) File: C:/Users/Peter/OneDrive/1T8Semester1/ECE241/Lab projects/Space_invaders/main.v Line: 443
 Warning (10230): Verilog HDL assignment warning at main.v(444): truncated value with size 32 to match size of target (8) File: C:/Users/Peter/OneDrive/1T8Semester1/ECE241/Lab projects/Space_invaders/main.v Line: 444
 Warning (10230): Verilog HDL assignment warning at main.v(472): truncated value with size 32 to match size of target (1) File: C:/Users/Peter/OneDrive/1T8Semester1/ECE241/Lab projects/Space_invaders/main.v Line: 472
@@ -1683,53 +1425,10 @@ Info (12128): Elaborating entity "user_datapath" for hierarchy "main_datapath:D0
 Warning (10230): Verilog HDL assignment warning at user_fsm.v(141): truncated value with size 32 to match size of target (10) File: C:/Users/Peter/OneDrive/1T8Semester1/ECE241/Lab projects/Space_invaders/output_files/user_fsm.v Line: 141
 Warning (10230): Verilog HDL assignment warning at user_fsm.v(142): truncated value with size 32 to match size of target (5) File: C:/Users/Peter/OneDrive/1T8Semester1/ECE241/Lab projects/Space_invaders/output_files/user_fsm.v Line: 142
 Warning (10230): Verilog HDL assignment warning at user_fsm.v(143): truncated value with size 32 to match size of target (5) File: C:/Users/Peter/OneDrive/1T8Semester1/ECE241/Lab projects/Space_invaders/output_files/user_fsm.v Line: 143
-Info (12128): Elaborating entity "rom560x3_user" for hierarchy "main_datapath:D0|user_fsm:U0|user_datapath:d0_u|rom560x3_user:user_sprite" File: C:/Users/Peter/OneDrive/1T8Semester1/ECE241/Lab projects/Space_invaders/output_files/user_fsm.v Line: 126
-Info (12128): Elaborating entity "altsyncram" for hierarchy "main_datapath:D0|user_fsm:U0|user_datapath:d0_u|rom560x3_user:user_sprite|altsyncram:altsyncram_component" File: C:/Users/Peter/OneDrive/1T8Semester1/ECE241/Lab projects/Space_invaders/on_chip_ram/rom560x3_user.v Line: 81
-Info (12130): Elaborated megafunction instantiation "main_datapath:D0|user_fsm:U0|user_datapath:d0_u|rom560x3_user:user_sprite|altsyncram:altsyncram_component" File: C:/Users/Peter/OneDrive/1T8Semester1/ECE241/Lab projects/Space_invaders/on_chip_ram/rom560x3_user.v Line: 81
-Info (12133): Instantiated megafunction "main_datapath:D0|user_fsm:U0|user_datapath:d0_u|rom560x3_user:user_sprite|altsyncram:altsyncram_component" with the following parameter: File: C:/Users/Peter/OneDrive/1T8Semester1/ECE241/Lab projects/Space_invaders/on_chip_ram/rom560x3_user.v Line: 81
-=======
-Warning (12125): Using design file db/altpll_80u.tdf, which is not specified as a design file for the current project, but contains definitions for 1 design units and 1 entities in project
-    Info (12023): Found entity 1: altpll_80u File: //SRVD/Homes$/maksymo4/Desktop/temp/Space_invaders/db/altpll_80u.tdf Line: 25
-Info (12128): Elaborating entity "altpll_80u" for hierarchy "vga_adapter:VGA|vga_pll:mypll|altpll:altpll_component|altpll_80u:auto_generated" File: c:/desl/quartus18/quartus/libraries/megafunctions/altpll.tdf Line: 897
-Info (12128): Elaborating entity "vga_controller" for hierarchy "vga_adapter:VGA|vga_controller:controller" File: //SRVD/Homes$/maksymo4/Desktop/temp/Space_invaders/vga_adapter/vga_adapter.v Line: 262
-Info (12128): Elaborating entity "main_control" for hierarchy "main_control:C0" File: //SRVD/Homes$/maksymo4/Desktop/temp/Space_invaders/main.v Line: 87
-Warning (10230): Verilog HDL assignment warning at main.v(199): truncated value with size 32 to match size of target (4) File: //SRVD/Homes$/maksymo4/Desktop/temp/Space_invaders/main.v Line: 199
-Warning (10240): Verilog HDL Always Construct warning at main.v(159): inferring latch(es) for variable "speed_divider", which holds its previous value in one or more paths through the always construct File: //SRVD/Homes$/maksymo4/Desktop/temp/Space_invaders/main.v Line: 159
-Info (10041): Inferred latch for "speed_divider[0]" at main.v(159) File: //SRVD/Homes$/maksymo4/Desktop/temp/Space_invaders/main.v Line: 159
-Info (10041): Inferred latch for "speed_divider[1]" at main.v(159) File: //SRVD/Homes$/maksymo4/Desktop/temp/Space_invaders/main.v Line: 159
-Info (10041): Inferred latch for "speed_divider[2]" at main.v(159) File: //SRVD/Homes$/maksymo4/Desktop/temp/Space_invaders/main.v Line: 159
-Info (10041): Inferred latch for "speed_divider[3]" at main.v(159) File: //SRVD/Homes$/maksymo4/Desktop/temp/Space_invaders/main.v Line: 159
-Info (12128): Elaborating entity "frames_p_pulse_counter" for hierarchy "main_control:C0|frames_p_pulse_counter:u_counter_0" File: //SRVD/Homes$/maksymo4/Desktop/temp/Space_invaders/main.v Line: 122
-Warning (10230): Verilog HDL assignment warning at frame_counter.v(21): truncated value with size 32 to match size of target (6) File: //SRVD/Homes$/maksymo4/Desktop/temp/Space_invaders/frame_counter.v Line: 21
-Info (12128): Elaborating entity "frame_counter" for hierarchy "main_control:C0|frames_p_pulse_counter:u_counter_0|frame_counter:f0" File: //SRVD/Homes$/maksymo4/Desktop/temp/Space_invaders/frame_counter.v Line: 10
-Warning (10230): Verilog HDL assignment warning at frame_counter.v(48): truncated value with size 32 to match size of target (26) File: //SRVD/Homes$/maksymo4/Desktop/temp/Space_invaders/frame_counter.v Line: 48
-Warning (10230): Verilog HDL assignment warning at frame_counter.v(51): truncated value with size 32 to match size of target (1) File: //SRVD/Homes$/maksymo4/Desktop/temp/Space_invaders/frame_counter.v Line: 51
-Info (12128): Elaborating entity "main_datapath" for hierarchy "main_datapath:D0" File: //SRVD/Homes$/maksymo4/Desktop/temp/Space_invaders/main.v Line: 105
-Warning (10230): Verilog HDL assignment warning at main.v(287): truncated value with size 32 to match size of target (9) File: //SRVD/Homes$/maksymo4/Desktop/temp/Space_invaders/main.v Line: 287
-Warning (10230): Verilog HDL assignment warning at main.v(288): truncated value with size 32 to match size of target (8) File: //SRVD/Homes$/maksymo4/Desktop/temp/Space_invaders/main.v Line: 288
-Warning (10230): Verilog HDL assignment warning at main.v(289): truncated value with size 32 to match size of target (6) File: //SRVD/Homes$/maksymo4/Desktop/temp/Space_invaders/main.v Line: 289
-Warning (10230): Verilog HDL assignment warning at main.v(290): truncated value with size 32 to match size of target (6) File: //SRVD/Homes$/maksymo4/Desktop/temp/Space_invaders/main.v Line: 290
-Warning (10230): Verilog HDL assignment warning at main.v(292): truncated value with size 32 to match size of target (1) File: //SRVD/Homes$/maksymo4/Desktop/temp/Space_invaders/main.v Line: 292
-Warning (10240): Verilog HDL Always Construct warning at main.v(270): inferring latch(es) for variable "i", which holds its previous value in one or more paths through the always construct File: //SRVD/Homes$/maksymo4/Desktop/temp/Space_invaders/main.v Line: 270
-Warning (10240): Verilog HDL Always Construct warning at main.v(270): inferring latch(es) for variable "j", which holds its previous value in one or more paths through the always construct File: //SRVD/Homes$/maksymo4/Desktop/temp/Space_invaders/main.v Line: 270
-Warning (10230): Verilog HDL assignment warning at main.v(342): truncated value with size 32 to match size of target (9) File: //SRVD/Homes$/maksymo4/Desktop/temp/Space_invaders/main.v Line: 342
-Warning (10230): Verilog HDL assignment warning at main.v(343): truncated value with size 32 to match size of target (9) File: //SRVD/Homes$/maksymo4/Desktop/temp/Space_invaders/main.v Line: 343
-Info (10264): Verilog HDL Case Statement information at main.v(341): all case item expressions in this case statement are onehot File: //SRVD/Homes$/maksymo4/Desktop/temp/Space_invaders/main.v Line: 341
-Warning (10230): Verilog HDL assignment warning at main.v(352): truncated value with size 32 to match size of target (9) File: //SRVD/Homes$/maksymo4/Desktop/temp/Space_invaders/main.v Line: 352
-Warning (10230): Verilog HDL assignment warning at main.v(353): truncated value with size 32 to match size of target (8) File: //SRVD/Homes$/maksymo4/Desktop/temp/Space_invaders/main.v Line: 353
-Warning (10230): Verilog HDL assignment warning at main.v(373): truncated value with size 32 to match size of target (1) File: //SRVD/Homes$/maksymo4/Desktop/temp/Space_invaders/main.v Line: 373
-Warning (10230): Verilog HDL assignment warning at main.v(387): truncated value with size 32 to match size of target (1) File: //SRVD/Homes$/maksymo4/Desktop/temp/Space_invaders/main.v Line: 387
-Info (12128): Elaborating entity "user_fsm" for hierarchy "main_datapath:D0|user_fsm:U0" File: //SRVD/Homes$/maksymo4/Desktop/temp/Space_invaders/main.v Line: 310
-Info (12128): Elaborating entity "user_control" for hierarchy "main_datapath:D0|user_fsm:U0|user_control:c0_u" File: //SRVD/Homes$/maksymo4/Desktop/temp/Space_invaders/output_files/user_fsm.v Line: 25
-Info (12128): Elaborating entity "user_datapath" for hierarchy "main_datapath:D0|user_fsm:U0|user_datapath:d0_u" File: //SRVD/Homes$/maksymo4/Desktop/temp/Space_invaders/output_files/user_fsm.v Line: 37
-Warning (10230): Verilog HDL assignment warning at user_fsm.v(141): truncated value with size 32 to match size of target (10) File: //SRVD/Homes$/maksymo4/Desktop/temp/Space_invaders/output_files/user_fsm.v Line: 141
-Warning (10230): Verilog HDL assignment warning at user_fsm.v(142): truncated value with size 32 to match size of target (5) File: //SRVD/Homes$/maksymo4/Desktop/temp/Space_invaders/output_files/user_fsm.v Line: 142
-Warning (10230): Verilog HDL assignment warning at user_fsm.v(143): truncated value with size 32 to match size of target (5) File: //SRVD/Homes$/maksymo4/Desktop/temp/Space_invaders/output_files/user_fsm.v Line: 143
-Info (12128): Elaborating entity "rom256x3_user" for hierarchy "main_datapath:D0|user_fsm:U0|user_datapath:d0_u|rom256x3_user:user_sprite" File: //SRVD/Homes$/maksymo4/Desktop/temp/Space_invaders/output_files/user_fsm.v Line: 126
-Info (12128): Elaborating entity "altsyncram" for hierarchy "main_datapath:D0|user_fsm:U0|user_datapath:d0_u|rom256x3_user:user_sprite|altsyncram:altsyncram_component" File: //SRVD/Homes$/maksymo4/Desktop/temp/Space_invaders/on_chip_ram/rom256x3_user.v Line: 81
-Info (12130): Elaborated megafunction instantiation "main_datapath:D0|user_fsm:U0|user_datapath:d0_u|rom256x3_user:user_sprite|altsyncram:altsyncram_component" File: //SRVD/Homes$/maksymo4/Desktop/temp/Space_invaders/on_chip_ram/rom256x3_user.v Line: 81
-Info (12133): Instantiated megafunction "main_datapath:D0|user_fsm:U0|user_datapath:d0_u|rom256x3_user:user_sprite|altsyncram:altsyncram_component" with the following parameter: File: //SRVD/Homes$/maksymo4/Desktop/temp/Space_invaders/on_chip_ram/rom256x3_user.v Line: 81
->>>>>>> graphics_fixes
+Info (12128): Elaborating entity "rom256x3_user" for hierarchy "main_datapath:D0|user_fsm:U0|user_datapath:d0_u|rom256x3_user:user_sprite" File: C:/Users/Peter/OneDrive/1T8Semester1/ECE241/Lab projects/Space_invaders/output_files/user_fsm.v Line: 126
+Info (12128): Elaborating entity "altsyncram" for hierarchy "main_datapath:D0|user_fsm:U0|user_datapath:d0_u|rom256x3_user:user_sprite|altsyncram:altsyncram_component" File: C:/Users/Peter/OneDrive/1T8Semester1/ECE241/Lab projects/Space_invaders/on_chip_ram/rom256x3_user.v Line: 81
+Info (12130): Elaborated megafunction instantiation "main_datapath:D0|user_fsm:U0|user_datapath:d0_u|rom256x3_user:user_sprite|altsyncram:altsyncram_component" File: C:/Users/Peter/OneDrive/1T8Semester1/ECE241/Lab projects/Space_invaders/on_chip_ram/rom256x3_user.v Line: 81
+Info (12133): Instantiated megafunction "main_datapath:D0|user_fsm:U0|user_datapath:d0_u|rom256x3_user:user_sprite|altsyncram:altsyncram_component" with the following parameter: File: C:/Users/Peter/OneDrive/1T8Semester1/ECE241/Lab projects/Space_invaders/on_chip_ram/rom256x3_user.v Line: 81
     Info (12134): Parameter "address_aclr_a" = "NONE"
     Info (12134): Parameter "clock_enable_input_a" = "BYPASS"
     Info (12134): Parameter "clock_enable_output_a" = "BYPASS"
@@ -1744,38 +1443,21 @@ Info (12133): Instantiated megafunction "main_datapath:D0|user_fsm:U0|user_datap
     Info (12134): Parameter "widthad_a" = "8"
     Info (12134): Parameter "width_a" = "3"
     Info (12134): Parameter "width_byteena_a" = "1"
-<<<<<<< HEAD
-Info (12021): Found 1 design units, including 1 entities, in source file db/altsyncram_gph1.tdf
-    Info (12023): Found entity 1: altsyncram_gph1 File: C:/Users/Peter/OneDrive/1T8Semester1/ECE241/Lab projects/Space_invaders/db/altsyncram_gph1.tdf Line: 27
-Info (12128): Elaborating entity "altsyncram_gph1" for hierarchy "main_datapath:D0|user_fsm:U0|user_datapath:d0_u|rom560x3_user:user_sprite|altsyncram:altsyncram_component|altsyncram_gph1:auto_generated" File: d:/intelfpga/quartus/libraries/megafunctions/altsyncram.tdf Line: 791
+Info (12021): Found 1 design units, including 1 entities, in source file db/altsyncram_9oh1.tdf
+    Info (12023): Found entity 1: altsyncram_9oh1 File: C:/Users/Peter/OneDrive/1T8Semester1/ECE241/Lab projects/Space_invaders/db/altsyncram_9oh1.tdf Line: 27
+Info (12128): Elaborating entity "altsyncram_9oh1" for hierarchy "main_datapath:D0|user_fsm:U0|user_datapath:d0_u|rom256x3_user:user_sprite|altsyncram:altsyncram_component|altsyncram_9oh1:auto_generated" File: d:/intelfpga/quartus/libraries/megafunctions/altsyncram.tdf Line: 791
 Info (12128): Elaborating entity "enemyFSM" for hierarchy "main_datapath:D0|enemyFSM:E0" File: C:/Users/Peter/OneDrive/1T8Semester1/ECE241/Lab projects/Space_invaders/main.v Line: 389
 Warning (10230): Verilog HDL assignment warning at enemyFSM.v(20): truncated value with size 32 to match size of target (1) File: C:/Users/Peter/OneDrive/1T8Semester1/ECE241/Lab projects/Space_invaders/enemyFSM.v Line: 20
 Info (12128): Elaborating entity "enemy_control" for hierarchy "main_datapath:D0|enemyFSM:E0|enemy_control:c0_e" File: C:/Users/Peter/OneDrive/1T8Semester1/ECE241/Lab projects/Space_invaders/enemyFSM.v Line: 29
 Info (12128): Elaborating entity "enemy_datapath" for hierarchy "main_datapath:D0|enemyFSM:E0|enemy_datapath:d0_e" File: C:/Users/Peter/OneDrive/1T8Semester1/ECE241/Lab projects/Space_invaders/enemyFSM.v Line: 43
-Warning (10230): Verilog HDL assignment warning at enemyFSM.v(149): truncated value with size 32 to match size of target (10) File: C:/Users/Peter/OneDrive/1T8Semester1/ECE241/Lab projects/Space_invaders/enemyFSM.v Line: 149
-Warning (10230): Verilog HDL assignment warning at enemyFSM.v(150): truncated value with size 32 to match size of target (5) File: C:/Users/Peter/OneDrive/1T8Semester1/ECE241/Lab projects/Space_invaders/enemyFSM.v Line: 150
-Warning (10230): Verilog HDL assignment warning at enemyFSM.v(151): truncated value with size 32 to match size of target (5) File: C:/Users/Peter/OneDrive/1T8Semester1/ECE241/Lab projects/Space_invaders/enemyFSM.v Line: 151
-Info (12128): Elaborating entity "ram560x3_enemy1" for hierarchy "main_datapath:D0|enemyFSM:E0|enemy_datapath:d0_e|ram560x3_enemy1:enemy1_sprite" File: C:/Users/Peter/OneDrive/1T8Semester1/ECE241/Lab projects/Space_invaders/enemyFSM.v Line: 132
-Info (12128): Elaborating entity "altsyncram" for hierarchy "main_datapath:D0|enemyFSM:E0|enemy_datapath:d0_e|ram560x3_enemy1:enemy1_sprite|altsyncram:altsyncram_component" File: C:/Users/Peter/OneDrive/1T8Semester1/ECE241/Lab projects/Space_invaders/on_chip_ram/ram560x3_enemy1.v Line: 85
-Info (12130): Elaborated megafunction instantiation "main_datapath:D0|enemyFSM:E0|enemy_datapath:d0_e|ram560x3_enemy1:enemy1_sprite|altsyncram:altsyncram_component" File: C:/Users/Peter/OneDrive/1T8Semester1/ECE241/Lab projects/Space_invaders/on_chip_ram/ram560x3_enemy1.v Line: 85
-Info (12133): Instantiated megafunction "main_datapath:D0|enemyFSM:E0|enemy_datapath:d0_e|ram560x3_enemy1:enemy1_sprite|altsyncram:altsyncram_component" with the following parameter: File: C:/Users/Peter/OneDrive/1T8Semester1/ECE241/Lab projects/Space_invaders/on_chip_ram/ram560x3_enemy1.v Line: 85
-=======
-Warning (12125): Using design file db/altsyncram_9oh1.tdf, which is not specified as a design file for the current project, but contains definitions for 1 design units and 1 entities in project
-    Info (12023): Found entity 1: altsyncram_9oh1 File: //SRVD/Homes$/maksymo4/Desktop/temp/Space_invaders/db/altsyncram_9oh1.tdf Line: 27
-Info (12128): Elaborating entity "altsyncram_9oh1" for hierarchy "main_datapath:D0|user_fsm:U0|user_datapath:d0_u|rom256x3_user:user_sprite|altsyncram:altsyncram_component|altsyncram_9oh1:auto_generated" File: c:/desl/quartus18/quartus/libraries/megafunctions/altsyncram.tdf Line: 791
-Info (12128): Elaborating entity "enemyFSM" for hierarchy "main_datapath:D0|enemyFSM:E0" File: //SRVD/Homes$/maksymo4/Desktop/temp/Space_invaders/main.v Line: 322
-Warning (10230): Verilog HDL assignment warning at enemyFSM.v(20): truncated value with size 32 to match size of target (1) File: //SRVD/Homes$/maksymo4/Desktop/temp/Space_invaders/enemyFSM.v Line: 20
-Info (12128): Elaborating entity "enemy_control" for hierarchy "main_datapath:D0|enemyFSM:E0|enemy_control:c0_e" File: //SRVD/Homes$/maksymo4/Desktop/temp/Space_invaders/enemyFSM.v Line: 29
-Info (12128): Elaborating entity "enemy_datapath" for hierarchy "main_datapath:D0|enemyFSM:E0|enemy_datapath:d0_e" File: //SRVD/Homes$/maksymo4/Desktop/temp/Space_invaders/enemyFSM.v Line: 43
-Warning (10230): Verilog HDL assignment warning at enemyFSM.v(147): truncated value with size 32 to match size of target (10) File: //SRVD/Homes$/maksymo4/Desktop/temp/Space_invaders/enemyFSM.v Line: 147
-Warning (10230): Verilog HDL assignment warning at enemyFSM.v(148): truncated value with size 32 to match size of target (5) File: //SRVD/Homes$/maksymo4/Desktop/temp/Space_invaders/enemyFSM.v Line: 148
-Warning (10230): Verilog HDL assignment warning at enemyFSM.v(149): truncated value with size 32 to match size of target (5) File: //SRVD/Homes$/maksymo4/Desktop/temp/Space_invaders/enemyFSM.v Line: 149
-Info (12128): Elaborating entity "rom374x3_enemy1" for hierarchy "main_datapath:D0|enemyFSM:E0|enemy_datapath:d0_e|rom374x3_enemy1:enemy1_sprite" File: //SRVD/Homes$/maksymo4/Desktop/temp/Space_invaders/enemyFSM.v Line: 130
-Info (12128): Elaborating entity "altsyncram" for hierarchy "main_datapath:D0|enemyFSM:E0|enemy_datapath:d0_e|rom374x3_enemy1:enemy1_sprite|altsyncram:altsyncram_component" File: //SRVD/Homes$/maksymo4/Desktop/temp/Space_invaders/on_chip_ram/rom374x3_enemy1.v Line: 81
-Info (12130): Elaborated megafunction instantiation "main_datapath:D0|enemyFSM:E0|enemy_datapath:d0_e|rom374x3_enemy1:enemy1_sprite|altsyncram:altsyncram_component" File: //SRVD/Homes$/maksymo4/Desktop/temp/Space_invaders/on_chip_ram/rom374x3_enemy1.v Line: 81
-Info (12133): Instantiated megafunction "main_datapath:D0|enemyFSM:E0|enemy_datapath:d0_e|rom374x3_enemy1:enemy1_sprite|altsyncram:altsyncram_component" with the following parameter: File: //SRVD/Homes$/maksymo4/Desktop/temp/Space_invaders/on_chip_ram/rom374x3_enemy1.v Line: 81
+Warning (10230): Verilog HDL assignment warning at enemyFSM.v(147): truncated value with size 32 to match size of target (10) File: C:/Users/Peter/OneDrive/1T8Semester1/ECE241/Lab projects/Space_invaders/enemyFSM.v Line: 147
+Warning (10230): Verilog HDL assignment warning at enemyFSM.v(148): truncated value with size 32 to match size of target (5) File: C:/Users/Peter/OneDrive/1T8Semester1/ECE241/Lab projects/Space_invaders/enemyFSM.v Line: 148
+Warning (10230): Verilog HDL assignment warning at enemyFSM.v(149): truncated value with size 32 to match size of target (5) File: C:/Users/Peter/OneDrive/1T8Semester1/ECE241/Lab projects/Space_invaders/enemyFSM.v Line: 149
+Info (12128): Elaborating entity "rom374x3_enemy1" for hierarchy "main_datapath:D0|enemyFSM:E0|enemy_datapath:d0_e|rom374x3_enemy1:enemy1_sprite" File: C:/Users/Peter/OneDrive/1T8Semester1/ECE241/Lab projects/Space_invaders/enemyFSM.v Line: 130
+Info (12128): Elaborating entity "altsyncram" for hierarchy "main_datapath:D0|enemyFSM:E0|enemy_datapath:d0_e|rom374x3_enemy1:enemy1_sprite|altsyncram:altsyncram_component" File: C:/Users/Peter/OneDrive/1T8Semester1/ECE241/Lab projects/Space_invaders/on_chip_ram/rom374x3_enemy1.v Line: 81
+Info (12130): Elaborated megafunction instantiation "main_datapath:D0|enemyFSM:E0|enemy_datapath:d0_e|rom374x3_enemy1:enemy1_sprite|altsyncram:altsyncram_component" File: C:/Users/Peter/OneDrive/1T8Semester1/ECE241/Lab projects/Space_invaders/on_chip_ram/rom374x3_enemy1.v Line: 81
+Info (12133): Instantiated megafunction "main_datapath:D0|enemyFSM:E0|enemy_datapath:d0_e|rom374x3_enemy1:enemy1_sprite|altsyncram:altsyncram_component" with the following parameter: File: C:/Users/Peter/OneDrive/1T8Semester1/ECE241/Lab projects/Space_invaders/on_chip_ram/rom374x3_enemy1.v Line: 81
     Info (12134): Parameter "address_aclr_a" = "NONE"
->>>>>>> graphics_fixes
     Info (12134): Parameter "clock_enable_input_a" = "BYPASS"
     Info (12134): Parameter "clock_enable_output_a" = "BYPASS"
     Info (12134): Parameter "init_file" = "./graphics/Enemy_1.mif"
@@ -1789,24 +1471,17 @@ Info (12133): Instantiated megafunction "main_datapath:D0|enemyFSM:E0|enemy_data
     Info (12134): Parameter "widthad_a" = "9"
     Info (12134): Parameter "width_a" = "3"
     Info (12134): Parameter "width_byteena_a" = "1"
-<<<<<<< HEAD
-Info (12021): Found 1 design units, including 1 entities, in source file db/altsyncram_doo1.tdf
-    Info (12023): Found entity 1: altsyncram_doo1 File: C:/Users/Peter/OneDrive/1T8Semester1/ECE241/Lab projects/Space_invaders/db/altsyncram_doo1.tdf Line: 27
-Info (12128): Elaborating entity "altsyncram_doo1" for hierarchy "main_datapath:D0|enemyFSM:E0|enemy_datapath:d0_e|ram560x3_enemy1:enemy1_sprite|altsyncram:altsyncram_component|altsyncram_doo1:auto_generated" File: d:/intelfpga/quartus/libraries/megafunctions/altsyncram.tdf Line: 791
+Info (12021): Found 1 design units, including 1 entities, in source file db/altsyncram_oeg1.tdf
+    Info (12023): Found entity 1: altsyncram_oeg1 File: C:/Users/Peter/OneDrive/1T8Semester1/ECE241/Lab projects/Space_invaders/db/altsyncram_oeg1.tdf Line: 27
+Info (12128): Elaborating entity "altsyncram_oeg1" for hierarchy "main_datapath:D0|enemyFSM:E0|enemy_datapath:d0_e|rom374x3_enemy1:enemy1_sprite|altsyncram:altsyncram_component|altsyncram_oeg1:auto_generated" File: d:/intelfpga/quartus/libraries/megafunctions/altsyncram.tdf Line: 791
 Info (12128): Elaborating entity "bulletFSM" for hierarchy "main_datapath:D0|bulletFSM:B1" File: C:/Users/Peter/OneDrive/1T8Semester1/ECE241/Lab projects/Space_invaders/main.v Line: 399
 Warning (10230): Verilog HDL assignment warning at bullet.v(14): truncated value with size 32 to match size of target (1) File: C:/Users/Peter/OneDrive/1T8Semester1/ECE241/Lab projects/Space_invaders/bullet.v Line: 14
 Info (12128): Elaborating entity "bullet_control" for hierarchy "main_datapath:D0|bulletFSM:B1|bullet_control:c1" File: C:/Users/Peter/OneDrive/1T8Semester1/ECE241/Lab projects/Space_invaders/bullet.v Line: 23
 Info (12128): Elaborating entity "bullet_datapath" for hierarchy "main_datapath:D0|bulletFSM:B1|bullet_datapath:d1" File: C:/Users/Peter/OneDrive/1T8Semester1/ECE241/Lab projects/Space_invaders/bullet.v Line: 34
 Warning (10230): Verilog HDL assignment warning at bullet.v(120): truncated value with size 32 to match size of target (2) File: C:/Users/Peter/OneDrive/1T8Semester1/ECE241/Lab projects/Space_invaders/bullet.v Line: 120
-Warning (12241): 1 hierarchies have connectivity warnings - see the Connectivity Checks report folder
-=======
-Warning (12125): Using design file db/altsyncram_oeg1.tdf, which is not specified as a design file for the current project, but contains definitions for 1 design units and 1 entities in project
-    Info (12023): Found entity 1: altsyncram_oeg1 File: //SRVD/Homes$/maksymo4/Desktop/temp/Space_invaders/db/altsyncram_oeg1.tdf Line: 27
-Info (12128): Elaborating entity "altsyncram_oeg1" for hierarchy "main_datapath:D0|enemyFSM:E0|enemy_datapath:d0_e|rom374x3_enemy1:enemy1_sprite|altsyncram:altsyncram_component|altsyncram_oeg1:auto_generated" File: c:/desl/quartus18/quartus/libraries/megafunctions/altsyncram.tdf Line: 791
 Warning (12241): 2 hierarchies have connectivity warnings - see the Connectivity Checks report folder
->>>>>>> graphics_fixes
 Warning (13024): Output pins are stuck at VCC or GND
-    Warning (13410): Pin "VGA_SYNC_N" is stuck at VCC File: //SRVD/Homes$/maksymo4/Desktop/temp/Space_invaders/main.v Line: 29
+    Warning (13410): Pin "VGA_SYNC_N" is stuck at VCC File: C:/Users/Peter/OneDrive/1T8Semester1/ECE241/Lab projects/Space_invaders/main.v Line: 29
 Info (286030): Timing-Driven Synthesis is running
 Info (17049): 13 registers lost all their fanouts during netlist optimizations.
 Warning (20013): Ignored 385 assignments for entity "DE1_SoC" -- entity does not exist in design
@@ -2197,9 +1872,8 @@ Warning (20013): Ignored 385 assignments for entity "DE1_SoC" -- entity does not
     Warning (20014): Assignment for entity set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to VGA_VS -entity DE1_SoC was ignored
 Info (16010): Generating hard_block partition "hard_block:auto_generated_inst"
     Info (16011): Adding 5 node(s), including 0 DDIO, 1 PLL, 0 transceiver and 0 LCELL
-Warning: RST port on the PLL is not properly connected on instance vga_adapter:VGA|vga_pll:mypll|altpll:altpll_component|altpll_80u:auto_generated|generic_pll1. The reset port on the PLL should be connected. If the PLL loses lock for any reason, you might need to manually reset the PLL in order to re-establish lock to the reference clock. File: //SRVD/Homes$/maksymo4/Desktop/temp/Space_invaders/db/altpll_80u.tdf Line: 33
+Warning: RST port on the PLL is not properly connected on instance vga_adapter:VGA|vga_pll:mypll|altpll:altpll_component|altpll_80u:auto_generated|generic_pll1. The reset port on the PLL should be connected. If the PLL loses lock for any reason, you might need to manually reset the PLL in order to re-establish lock to the reference clock. File: C:/Users/Peter/OneDrive/1T8Semester1/ECE241/Lab projects/Space_invaders/db/altpll_80u.tdf Line: 33
     Info: Must be connected
-<<<<<<< HEAD
 Warning (21074): Design contains 10 input pin(s) that do not drive logic
     Warning (15610): No output dependent on input pin "SW[0]" File: C:/Users/Peter/OneDrive/1T8Semester1/ECE241/Lab projects/Space_invaders/main.v Line: 22
     Warning (15610): No output dependent on input pin "SW[1]" File: C:/Users/Peter/OneDrive/1T8Semester1/ECE241/Lab projects/Space_invaders/main.v Line: 22
@@ -2211,41 +1885,16 @@ Warning (21074): Design contains 10 input pin(s) that do not drive logic
     Warning (15610): No output dependent on input pin "SW[7]" File: C:/Users/Peter/OneDrive/1T8Semester1/ECE241/Lab projects/Space_invaders/main.v Line: 22
     Warning (15610): No output dependent on input pin "SW[8]" File: C:/Users/Peter/OneDrive/1T8Semester1/ECE241/Lab projects/Space_invaders/main.v Line: 22
     Warning (15610): No output dependent on input pin "SW[9]" File: C:/Users/Peter/OneDrive/1T8Semester1/ECE241/Lab projects/Space_invaders/main.v Line: 22
-Info (21057): Implemented 913 device resources after synthesis - the final resource count might be different
+Info (21057): Implemented 909 device resources after synthesis - the final resource count might be different
     Info (21058): Implemented 15 input pins
     Info (21059): Implemented 29 output pins
-    Info (21061): Implemented 832 logic cells
+    Info (21061): Implemented 828 logic cells
     Info (21064): Implemented 36 RAM segments
     Info (21065): Implemented 1 PLLs
-Info: Quartus Prime Analysis & Synthesis was successful. 0 errors, 435 warnings
-    Info: Peak virtual memory: 4945 megabytes
-    Info: Processing ended: Sat Nov 24 23:32:40 2018
+Info: Quartus Prime Analysis & Synthesis was successful. 0 errors, 437 warnings
+    Info: Peak virtual memory: 4940 megabytes
+    Info: Processing ended: Sat Nov 24 23:46:59 2018
     Info: Elapsed time: 00:00:21
-    Info: Total CPU time (on all processors): 00:00:38
-=======
-Warning (21074): Design contains 11 input pin(s) that do not drive logic
-    Warning (15610): No output dependent on input pin "SW[0]" File: //SRVD/Homes$/maksymo4/Desktop/temp/Space_invaders/main.v Line: 22
-    Warning (15610): No output dependent on input pin "SW[1]" File: //SRVD/Homes$/maksymo4/Desktop/temp/Space_invaders/main.v Line: 22
-    Warning (15610): No output dependent on input pin "SW[2]" File: //SRVD/Homes$/maksymo4/Desktop/temp/Space_invaders/main.v Line: 22
-    Warning (15610): No output dependent on input pin "SW[3]" File: //SRVD/Homes$/maksymo4/Desktop/temp/Space_invaders/main.v Line: 22
-    Warning (15610): No output dependent on input pin "SW[4]" File: //SRVD/Homes$/maksymo4/Desktop/temp/Space_invaders/main.v Line: 22
-    Warning (15610): No output dependent on input pin "SW[5]" File: //SRVD/Homes$/maksymo4/Desktop/temp/Space_invaders/main.v Line: 22
-    Warning (15610): No output dependent on input pin "SW[6]" File: //SRVD/Homes$/maksymo4/Desktop/temp/Space_invaders/main.v Line: 22
-    Warning (15610): No output dependent on input pin "SW[7]" File: //SRVD/Homes$/maksymo4/Desktop/temp/Space_invaders/main.v Line: 22
-    Warning (15610): No output dependent on input pin "SW[8]" File: //SRVD/Homes$/maksymo4/Desktop/temp/Space_invaders/main.v Line: 22
-    Warning (15610): No output dependent on input pin "SW[9]" File: //SRVD/Homes$/maksymo4/Desktop/temp/Space_invaders/main.v Line: 22
-    Warning (15610): No output dependent on input pin "KEY[2]" File: //SRVD/Homes$/maksymo4/Desktop/temp/Space_invaders/main.v Line: 21
-Info (21057): Implemented 595 device resources after synthesis - the final resource count might be different
-    Info (21058): Implemented 15 input pins
-    Info (21059): Implemented 29 output pins
-    Info (21061): Implemented 514 logic cells
-    Info (21064): Implemented 36 RAM segments
-    Info (21065): Implemented 1 PLLs
-Info: Quartus Prime Analysis & Synthesis was successful. 0 errors, 435 warnings
-    Info: Peak virtual memory: 759 megabytes
-    Info: Processing ended: Wed Nov 21 11:42:19 2018
-    Info: Elapsed time: 00:00:37
     Info: Total CPU time (on all processors): 00:00:36
->>>>>>> graphics_fixes
 
 
