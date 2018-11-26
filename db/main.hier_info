@@ -45,10 +45,7 @@ VGA_B[4] <= vga_adapter:VGA.VGA_B
 VGA_B[5] <= vga_adapter:VGA.VGA_B
 VGA_B[6] <= vga_adapter:VGA.VGA_B
 VGA_B[7] <= vga_adapter:VGA.VGA_B
-<<<<<<< HEAD
-=======
 Score <= main_datapath:D0.score
->>>>>>> title_screen
 
 
 |main|vga_adapter:VGA
@@ -1724,15 +1721,9 @@ done_enemies => Selector9.IN4
 done_enemies => Selector7.IN1
 done_enemies => Selector8.IN2
 done_bullet => next_state.S_MOVE_BULLET.DATAB
-<<<<<<< HEAD
-done_bullet => Selector4.IN3
-done_bullet => Selector2.IN2
-done_bullet => Selector3.IN2
-=======
-done_bullet => next_state.S_CHECK_COLLISION.DATAB
+done_bullet => Selector6.IN3
 done_bullet => Selector4.IN2
 done_bullet => Selector5.IN2
->>>>>>> title_screen
 shoot => next_state.IN0
 reach_bullet => next_state.IN1
 continue => next_state.IN0
@@ -1970,13 +1961,7 @@ check_collision => enemies_alive.OUTPUTSELECT
 check_collision => enemies_alive.OUTPUTSELECT
 check_collision => enemies_alive.OUTPUTSELECT
 check_collision => enemies_alive.OUTPUTSELECT
-<<<<<<< HEAD
 check_collision => enemy_killed.OUTPUTSELECT
-done_user <= done_user~reg0.DB_MAX_OUTPUT_PORT_TYPE
-done_enemies <= enemies[8][1].DB_MAX_OUTPUT_PORT_TYPE
-done_bullet <= done_bullet~reg0.DB_MAX_OUTPUT_PORT_TYPE
-reach_bullet <= reach_bullet.DB_MAX_OUTPUT_PORT_TYPE
-=======
 check_collision => score.OUTPUTSELECT
 check_collision => score.OUTPUTSELECT
 check_collision => score.OUTPUTSELECT
@@ -1991,9 +1976,8 @@ blackout_t => colour.OUTPUTSELECT
 done_user <= done_user~reg0.DB_MAX_OUTPUT_PORT_TYPE
 done_enemies <= enemies[8][1].DB_MAX_OUTPUT_PORT_TYPE
 done_bullet <= done_bullet~reg0.DB_MAX_OUTPUT_PORT_TYPE
-reach_bullet <= Equal8.DB_MAX_OUTPUT_PORT_TYPE
+reach_bullet <= reach_bullet.DB_MAX_OUTPUT_PORT_TYPE
 done_screen <= done_screen~reg0.DB_MAX_OUTPUT_PORT_TYPE
->>>>>>> title_screen
 X[0] <= X[0]~reg0.DB_MAX_OUTPUT_PORT_TYPE
 X[1] <= X[1]~reg0.DB_MAX_OUTPUT_PORT_TYPE
 X[2] <= X[2]~reg0.DB_MAX_OUTPUT_PORT_TYPE

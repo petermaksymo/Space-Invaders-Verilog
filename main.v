@@ -184,7 +184,7 @@ module main_control(
 			 S_BLACKOUT_ENEMIES = 6'd11,
 			 S_MOVE_ENEMIES     = 6'd12,
 			 S_PLOT_ENEMIES     = 6'd13,
-			 S_DONE_PLOTS		= 6'd14;
+			 S_DONE_PLOTS		  = 6'd14,
 			 
 			 S_END_SCREEN       = 6'd15;
 
