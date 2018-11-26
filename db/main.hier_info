@@ -14,6 +14,7 @@ KEY[0] => resetn.IN3
 KEY[1] => _.IN1
 KEY[2] => _.IN1
 KEY[2] => _.IN1
+KEY[2] => _.IN1
 KEY[3] => _.IN1
 VGA_CLK <= vga_adapter:VGA.VGA_CLK
 VGA_HS <= vga_adapter:VGA.VGA_HS
@@ -1710,22 +1711,25 @@ resetn => current_state.OUTPUTSELECT
 resetn => current_state.OUTPUTSELECT
 resetn => current_state.OUTPUTSELECT
 resetn => current_state.OUTPUTSELECT
+resetn => current_state.OUTPUTSELECT
 done_user => next_state.S_MOVE_USER.DATAB
 done_user => next_state.S_PREP_SHOOTING.DATAB
-done_user => Selector1.IN2
-done_user => Selector2.IN2
+done_user => Selector2.IN1
+done_user => Selector3.IN2
 done_enemies => next_state.S_MOVE_ENEMIES.DATAB
-done_enemies => Selector8.IN4
-done_enemies => Selector6.IN1
-done_enemies => Selector7.IN2
+done_enemies => Selector9.IN4
+done_enemies => Selector7.IN1
+done_enemies => Selector8.IN2
 done_bullet => next_state.S_MOVE_BULLET.DATAB
 done_bullet => next_state.S_CHECK_COLLISION.DATAB
-done_bullet => Selector3.IN2
 done_bullet => Selector4.IN2
+done_bullet => Selector5.IN2
 shoot => next_state.IN0
 reach_bullet => next_state.IN1
 continue => next_state.IN0
 done_screen => next_state.IN1
+done_screen => Selector2.IN3
+done_screen => Selector1.IN2
 blackout_u <= blackout_u.DB_MAX_OUTPUT_PORT_TYPE
 move_u <= move_u.DB_MAX_OUTPUT_PORT_TYPE
 draw_u <= draw_u.DB_MAX_OUTPUT_PORT_TYPE
@@ -1739,7 +1743,8 @@ draw_b <= draw_b.DB_MAX_OUTPUT_PORT_TYPE
 check_collision <= check_collision.DB_MAX_OUTPUT_PORT_TYPE
 display_title <= display_title.DB_MAX_OUTPUT_PORT_TYPE
 display_end <= display_end.DB_MAX_OUTPUT_PORT_TYPE
-draw_screen <= draw_screen.DB_MAX_OUTPUT_PORT_TYPE
+draw_screen <= WideOr10.DB_MAX_OUTPUT_PORT_TYPE
+blackout_t <= blackout_t.DB_MAX_OUTPUT_PORT_TYPE
 
 
 |main|main_control:C0|frames_p_pulse_counter:u_counter_0
@@ -1964,6 +1969,9 @@ check_collision => score.OUTPUTSELECT
 display_title => display_title.IN1
 display_end => display_end.IN1
 draw_screen => draw_screen.IN1
+blackout_t => colour.OUTPUTSELECT
+blackout_t => colour.OUTPUTSELECT
+blackout_t => colour.OUTPUTSELECT
 done_user <= done_user~reg0.DB_MAX_OUTPUT_PORT_TYPE
 done_enemies <= enemies[8][1].DB_MAX_OUTPUT_PORT_TYPE
 done_bullet <= done_bullet~reg0.DB_MAX_OUTPUT_PORT_TYPE
@@ -2680,27 +2688,27 @@ data_a[0] => ~NO_FANOUT~
 data_a[1] => ~NO_FANOUT~
 data_a[2] => ~NO_FANOUT~
 data_b[0] => ~NO_FANOUT~
-address_a[0] => altsyncram_32j1:auto_generated.address_a[0]
-address_a[1] => altsyncram_32j1:auto_generated.address_a[1]
-address_a[2] => altsyncram_32j1:auto_generated.address_a[2]
-address_a[3] => altsyncram_32j1:auto_generated.address_a[3]
-address_a[4] => altsyncram_32j1:auto_generated.address_a[4]
-address_a[5] => altsyncram_32j1:auto_generated.address_a[5]
-address_a[6] => altsyncram_32j1:auto_generated.address_a[6]
-address_a[7] => altsyncram_32j1:auto_generated.address_a[7]
-address_a[8] => altsyncram_32j1:auto_generated.address_a[8]
-address_a[9] => altsyncram_32j1:auto_generated.address_a[9]
-address_a[10] => altsyncram_32j1:auto_generated.address_a[10]
-address_a[11] => altsyncram_32j1:auto_generated.address_a[11]
-address_a[12] => altsyncram_32j1:auto_generated.address_a[12]
-address_a[13] => altsyncram_32j1:auto_generated.address_a[13]
-address_a[14] => altsyncram_32j1:auto_generated.address_a[14]
-address_a[15] => altsyncram_32j1:auto_generated.address_a[15]
-address_a[16] => altsyncram_32j1:auto_generated.address_a[16]
+address_a[0] => altsyncram_p5j1:auto_generated.address_a[0]
+address_a[1] => altsyncram_p5j1:auto_generated.address_a[1]
+address_a[2] => altsyncram_p5j1:auto_generated.address_a[2]
+address_a[3] => altsyncram_p5j1:auto_generated.address_a[3]
+address_a[4] => altsyncram_p5j1:auto_generated.address_a[4]
+address_a[5] => altsyncram_p5j1:auto_generated.address_a[5]
+address_a[6] => altsyncram_p5j1:auto_generated.address_a[6]
+address_a[7] => altsyncram_p5j1:auto_generated.address_a[7]
+address_a[8] => altsyncram_p5j1:auto_generated.address_a[8]
+address_a[9] => altsyncram_p5j1:auto_generated.address_a[9]
+address_a[10] => altsyncram_p5j1:auto_generated.address_a[10]
+address_a[11] => altsyncram_p5j1:auto_generated.address_a[11]
+address_a[12] => altsyncram_p5j1:auto_generated.address_a[12]
+address_a[13] => altsyncram_p5j1:auto_generated.address_a[13]
+address_a[14] => altsyncram_p5j1:auto_generated.address_a[14]
+address_a[15] => altsyncram_p5j1:auto_generated.address_a[15]
+address_a[16] => altsyncram_p5j1:auto_generated.address_a[16]
 address_b[0] => ~NO_FANOUT~
 addressstall_a => ~NO_FANOUT~
 addressstall_b => ~NO_FANOUT~
-clock0 => altsyncram_32j1:auto_generated.clock0
+clock0 => altsyncram_p5j1:auto_generated.clock0
 clock1 => ~NO_FANOUT~
 clocken0 => ~NO_FANOUT~
 clocken1 => ~NO_FANOUT~
@@ -2710,16 +2718,16 @@ aclr0 => ~NO_FANOUT~
 aclr1 => ~NO_FANOUT~
 byteena_a[0] => ~NO_FANOUT~
 byteena_b[0] => ~NO_FANOUT~
-q_a[0] <= altsyncram_32j1:auto_generated.q_a[0]
-q_a[1] <= altsyncram_32j1:auto_generated.q_a[1]
-q_a[2] <= altsyncram_32j1:auto_generated.q_a[2]
+q_a[0] <= altsyncram_p5j1:auto_generated.q_a[0]
+q_a[1] <= altsyncram_p5j1:auto_generated.q_a[1]
+q_a[2] <= altsyncram_p5j1:auto_generated.q_a[2]
 q_b[0] <= <GND>
 eccstatus[0] <= <GND>
 eccstatus[1] <= <GND>
 eccstatus[2] <= <GND>
 
 
-|main|main_datapath:D0|screen_display:T1|rom76800x3_title:title_screen|altsyncram:altsyncram_component|altsyncram_32j1:auto_generated
+|main|main_datapath:D0|screen_display:T1|rom76800x3_title:title_screen|altsyncram:altsyncram_component|altsyncram_p5j1:auto_generated
 address_a[0] => ram_block1a0.PORTAADDR
 address_a[0] => ram_block1a1.PORTAADDR
 address_a[0] => ram_block1a2.PORTAADDR
@@ -3154,7 +3162,7 @@ q_a[1] <= mux_2hb:mux2.result[1]
 q_a[2] <= mux_2hb:mux2.result[2]
 
 
-|main|main_datapath:D0|screen_display:T1|rom76800x3_title:title_screen|altsyncram:altsyncram_component|altsyncram_32j1:auto_generated|decode_g2a:rden_decode
+|main|main_datapath:D0|screen_display:T1|rom76800x3_title:title_screen|altsyncram:altsyncram_component|altsyncram_p5j1:auto_generated|decode_g2a:rden_decode
 data[0] => w_anode508w[1].IN0
 data[0] => w_anode525w[1].IN1
 data[0] => w_anode535w[1].IN0
@@ -3224,7 +3232,7 @@ eq[8] <= w_anode595w[3].DB_MAX_OUTPUT_PORT_TYPE
 eq[9] <= w_anode606w[3].DB_MAX_OUTPUT_PORT_TYPE
 
 
-|main|main_datapath:D0|screen_display:T1|rom76800x3_title:title_screen|altsyncram:altsyncram_component|altsyncram_32j1:auto_generated|mux_2hb:mux2
+|main|main_datapath:D0|screen_display:T1|rom76800x3_title:title_screen|altsyncram:altsyncram_component|altsyncram_p5j1:auto_generated|mux_2hb:mux2
 data[0] => l1_w0_n0_mux_dataout.IN1
 data[1] => l1_w1_n0_mux_dataout.IN1
 data[2] => l1_w2_n0_mux_dataout.IN1
