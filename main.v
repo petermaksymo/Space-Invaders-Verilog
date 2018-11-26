@@ -14,7 +14,8 @@ module main
 		VGA_SYNC_N,						//	VGA SYNC
 		VGA_R,   						//	VGA Red[9:0]
 		VGA_G,	 						//	VGA Green[9:0]
-		VGA_B   						   //	VGA Blue[9:0]
+		VGA_B,   						   //	VGA Blue[9:0]
+		Score
 	);
 
 	input	CLOCK_50;				//	50 MHz
@@ -30,6 +31,7 @@ module main
 	output	[7:0]	VGA_R;   				//	VGA Red[7:0] Changed from 10 to 8-bit DAC
 	output	[7:0]	VGA_G;	 				//	VGA Green[7:0]
 	output	[7:0]	VGA_B;   				//	VGA Blue[7:0]
+	output 			Score;
 
 	wire resetn;
 	assign resetn = KEY[0];
@@ -70,22 +72,27 @@ module main
 	 wire done_user;
 	 wire done_enemies;
 	 wire done_bullet;
+	 wire done_screen;
 	 
 	 wire blackout_u, move_u, draw_u;
 	 wire blackout_e_prep, blackout_e, move_e, draw_e; 
 	 wire blackout_b, move_b, draw_b;
 	 wire reach_bullet, check_collision;
+	 wire display_title, display_end, draw_screen, blackout_t;
 
 		main_control C0(.clk(CLOCK_50),
 			 .resetn(resetn),
 			 .done_user(done_user),
 			 .done_enemies(done_enemies),
 			 .done_bullet(done_bullet),
+			 .done_screen(done_screen),
 			 .shoot(~KEY[2]),
 			 .reach_bullet(reach_bullet),
+			 .continue(~KEY[2]),
 
 			 .blackout_u(blackout_u),
 			 .blackout_b(blackout_b),
+			 .blackout_t(blackout_t),
 			 .move_u(move_u),
 			 .move_e(move_e),
 			 .move_b(move_b),
@@ -94,7 +101,10 @@ module main
 			 .draw_b(draw_b),
 			 .blackout_e_prep(blackout_e_prep),
 			 .blackout_e(blackout_e),
-			 .check_collision(check_collison)
+			 .check_collision(check_collison),
+			 .display_title(display_title),
+			 .display_end(display_end),
+			 .draw_screen(draw_screen)
 			 );
 
 		main_datapath D0(.clk(CLOCK_50),
@@ -102,6 +112,7 @@ module main
 			.move_e(move_e),
 			.blackout_u(blackout_u),
 			.blackout_b(blackout_b),
+			.blackout_t(blackout_t),
 			.move_u(move_u),
 			.move_b(move_b),
 			.draw_u(draw_u),
@@ -111,15 +122,20 @@ module main
 			.blackout_e(blackout_e),
 			.user_move( {~KEY[3] , ~ KEY[1]} ),
 			.shoot(~KEY[2]),
-			.check_collision(check_collison),
+			.check_collision(check_collision),
+			.display_title(display_title),
+			.display_end(display_end),
+			.draw_screen(draw_screen),
 
 			.done_user(done_user),
 			.done_enemies(done_enemies),
 			.done_bullet(done_bullet),
+			.done_screen(done_screen),
 			.reach_bullet(reach_bullet),
 	 		.X(x),
 	 	 	.Y(y),
-			.colour(colour)
+			.colour(colour),
+			.score(Score)
     );
 
 
@@ -134,36 +150,43 @@ module main_control(
 	input done_bullet,
 	input shoot,
 	input reach_bullet,
+	input continue,
+	input done_screen,
 
    output reg blackout_u, move_u, draw_u,
 	output reg blackout_e_prep, blackout_e, move_e, draw_e,
 	output reg blackout_b, move_b, draw_b,
-	output reg check_collision
+	output reg check_collision, display_title, display_end, draw_screen, blackout_t
    );
 
 	wire replot;
 	frames_p_pulse_counter u_counter_0(.clk(clk), .frames_pulse(6'd1), .pulse(replot));
 
-   reg [4:0] current_state, next_state;
+   reg [5:0] current_state, next_state;
 
    localparam
-			 S_BLACKOUT_USER    = 5'd0,
-			 S_MOVE_USER        = 5'd1,
-			 S_PLOT_USER        = 5'd2,
+			 S_TITLE_SCREEN     = 6'd0,
+			 S_BLACKOUT_TITLE   = 6'd1,
 			 
-			 S_PREP_SHOOTING    = 5'd3,
-			 S_CHECK_COLLISION  = 5'd4,
-			 S_BLACKOUT_BULLET  = 5'd5,
-			 S_MOVE_BULLET      = 5'd6,
-			 S_PLOT_BULLET      = 5'd7,
+ 			 S_BLACKOUT_USER    = 6'd2,
+			 S_MOVE_USER        = 6'd3,
+			 S_PLOT_USER        = 6'd4,
+			 
+			 S_PREP_SHOOTING    = 6'd5,
+			 S_CHECK_COLLISION  = 6'd6,
+			 S_BLACKOUT_BULLET  = 6'd7,
+			 S_MOVE_BULLET      = 6'd8,
+			 S_PLOT_BULLET      = 6'd9,
 			 
 			 
 			 
-			 S_BLACKOUT_E_PREP  = 5'd8,
-			 S_BLACKOUT_ENEMIES = 5'd9,
-			 S_MOVE_ENEMIES     = 5'd10,
-			 S_PLOT_ENEMIES     = 5'd11,
-			 S_DONE_PLOTS		  = 5'd12;
+			 S_BLACKOUT_E_PREP  = 6'd10,
+			 S_BLACKOUT_ENEMIES = 6'd11,
+			 S_MOVE_ENEMIES     = 6'd12,
+			 S_PLOT_ENEMIES     = 6'd13,
+			 S_DONE_PLOTS		= 6'd14;
+			 
+			 S_END_SCREEN       = 6'd15;
 
 	localparam enemy_speed = 4'd4; //inverse of enemy speed (higher = slower) 15 was good for final
 	reg [3:0] speed_divider = 4'b0;
@@ -172,6 +195,9 @@ module main_control(
    always@(*)
    begin: state_table
 		case (current_state)
+			S_TITLE_SCREEN: next_state = (done_screen && continue) ? S_BLACKOUT_TITLE : S_TITLE_SCREEN;
+			S_BLACKOUT_TITLE: next_state = done_screen ? S_BLACKOUT_USER : S_BLACKOUT_TITLE;
+		
 			S_BLACKOUT_USER: next_state = done_user ? S_MOVE_USER : S_BLACKOUT_USER;
 			S_MOVE_USER: next_state = S_PLOT_USER;
 			S_PLOT_USER: next_state = done_user ? S_PREP_SHOOTING : S_PLOT_USER; // Repeat ploting user until all 400 pixels are exhausted
@@ -189,8 +215,10 @@ module main_control(
 			S_MOVE_ENEMIES: next_state =  S_PLOT_ENEMIES;
 			S_PLOT_ENEMIES: next_state = done_enemies == 1'b1 ? S_DONE_PLOTS : S_PLOT_ENEMIES;
 			S_DONE_PLOTS: next_state = replot == 1'b1 ? S_BLACKOUT_USER : S_DONE_PLOTS;
+			
+			S_END_SCREEN: next_state = (done_screen && continue) == 1'b1 ? S_TITLE_SCREEN : S_END_SCREEN;
 
-			default: next_state = S_BLACKOUT_USER;
+			default: next_state = S_TITLE_SCREEN;
 		endcase
     end // state_table
 
@@ -213,13 +241,28 @@ module main_control(
 		blackout_e = 1'b0;
 		blackout_u = 1'b0;
 		blackout_b = 1'b0;
+		blackout_t = 1'b0;
 		check_collision = 1'b0;
+		display_title = 1'b0;
+		display_end   = 1'b0;
+		draw_screen = 1'b0;
 
 	   case (current_state)
+		  S_TITLE_SCREEN: begin
+				draw_screen = 1'b1;
+				display_title = 1'b1;
+		  end
+		  
+		  S_BLACKOUT_TITLE: begin
+				draw_screen = 1'b1;
+				display_title = 1'b1;
+				blackout_t = 1'b1;
+			end
+		  
 		  S_BLACKOUT_USER: begin
 				blackout_u = 1'b1;
 				draw_u = 1'b1;
-			end
+		  end
 			
 		  S_MOVE_USER: move_u = 1'b1;
 		  
@@ -254,6 +297,11 @@ module main_control(
 		  
 		  S_DONE_PLOTS:
 			 speed_divider = speed_divider == enemy_speed ? 0 : speed_divider + 1;
+			 
+		  S_END_SCREEN: begin
+				display_end = 1'b1;
+				draw_screen = 1'b1;
+		  end
 
         // default:// don't need default since we already made sure all of our outputs were assigned a value at the start of the always block
         endcase
@@ -264,7 +312,7 @@ module main_control(
     always@(posedge clk)
     begin: state_FFs
         if(!resetn)
-            current_state <= S_BLACKOUT_USER;
+            current_state <= S_TITLE_SCREEN;
         else
             current_state <= next_state;
     end // state_FFS
@@ -282,15 +330,18 @@ module main_datapath(
 	 input blackout_e_prep, blackout_e, move_e, draw_e,
 	 input blackout_b, move_b, draw_b,
 	 input [1:0] user_move,
-	 input shoot, check_collision,
+	 input shoot, check_collision, display_title, display_end, draw_screen,
+	 input blackout_t,
 
 	 output reg done_user,
 	 output done_enemies,
 	 output reg done_bullet,
 	 output reach_bullet,
+	 output reg done_screen,
 	 output reg [8:0] X,
 	 output reg [7:0] Y,
-	 output reg [2:0] colour
+	 output reg [2:0] colour,
+	 output reg [4:0] score
     );
 
 	 localparam 
@@ -304,11 +355,11 @@ module main_datapath(
 				e_y_max   = 200; //max y enemies can be drawn
 	 
 	 
-	 wire done_e, done_u, done_b;
+	 wire done_e, done_u, done_b,done_s;
 	 
-	 wire [8:0] X_pos_u, X_pos_e, X_pos_b; //final positions/colours
-	 wire [7:0] Y_pos_u, Y_pos_e, Y_pos_b;
-	 wire [2:0] colour_u, colour_e;
+	 wire [8:0] X_pos_u, X_pos_e, X_pos_b, X_pos_screen; //final positions/colours
+	 wire [7:0] Y_pos_u, Y_pos_e, Y_pos_b, Y_pos_screen;
+	 wire [2:0] colour_u, colour_e, colour_screen;
 
 	 reg [8:0] X_pos_init; // Initial x Position of object
 	 reg [7:0] Y_pos_init; // Initial y Position of object
@@ -388,7 +439,7 @@ module main_datapath(
 		.colour(colour_e)
 	);
 	
-	  bulletFSM B1(.clk(clk),
+	 bulletFSM B1(.clk(clk),
 		.resetn(resetn),
 		.enable(draw_b),
 		.x_pos_init(X_pos_bullet), // Using magic number for now
@@ -397,7 +448,18 @@ module main_datapath(
 		.x_pos_final(X_pos_b),
 		.y_pos_final(Y_pos_b)
 	);
-	  
+	screen_display T1(.display_title(display_title),
+		  .display_end(display_end),
+		  .clk(clk),
+		  .resetn(resetn),
+		  .plot(draw_screen),
+		  .X_pos(X_pos_screen),
+		  .Y_pos(Y_pos_screen),
+		  .colour(colour_screen),
+		  .done(done_s)
+  );
+	
+	
 	always@(posedge clk) begin
 	  if(!resetn) begin
 			X <= 9'b0;
@@ -405,6 +467,8 @@ module main_datapath(
 			colour <= 3'b0;
 			done_user <= 1'b0;
 			direction_e <= 1'b1;
+			score <= 1'b0;
+
 			for(i = 0; i < e_in_row; i = i + 1) begin
 				for(j = 0; j < e_in_col; j = j + 1) begin
 					enemies[i][j] <= 0;
@@ -414,6 +478,7 @@ module main_datapath(
 	  end
 
 	  else begin
+			
 			if (move_u) begin //no reset for user_x_coord because we want a latch
 				case(user_move)
 					2'b01: user_x_coord <= user_x_coord == u_x_max ? u_x_min : user_x_coord + 1;
@@ -471,6 +536,12 @@ module main_datapath(
 				colour <= (blackout_e || !enemies_alive[e_i][e_j]) ? 3'b0 : colour_e;
 				enemies[e_i][e_j] <= done_e == 1? 1 : 0;
 			end
+			if (draw_screen) begin
+				X <= X_pos_screen;
+				Y <= Y_pos_screen;
+				colour <= blackout_t ? 3'b0 : colour_screen;
+				done_screen <= done_s;
+			end
 			
 			if (check_collision) begin
 				for(i = 0; i < e_in_row; i = i + 1) begin
@@ -478,6 +549,7 @@ module main_datapath(
 						if ((X_pos_bullet <= (anchor_x + (i * 28) + 20)) && X_pos_bullet >= (anchor_x + (i * 28)) && Y_pos_bullet <= anchor_y + (j * 25 + 16) && Y_pos_bullet >= anchor_y + (j * 25) && enemies_alive[i][j] == 1) begin
 						enemies_alive[i][j] <= 0;
 						enemy_killed <= 1;
+						score <= score + 1;
 						end
 					end
 				end	

@@ -1,5 +1,9 @@
 Flow report for main
+<<<<<<< HEAD
 Sat Nov 24 23:48:59 2018
+=======
+Sun Nov 25 22:46:18 2018
+>>>>>>> title_screen
 Quartus Prime Version 18.0.0 Build 614 04/24/2018 SJ Lite Edition
 
 
@@ -40,18 +44,30 @@ refer to the applicable agreement for further details.
 +-------------------------------------------------------------------------------+
 ; Flow Summary                                                                  ;
 +---------------------------------+---------------------------------------------+
+<<<<<<< HEAD
 ; Flow Status                     ; Successful - Sat Nov 24 23:48:51 2018       ;
+=======
+; Flow Status                     ; Successful - Sun Nov 25 22:46:10 2018       ;
+>>>>>>> title_screen
 ; Quartus Prime Version           ; 18.0.0 Build 614 04/24/2018 SJ Lite Edition ;
 ; Revision Name                   ; main                                        ;
 ; Top-level Entity Name           ; main                                        ;
 ; Family                          ; Cyclone V                                   ;
 ; Device                          ; 5CSEMA5F31C6                                ;
 ; Timing Models                   ; Final                                       ;
+<<<<<<< HEAD
 ; Logic utilization (in ALMs)     ; 467 / 32,070 ( 1 % )                        ;
 ; Total registers                 ; 243                                         ;
 ; Total pins                      ; 44 / 457 ( 10 % )                           ;
 ; Total virtual pins              ; 0                                           ;
 ; Total block memory bits         ; 232,290 / 4,065,280 ( 6 % )                 ;
+=======
+; Logic utilization (in ALMs)     ; 378 / 32,070 ( 1 % )                        ;
+; Total registers                 ; 269                                         ;
+; Total pins                      ; 45 / 457 ( 10 % )                           ;
+; Total virtual pins              ; 0                                           ;
+; Total block memory bits         ; 692,880 / 4,065,280 ( 17 % )                ;
+>>>>>>> title_screen
 ; Total DSP Blocks                ; 0 / 87 ( 0 % )                              ;
 ; Total HSSI RX PCSs              ; 0                                           ;
 ; Total HSSI PMA RX Deserializers ; 0                                           ;
@@ -67,7 +83,11 @@ refer to the applicable agreement for further details.
 +-------------------+---------------------+
 ; Option            ; Setting             ;
 +-------------------+---------------------+
+<<<<<<< HEAD
 ; Start date & time ; 11/24/2018 23:46:39 ;
+=======
+; Start date & time ; 11/25/2018 22:44:11 ;
+>>>>>>> title_screen
 ; Main task         ; Compilation         ;
 ; Revision Name     ; main                ;
 +-------------------+---------------------+
@@ -78,12 +98,18 @@ refer to the applicable agreement for further details.
 +-------------------------------------+----------------------------------------+---------------+-------------+------------+
 ; Assignment Name                     ; Value                                  ; Default Value ; Entity Name ; Section Id ;
 +-------------------------------------+----------------------------------------+---------------+-------------+------------+
+<<<<<<< HEAD
 ; COMPILER_SIGNATURE_ID               ; 123719792385544.154312119834624        ; --            ; --          ; --         ;
+=======
+; COMPILER_SIGNATURE_ID               ; 123719792385544.154320385109676        ; --            ; --          ; --         ;
+>>>>>>> title_screen
 ; MAX_CORE_JUNCTION_TEMP              ; 85                                     ; --            ; --          ; --         ;
 ; MIN_CORE_JUNCTION_TEMP              ; 0                                      ; --            ; --          ; --         ;
 ; MISC_FILE                           ; on_chip_ram/ram400x3_user_bb.v         ; --            ; --          ; --         ;
 ; MISC_FILE                           ; on_chip_ram/ram560x3_enemy1_bb.v       ; --            ; --          ; --         ;
 ; MISC_FILE                           ; on_chip_ram/rom560x3_user_bb.v         ; --            ; --          ; --         ;
+; MISC_FILE                           ; on_chip_ram/rom76800x3_title_bb.v      ; --            ; --          ; --         ;
+; MISC_FILE                           ; on_chip_ram/rom76800x3_end_bb.v        ; --            ; --          ; --         ;
 ; PARTITION_COLOR                     ; -- (Not supported for targeted family) ; --            ; --          ; Top        ;
 ; PARTITION_FITTER_PRESERVATION_LEVEL ; -- (Not supported for targeted family) ; --            ; --          ; Top        ;
 ; PARTITION_NETLIST_TYPE              ; -- (Not supported for targeted family) ; --            ; --          ; Top        ;
@@ -98,11 +124,19 @@ refer to the applicable agreement for further details.
 +----------------------+--------------+-------------------------+---------------------+------------------------------------+
 ; Module Name          ; Elapsed Time ; Average Processors Used ; Peak Virtual Memory ; Total CPU Time (on all processors) ;
 +----------------------+--------------+-------------------------+---------------------+------------------------------------+
+<<<<<<< HEAD
 ; Analysis & Synthesis ; 00:00:20     ; 1.0                     ; 4940 MB             ; 00:00:36                           ;
 ; Fitter               ; 00:01:41     ; 1.1                     ; 7937 MB             ; 00:09:50                           ;
 ; Assembler            ; 00:00:08     ; 1.0                     ; 4872 MB             ; 00:00:07                           ;
 ; Timing Analyzer      ; 00:00:07     ; 1.9                     ; 5362 MB             ; 00:00:11                           ;
 ; Total                ; 00:02:16     ; --                      ; --                  ; 00:10:44                           ;
+=======
+; Analysis & Synthesis ; 00:00:20     ; 1.0                     ; 4949 MB             ; 00:00:37                           ;
+; Fitter               ; 00:01:29     ; 1.1                     ; 7926 MB             ; 00:08:15                           ;
+; Assembler            ; 00:00:08     ; 1.0                     ; 4881 MB             ; 00:00:07                           ;
+; Timing Analyzer      ; 00:00:07     ; 2.1                     ; 5367 MB             ; 00:00:12                           ;
+; Total                ; 00:02:04     ; --                      ; --                  ; 00:09:11                           ;
+>>>>>>> title_screen
 +----------------------+--------------+-------------------------+---------------------+------------------------------------+
 
 
