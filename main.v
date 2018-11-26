@@ -6,6 +6,8 @@ module main
 		// Your inputs and outputs here
 		SW,
 		KEY,								// On Board Keys
+		HEX0,
+		HEX1,
 		// The ports below are for the VGA output.  Do not change.
 		VGA_CLK,   						//	VGA Clock
 		VGA_HS,							//	VGA H_SYNC
@@ -14,13 +16,14 @@ module main
 		VGA_SYNC_N,						//	VGA SYNC
 		VGA_R,   						//	VGA Red[9:0]
 		VGA_G,	 						//	VGA Green[9:0]
-		VGA_B,   						   //	VGA Blue[9:0]
-		Score
+		VGA_B   						   //	VGA Blue[9:0]
+		
 	);
 
 	input	CLOCK_50;				//	50 MHz
 	input	[3:0]	KEY;
 	input [9:0] SW;
+	output [6:0] HEX0, HEX1;
 
 	// Do not change the following outputs
 	output			VGA_CLK;   				//	VGA Clock
@@ -31,7 +34,6 @@ module main
 	output	[7:0]	VGA_R;   				//	VGA Red[7:0] Changed from 10 to 8-bit DAC
 	output	[7:0]	VGA_G;	 				//	VGA Green[7:0]
 	output	[7:0]	VGA_B;   				//	VGA Blue[7:0]
-	output 			Score;
 
 	wire resetn;
 	assign resetn = KEY[0];
@@ -79,6 +81,8 @@ module main
 	 wire blackout_b, move_b, draw_b;
 	 wire reach_bullet, check_collision;
 	 wire display_title, display_end, draw_screen, blackout_t;
+	 wire done_game;
+	 wire[7:0] Score;
 
 		main_control C0(.clk(CLOCK_50),
 			 .resetn(resetn),
@@ -89,6 +93,8 @@ module main
 			 .shoot(~KEY[2]),
 			 .reach_bullet(reach_bullet),
 			 .continue(~KEY[2]),
+			 .done_game(done_game),
+			 .enemy_speed(SW[9:6]),
 
 			 .blackout_u(blackout_u),
 			 .blackout_b(blackout_b),
@@ -101,7 +107,7 @@ module main
 			 .draw_b(draw_b),
 			 .blackout_e_prep(blackout_e_prep),
 			 .blackout_e(blackout_e),
-			 .check_collision(check_collison),
+			 .check_collision(check_collision),
 			 .display_title(display_title),
 			 .display_end(display_end),
 			 .draw_screen(draw_screen)
@@ -126,6 +132,7 @@ module main
 			.display_title(display_title),
 			.display_end(display_end),
 			.draw_screen(draw_screen),
+			.e_in_col(SW[2:0]),
 
 			.done_user(done_user),
 			.done_enemies(done_enemies),
@@ -135,8 +142,19 @@ module main
 	 		.X(x),
 	 	 	.Y(y),
 			.colour(colour),
-			.score(Score)
+			.score(Score),
+			.done_game(done_game)
     );
+	 
+	 hex_decoder hex0 (
+		.hex_digit(Score[3:1]),
+		.segments(HEX0)
+	);
+	
+	hex_decoder hex1 (
+		.hex_digit(Score[7:4]),
+		.segments(HEX1)
+	);
 
 
 endmodule
@@ -152,6 +170,8 @@ module main_control(
 	input reach_bullet,
 	input continue,
 	input done_screen,
+	input done_game,
+	input [3:0] enemy_speed,
 
    output reg blackout_u, move_u, draw_u,
 	output reg blackout_e_prep, blackout_e, move_e, draw_e,
@@ -188,7 +208,7 @@ module main_control(
 			 
 			 S_END_SCREEN       = 6'd15;
 
-	localparam enemy_speed = 4'd4; //inverse of enemy speed (higher = slower) 15 was good for final
+	//localparam enemy_speed = 4'd2; //inverse of enemy speed (higher = slower) 15 was good for final
 	reg [3:0] speed_divider = 4'b0;
 
    // Next state logic aka our state table
@@ -214,9 +234,13 @@ module main_control(
 			S_BLACKOUT_ENEMIES: next_state = done_enemies == 1'b1 ? S_MOVE_ENEMIES : S_BLACKOUT_ENEMIES;
 			S_MOVE_ENEMIES: next_state =  S_PLOT_ENEMIES;
 			S_PLOT_ENEMIES: next_state = done_enemies == 1'b1 ? S_DONE_PLOTS : S_PLOT_ENEMIES;
-			S_DONE_PLOTS: next_state = replot == 1'b1 ? S_BLACKOUT_USER : S_DONE_PLOTS;
+			S_DONE_PLOTS: begin 
+				next_state = S_DONE_PLOTS;
+				if (replot == 1'b1) next_state = S_BLACKOUT_USER;
+				if (done_game == 1'b1) next_state = S_END_SCREEN;
+			end
 			
-			S_END_SCREEN: next_state = (done_screen && continue) == 1'b1 ? S_TITLE_SCREEN : S_END_SCREEN;
+			S_END_SCREEN: next_state = S_END_SCREEN;
 
 			default: next_state = S_TITLE_SCREEN;
 		endcase
@@ -332,6 +356,7 @@ module main_datapath(
 	 input [1:0] user_move,
 	 input shoot, check_collision, display_title, display_end, draw_screen,
 	 input blackout_t,
+	 input [2:0] e_in_col,
 
 	 output reg done_user,
 	 output done_enemies,
@@ -341,16 +366,16 @@ module main_datapath(
 	 output reg [8:0] X,
 	 output reg [7:0] Y,
 	 output reg [2:0] colour,
-	 output reg [4:0] score
+	 output reg [7:0] score,
+	 output reg done_game
     );
 
 	 localparam 
 				e_in_row  = 9,   
-				e_in_col  = 2,
 				u_x_min   = 0,   //min/max for user to contain in fov   
-				u_x_max   = 292,
-				e_x_min   = 8,   //min/max for enemy's anchor for movement
-				e_x_max   = 60,
+				u_x_max   = 304,
+				e_x_min   = 0,   //min/max for enemy's anchor for movement
+				e_x_max   = 68,
 				e_y_jump  = 20,  //when jumpin a row
 				e_y_max   = 200; //max y enemies can be drawn
 	 
@@ -373,8 +398,8 @@ module main_datapath(
 	 reg direction_e = 1'b1; //1 for right, 0 for left
 	 
 	 reg done_looking;
-	 reg enemies[0:e_in_row-1][0:e_in_col-1];
-	 reg enemies_alive[0:e_in_row-1][0:e_in_col-1];
+	 reg enemies[0:9][0:7];
+	 reg enemies_alive[0:9][0:7];
 	 reg enemy_killed;
 
 	 reg enable_draw_e;
@@ -391,11 +416,19 @@ module main_datapath(
 		e_i = 0;
 		e_j = 0;
 		enable_draw_e = 0;
+		done_game = 1;
 
 		if(draw_u) begin
 			X_pos_init = user_x_coord;
 			Y_pos_init = 8'd220;
 		end
+		
+		for(i = 0; i < e_in_row; i = i + 1) begin
+			for(j = 0; j < e_in_col ; j = j + 1) begin
+				if (enemies_alive[i][j] == 1 && (anchor_y + (j * 25 + 16)) < e_y_max) done_game = 1'b0;
+			end
+		end
+		
 		
 		//get the coordinates of the enemy from array by finding first not drawn
 		if(draw_e) begin
@@ -412,6 +445,7 @@ module main_datapath(
 				end
 			end
 		end
+		
 
 	 end
 
@@ -467,7 +501,7 @@ module main_datapath(
 			colour <= 3'b0;
 			done_user <= 1'b0;
 			direction_e <= 1'b1;
-			score <= 1'b0;
+			score <= 7'b0;
 
 			for(i = 0; i < e_in_row; i = i + 1) begin
 				for(j = 0; j < e_in_col; j = j + 1) begin
@@ -478,6 +512,14 @@ module main_datapath(
 	  end
 
 	  else begin
+			if(done_s) begin
+				for(i = 0; i < e_in_row; i = i + 1) begin
+					for(j = 0; j < e_in_col; j = j + 1) begin
+						enemies[i][j] <= 0;
+						enemies_alive[i][j] <= 1;
+					end
+				end
+			end
 			
 			if (move_u) begin //no reset for user_x_coord because we want a latch
 				case(user_move)
