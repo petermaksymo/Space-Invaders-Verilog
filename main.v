@@ -80,7 +80,7 @@ module main
 	 wire blackout_e_prep, blackout_e, move_e, draw_e; 
 	 wire blackout_b, move_b, draw_b;
 	 wire reach_bullet, check_collision;
-	 wire display_title, display_end, draw_screen, blackout_t;
+	 wire display_title, display_end, draw_screen, blackout_t, blackout_top;
 	 wire done_game;
 	 wire[7:0] Score;
 
@@ -99,6 +99,7 @@ module main
 			 .blackout_u(blackout_u),
 			 .blackout_b(blackout_b),
 			 .blackout_t(blackout_t),
+			 .blackout_top(blackout_top),
 			 .move_u(move_u),
 			 .move_e(move_e),
 			 .move_b(move_b),
@@ -133,6 +134,7 @@ module main
 			.display_end(display_end),
 			.draw_screen(draw_screen),
 			.e_in_col(SW[2:0]),
+			.blackout_top(blackout_top),
 
 			.done_user(done_user),
 			.done_enemies(done_enemies),
@@ -176,7 +178,7 @@ module main_control(
    output reg blackout_u, move_u, draw_u,
 	output reg blackout_e_prep, blackout_e, move_e, draw_e,
 	output reg blackout_b, move_b, draw_b,
-	output reg check_collision, display_title, display_end, draw_screen, blackout_t
+	output reg check_collision, display_title, display_end, draw_screen, blackout_t, blackout_top
    );
 
 	wire replot;
@@ -197,16 +199,16 @@ module main_control(
 			 S_BLACKOUT_BULLET  = 6'd7,
 			 S_MOVE_BULLET      = 6'd8,
 			 S_PLOT_BULLET      = 6'd9,
+			 S_BLACKOUT_TOP     = 6'd10,
 			 
+
+			 S_BLACKOUT_E_PREP  = 6'd11,
+			 S_BLACKOUT_ENEMIES = 6'd12,
+			 S_MOVE_ENEMIES     = 6'd13,
+			 S_PLOT_ENEMIES     = 6'd14,
+			 S_DONE_PLOTS		  = 6'd15,
 			 
-			 
-			 S_BLACKOUT_E_PREP  = 6'd10,
-			 S_BLACKOUT_ENEMIES = 6'd11,
-			 S_MOVE_ENEMIES     = 6'd12,
-			 S_PLOT_ENEMIES     = 6'd13,
-			 S_DONE_PLOTS		  = 6'd14,
-			 
-			 S_END_SCREEN       = 6'd15;
+			 S_END_SCREEN       = 6'd16;
 
 	//localparam enemy_speed = 4'd2; //inverse of enemy speed (higher = slower) 15 was good for final
 	reg [3:0] speed_divider = 4'b0;
@@ -226,9 +228,9 @@ module main_control(
 			S_CHECK_COLLISION: next_state = S_BLACKOUT_BULLET;	
 			S_BLACKOUT_BULLET: next_state = done_bullet ? S_MOVE_BULLET : S_BLACKOUT_BULLET;
 			S_MOVE_BULLET: next_state = S_PLOT_BULLET;
-			S_PLOT_BULLET: next_state = done_bullet ? S_BLACKOUT_E_PREP : S_PLOT_BULLET;
+			S_PLOT_BULLET: next_state = done_bullet ? S_BLACKOUT_TOP : S_PLOT_BULLET;
 			
-
+			S_BLACKOUT_TOP: next_state = S_BLACKOUT_E_PREP;
 
 			S_BLACKOUT_E_PREP: next_state = speed_divider == enemy_speed ? S_BLACKOUT_ENEMIES : S_DONE_PLOTS;
 			S_BLACKOUT_ENEMIES: next_state = done_enemies == 1'b1 ? S_MOVE_ENEMIES : S_BLACKOUT_ENEMIES;
@@ -266,6 +268,7 @@ module main_control(
 		blackout_u = 1'b0;
 		blackout_b = 1'b0;
 		blackout_t = 1'b0;
+		blackout_top = 1'b0;
 		check_collision = 1'b0;
 		display_title = 1'b0;
 		display_end   = 1'b0;
@@ -302,6 +305,8 @@ module main_control(
 		  S_MOVE_BULLET: move_b = 1; //(done_bullet == 1) ? 1 : 0;
 		  
 		  S_PLOT_BULLET: draw_b = 1'b1;
+		  
+		  S_BLACKOUT_TOP: blackout_top = 1'b1;
 		  
 		  S_CHECK_COLLISION: check_collision = 1'b1;
 		  
@@ -355,7 +360,7 @@ module main_datapath(
 	 input blackout_b, move_b, draw_b,
 	 input [1:0] user_move,
 	 input shoot, check_collision, display_title, display_end, draw_screen,
-	 input blackout_t,
+	 input blackout_t, blackout_top,
 	 input [2:0] e_in_col,
 
 	 output reg done_user,
@@ -404,6 +409,8 @@ module main_datapath(
 
 	 reg enable_draw_e;
 	 
+	 reg lose_game, win_game;
+	 reg win_game_reg;
 				
 
 	 integer i, j;
@@ -416,7 +423,8 @@ module main_datapath(
 		e_i = 0;
 		e_j = 0;
 		enable_draw_e = 0;
-		done_game = 1;
+		lose_game = 0;
+		win_game = 1;
 
 		if(draw_u) begin
 			X_pos_init = user_x_coord;
@@ -425,9 +433,12 @@ module main_datapath(
 		
 		for(i = 0; i < e_in_row; i = i + 1) begin
 			for(j = 0; j < e_in_col ; j = j + 1) begin
-				if (enemies_alive[i][j] == 1 && (anchor_y + (j * 25 + 16)) < e_y_max) done_game = 1'b0;
+				if (enemies_alive[i][j] == 1 && (anchor_y + (j * 25 + 16)) > e_y_max) lose_game = 1'b1;
+				if (enemies_alive[i][j] == 1) win_game = 0;
 			end
 		end
+		
+		done_game = win_game || lose_game;
 		
 		
 		//get the coordinates of the enemy from array by finding first not drawn
@@ -484,6 +495,7 @@ module main_datapath(
 	);
 	screen_display T1(.display_title(display_title),
 		  .display_end(display_end),
+		  .display_win(win_game_reg),
 		  .clk(clk),
 		  .resetn(resetn),
 		  .plot(draw_screen),
@@ -502,6 +514,9 @@ module main_datapath(
 			done_user <= 1'b0;
 			direction_e <= 1'b1;
 			score <= 7'b0;
+			anchor_x <= 8;
+			anchor_y <= 10;
+			win_game_reg <= 0;
 
 			for(i = 0; i < e_in_row; i = i + 1) begin
 				for(j = 0; j < e_in_col; j = j + 1) begin
@@ -585,6 +600,12 @@ module main_datapath(
 				done_screen <= done_s;
 			end
 			
+			if (blackout_top) begin
+				X <= X_pos_bullet;
+				Y <= 0;
+				colour <= 3'b000;
+			end
+			
 			if (check_collision) begin
 				for(i = 0; i < e_in_row; i = i + 1) begin
 					for(j = 0; j < e_in_col; j = j + 1) begin
@@ -604,6 +625,7 @@ module main_datapath(
 					end
 				end
 			end
+			if(win_game) win_game_reg <= 1;
 
 	  end
     end

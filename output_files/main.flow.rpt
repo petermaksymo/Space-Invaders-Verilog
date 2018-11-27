@@ -1,6 +1,6 @@
 Flow report for main
-Mon Nov 26 00:29:16 2018
-Quartus Prime Version 18.0.0 Build 614 04/24/2018 SJ Lite Edition
+Mon Nov 26 10:44:43 2018
+Quartus Prime Version 18.0.0 Build 614 04/24/2018 SJ Standard Edition
 
 
 ---------------------
@@ -37,29 +37,29 @@ refer to the applicable agreement for further details.
 
 
 
-+-------------------------------------------------------------------------------+
-; Flow Summary                                                                  ;
-+---------------------------------+---------------------------------------------+
-; Flow Status                     ; Successful - Mon Nov 26 00:29:05 2018       ;
-; Quartus Prime Version           ; 18.0.0 Build 614 04/24/2018 SJ Lite Edition ;
-; Revision Name                   ; main                                        ;
-; Top-level Entity Name           ; main                                        ;
-; Family                          ; Cyclone V                                   ;
-; Device                          ; 5CSEMA5F31C6                                ;
-; Timing Models                   ; Final                                       ;
-; Logic utilization (in ALMs)     ; 2,105 / 32,070 ( 7 % )                      ;
-; Total registers                 ; 398                                         ;
-; Total pins                      ; 58 / 457 ( 13 % )                           ;
-; Total virtual pins              ; 0                                           ;
-; Total block memory bits         ; 693,090 / 4,065,280 ( 17 % )                ;
-; Total DSP Blocks                ; 0 / 87 ( 0 % )                              ;
-; Total HSSI RX PCSs              ; 0                                           ;
-; Total HSSI PMA RX Deserializers ; 0                                           ;
-; Total HSSI TX PCSs              ; 0                                           ;
-; Total HSSI PMA TX Serializers   ; 0                                           ;
-; Total PLLs                      ; 1 / 6 ( 17 % )                              ;
-; Total DLLs                      ; 0 / 4 ( 0 % )                               ;
-+---------------------------------+---------------------------------------------+
++-----------------------------------------------------------------------------------+
+; Flow Summary                                                                      ;
++---------------------------------+-------------------------------------------------+
+; Flow Status                     ; Successful - Mon Nov 26 10:44:19 2018           ;
+; Quartus Prime Version           ; 18.0.0 Build 614 04/24/2018 SJ Standard Edition ;
+; Revision Name                   ; main                                            ;
+; Top-level Entity Name           ; main                                            ;
+; Family                          ; Cyclone V                                       ;
+; Device                          ; 5CSEMA5F31C6                                    ;
+; Timing Models                   ; Final                                           ;
+; Logic utilization (in ALMs)     ; 2,121 / 32,070 ( 7 % )                          ;
+; Total registers                 ; 398                                             ;
+; Total pins                      ; 58 / 457 ( 13 % )                               ;
+; Total virtual pins              ; 0                                               ;
+; Total block memory bits         ; 769,890 / 4,065,280 ( 19 % )                    ;
+; Total DSP Blocks                ; 0 / 87 ( 0 % )                                  ;
+; Total HSSI RX PCSs              ; 0                                               ;
+; Total HSSI PMA RX Deserializers ; 0                                               ;
+; Total HSSI TX PCSs              ; 0                                               ;
+; Total HSSI PMA TX Serializers   ; 0                                               ;
+; Total PLLs                      ; 1 / 6 ( 17 % )                                  ;
+; Total DLLs                      ; 0 / 4 ( 0 % )                                   ;
++---------------------------------+-------------------------------------------------+
 
 
 +-----------------------------------------+
@@ -67,32 +67,33 @@ refer to the applicable agreement for further details.
 +-------------------+---------------------+
 ; Option            ; Setting             ;
 +-------------------+---------------------+
-; Start date & time ; 11/26/2018 00:25:04 ;
+; Start date & time ; 11/26/2018 10:41:15 ;
 ; Main task         ; Compilation         ;
 ; Revision Name     ; main                ;
 +-------------------+---------------------+
 
 
-+-------------------------------------------------------------------------------------------------------------------------+
-; Flow Non-Default Global Settings                                                                                        ;
-+-------------------------------------+----------------------------------------+---------------+-------------+------------+
-; Assignment Name                     ; Value                                  ; Default Value ; Entity Name ; Section Id ;
-+-------------------------------------+----------------------------------------+---------------+-------------+------------+
-; COMPILER_SIGNATURE_ID               ; 123719792385544.154320990412588        ; --            ; --          ; --         ;
-; MAX_CORE_JUNCTION_TEMP              ; 85                                     ; --            ; --          ; --         ;
-; MIN_CORE_JUNCTION_TEMP              ; 0                                      ; --            ; --          ; --         ;
-; MISC_FILE                           ; on_chip_ram/ram400x3_user_bb.v         ; --            ; --          ; --         ;
-; MISC_FILE                           ; on_chip_ram/ram560x3_enemy1_bb.v       ; --            ; --          ; --         ;
-; MISC_FILE                           ; on_chip_ram/rom560x3_user_bb.v         ; --            ; --          ; --         ;
-; MISC_FILE                           ; on_chip_ram/rom76800x3_title_bb.v      ; --            ; --          ; --         ;
-; MISC_FILE                           ; on_chip_ram/rom76800x3_end_bb.v        ; --            ; --          ; --         ;
-; PARTITION_COLOR                     ; -- (Not supported for targeted family) ; --            ; --          ; Top        ;
-; PARTITION_FITTER_PRESERVATION_LEVEL ; -- (Not supported for targeted family) ; --            ; --          ; Top        ;
-; PARTITION_NETLIST_TYPE              ; -- (Not supported for targeted family) ; --            ; --          ; Top        ;
-; POWER_BOARD_THERMAL_MODEL           ; None (CONSERVATIVE)                    ; --            ; --          ; --         ;
-; POWER_PRESET_COOLING_SOLUTION       ; 23 MM HEAT SINK WITH 200 LFPM AIRFLOW  ; --            ; --          ; --         ;
-; PROJECT_OUTPUT_DIRECTORY            ; output_files                           ; --            ; --          ; --         ;
-+-------------------------------------+----------------------------------------+---------------+-------------+------------+
++----------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Flow Non-Default Global Settings                                                                                                                               ;
++-------------------------------------+-------------------------------------------------------------------------------+---------------+-------------+------------+
+; Assignment Name                     ; Value                                                                         ; Default Value ; Entity Name ; Section Id ;
++-------------------------------------+-------------------------------------------------------------------------------+---------------+-------------+------------+
+; COMPILER_SIGNATURE_ID               ; 167746773772971.154324687407744                                               ; --            ; --          ; --         ;
+; MAX_CORE_JUNCTION_TEMP              ; 85                                                                            ; --            ; --          ; --         ;
+; MIN_CORE_JUNCTION_TEMP              ; 0                                                                             ; --            ; --          ; --         ;
+; MISC_FILE                           ; on_chip_ram/ram400x3_user_bb.v                                                ; --            ; --          ; --         ;
+; MISC_FILE                           ; on_chip_ram/ram560x3_enemy1_bb.v                                              ; --            ; --          ; --         ;
+; MISC_FILE                           ; on_chip_ram/rom560x3_user_bb.v                                                ; --            ; --          ; --         ;
+; MISC_FILE                           ; on_chip_ram/rom76800x3_title_bb.v                                             ; --            ; --          ; --         ;
+; MISC_FILE                           ; on_chip_ram/rom76800x3_end_bb.v                                               ; --            ; --          ; --         ;
+; MISC_FILE                           ; //SRVD/Homes$/maksymo4/Desktop/Space_invaders/on_chip_ram/rom76800x3_win_bb.v ; --            ; --          ; --         ;
+; PARTITION_COLOR                     ; -- (Not supported for targeted family)                                        ; --            ; --          ; Top        ;
+; PARTITION_FITTER_PRESERVATION_LEVEL ; -- (Not supported for targeted family)                                        ; --            ; --          ; Top        ;
+; PARTITION_NETLIST_TYPE              ; -- (Not supported for targeted family)                                        ; --            ; --          ; Top        ;
+; POWER_BOARD_THERMAL_MODEL           ; None (CONSERVATIVE)                                                           ; --            ; --          ; --         ;
+; POWER_PRESET_COOLING_SOLUTION       ; 23 MM HEAT SINK WITH 200 LFPM AIRFLOW                                         ; --            ; --          ; --         ;
+; PROJECT_OUTPUT_DIRECTORY            ; output_files                                                                  ; --            ; --          ; --         ;
++-------------------------------------+-------------------------------------------------------------------------------+---------------+-------------+------------+
 
 
 +--------------------------------------------------------------------------------------------------------------------------+
@@ -100,11 +101,11 @@ refer to the applicable agreement for further details.
 +----------------------+--------------+-------------------------+---------------------+------------------------------------+
 ; Module Name          ; Elapsed Time ; Average Processors Used ; Peak Virtual Memory ; Total CPU Time (on all processors) ;
 +----------------------+--------------+-------------------------+---------------------+------------------------------------+
-; Analysis & Synthesis ; 00:00:42     ; 1.0                     ; 4986 MB             ; 00:00:59                           ;
-; Fitter               ; 00:03:06     ; 1.2                     ; 7943 MB             ; 00:19:58                           ;
-; Assembler            ; 00:00:08     ; 1.0                     ; 4899 MB             ; 00:00:08                           ;
-; Timing Analyzer      ; 00:00:10     ; 3.7                     ; 5404 MB             ; 00:00:28                           ;
-; Total                ; 00:04:06     ; --                      ; --                  ; 00:21:33                           ;
+; Analysis & Synthesis ; 00:01:14     ; 1.0                     ; 773 MB              ; 00:00:54                           ;
+; Fitter               ; 00:01:21     ; 1.2                     ; 2688 MB             ; 00:02:55                           ;
+; Assembler            ; 00:00:12     ; 1.0                     ; 769 MB              ; 00:00:09                           ;
+; Timing Analyzer      ; 00:00:22     ; 1.7                     ; 1135 MB             ; 00:00:24                           ;
+; Total                ; 00:03:09     ; --                      ; --                  ; 00:04:22                           ;
 +----------------------+--------------+-------------------------+---------------------+------------------------------------+
 
 
@@ -113,10 +114,10 @@ refer to the applicable agreement for further details.
 +----------------------+------------------+------------+------------+----------------+
 ; Module Name          ; Machine Hostname ; OS Name    ; OS Version ; Processor type ;
 +----------------------+------------------+------------+------------+----------------+
-; Analysis & Synthesis ; DESKTOP-80I4L9Q  ; Windows 10 ; 10.0       ; x86_64         ;
-; Fitter               ; DESKTOP-80I4L9Q  ; Windows 10 ; 10.0       ; x86_64         ;
-; Assembler            ; DESKTOP-80I4L9Q  ; Windows 10 ; 10.0       ; x86_64         ;
-; Timing Analyzer      ; DESKTOP-80I4L9Q  ; Windows 10 ; 10.0       ; x86_64         ;
+; Analysis & Synthesis ; BA3145WS06       ; Windows 10 ; 10.0       ; x86_64         ;
+; Fitter               ; BA3145WS06       ; Windows 10 ; 10.0       ; x86_64         ;
+; Assembler            ; BA3145WS06       ; Windows 10 ; 10.0       ; x86_64         ;
+; Timing Analyzer      ; BA3145WS06       ; Windows 10 ; 10.0       ; x86_64         ;
 +----------------------+------------------+------------+------------+----------------+
 
 

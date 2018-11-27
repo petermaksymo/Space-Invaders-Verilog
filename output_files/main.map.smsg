@@ -1,2 +1,2 @@
-Info (10281): Verilog HDL Declaration information at main.v(26): object "HEX0" differs only in case from object "hex0" in the same scope File: C:/Users/Peter/OneDrive/1T8Semester1/ECE241/Lab projects/Space_invaders/main.v Line: 26
-Info (10281): Verilog HDL Declaration information at main.v(26): object "HEX1" differs only in case from object "hex1" in the same scope File: C:/Users/Peter/OneDrive/1T8Semester1/ECE241/Lab projects/Space_invaders/main.v Line: 26
+Info (10281): Verilog HDL Declaration information at main.v(26): object "HEX0" differs only in case from object "hex0" in the same scope File: //SRVD/Homes$/maksymo4/Desktop/Space_invaders/main.v Line: 26
+Info (10281): Verilog HDL Declaration information at main.v(26): object "HEX1" differs only in case from object "hex1" in the same scope File: //SRVD/Homes$/maksymo4/Desktop/Space_invaders/main.v Line: 26

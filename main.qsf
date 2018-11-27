@@ -713,4 +713,5 @@ set_global_assignment -name VERILOG_FILE title_end_screen.v
 set_global_assignment -name QIP_FILE rom76800x3_end.qip
 set_global_assignment -name QIP_FILE on_chip_ram/rom76800x3_end.qip
 set_global_assignment -name VERILOG_FILE hex_decoder.v
+set_global_assignment -name QIP_FILE //SRVD/Homes\$/maksymo4/Desktop/Space_invaders/on_chip_ram/rom76800x3_win.qip
 set_instance_assignment -name PARTITION_HIERARCHY root_partition -to | -section_id Top

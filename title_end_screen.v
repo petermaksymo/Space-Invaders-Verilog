@@ -1,5 +1,6 @@
 module screen_display(input display_title,
 							 input display_end,
+							 input display_win,
 							 input plot, clk, resetn,
 							 
 							 output reg [8:0] X_pos,
@@ -22,6 +23,12 @@ rom76800x3_end end_screen(
 	  .clock(clk),
 	  .q(colour_end)
 	  );
+	  
+rom76800x3_win win_screen(
+		.address(counter),
+		.clock(clk),
+		.q(colour_win)
+		);
 
 assign done = (counter == 17'd76799);
 	  
@@ -40,8 +47,11 @@ assign done = (counter == 17'd76799);
 				if (display_title) begin
 					colour <= colour_title;
 				end
-				else if (display_end) begin
+				if (display_end && !display_win) begin
 					colour <= colour_end;
+				end
+				if (display_win && display_end) begin
+					colour <= colour_win;
 				end
 			end
 		end
