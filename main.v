@@ -1,5 +1,3 @@
-// Part 2 skeleton
-
 module main
 	(
 		CLOCK_50,						//	On Board 50 MHz
